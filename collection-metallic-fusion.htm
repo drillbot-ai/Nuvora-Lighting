@@ -1,0 +1,706 @@
+<!-- LUNVYR — METALLIC FUSION COLLECTION -->
+<style>
+:root{
+  --primary: #cd7f32; --primary-dark: #b5691f; --primary-light: #fdf6f0;
+  --surface: #ffffff; --surface-dim: #f8fafc; --surface-border: #e2e8f0;
+  --text: #1e293b; --text-muted: #64748b; --text-light: #94a3b8;
+  --success: #10b981; --danger: #ef4444; --warning: #f59e0b;
+  --radius: 8px; --radius-lg: 12px; --shadow: 0 1px 3px rgba(0,0,0,.1);
+  --shadow-lg: 0 10px 25px rgba(0,0,0,.1); --transition: all 0.2s ease;
+  --site-max: 1280px; --site-pad: clamp(16px,4vw,32px);
+  --brass: #b2956d; --paper: #f2f0eb; --ink: #111111; --ash: #666666;
+  --copper: #cd7f32; --steel: #71797e; --fusion-bronze: #a0522d;
+}
+
+.metallic-fusion-collection{ 
+  background: var(--surface-dim); color: var(--text); 
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; 
+  min-height: 100vh; line-height: 1.5;
+}
+
+/* Hero Section - Multi-Metal Fusion Style */
+.collection-hero{
+  background: linear-gradient(135deg, #8b4513 0%, #cd7f32 35%, #b2956d 65%, #71797e 100%);
+  padding: 80px var(--site-pad) 60px;
+  position: relative;
+  overflow: hidden;
+  color: white;
+}
+.collection-hero::before{
+  content: ""; position: absolute; top: 15%; right: 25%; 
+  width: 100px; height: 100px; 
+  background: linear-gradient(45deg, rgba(205,127,50,0.2) 0%, rgba(113,121,126,0.2) 100%);
+  border-radius: 20% 80% 60% 40%; z-index: 1;
+  animation: metalShift 12s ease-in-out infinite;
+}
+.collection-hero::after{
+  content: ""; position: absolute; bottom: 25%; left: 20%; 
+  width: 80px; height: 80px; 
+  background: linear-gradient(135deg, rgba(178,149,109,0.3) 0%, rgba(160,82,45,0.2) 100%);
+  border-radius: 40% 60% 80% 20%; z-index: 1;
+  animation: metalShift 15s ease-in-out infinite reverse;
+}
+@keyframes metalShift {
+  0%, 100% { transform: rotate(0deg) scale(1); }
+  25% { transform: rotate(90deg) scale(1.1); }
+  50% { transform: rotate(180deg) scale(0.9); }
+  75% { transform: rotate(270deg) scale(1.05); }
+}
+.collection-hero .wrap{
+  max-width: var(--site-max); margin: 0 auto; text-align: center;
+  position: relative; z-index: 2;
+}
+.collection-hero .eyebrow{
+  color: rgba(255,255,255,0.9); font-weight: 600; font-size: 0.875rem;
+  text-transform: uppercase; letter-spacing: 2px; margin-bottom: 16px;
+}
+.collection-hero h1{
+  font-family: 'Cinzel', serif; font-size: clamp(2.5rem, 5vw, 4rem);
+  color: white; margin: 0 0 24px; font-weight: 700; text-shadow: 0 2px 8px rgba(0,0,0,.3);
+  letter-spacing: 1px;
+  background: linear-gradient(135deg, #ffffff 0%, #f4e4d6 50%, #e8d5c4 100%);
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+}
+.collection-hero .subtitle{
+  font-size: clamp(1.1rem, 2vw, 1.3rem); color: rgba(255,255,255,0.9);
+  max-width: 600px; margin: 0 auto 32px; line-height: 1.6;
+}
+.collection-hero .badge{
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(255,255,255,0.15); color: white;
+  padding: 8px 16px; border-radius: 50px; font-weight: 500;
+  font-size: 0.875rem; border: 1px solid rgba(255,255,255,.3);
+  backdrop-filter: blur(10px);
+}
+
+/* Modern Toolbar */
+.collection-toolbar{
+  max-width: var(--site-max); margin: 0 auto;
+  padding: 24px var(--site-pad);
+}
+.toolbar-content{
+  display: flex; gap: 12px; align-items: center; justify-content: space-between;
+  padding: 16px; border: 1px solid var(--surface-border); border-radius: var(--radius-lg); 
+  background: var(--surface); box-shadow: var(--shadow);
+}
+.tb-left, .tb-right{ display: flex; gap: 8px; flex-wrap: wrap; align-items: center }
+.tb-search{ position: relative }
+.tb-search input{
+  padding: 8px 36px 8px 12px; border: 1px solid var(--surface-border); 
+  border-radius: var(--radius); background: var(--surface); min-width: 200px; 
+  font-size: 0.875rem; transition: var(--transition);
+}
+.tb-search input:focus{
+  outline: none; border-color: var(--primary); 
+  box-shadow: 0 0 0 3px var(--primary-light);
+}
+.tb-search .icon{ 
+  position: absolute; right: 10px; top: 50%; transform: translateY(-50%); 
+  width: 16px; height: 16px; color: var(--text-muted);
+}
+.tb-select{ 
+  padding: 8px 12px; border: 1px solid var(--surface-border); 
+  border-radius: var(--radius); background: var(--surface); font-size: 0.875rem;
+  transition: var(--transition); cursor: pointer;
+}
+.tb-select:focus{ outline: none; border-color: var(--primary); }
+.view-toggle{ display: flex; gap: 4px }
+.view-toggle button{
+  border: 1px solid var(--surface-border); background: var(--surface); 
+  border-radius: var(--radius); padding: 8px 12px; cursor: pointer; 
+  transition: var(--transition); font-size: 0.75rem; font-weight: 500;
+}
+.view-toggle button:hover{ border-color: var(--primary); }
+.view-toggle button[aria-pressed="true"]{ 
+  background: var(--primary); color: white; border-color: var(--primary);
+}
+
+/* Products Grid */
+.collection-main{
+  max-width: var(--site-max); margin: 0 auto;
+  padding: 0 var(--site-pad) 60px;
+}
+.products-grid{ 
+  display: grid; grid-template-columns: repeat(4, 1fr); 
+  gap: 20px; align-items: stretch; transition: var(--transition);
+  margin-bottom: 40px;
+}
+.products-grid.cols-2{ grid-template-columns: repeat(2, 1fr); }
+.products-grid.cols-3{ grid-template-columns: repeat(3, 1fr); }
+.products-grid.cols-4{ grid-template-columns: repeat(4, 1fr); }
+
+/* Product Cards - Metallic Fusion Style */
+.card{
+  background: linear-gradient(135deg, var(--surface) 0%, #fefefe 100%); 
+  border: 1px solid var(--surface-border); 
+  border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow);
+  display: flex; flex-direction: column; position: relative; cursor: pointer;
+  transition: var(--transition); opacity: 0; transform: translateY(10px);
+  animation: cardFadeIn 0.4s ease forwards;
+}
+.card::before{
+  content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--copper) 0%, var(--brass) 50%, var(--steel) 100%);
+  transform: scaleX(0); transition: transform 0.3s ease; z-index: 1;
+}
+.card:hover::before{ transform: scaleX(1); }
+.card:hover{ 
+  transform: translateY(-4px); box-shadow: 0 20px 40px rgba(205,127,50,0.15); 
+  border-color: var(--primary);
+}
+.card .thumb{ 
+  aspect-ratio: 1/1; background: linear-gradient(135deg, #fdf6f0 0%, #f8f6f2 100%); 
+  overflow: hidden; position: relative; display: flex; align-items: center; justify-content: center;
+}
+.card img{ 
+  width: 100%; height: 100%; object-fit: cover; 
+  transition: transform 0.3s ease; filter: saturate(1.05) contrast(1.02);
+}
+.card:hover img{ transform: scale(1.03) }
+
+/* Quick Eye - Metallic Style */
+.quick-eye{
+  position: absolute; right: 12px; top: 12px; width: 36px; height: 36px; 
+  display: inline-flex; align-items: center; justify-content: center;
+  background: linear-gradient(135deg, var(--copper) 0%, var(--brass) 100%); color: white; 
+  border-radius: 50%; opacity: 0; transition: var(--transition); 
+  cursor: pointer; box-shadow: var(--shadow); backdrop-filter: blur(8px);
+}
+.card:hover .quick-eye{ opacity: 1; transform: scale(1.05) }
+.quick-eye:hover{ 
+  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--fusion-bronze) 100%);
+  transform: scale(1.1);
+}
+.quick-eye svg{ width: 18px; height: 18px; fill: currentColor }
+
+@keyframes cardFadeIn{
+  to{ opacity: 1; transform: translateY(0) }
+}
+
+/* Card Content */
+.card .content{ 
+  display: flex; flex-direction: column; gap: 8px; 
+  padding: 16px; min-height: 120px; flex: 1;
+}
+.card .title{ 
+  color: var(--text); text-decoration: none; font-weight: 600; 
+  font-size: 0.875rem; line-height: 1.4; margin: 0;
+  display: -webkit-box; -webkit-box-orient: vertical; 
+  -webkit-line-clamp: 2; line-clamp: 2; overflow: hidden;
+}
+.card .price{
+  color: var(--text); font-weight: 600; font-size: 1rem;
+  margin: 4px 0;
+}
+.card .meta{
+  display: flex; align-items: center; justify-content: space-between;
+  margin-top: auto; gap: 8px;
+}
+.card .sku{
+  font-size: 0.75rem; color: var(--text-muted); font-weight: 500;
+  text-transform: uppercase; letter-spacing: 0.5px;
+}
+.card .actions{ display: flex; gap: 6px }
+.btn-view{
+  padding: 6px 12px; border-radius: 20px; font-size: 0.75rem; 
+  font-weight: 500; text-decoration: none; transition: var(--transition); 
+  cursor: pointer; display: inline-flex; align-items: center; gap: 4px;
+  background: linear-gradient(135deg, var(--copper) 0%, var(--brass) 100%); 
+  color: white; border: 1px solid var(--primary);
+}
+.btn-view:hover{
+  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--fusion-bronze) 100%);
+  border-color: var(--primary-dark);
+  transform: translateY(-1px) scale(1.05);
+}
+
+/* Empty/Loading States */
+.loading-state, .empty-state, .error-state{
+  grid-column: 1/-1; text-align: center; padding: 48px 20px;
+  background: var(--surface); border-radius: var(--radius-lg);
+  border: 1px solid var(--surface-border);
+}
+.loading-spinner{
+  width: 32px; height: 32px; border: 3px solid var(--surface-border);
+  border-top: 3px solid var(--primary); border-radius: 50%;
+  animation: spin 1s linear infinite; margin: 0 auto 16px;
+}
+@keyframes spin{ to{ transform: rotate(360deg) } }
+
+/* Pagination */
+.pagebar{
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 16px; margin-top: 24px; flex-wrap: wrap;
+}
+.page-info{ color: var(--text-muted); font-size: 0.875rem }
+.pager{ display: flex; gap: 4px; flex-wrap: wrap; justify-content: center }
+.pager button{ 
+  border: 1px solid var(--surface-border); background: var(--surface); 
+  border-radius: var(--radius); padding: 8px 12px; cursor: pointer;
+  font-size: 0.875rem; font-weight: 500; transition: var(--transition);
+  min-width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;
+}
+.pager button:hover:not([disabled]){ 
+  background: var(--primary-light); border-color: var(--primary); 
+  transform: scale(1.05);
+}
+.pager button[disabled]{ opacity: 0.5; cursor: not-allowed }
+.pager .is-active{ 
+  background: linear-gradient(135deg, var(--copper) 0%, var(--brass) 100%); 
+  color: white; border-color: var(--primary);
+}
+
+/* Responsive Design */
+@media (max-width: 768px){
+  .toolbar-content{ padding: 12px; flex-direction: column; gap: 12px }
+  .tb-left, .tb-right{ width: 100%; justify-content: space-between }
+  .tb-search input{ min-width: 160px }
+  .products-grid,
+  .products-grid.cols-2,
+  .products-grid.cols-3,
+  .products-grid.cols-4{ grid-template-columns: 1fr; gap: 16px }
+  .collection-hero{ padding: 60px var(--site-pad) 40px; }
+  .pagebar{ flex-direction: column; align-items: stretch; gap: 16px }
+  .pagebar .pager{ justify-content: center }
+}
+
+@media (max-width: 640px){
+  .products-grid{ grid-template-columns: 1fr; gap: 16px }
+}
+
+/* Features Section - Metallic Fusion Style */
+.collection-features{
+  background: linear-gradient(135deg, #8b4513 0%, #cd7f32 35%, #b2956d 65%, #71797e 100%);
+  color: white; padding: 40px var(--site-pad);
+  position: relative; overflow: hidden;
+}
+.collection-features::before{
+  content: ""; position: absolute; top: 20%; left: 15%; 
+  width: 120px; height: 120px; 
+  background: linear-gradient(45deg, rgba(205,127,50,0.2) 0%, rgba(113,121,126,0.2) 100%);
+  border-radius: 30% 70% 50% 50%; z-index: 1;
+  animation: metalShift 18s ease-in-out infinite;
+}
+.collection-features::after{
+  content: ""; position: absolute; bottom: 20%; right: 20%; 
+  width: 90px; height: 90px; 
+  background: linear-gradient(135deg, rgba(178,149,109,0.25) 0%, rgba(160,82,45,0.2) 100%);
+  border-radius: 60% 40% 70% 30%; z-index: 1;
+  animation: metalShift 22s ease-in-out infinite reverse;
+}
+.features-wrap{
+  max-width: var(--site-max); margin: 0 auto;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+  position: relative; z-index: 2;
+}
+.feature-item{
+  text-align: center; padding: 20px;
+  background: rgba(255,255,255,0.1); border-radius: var(--radius-lg);
+  backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2);
+}
+.feature-item .icon{
+  width: 48px; height: 48px; margin: 0 auto 16px;
+  background: linear-gradient(135deg, rgba(205,127,50,0.3) 0%, rgba(178,149,109,0.3) 100%); 
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  color: white; border: 1px solid rgba(255,255,255,0.3);
+}
+.feature-item h4{
+  font-weight: 600; color: white; margin: 0 0 8px;
+}
+.feature-item p{
+  color: rgba(255,255,255,0.9); margin: 0; font-size: 0.875rem;
+}
+
+@media (max-width: 768px){
+  .features-wrap{ grid-template-columns: 1fr; gap: 16px; }
+}
+</style>
+
+<section class="metallic-fusion-collection" id="collectionApp">
+  <!-- Hero Section -->
+  <div class="collection-hero">
+    <div class="wrap">
+      <div class="eyebrow">Multi-Metal Collection</div>
+      <h1>METALLIC FUSION</h1>
+      <p class="subtitle">Multi-metal compositions—copper, brass, and steel harmoniously layered for rich textural depth and sophisticated interplay.</p>
+      <div class="badge">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+          <path d="M12 7l1.5 3L16 11l-2.5 2.5L14 17l-2-1-2 1 .5-3.5L8 11l2.5-1L12 7z" fill="white"/>
+        </svg>
+        <span>Multi-Metal Design</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toolbar -->
+  <div class="collection-toolbar">
+    <div class="toolbar-content">
+      <div class="tb-left">
+        <div class="tb-search">
+          <input id="q" type="search" placeholder="Search METALLIC FUSION products…" aria-label="Search products">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M10 2a8 8 0 105.293 14.293l4.707 4.707 1.414-1.414-4.707-4.707A8 8 0 0010 2zm0 2a6 6 0 110 12A6 6 0 0110 4z"/></svg>
+        </div>
+        <select id="perPage" class="tb-select" aria-label="Items per page">
+          <option value="12">12 / page</option>
+          <option value="24">24 / page</option>
+          <option value="48">48 / page</option>
+        </select>
+      </div>
+      <div class="tb-right">
+        <select id="orderby" class="tb-select" aria-label="Sort by">
+          <option value="">Sort: Default</option>
+          <option value="popularity">Best Selling</option>
+          <option value="rating">Top Rated</option>
+          <option value="date">Newest</option>
+          <option value="price">Price: Low to High</option>
+          <option value="price-desc">Price: High to Low</option>
+        </select>
+        <select id="gridDensity" class="tb-select" aria-label="Grid layout">
+          <option value="2">2 columns</option>
+          <option value="3">3 columns</option>
+          <option value="4" selected>4 columns</option>
+        </select>
+        <div class="view-toggle" role="group" aria-label="View">
+          <button type="button" class="btn-view" data-view="grid" aria-pressed="true" title="Grid">GRID</button>
+          <button type="button" class="btn-view" data-view="list" aria-pressed="false" title="List">LIST</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Products Grid -->
+  <main class="collection-main">
+    <div id="grid" class="products-grid" aria-live="polite"></div>
+    
+    <!-- Pagination -->
+    <div class="pagebar">
+      <div id="pageInfo" class="page-info" aria-live="polite"></div>
+      <div id="pager" class="pager"></div>
+    </div>
+  </main>
+
+  <!-- Collection Features -->
+  <div class="collection-features">
+    <div class="features-wrap">
+      <div class="feature-item">
+        <div class="icon">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+          </svg>
+        </div>
+        <h4>Multi-Metal Harmony</h4>
+        <p>Copper, brass, and steel combined in thoughtful compositions for visual richness.</p>
+      </div>
+      <div class="feature-item">
+        <div class="icon">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+            <circle cx="12" cy="12" r="3"/>
+            <path d="M12 1v6m0 6v6m11-7h-6m-6 0H1"/>
+          </svg>
+        </div>
+        <h4>Textural Depth</h4>
+        <p>Layered finishes create sophisticated interplay of light, shadow, and reflection.</p>
+      </div>
+      <div class="feature-item">
+        <div class="icon">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+            <polyline points="3.27,6.96 12,12.01 20.73,6.96"/>
+            <line x1="12" y1="22.08" x2="12" y2="12"/>
+          </svg>
+        </div>
+        <h4>Precision Craft</h4>
+        <p>Expert metalwork ensures seamless integration of different materials and finishes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  const API = `${location.origin}/wp-json/wc/store/v1`;
+  const state = {
+    page: +(new URL(location.href).searchParams.get('page')||1),
+    perPage: +(new URL(location.href).searchParams.get('per_page')||localStorage.getItem('metallic_fusion_shop_pp')||12),
+    orderby: new URL(location.href).searchParams.get('orderby')||'',
+    search: new URL(location.href).searchParams.get('s')||'',
+    view: localStorage.getItem('metallic_fusion_shop_view') || 'grid',
+    gridDensity: localStorage.getItem('metallic_fusion_grid_density') || '4',
+    total: 0
+  };
+
+  const $ = s=>document.querySelector(s);
+  const grid = $('#grid'), pager = $('#pager'), pageInfo = $('#pageInfo');
+
+  async function jget(path, params = {}) {
+    const url = new URL(API + path);
+    Object.entries(params).forEach(([k, v]) => {
+      if (v !== undefined && v !== null && v !== '') url.searchParams.set(k, v);
+    });
+
+    // Always filter by METALLIC FUSION collection
+    url.searchParams.append('attributes[0][attribute]', 'pa_collection');
+    url.searchParams.append('attributes[0][operator]', 'in');
+    url.searchParams.append('attributes[0][terms]', 'metallic-fusion');
+
+    const r = await fetch(url, { credentials: 'same-origin' });
+    if (!r.ok) throw new Error(`HTTP ${r.status}`);
+    return r.json();
+  }
+
+  async function loadProducts(){
+    grid.innerHTML = `
+      <div class="loading-state">
+        <div class="loading-spinner"></div>
+        <div>Loading METALLIC FUSION products...</div>
+      </div>
+    `;
+    pager.innerHTML = '';
+    if(pageInfo) pageInfo.innerHTML = '<span class="loading">Loading...</span>';
+
+    try{
+      const params = {
+        page: state.page,
+        per_page: state.perPage,
+        orderby: state.orderby || undefined,
+        search: state.search || undefined
+      };
+
+      const data = await jget('/products', params);
+
+      if(!Array.isArray(data) || data.length === 0){
+        grid.innerHTML = `
+          <div class="empty-state">
+            <div class="empty-icon">🔍</div>
+            <h3>No METALLIC FUSION products found</h3>
+            <p>Try adjusting your search terms or browse our full collection</p>
+            <a href="/shop" class="retry-btn" style="display:inline-block;padding:10px 20px;background:var(--primary);color:white;text-decoration:none;border-radius:var(--radius);font-weight:500;">Browse All Products</a>
+          </div>
+        `;
+        state.total = 0;
+        updatePageInfo();
+        pager.innerHTML = '';
+        return;
+      }
+
+      // Estimate total based on current page
+      const totalFromData = data.length;
+      let estimatedTotal = totalFromData;
+      
+      if (totalFromData === state.perPage) {
+        estimatedTotal = (state.page + 1) * state.perPage;
+      } else {
+        estimatedTotal = (state.page - 1) * state.perPage + totalFromData;
+      }
+
+      const frag = document.createDocumentFragment();
+      data.forEach(p => {
+        const a = p.permalink || p.href || '#';
+        const images = (p.images||[]).map(i=>i.src);
+        const img = images[0] || '';
+        const article = document.createElement('article');
+        article.className = 'card';
+        article.style.animationDelay = `${(data.indexOf(p) % 12) * 50}ms`;
+        article.innerHTML = `
+          <div class="thumb">
+            ${img ? `<img src="${img}" loading="lazy" alt="${p.name}">` : ''}
+            <span class="quick-eye" role="button" aria-label="Quick view">
+              <svg viewBox="0 0 24 24"><path d="M12 5c-7 0-10 7-10 7s3 7 10 7 10-7 10-7-3-7-10-7zm0 11a4 4 0 1 1 0-8 4 4 0 0 1 0 8z"/></svg>
+            </span>
+          </div>
+          <div class="content">
+            <h3 class="title">${p.name}</h3>
+            ${p.prices?.price ? `<div class="price">$${p.prices.price}</div>` : ''}
+            <div class="meta">
+              <div class="sku">MF-${p.id}</div>
+              <div class="actions">
+                <a class="btn-view" href="${a}" onclick="event.stopPropagation()">View</a>
+              </div>
+            </div>
+          </div>`;
+        
+        // Click handler for whole card
+        article.addEventListener('click', (e) => {
+          if (!e.target.closest('.btn-view, .quick-eye')) {
+            window.location.href = a;
+          }
+        });
+        
+        article.style.opacity = '0';
+        article.style.transform = 'translateY(20px)';
+        frag.appendChild(article);
+      });
+
+      grid.innerHTML = '';
+      grid.appendChild(frag);
+      
+      // Animate card entrance
+      setTimeout(() => {
+        const cards = grid.querySelectorAll('.card');
+        cards.forEach((card, index) => {
+          setTimeout(() => {
+            card.style.transition = 'opacity .6s ease, transform .6s ease';
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+          }, index * 100);
+        });
+      }, 50);
+
+      state.total = estimatedTotal;
+      updatePageInfo();
+      renderPager(Math.max(1, Math.ceil(estimatedTotal / state.perPage)));
+    } catch(e){
+      grid.innerHTML = '<div class="error-state"><h3>Error loading products</h3><p>Please try again later</p></div>';
+      console.error(e);
+    }
+  }
+
+  function renderPager(pages){
+    pager.innerHTML = '';
+    if(pages <= 1) return;
+    
+    const mk = (label, page, dis = false, act = false) => {
+      const b = document.createElement('button');
+      b.textContent = label;
+      if(dis) b.disabled = true;
+      if(act) b.classList.add('is-active');
+      b.addEventListener('click', () => {
+        if(!dis && page !== state.page) {
+          state.page = page;
+          syncURL(true);
+          loadProducts();
+          window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+      });
+      return b;
+    };
+    
+    pager.appendChild(mk('«', 1, state.page === 1));
+    pager.appendChild(mk('‹', Math.max(1, state.page - 1), state.page === 1));
+    
+    const startPage = Math.max(1, Math.min(state.page - 2, pages - 4));
+    const endPage = Math.min(pages, Math.max(state.page + 2, 5));
+    
+    if(startPage > 1) {
+      pager.appendChild(mk('1', 1, false, state.page === 1));
+      if(startPage > 2) {
+        const span = document.createElement('span');
+        span.textContent = '…';
+        span.style.padding = '8px';
+        pager.appendChild(span);
+      }
+    }
+    
+    for(let i = startPage; i <= endPage; i++){
+      pager.appendChild(mk(String(i), i, false, i === state.page));
+    }
+    
+    if(endPage < pages) {
+      if(endPage < pages - 1) {
+        const span = document.createElement('span');
+        span.textContent = '…';
+        span.style.padding = '8px';
+        pager.appendChild(span);
+      }
+      pager.appendChild(mk(String(pages), pages, false, state.page === pages));
+    }
+    
+    pager.appendChild(mk('›', Math.min(pages, state.page + 1), state.page === pages));
+    pager.appendChild(mk('»', pages, state.page === pages));
+  }
+
+  function updatePageInfo(){
+    if(!pageInfo || !state.total || state.total < 1){ 
+      if(pageInfo) pageInfo.textContent = '';
+      return;
+    }
+    const start = (state.page - 1) * state.perPage + 1;
+    const end = Math.min(state.page * state.perPage, state.total);
+    pageInfo.textContent = `Showing ${start}–${end} of ${state.total} METALLIC FUSION products`;
+  }
+
+  function syncURL(replace = false){
+    const url = new URL(location.href);
+    const set = (k, v) => { if(v) url.searchParams.set(k, v); else url.searchParams.delete(k); };
+    set('page', state.page > 1 ? state.page : '');
+    set('per_page', state.perPage !== 12 ? state.perPage : '');
+    set('orderby', state.orderby);
+    set('s', state.search);
+    (replace ? history.replaceState : history.pushState).call(history, {}, '', url.toString());
+  }
+
+  // Event Listeners
+  $('#q').value = state.search;
+  $('#q').addEventListener('keydown', e => {
+    if(e.key === 'Enter'){
+      e.preventDefault();
+      state.search = e.target.value.trim();
+      state.page = 1;
+      syncURL();
+      loadProducts();
+    }
+  });
+
+  $('#orderby').value = state.orderby;
+  $('#orderby').addEventListener('change', e => {
+    state.orderby = e.target.value;
+    state.page = 1;
+    syncURL();
+    loadProducts();
+  });
+
+  $('#perPage').value = state.perPage;
+  $('#perPage').addEventListener('change', e => {
+    state.perPage = +e.target.value;
+    localStorage.setItem('metallic_fusion_shop_pp', state.perPage);
+    state.page = 1;
+    syncURL();
+    loadProducts();
+  });
+
+  // View controls
+  const viewBtns = document.querySelectorAll('.btn-view');
+  function setView(v){
+    state.view = v;
+    viewBtns.forEach(b => b.setAttribute('aria-pressed', String(b.dataset.view === v)));
+    if(v === 'list'){
+      grid.style.gridTemplateColumns = '1fr';
+      grid.className = 'products-grid';
+    } else {
+      grid.style.gridTemplateColumns = '';
+      setGridDensity(state.gridDensity);
+    }
+    localStorage.setItem('metallic_fusion_shop_view', v);
+  }
+  setView(state.view);
+  viewBtns.forEach(b => b.addEventListener('click', () => setView(b.dataset.view)));
+
+  $('#gridDensity').value = state.gridDensity;
+  function setGridDensity(density) {
+    state.gridDensity = density;
+    grid.className = `products-grid cols-${density}`;
+    localStorage.setItem('metallic_fusion_grid_density', density);
+  }
+  $('#gridDensity').addEventListener('change', e => {
+    if (state.view === 'grid') {
+      setGridDensity(e.target.value);
+    }
+  });
+  if (state.view === 'grid') {
+    setGridDensity(state.gridDensity);
+  }
+
+  // Initialize
+  (async function init(){
+    try {
+      await jget('/products', { per_page: 1 });
+      await loadProducts();
+    } catch(e) {
+      grid.innerHTML = `<div class="error-state"><h3>WooCommerce API unavailable</h3><p>Please check your connection and try again</p></div>`;
+    }
+  })();
+
+  window.addEventListener('popstate', () => { loadProducts(); });
+})();
+</script>
