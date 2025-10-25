@@ -1,0 +1,2258 @@
+<!-- LUNVYR — Single Product Template (Premium Professional) -->
+  
+  <!-- Google Model Viewer -->
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.3.0/model-viewer.min.js"></script>
+  
+  <style>
+  @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&display=swap');
+
+  :root{
+    --primary: #2d3748; --primary-light: #4a5568; --accent: #b794f6;
+    --surface: #ffffff; --surface-elevated: #fafafa; --surface-subtle: #f7fafc;
+    --border-light: #e2e8f0; --border-medium: #cbd5e0; --border-dark: #a0aec0;
+    --text-primary: #1a202c; --text-secondary: #4a5568; --text-muted: #718096;
+    --success: #38a169; --warning: #d69e2e; --danger: #e53e3e;
+    --brass: #b8860b; --brass-light: #daa520; --brass-dark: #9a7209;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.06); --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+    --shadow-lg: 0 20px 40px rgba(0,0,0,0.1); --shadow-xl: 0 40px 80px rgba(0,0,0,0.12);
+    --radius: 6px; --radius-lg: 12px; --radius-xl: 16px;
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --site-max: 1400px; --spacing: clamp(20px, 5vw, 40px);
+  }
+
+  * { box-sizing: border-box; }
+  .product-page{ 
+    background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+    color: var(--text-primary); min-height: 100vh;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1.6; font-size: 16px;
+  }
+  .p-container{ 
+    max-width: var(--site-max); margin: 0 auto; 
+    padding: var(--spacing); background: var(--surface);
+    border-radius: var(--radius-xl); box-shadow: var(--shadow-lg);
+    margin-top: 20px; margin-bottom: 40px;
+  }
+
+  /* Header Section */
+  .p-header{ 
+    display: flex; flex-direction: column; gap: 12px; margin-bottom: 32px;
+    padding-bottom: 24px; border-bottom: 1px solid var(--border-light);
+  }
+  .p-breadcrumb{ 
+    display: flex; align-items: center; gap: 8px; font-size: 14px; 
+    color: var(--text-muted); font-weight: 500;
+  }
+  .p-breadcrumb a{ color: var(--text-muted); text-decoration: none; transition: var(--transition); }
+  .p-breadcrumb a:hover{ color: var(--primary); }
+  .p-breadcrumb::after{ content: "›"; margin-left: 8px; }
+
+  .p-title-section{ display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; }
+  .p-title{ 
+    font-size: clamp(28px, 4vw, 40px); font-weight: 700; letter-spacing: -0.02em;
+    color: var(--text-primary); margin: 0; line-height: 1.2;
+    font-family: 'Cinzel', serif;
+  }
+  .p-status{ 
+    display: flex; align-items: center; gap: 8px; padding: 8px 16px;
+    background: var(--success); color: white; border-radius: 50px;
+    font-size: 14px; font-weight: 600; white-space: nowrap;
+  }
+
+  /* Main Layout - Three Column for Desktop */
+  .p-main{ 
+    display: grid; grid-template-columns: 1fr 400px 320px; gap: 40px; 
+    margin-bottom: 60px;
+  }
+  @media (max-width: 1200px){ 
+    .p-main{ grid-template-columns: 1fr 350px; }
+    .p-sidebar{ order: 3; grid-column: 1 / -1; }
+  }
+  @media (max-width: 768px){ 
+    .p-main{ grid-template-columns: 1fr; gap: 24px; }
+  }
+
+  /* Gallery - Premium Design */
+  .p-gallery{ position: relative; }
+  .gallery-main{ 
+    position: relative; aspect-ratio: 4/5; border-radius: var(--radius-lg); 
+    overflow: hidden; background: var(--surface-subtle); margin-bottom: 16px;
+    box-shadow: var(--shadow-md); transition: var(--transition);
+  }
+  .gallery-main:hover{ box-shadow: var(--shadow-lg); }
+  .gallery-main img{ 
+    width: 100%; height: 100%; object-fit: cover; transition: var(--transition);
+  }
+  .gallery-controls{ 
+    position: absolute; top: 16px; right: 16px; display: flex; gap: 8px;
+  }
+  .gallery-btn{ 
+    width: 44px; height: 44px; background: rgba(255,255,255,0.98); 
+    border: 1px solid var(--border-medium); border-radius: var(--radius);
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; transition: var(--transition); backdrop-filter: blur(8px);
+    color: var(--text-primary); padding: 0; box-shadow: var(--shadow-sm);
+  }
+  .gallery-btn svg{ 
+    width: 24px; height: 24px; stroke: currentColor; fill: none;
+    stroke-width: 2; flex-shrink: 0;
+  }
+  .gallery-btn:hover{ 
+    background: rgba(255,255,255,1); box-shadow: var(--shadow-lg); 
+    transform: translateY(-2px); border-color: var(--primary);
+    color: var(--primary);
+  }
+
+  .gallery-thumbs{ 
+    display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px;
+  }
+  @media (max-width: 600px){ .gallery-thumbs{ grid-template-columns: repeat(4, 1fr); } }
+  .thumb{ 
+    aspect-ratio: 1; border-radius: var(--radius); overflow: hidden;
+    border: 2px solid transparent; cursor: pointer; transition: var(--transition);
+    background: var(--surface-subtle);
+  }
+  .thumb:hover{ border-color: var(--accent); transform: scale(1.05); }
+  .thumb.active{ border-color: var(--primary); }
+  .thumb img{ width: 100%; height: 100%; object-fit: cover; }
+
+  /* Product Information Panel */
+  .p-info{ 
+    background: var(--surface); border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg); padding: 32px; box-shadow: var(--shadow-sm);
+    height: fit-content;
+  }
+
+  .p-meta-row{ 
+    display: flex; gap: 12px; margin-bottom: 20px; flex-wrap: wrap;
+  }
+  .p-badge{ 
+    display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px;
+    background: var(--surface-elevated); border: 1px solid var(--border-light);
+    border-radius: 20px; font-size: 13px; font-weight: 600;
+    color: var(--text-secondary);
+  }
+  .p-sku{ 
+    color: var(--text-muted); font-size: 14px; font-weight: 500;
+    font-family: 'Monaco', 'Consolas', monospace;
+  }
+
+  .p-pricing{ margin: 24px 0; }
+  .p-price{ 
+    font-size: 24px; font-weight: 700; color: var(--text-primary);
+    margin-bottom: 8px;
+  }
+  .p-price-note{ 
+    font-size: 14px; color: var(--text-muted); font-style: italic;
+  }
+
+  .p-actions{ 
+    display: flex; flex-direction: column; gap: 12px; margin: 32px 0;
+  }
+  .btn{ 
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+    padding: 14px 24px; border-radius: var(--radius); font-weight: 600;
+    font-size: 15px; cursor: pointer; transition: var(--transition);
+    text-decoration: none; border: 2px solid transparent;
+  }
+  .btn-primary{ 
+    background: var(--primary); color: white; border-color: var(--primary);
+  }
+  .btn-primary:hover{ 
+    background: var(--brass); border-color: var(--brass);
+    box-shadow: 0 8px 25px rgba(184, 134, 11, 0.3);
+  }
+  .btn-secondary{ 
+    background: var(--surface-elevated); color: var(--text-primary);
+    border-color: var(--border-medium);
+  }
+  .btn-secondary:hover{ 
+    background: var(--primary); color: white; border-color: var(--primary);
+    transform: translateY(-2px); box-shadow: var(--shadow-md);
+  }
+
+  .p-features{ 
+    margin-top: 32px; padding-top: 24px; 
+    border-top: 1px solid var(--border-light);
+  }
+  .p-features h4{ 
+    font-size: 16px; font-weight: 600; margin: 0 0 16px;
+    color: var(--text-primary);
+  }
+  .feature-list{ display: flex; flex-direction: column; gap: 12px; }
+  .feature-item{ 
+    display: flex; align-items: center; gap: 12px; font-size: 14px;
+    color: var(--text-secondary);
+  }
+  .feature-icon{ 
+    width: 20px; height: 20px; background: var(--success); 
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    color: white; font-size: 12px; font-weight: bold; flex-shrink: 0;
+  }
+
+  /* Sidebar Panel */
+  .p-sidebar{ 
+    background: var(--surface-elevated); border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg); padding: 24px; height: fit-content;
+  }
+  .sidebar-section{ margin-bottom: 32px; }
+  .sidebar-section:last-child{ margin-bottom: 0; }
+  .sidebar-title{ 
+    font-size: 14px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.5px; color: var(--text-muted); margin-bottom: 16px;
+  }
+  .sidebar-content{ font-size: 14px; line-height: 1.6; color: var(--text-secondary); }
+
+  /* Content Tabs - Full Width Below */
+  .p-content{ 
+    grid-column: 1 / -1; background: var(--surface); 
+    border: 1px solid var(--border-light); border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm); overflow: hidden;
+  }
+  .tab-nav{ 
+    display: flex; background: var(--surface-elevated); 
+    border-bottom: 1px solid var(--border-light);
+  }
+  .tab-btn{ 
+    background: none; border: none; padding: 20px 32px; font-weight: 600;
+    font-size: 15px; color: var(--text-muted); cursor: pointer; 
+    transition: var(--transition); position: relative; flex: 1; text-align: center;
+    white-space: nowrap; min-width: fit-content;
+  }
+  @media (max-width: 768px){ 
+    .tab-nav{
+      flex-direction: column; border-bottom: none;
+    }
+    .tab-btn{ 
+      padding: 16px 24px; font-size: 14px; flex: none; text-align: left;
+      border-bottom: 1px solid var(--border-light); white-space: normal;
+      min-width: auto;
+    }
+    .tab-btn:last-child{
+      border-bottom: none;
+    }
+    .tab-btn.active::after{
+      display: none;
+    }
+    .tab-btn.active{
+      background: var(--primary); color: white;
+    }
+  }
+  .tab-btn:hover{ color: var(--text-primary); background: var(--surface-subtle); }
+  .tab-btn.active{ 
+    color: var(--primary); background: var(--surface);
+  }
+  .tab-btn.active::after{ 
+    content: ""; position: absolute; bottom: 0; left: 0; right: 0;
+    height: 3px; background: var(--primary); border-radius: 3px 3px 0 0;
+  }
+
+  .tab-content{ padding: 40px 40px 40px 40px; min-height: 300px; }
+  @media (max-width: 768px){ 
+    .tab-content{ padding: 24px 20px; min-height: 200px; }
+    .p-content{
+      border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    }
+  }
+  .tab-panel{ display: none; }
+  .tab-panel.active{ display: block; }
+
+  /* Specifications Table */
+  .specs-grid{ 
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 24px; margin-bottom: 32px;
+  }
+  .spec-group{ 
+    background: var(--surface-elevated); border-radius: var(--radius-lg);
+    padding: 24px; border: 1px solid var(--border-light);
+  }
+  .spec-group h4{ 
+    font-size: 16px; font-weight: 700; margin: 0 0 16px;
+    color: var(--text-primary); padding-bottom: 8px;
+    border-bottom: 2px solid var(--accent);
+  }
+  .spec-row{ 
+    display: flex; justify-content: space-between; padding: 8px 0;
+    border-bottom: 1px solid var(--border-light);
+  }
+  .spec-row:last-child{ border-bottom: none; }
+  .spec-label{ font-weight: 600; color: var(--text-secondary); }
+  .spec-value{ color: var(--text-primary); font-weight: 500; }
+
+  /* Specification Action Buttons */
+  .spec-actions{
+    display: flex; gap: 16px; justify-content: center; padding: 0 24px;
+  }
+  @media (max-width: 600px){ 
+    .spec-actions{ flex-direction: column; gap: 12px; }
+  }
+  .spec-btn{
+    flex: 1; max-width: 250px; padding: 14px 20px; 
+    background: var(--surface-elevated); color: var(--text-primary);
+    border: 2px solid var(--border-medium); border-radius: var(--radius);
+    font-weight: 600; font-size: 14px; cursor: pointer; 
+    transition: var(--transition); display: flex; align-items: center; 
+    justify-content: center; gap: 8px;
+  }
+  .spec-btn:hover{
+    background: var(--brass); color: white; border-color: var(--brass);
+    transform: translateY(-2px); box-shadow: var(--shadow-md);
+  }
+
+  /* 3D Model Modal */
+  .model-modal{
+    position: fixed; inset: 0; background: rgba(0,0,0,0.95); display: none; 
+    z-index: 10000; cursor: pointer; user-select: none;
+  }
+  .model-modal.open{ display: block; }
+
+  .model-modal-content{
+    position: absolute; inset: 40px; background: var(--surface);
+    border-radius: var(--radius-xl); overflow: hidden; display: flex;
+    box-shadow: var(--shadow-xl);
+  }
+
+  .model-modal-sidebar{
+    width: 320px; background: var(--surface-elevated); 
+    border-right: 1px solid var(--border-light); display: flex;
+    flex-direction: column; overflow-y: auto;
+  }
+
+  .model-modal-main{
+    flex: 1; display: flex; flex-direction: column;
+  }
+
+  .model-modal-header{
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 24px 32px; background: var(--surface-elevated);
+    border-bottom: 1px solid var(--border-light);
+  }
+  .model-modal-title{
+    font-size: 20px; font-weight: 700; color: var(--text-primary); margin: 0;
+  }
+  .model-modal-close{
+    width: 44px; height: 44px; border: 1px solid var(--border-medium);
+    background: var(--surface); border-radius: var(--radius); cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px; color: var(--text-muted); transition: var(--transition);
+  }
+  .model-modal-close:hover{
+    background: var(--danger); color: white; border-color: var(--danger);
+  }
+
+  .model-modal-viewer{
+    flex: 1; position: relative; background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  }
+  .model-viewer{
+    width: 100%; height: 100%; border: none; background: transparent;
+  }
+
+  /* 3D Configuration Panel */
+  .config-panel{
+    padding: 24px; display: flex; flex-direction: column; gap: 24px;
+  }
+  .config-section{
+    border-bottom: 1px solid var(--border-light); padding-bottom: 20px;
+  }
+  .config-section:last-child{ border-bottom: none; }
+  .config-title{
+    font-size: 14px; font-weight: 700; color: var(--text-primary);
+    margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.5px;
+  }
+
+  /* Material Options */
+  .material-grid{
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;
+  }
+  .material-option{
+    aspect-ratio: 1; border-radius: var(--radius); overflow: hidden;
+    border: 2px solid var(--border-light); cursor: pointer;
+    transition: var(--transition); position: relative;
+    background-size: cover; background-position: center;
+  }
+  .material-option.active{
+    border-color: var(--brass); box-shadow: 0 0 0 4px rgba(184, 134, 11, 0.2);
+  }
+  .material-option:hover{
+    transform: scale(1.05); border-color: var(--accent);
+  }
+  .material-label{
+    position: absolute; bottom: 0; left: 0; right: 0;
+    background: rgba(0,0,0,0.8); color: white; padding: 8px;
+    font-size: 12px; font-weight: 600; text-align: center;
+  }
+
+  /* Environment Options */
+  .environment-grid{
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px;
+  }
+  .env-option{
+    padding: 12px 8px; background: var(--surface); border: 1px solid var(--border-light);
+    border-radius: var(--radius); text-align: center; cursor: pointer;
+    transition: var(--transition); font-size: 12px; font-weight: 600;
+  }
+  .env-option.active{
+    background: var(--brass); color: white; border-color: var(--brass);
+  }
+  .env-option:hover{
+    background: var(--surface-subtle);
+  }
+
+  /* Lighting Controls */
+  .lighting-control{
+    display: flex; flex-direction: column; gap: 12px;
+  }
+  .control-group{
+    display: flex; flex-direction: column; gap: 8px;
+  }
+  .control-label{
+    font-size: 13px; font-weight: 600; color: var(--text-secondary);
+    display: flex; justify-content: space-between;
+  }
+  .control-slider{
+    width: 100%; height: 6px; border-radius: 3px;
+    background: var(--border-light); outline: none; cursor: pointer;
+    transition: var(--transition);
+  }
+  .control-slider::-webkit-slider-thumb{
+    appearance: none; width: 18px; height: 18px; border-radius: 50%;
+    background: var(--brass); cursor: pointer; border: 2px solid white;
+    box-shadow: var(--shadow-sm);
+  }
+  .control-slider::-moz-range-thumb{
+    width: 18px; height: 18px; border-radius: 50%;
+    background: var(--brass); cursor: pointer; border: 2px solid white;
+    box-shadow: var(--shadow-sm);
+  }
+
+  /* Configuration Buttons */
+  .config-actions{
+    padding: 20px 24px; border-top: 1px solid var(--border-light);
+    background: var(--surface-subtle); display: flex; gap: 12px;
+  }
+  .config-btn{
+    flex: 1; padding: 12px 16px; border-radius: var(--radius);
+    font-weight: 600; font-size: 14px; cursor: pointer;
+    transition: var(--transition); display: flex; align-items: center;
+    justify-content: center; gap: 8px;
+  }
+  .config-btn-primary{
+    background: var(--brass); color: white; border: 2px solid var(--brass);
+  }
+  .config-btn-primary:hover{
+    background: var(--brass-dark); border-color: var(--brass-dark);
+  }
+  .config-btn-secondary{
+    background: var(--surface); color: var(--text-primary); 
+    border: 2px solid var(--border-medium);
+  }
+  .config-btn-secondary:hover{
+    background: var(--surface-subtle); border-color: var(--primary);
+  }
+
+  .model-viewer-controls{
+    position: absolute; bottom: 24px; left: 50%; transform: translateX(-50%);
+    display: flex; gap: 12px; background: rgba(255,255,255,0.95);
+    padding: 12px 20px; border-radius: 30px; backdrop-filter: blur(12px);
+    box-shadow: var(--shadow-lg); border: 1px solid var(--border-light);
+  }
+  .model-control-btn{
+    width: 44px; height: 44px; border: none; border-radius: 50%;
+    background: var(--surface); color: var(--text-primary);
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; transition: var(--transition); font-size: 16px;
+    box-shadow: var(--shadow-sm); font-weight: 600;
+  }
+  .model-control-btn:hover{
+    background: var(--brass); color: white; transform: scale(1.1);
+  }
+
+  /* Technical Drawing Modal */
+  .drawing-modal{
+    position: fixed; inset: 0; background: rgba(0,0,0,0.95); display: none; 
+    z-index: 10000; cursor: pointer; user-select: none;
+  }
+  .drawing-modal.open{ display: block; }
+
+  .drawing-modal-content{
+    position: absolute; inset: 40px; background: var(--surface);
+    border-radius: var(--radius-xl); overflow: hidden; display: flex;
+    flex-direction: column; box-shadow: var(--shadow-xl);
+  }
+
+  .drawing-modal-header{
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 24px 32px; background: var(--surface-elevated);
+    border-bottom: 1px solid var(--border-light);
+  }
+  .drawing-modal-title{
+    font-size: 20px; font-weight: 700; color: var(--text-primary); margin: 0;
+  }
+  .drawing-modal-close{
+    width: 44px; height: 44px; border: 1px solid var(--border-medium);
+    background: var(--surface); border-radius: var(--radius); cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px; color: var(--text-muted); transition: var(--transition);
+  }
+  .drawing-modal-close:hover{
+    background: var(--danger); color: white; border-color: var(--danger);
+  }
+
+  .drawing-modal-viewer{
+    flex: 1; display: flex; align-items: center; justify-content: center;
+    padding: 32px; background: var(--surface);
+  }
+  .drawing-image{
+    max-width: 100%; max-height: 100%; object-fit: contain;
+    border-radius: var(--radius-lg); box-shadow: var(--shadow-lg);
+    filter: contrast(1.05) brightness(0.98);
+  }
+
+  /* Description Content */
+  .description{ 
+    font-size: 16px; line-height: 1.8; color: var(--text-secondary);
+  }
+  .description h3{ 
+    font-size: 20px; font-weight: 700; margin: 32px 0 16px;
+    color: var(--text-primary);
+  }
+  .description p{ margin-bottom: 16px; }
+  .description ul{ 
+    margin: 16px 0; padding-left: 24px;
+  }
+  .description li{ margin-bottom: 8px; }
+
+  /* Related Products */
+  .p-related{ 
+    margin-top: 60px; padding: 40px; background: var(--surface);
+    border: 1px solid var(--border-light); border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+  }
+  .p-related h3{ 
+    font-size: 24px; font-weight: 700; margin: 0 0 32px;
+    color: var(--text-primary); text-align: center;
+  }
+  .related-grid{ 
+    display: grid; grid-template-columns: repeat(3, 1fr); 
+    gap: 24px;
+  }
+  @media (max-width: 1024px) and (min-width: 481px){ 
+    .related-grid{ grid-template-columns: repeat(2, 1fr); } 
+  }
+  @media (max-width: 480px){ 
+    .related-grid{ grid-template-columns: 1fr; gap: 20px; } 
+  }
+  .related-card{ 
+    background: var(--surface-elevated); border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg); overflow: hidden; transition: var(--transition);
+    cursor: pointer;
+  }
+  .related-card:hover{ 
+    transform: translateY(-4px); box-shadow: var(--shadow-lg);
+    border-color: var(--accent);
+  }
+  .related-image{ 
+    aspect-ratio: 4/5; background: var(--surface-subtle); overflow: hidden;
+    position: relative;
+  }
+  .related-image img{ 
+    width: 100%; height: 100%; object-fit: cover; transition: var(--transition);
+  }
+  .related-card:hover .related-image img{ transform: scale(1.05); }
+  .related-info{ padding: 20px; }
+  .related-title{ 
+    font-size: 16px; font-weight: 600; margin: 0 0 8px;
+    color: var(--text-primary); line-height: 1.4;
+  }
+  .related-subtitle{ 
+    font-size: 14px; color: var(--text-muted); margin-bottom: 12px;
+  }
+  .related-link{ 
+    display: inline-flex; align-items: center; gap: 6px;
+    color: var(--primary); font-weight: 600; font-size: 14px;
+    text-decoration: none; transition: var(--transition);
+  }
+  .related-link:hover{ color: var(--primary-light); }
+
+  /* Image Viewer Modal */
+  .image-viewer{ 
+    position: fixed; inset: 0; background: rgba(0,0,0,0.95); display: none; 
+    z-index: 10000; cursor: pointer; user-select: none;
+  }
+  .image-viewer.open{ display: block; }
+
+  .viewer-controls{ 
+    position: fixed; top: 20px; right: 20px; z-index: 10001;
+  }
+  .viewer-btn{ 
+    width: 56px; height: 56px; background: rgba(255,255,255,0.98); 
+    border: 2px solid var(--border-dark); border-radius: var(--radius-lg);
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; transition: var(--transition); backdrop-filter: blur(12px);
+    color: var(--text-primary); font-size: 20px; font-weight: 700;
+    box-shadow: var(--shadow-lg); padding: 0;
+  }
+  .viewer-btn:hover{ 
+    background: white; box-shadow: var(--shadow-xl); transform: scale(1.1);
+    border-color: var(--primary);
+  }
+
+  .viewer-image-container{ 
+    position: absolute; inset: 0; display: flex; align-items: center; 
+    justify-content: center; overflow: hidden; padding: 40px;
+  }
+  .viewer-image{ 
+    max-width: 100%; max-height: 100%; object-fit: contain;
+    border-radius: var(--radius-lg); box-shadow: var(--shadow-xl);
+  }
+
+  .viewer-info{ 
+    position: fixed; bottom: 20px; left: 20px; right: 20px; 
+    background: rgba(0,0,0,0.9); color: white; padding: 20px 28px;
+    border-radius: var(--radius-lg); backdrop-filter: blur(12px);
+    text-align: center; font-size: 15px; font-weight: 500;
+    border: 1px solid rgba(255,255,255,0.2);
+  }
+
+  /* Quote Modal - Premium Design */
+  .modal-backdrop{ 
+    position: fixed; inset: 0; background: rgba(0,0,0,0.7); display: none; 
+    place-items: center; z-index: 10000; backdrop-filter: blur(8px);
+    animation: fadeIn 0.3s ease;
+  }
+  .modal-backdrop.open{ display: grid; }
+  .modal{ 
+    width: min(900px, 95vw); max-height: 95vh; overflow: hidden;
+    background: var(--surface); border-radius: var(--radius-xl); 
+    box-shadow: var(--shadow-xl); transform: scale(0.9); opacity: 0;
+    transition: var(--transition);
+  }
+  .modal-backdrop.open .modal{ transform: scale(1); opacity: 1; }
+
+  .modal-header{ 
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 32px 40px 24px; border-bottom: 1px solid var(--border-light);
+    background: var(--surface-elevated);
+  }
+  .modal-title{ 
+    font-size: 24px; font-weight: 700; color: var(--text-primary); margin: 0;
+  }
+  .modal-close{ 
+    width: 44px; height: 44px; border: 1px solid var(--border-medium);
+    background: var(--surface); border-radius: var(--radius); cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px; color: var(--text-muted); transition: var(--transition);
+  }
+  .modal-close:hover{ 
+    background: var(--danger); color: white; border-color: var(--danger);
+    transform: scale(1.05);
+  }
+
+  .modal-body{ 
+    padding: 40px; max-height: calc(95vh - 120px); overflow-y: auto;
+  }
+  .quote-summary{ 
+    display: flex; align-items: center; gap: 20px; padding: 24px;
+    background: var(--surface-subtle); border-radius: var(--radius-lg);
+    margin-bottom: 32px; border: 1px solid var(--border-light);
+  }
+  .quote-image{ 
+    width: 80px; height: 80px; border-radius: var(--radius); overflow: hidden;
+    border: 2px solid var(--border-light); flex-shrink: 0;
+  }
+  .quote-image img{ width: 100%; height: 100%; object-fit: cover; }
+  .quote-details h4{ 
+    font-size: 18px; font-weight: 600; margin: 0 0 8px;
+    color: var(--text-primary);
+  }
+  .quote-details p{ 
+    font-size: 14px; color: var(--text-muted); margin: 0;
+    word-break: break-all;
+  }
+
+  /* Premium Form Styling */
+  .quote-form{ display: flex; flex-direction: column; gap: 24px; }
+  .form-row{ display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  @media (max-width: 600px){ .form-row{ grid-template-columns: 1fr; } }
+  .form-group{ display: flex; flex-direction: column; gap: 8px; }
+  .form-group.full-width{ grid-column: 1 / -1; }
+
+  .form-label{ 
+    font-size: 14px; font-weight: 600; color: var(--text-primary);
+    display: flex; align-items: center; gap: 8px;
+  }
+  .form-label.required::after{ 
+    content: "*"; color: var(--danger); font-weight: 700;
+  }
+
+  .form-input{ 
+    padding: 14px 16px; border: 2px solid var(--border-light);
+    border-radius: var(--radius); font-size: 15px; transition: var(--transition);
+    background: var(--surface); color: var(--text-primary);
+    font-family: inherit;
+  }
+  .form-input:focus{ 
+    outline: none; border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(45, 55, 72, 0.1);
+  }
+  .form-input::placeholder{ color: var(--text-muted); }
+
+  .form-textarea{ 
+    min-height: 120px; resize: vertical; font-family: inherit;
+  }
+
+  .form-checkbox-group{ 
+    display: flex; align-items: flex-start; gap: 12px; margin-top: 8px;
+  }
+  .form-checkbox{ 
+    width: 20px; height: 20px; margin-top: 2px; accent-color: var(--primary);
+  }
+  .form-checkbox-label{ 
+    font-size: 14px; line-height: 1.5; color: var(--text-secondary);
+  }
+
+  .form-submit{ 
+    background: var(--primary); color: white; border: 2px solid var(--primary);
+    padding: 16px 32px; border-radius: var(--radius); font-size: 16px;
+    font-weight: 700; cursor: pointer; transition: var(--transition);
+    margin-top: 16px;
+  }
+  .form-submit:hover{ 
+    background: var(--primary-light); border-color: var(--primary-light);
+    transform: translateY(-2px); box-shadow: var(--shadow-md);
+  }
+
+  .form-hint{ 
+    font-size: 13px; color: var(--text-muted); margin-top: 4px;
+  }
+
+  /* Contact Form 7 Integration */
+  .wpcf7-form{ all: unset; display: contents; }
+  .wpcf7-form input, .wpcf7-form select, .wpcf7-form textarea{ 
+    all: unset; width: 100%;
+  }
+  .wpcf7-form .wpcf7-submit{ all: unset; }
+
+  @keyframes fadeIn{ from{ opacity: 0; } to{ opacity: 1; } }
+
+  /* Clean up inherited margins */
+  .wpcf7-form p { margin: 0; }
+  .wpcf7-list-item { margin: 0; }
+
+
+  </style>
+
+  <section class="product-page" id="singleApp">
+    <div class="p-container">
+      <!-- Header -->
+      <header class="p-header">
+        <nav class="p-breadcrumb" id="bc">
+          <a href="/">Home</a> / Product
+        </nav>
+        <div class="p-title-section">
+          <h1 class="p-title" id="pTitle">Product Name</h1>
+        </div>
+      </header>
+
+      <!-- Main Content Layout -->
+      <div class="p-main">
+        <!-- Gallery Column -->
+        <section class="p-gallery">
+          <div class="gallery-main">
+            <img id="pgMain" alt="Product Image">
+            <div class="gallery-controls">
+              <button class="gallery-btn" id="zoomBtn" title="Zoom In">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="11" cy="11" r="8"/>
+                  <path d="M21 21l-4.35-4.35"/>
+                  <line x1="8" y1="11" x2="14" y2="11"/>
+                  <line x1="11" y1="8" x2="11" y2="14"/>
+                </svg>
+              </button>
+              <button class="gallery-btn" id="shareBtn" title="Share">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/>
+                  <polyline points="16,6 12,2 8,6"/>
+                  <line x1="12" y1="2" x2="12" y2="15"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div class="gallery-thumbs" id="pgThumbs"></div>
+        </section>
+
+        <!-- Product Info Column -->
+        <section class="p-info">
+          <div class="p-meta-row">
+            <div class="p-badge" id="pCollection" style="display:none">
+              <span>🏛️</span> <span id="collectionText"></span>
+            </div>
+            <div class="p-badge" id="pFinish" style="display:none">
+              <span>✨</span> <span id="finishText"></span>
+            </div>
+            <div class="p-sku">SKU: <span id="sku">—</span></div>
+          </div>
+
+          <div class="p-pricing">
+            <div class="p-price">Custom Pricing</div>
+            <div class="p-price-note">Handcrafted to order • Quote required</div>
+          </div>
+
+          <div class="p-actions">
+            <button class="btn btn-primary" id="btnQuote">
+              <span>💬</span> Request Quote
+            </button>
+            <button class="btn btn-secondary" id="btnShare">
+              <span>📋</span> Share Product
+            </button>
+          </div>
+
+          <div class="p-features">
+            <h4>Product Highlights</h4>
+            <div class="feature-list">
+              <div class="feature-item">
+                <div class="feature-icon">✓</div>
+                <span>Handcrafted in New York</span>
+              </div>
+              <div class="feature-item">
+                <div class="feature-icon">✓</div>
+                <span>UL Listed & US Wiring</span>
+              </div>
+              <div class="feature-item">
+                <div class="feature-icon">✓</div>
+                <span>6-8 Week Lead Time</span>
+              </div>
+              <div class="feature-item">
+                <div class="feature-icon">✓</div>
+                <span>Lifetime Craftsmanship Warranty</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Sidebar -->
+        <aside class="p-sidebar">
+          <div class="sidebar-section">
+            <h4 class="sidebar-title">Quick Info</h4>
+            <div class="sidebar-content">
+              <p><strong>Lead Time:</strong> 6-8 weeks</p>
+              <p><strong>Shipping:</strong> White glove available</p>
+              <p><strong>Compliance:</strong> UL Listed</p>
+              <p><strong>Warranty:</strong> Lifetime craftsmanship</p>
+            </div>
+          </div>
+          <div class="sidebar-section">
+            <h4 class="sidebar-title">Need Help?</h4>
+            <div class="sidebar-content">
+              <p>Our lighting experts are here to help you choose the perfect piece for your space.</p>
+              <p><strong>Call:</strong> (555) 123-4567</p>
+              <p><strong>Email:</strong> hello@lunvyr.com</p>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Content Tabs -->
+        <section class="p-content">
+          <nav class="tab-nav">
+            <button class="tab-btn active" data-tab="description">Description</button>
+            <button class="tab-btn" data-tab="specifications">Specifications</button>
+            <button class="tab-btn" data-tab="shipping">Shipping & Care</button>
+          </nav>
+          
+          <div class="tab-content">
+            <div class="tab-panel active" id="tab-description">
+              <div class="description" id="desc">
+                <p>Loading product description...</p>
+              </div>
+            </div>
+            
+            <div class="tab-panel" id="tab-specifications">
+              <div class="specs-grid" id="specsGrid">
+                <!-- Specifications will be dynamically loaded -->
+              </div>
+              
+              <!-- 3D Model and Drawing Action Buttons -->
+              <div class="spec-actions">
+                <button class="spec-btn" id="open3DBtn">
+                  <span>🎯</span> View 3D Model
+                </button>
+                <button class="spec-btn" id="openDrawingBtn">
+                  <span>📐</span> Technical Drawing
+                </button>
+              </div>
+            </div>
+            
+            <div class="tab-panel" id="tab-shipping">
+              <div class="description">
+                <h3>Shipping Information</h3>
+                <p>Each piece is carefully packaged and shipped with white glove delivery available. Standard shipping is included for most locations within the continental US.</p>
+                
+                <h3>Care Instructions</h3>
+                <p>Clean with a soft, dry cloth. For metal finishes, use appropriate metal cleaner as needed. Avoid harsh chemicals or abrasive materials.</p>
+                
+                <h3>Installation</h3>
+                <p>Professional installation recommended. All necessary mounting hardware included. Electrical work should be performed by a licensed electrician.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- Related Products -->
+      <section class="p-related" id="related" style="display: none;">
+        <h3>You Might Also Like</h3>
+        <div class="related-grid" id="relGrid"></div>
+      </section>
+    </div>
+  </section>
+
+  <!-- IMAGE VIEWER MODAL -->
+  <div class="image-viewer" id="imageViewer">
+    <div class="viewer-controls">
+      <button class="viewer-btn" id="closeViewerBtn" title="Close">×</button>
+    </div>
+    
+    <div class="viewer-image-container" id="viewerContainer">
+      <img class="viewer-image" id="viewerImage" alt="Product Image">
+    </div>
+    
+    <div class="viewer-info">
+      <div>Click anywhere to close • ESC to close</div>
+    </div>
+  </div>
+
+  <!-- QUOTE MODAL -->
+  <div class="modal-backdrop" id="quoteModal" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-header">
+        <h3 class="modal-title" id="modalTitle">Request a Quote</h3>
+        <button class="modal-close" id="modalClose" aria-label="Close">×</button>
+      </div>
+      <div class="modal-body">
+        <div class="quote-summary">
+          <div class="quote-image">
+            <img id="qImg" alt="Product">
+          </div>
+          <div class="quote-details">
+            <h4 id="qTitle">Product Name</h4>
+            <p id="qUrl">Product URL</p>
+          </div>
+        </div>
+
+        <div class="quote-form">
+          <!-- Contact Form 7 Integration -->
+          <div id="quoteFormSlot">
+            [contact-form-7 id="0720fca" title="Request a Quote"]
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3D MODEL MODAL -->
+  <div class="model-modal" id="modelModal">
+    <div class="model-modal-content">
+      <!-- Configuration Sidebar -->
+      <div class="model-modal-sidebar">
+        <div class="config-panel">
+          <!-- Materials Section -->
+          <div class="config-section">
+            <h4 class="config-title">Materials & Finishes</h4>
+            <div class="material-grid" id="materialGrid">
+              <div class="material-option active" data-material="brass" 
+                   style="background-image: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect fill=%22%23b8860b%22 width=%22100%22 height=%22100%22/></svg>')">
+                <div class="material-label">Brass</div>
+              </div>
+              <div class="material-option" data-material="copper"
+                   style="background-image: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect fill=%22%23cd7f32%22 width=%22100%22 height=%22100%22/></svg>')">
+                <div class="material-label">Copper</div>
+              </div>
+              <div class="material-option" data-material="black"
+                   style="background-image: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect fill=%22%232d3748%22 width=%22100%22 height=%22100%22/></svg>')">
+                <div class="material-label">Black</div>
+              </div>
+              <div class="material-option" data-material="chrome"
+                   style="background-image: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect fill=%22%23c0c0c0%22 width=%22100%22 height=%22100%22/></svg>')">
+                <div class="material-label">Chrome</div>
+              </div>
+              <div class="material-option" data-material="oil-rubbed-bronze"
+                   style="background-image: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect fill=%22%234a4238%22 width=%22100%22 height=%22100%22/></svg>')">
+                <div class="material-label">Oil Rubbed Bronze</div>
+              </div>
+              <div class="material-option" data-material="brushed-nickel"
+                   style="background-image: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect fill=%22%238c8c8c%22 width=%22100%22 height=%22100%22/></svg>')">
+                <div class="material-label">Brushed Nickel</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Environment Section -->
+          <div class="config-section">
+            <h4 class="config-title">Environment</h4>
+            <div class="environment-grid">
+              <div class="env-option active" data-env="studio">Studio</div>
+              <div class="env-option" data-env="neutral">Neutral</div>
+              <div class="env-option" data-env="sunset">Sunset</div>
+            </div>
+          </div>
+
+          <!-- Lighting Controls -->
+          <div class="config-section">
+            <h4 class="config-title">Lighting</h4>
+            <div class="lighting-control">
+              <div class="control-group">
+                <label class="control-label">
+                  <span>Intensity</span>
+                  <span id="intensityValue">1.2</span>
+                </label>
+                <input type="range" class="control-slider" id="intensitySlider" 
+                       min="0.5" max="3" step="0.1" value="1.2">
+              </div>
+              <div class="control-group">
+                <label class="control-label">
+                  <span>Shadow</span>
+                  <span id="shadowValue">1.0</span>
+                </label>
+                <input type="range" class="control-slider" id="shadowSlider" 
+                       min="0" max="2" step="0.1" value="1.0">
+              </div>
+              <div class="control-group">
+                <label class="control-label">
+                  <span>Exposure</span>
+                  <span id="exposureValue">1.2</span>
+                </label>
+                <input type="range" class="control-slider" id="exposureSlider" 
+                       min="0.5" max="2.5" step="0.1" value="1.2">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Configuration Actions -->
+        <div class="config-actions">
+          <button class="config-btn config-btn-secondary" id="resetConfigBtn">
+            <span>↻</span> Reset
+          </button>
+          <button class="config-btn config-btn-primary" id="saveConfigBtn">
+            <span>✓</span> Save
+          </button>
+        </div>
+      </div>
+
+      <!-- Main Viewer -->
+      <div class="model-modal-main">
+        <div class="model-modal-header">
+          <h3 class="model-modal-title">3D Product Configurator</h3>
+          <button class="model-modal-close" id="modelModalClose">×</button>
+        </div>
+        <div class="model-modal-viewer">
+          <model-viewer 
+            class="model-viewer"
+            id="productModelModal"
+            loading="eager"
+            camera-controls 
+            touch-action="pan-y"
+            auto-rotate
+            auto-rotate-delay="2000"
+            rotation-per-second="15deg"
+            shadow-intensity="1"
+            shadow-softness="0.5"
+            exposure="1.0"
+            tone-mapping="neutral"
+            camera-target="auto auto auto"
+            camera-orbit="45deg 75deg auto"
+            min-camera-orbit="auto auto 0.1m"
+            max-camera-orbit="auto auto 50m"
+            field-of-view="45deg"
+            max-field-of-view="120deg"
+            min-field-of-view="10deg"
+            interaction-policy="always-allow"
+            style="
+              background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); 
+              width: 100%; 
+              height: 100%;
+              display: block;
+              visibility: visible;
+            ">
+            
+            <!-- Slot para mostrar progreso de carga -->
+            <div slot="progress-bar" class="model-progress" style="
+              position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+              background: rgba(255,255,255,0.95); padding: 20px; border-radius: 8px;
+              font-family: Inter, sans-serif; color: #2d3748; text-align: center;
+              box-shadow: 0 4px 12px rgba(0,0,0,0.15); z-index: 1000;
+            ">
+              <div style="margin-bottom: 10px;">Loading 3D Model...</div>
+              <div style="width: 200px; height: 4px; background: #e2e8f0; border-radius: 2px; overflow: hidden;">
+                <div style="height: 100%; background: #b8860b; width: 0%; transition: width 0.3s;" class="progress-fill"></div>
+              </div>
+            </div>
+            
+            <!-- Slot para error -->
+            <div slot="error" style="
+              position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+              background: rgba(239, 68, 68, 0.95); color: white; padding: 20px; border-radius: 8px;
+              font-family: Inter, sans-serif; text-align: center; z-index: 1000;
+            ">
+              <div>❌ Error loading 3D model</div>
+              <div style="font-size: 14px; margin-top: 8px; opacity: 0.8;">
+                Model format may be incompatible. Try converting to GLB format.
+              </div>
+            </div>
+            
+          </model-viewer>
+          
+          <div class="model-viewer-controls">
+            <button class="model-control-btn" id="zoomInModalBtn" title="Zoom In">+</button>
+            <button class="model-control-btn" id="zoomOutModalBtn" title="Zoom Out">−</button>
+            <button class="model-control-btn" id="resetModelModalBtn" title="Reset View">⌂</button>
+            <button class="model-control-btn" id="autoRotateModalBtn" title="Auto Rotate">🔄</button>
+            <button class="model-control-btn" id="fullscreenModalBtn" title="Fullscreen">⛶</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TECHNICAL DRAWING MODAL -->
+  <div class="drawing-modal" id="drawingModal">
+    <div class="drawing-modal-content">
+      <div class="drawing-modal-header">
+        <h3 class="drawing-modal-title">Technical Drawing</h3>
+        <button class="drawing-modal-close" id="drawingModalClose">×</button>
+      </div>
+      <div class="drawing-modal-viewer">
+        <img class="drawing-image" id="technicalDrawingModal" alt="Technical Drawing">
+      </div>
+    </div>
+  </div>
+
+  <script>
+  (function(){
+    console.log('🚀 LUNVYR Product Page Script Iniciado');
+    console.log('🌐 URL actual:', location.href);
+    console.log('📍 Pathname:', location.pathname);
+    
+  const API = `${location.origin}/wp-json/wc/store/v1`;
+  const $ = s=>document.querySelector(s);
+  const decodeHTML = (str)=>{ if(str==null) return ''; const el=document.createElement('textarea'); el.innerHTML=String(str); return el.value; };
+
+    // Verificar que los elementos existen
+    console.log('🔍 Verificando elementos DOM...');
+    console.log('   - #pTitle:', !!$('#pTitle'));
+    console.log('   - #pgMain:', !!$('#pgMain'));
+    console.log('   - #open3DBtn:', !!$('#open3DBtn'));
+    console.log('   - #modelModal:', !!$('#modelModal'));
+
+    // ------- helpers -------
+    async function jget(path, params={}){
+      const url = new URL(API + path);
+      Object.entries(params).forEach(([k,v])=>{ if(v!==undefined && v!==null && v!=='') url.searchParams.set(k,v); });
+      const r = await fetch(url, { credentials:'same-origin' });
+      if(!r.ok) throw new Error(`HTTP ${r.status}`);
+      return r.json();
+    }
+    const slugFromURL = ()=>{
+      const parts = location.pathname.split('/').filter(Boolean);
+      const i = parts.lastIndexOf('product');
+      return (i>-1 && parts[i+1]) ? parts[i+1] : parts[parts.length-1];
+    };
+
+    // ------- state -------
+    const state = { product:null };
+
+    // ------- gallery -------
+    function renderGallery(imgs){
+      const main = $('#pgMain'), thumbs = $('#pgThumbs');
+      thumbs.innerHTML = ''; 
+      main.src = imgs[0] || '';
+      
+      imgs.forEach((src,idx)=>{
+        const div = document.createElement('div');
+        div.className = `thumb ${idx === 0 ? 'active' : ''}`;
+        div.innerHTML = `<img src="${src}" alt="">`;
+        div.addEventListener('click',()=>{
+          main.src = src;
+          thumbs.querySelectorAll('.thumb').forEach(t => t.classList.remove('active'));
+          div.classList.add('active');
+        });
+        thumbs.appendChild(div);
+      });
+    }
+
+    // ------- specs grid from attributes -------
+    function renderSpecs(p){
+      const container = $('#specsGrid'); 
+      container.innerHTML = '';
+      
+      // Build attributes dictionary
+      const attrs = {};
+      (p.attributes||[]).forEach(a=>{
+        const slug=(a.slug||'').replace(/^pa_/,'').toLowerCase();
+        const name=(a.name||'').trim();
+        const value = (a.terms||a.options||[]).map(t=> (t?.name||t)).join(', ');
+        if(!value) return;
+        attrs[slug]=value; 
+        attrs[name.toLowerCase()]=value;
+      });
+
+      // Group specifications
+      const groups = {
+        'Technical Specifications': [
+          ['Socket Type', attrs.socket || attrs['lamp-holder'] || '—'],
+          ['Wattage', attrs.wattage || attrs.watts || '—'],
+          ['Voltage', attrs.voltage || '120V'],
+          ['IP Rating', attrs.ip || '—'],
+        ],
+        'Physical Specifications': [
+          ['Dimensions', attrs.dimensions || attrs.size || '—'],
+          ['Weight', attrs.weight || '—'],
+          ['Backplate/Canopy', attrs.backplate || attrs.canopy || '—'],
+          ['Material', attrs.material || attrs.materials || '—'],
+        ],
+        'Design Details': [
+          ['Finish', attrs.finish || '—'],
+          ['Collection', attrs.collection || '—'],
+          ['Style', attrs.style || '—'],
+          ['Color', attrs.color || '—'],
+        ]
+      };
+
+      Object.entries(groups).forEach(([groupName, specs]) => {
+        const group = document.createElement('div');
+        group.className = 'spec-group';
+        
+        const hasValidSpecs = specs.some(([,value]) => value !== '—');
+        if (!hasValidSpecs) return;
+        
+        group.innerHTML = `
+          <h4>${groupName}</h4>
+          ${specs.map(([label, value]) => `
+            <div class="spec-row">
+              <span class="spec-label">${label}</span>
+              <span class="spec-value">${value}</span>
+            </div>
+          `).join('')}
+        `;
+        container.appendChild(group);
+      });
+    }
+
+    // ------- tabs -------
+    document.querySelectorAll('.tab-btn').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        const tabId = btn.dataset.tab;
+        
+        // Update button states
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        
+        // Update panel visibility
+        document.querySelectorAll('.tab-panel').forEach(panel => {
+          panel.classList.remove('active');
+        });
+        document.getElementById(`tab-${tabId}`)?.classList.add('active');
+      });
+    });
+
+    // ------- quote modal -------
+    const modal = $('#quoteModal'), qImg=$('#qImg'), qTitle=$('#qTitle'), qUrl=$('#qUrl'), modalClose=$('#modalClose');
+    
+    function openQuote(){
+      const p = state.product; 
+      if(!p) return;
+      
+  qImg.src = (p.images?.[0]?.src)||'';
+  qTitle.textContent = decodeHTML(p.name);
+      qUrl.textContent = p.permalink||location.href;
+
+      // Prefill CF7 hidden fields if present
+      const fill = ()=>{
+        const root = document.getElementById('quoteFormSlot') || document;
+        const setVal = (sel,val)=>{
+          const el=root.querySelector(sel); 
+          if(el){ 
+            el.value=val; 
+            el.dispatchEvent(new Event('input',{bubbles:true})); 
+          }
+        };
+  setVal('input[name="product-name"]', decodeHTML(p.name));
+        setVal('input[name="product-url"]', p.permalink||location.href);
+        setVal('input[name="product-image"]', (p.images?.[0]?.src)||'');
+      };
+      
+      setTimeout(fill, 50);
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden','false');
+      document.body.style.overflow = 'hidden';
+    }
+    
+    function closeQuote(){ 
+      modal.classList.remove('open'); 
+      modal.setAttribute('aria-hidden','true'); 
+      document.body.style.overflow = '';
+    }
+    
+    modalClose.addEventListener('click', closeQuote);
+    modal.addEventListener('click', e=>{ if(e.target===modal) closeQuote(); });
+    document.addEventListener('keydown', e=>{ if(e.key==='Escape') closeQuote(); });
+
+    // CF7 hook: close after submit
+    document.addEventListener('wpcf7mailsent', function(){
+      closeQuote();
+      // Show success message
+      alert('Thank you! Your quote request has been submitted. We\'ll get back to you within 24 hours.');
+    }, false);
+
+    $('#btnQuote').addEventListener('click', openQuote);
+    
+    $('#btnShare').addEventListener('click', ()=>{
+      const p=state.product; 
+      if(!p) return;
+      const url = p.permalink||location.href;
+      const title = decodeHTML(p.name);
+      if(navigator.share){ 
+        navigator.share({title, url}); 
+      } else { 
+        navigator.clipboard.writeText(url); 
+        alert('Product link copied to clipboard'); 
+      }
+    });
+
+    $('#shareBtn').addEventListener('click', ()=>{
+      $('#btnShare').click();
+    });
+
+    // ------- image viewer -------
+    const imageViewer = $('#imageViewer');
+    const viewerImage = $('#viewerImage');
+    const viewerContainer = $('#viewerContainer');
+
+    function openImageViewer(imageSrc) {
+      viewerImage.src = imageSrc;
+      imageViewer.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeImageViewer() {
+      imageViewer.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    // Close button
+    $('#closeViewerBtn').addEventListener('click', closeImageViewer);
+
+    // Close on background click
+    imageViewer.addEventListener('click', (e) => {
+      if (e.target === imageViewer || e.target === viewerContainer) {
+        closeImageViewer();
+      }
+    });
+
+    // Keyboard controls - only ESC to close
+    document.addEventListener('keydown', (e) => {
+      if (!imageViewer.classList.contains('open')) return;
+      if (e.key === 'Escape') {
+        closeImageViewer();
+      }
+    });
+
+    // ------- related products -------
+    async function renderRelated(p){
+      const catId = p.categories?.[0]?.id;
+      if(!catId) return;
+      
+      const rel = await jget('/products', { per_page: 12, category: catId, exclude: p.id });
+      if(!rel?.length) return;
+      
+      const grid = $('#relGrid'); 
+      grid.innerHTML='';
+      
+      // Determine how many products to show based on screen size
+      const getProductCount = () => {
+        const width = window.innerWidth;
+        if (width <= 480) return 1; // Mobile: 1 product only
+        if (width <= 1024) return 4; // Tablet: 4 products (2x2 grid)  
+        return 3; // Desktop: 3 products
+      };
+      
+      const count = getProductCount();
+      
+      rel.slice(0, count).forEach(r=>{
+        const card = document.createElement('article'); 
+        card.className='related-card';
+        const img = r.images?.[0]?.src||'';
+        
+        card.innerHTML=`
+          <div class="related-image">
+            ${img ? `<img src="${img}" alt="${r.name}">` : ''}
+          </div>
+          <div class="related-info">
+            <h4 class="related-title">${r.name}</h4>
+            <p class="related-subtitle">${r.categories?.[0]?.name || 'Product'}</p>
+            <a href="${r.permalink||'#'}" class="related-link">
+              View Details →
+            </a>
+          </div>
+        `;
+        
+        card.addEventListener('click', ()=>{
+          window.location.href = r.permalink || '#';
+        });
+        
+        grid.appendChild(card);
+      });
+      
+      document.getElementById('related').style.display='block';
+    }
+
+    // ------- load product by slug -------
+    (async function init(){
+      try{
+        const slug = slugFromURL();
+        // Incluir meta_data en la consulta
+        const list = await jget('/products', { 
+          slug, 
+          per_page: 1,
+          include_meta: true
+        });
+        const p = list?.[0];
+        if(!p){ $('#pTitle').textContent='Product not found'; return; }
+        state.product = p;
+
+        console.log('🔍 Debug - Producto completo:', p);
+
+  // Title + breadcrumb + sku (decode entities like &#8211;)
+  $('#pTitle').textContent = decodeHTML(p.name);
+  $('#bc').innerHTML = `<a href="/">Home</a> / ${decodeHTML(p.categories?.[0]?.name||'Product')}`;
+        $('#sku').textContent = p.sku || '—';
+
+        // Badges (collection/finish if exist as attributes)
+        const attributes = {};
+        (p.attributes||[]).forEach(a=>{
+          const slug=(a.slug||'').replace(/^pa_/,'').toLowerCase();
+          const value=(a.terms||a.options||[]).map(t=> (t?.name||t)).join(', ');
+          attributes[slug]=value;
+        });
+        
+        if(attributes.collection){ 
+          const el=$('#pCollection'); 
+          $('#collectionText').textContent = attributes.collection; 
+          el.style.display='inline-flex'; 
+        }
+        if(attributes.finish||attributes.material){ 
+          const el=$('#pFinish'); 
+          $('#finishText').textContent = attributes.finish||attributes.material; 
+          el.style.display='inline-flex'; 
+        }
+
+        // Description
+        $('#desc').innerHTML = p.short_description || p.description || '<em>No description.</em>';
+
+        // Gallery
+        const imgs = (p.images||[]).map(i=>i.src);
+        renderGallery(imgs);
+
+        // Specs
+        renderSpecs(p);
+
+        // Related
+        renderRelated(p);
+
+        // Zoom functionality: opens the image viewer
+        document.getElementById('zoomBtn').addEventListener('click', ()=>{
+          const src = document.getElementById('pgMain').src; 
+          if(src) openImageViewer(src);
+        });
+
+        // Initialize 3D model and technical drawing modals
+        initializeModals(p);
+        
+      }catch(e){
+        console.error(e);
+        $('#pTitle').textContent = 'Error loading product';
+      }
+    })();
+
+    // ------- Modal Management -------
+    function initializeModals(product) {
+      // Extract 3D model and technical drawing URLs from product attributes and meta fields
+      const attributes = {};
+      (product.attributes||[]).forEach(a=>{
+        const slug=(a.slug||'').replace(/^pa_/,'').toLowerCase();
+        const value=(a.terms||a.options||[]).map(t=> (t?.name||t)).join(', ');
+        attributes[slug]=value;
+      });
+
+      // También buscar en meta fields y custom fields
+      const meta = product.meta_data || [];
+      meta.forEach(m => {
+        if (m.key === '3d_model_url' || m.key === '_3d_model_url') {
+          attributes['3d-model'] = m.value;
+        }
+        if (m.key === 'technical_drawing_url' || m.key === '_technical_drawing_url') {
+          attributes['technical-drawing'] = m.value;
+        }
+      });
+
+      // Buscar URLs en múltiples ubicaciones posibles
+      let modelUrl = attributes['3d-model'] || 
+                      attributes['model'] || 
+                      attributes['3d_model'] ||
+                      product['3d_model_url'] ||
+                      // Solo para este producto específico (ID 19938 o slug específico)
+                      (product.slug === 'polished-brass-double-cone-wall-sconce-mid-century-modern-fixture-model-009' ? 
+                        'https://lunvyr.com/wp-content/uploads/2025/10/009.glb' : 
+                        '') ||
+                      '';
+      
+      console.log('🎯 Producto slug:', product.slug);
+      console.log('🎯 Producto ID:', product.id);
+      
+      // Si no hay URL configurada, mostrar mensaje de ayuda
+      if (!modelUrl) {
+        console.warn('⚠️ No se encontró modelo 3D para este producto');
+        console.log('💡 Para configurar modelo 3D:');
+        console.log('   1. Ve a Productos → Editar Producto');
+        console.log('   2. En Attributes, agrega: 3d-model');
+        console.log('   3. Valor: URL del archivo GLB para este producto');
+      }
+      
+      // Verificar y limpiar la URL
+      if (modelUrl) {
+        // Asegurar que la URL sea absoluta
+        if (!modelUrl.startsWith('http')) {
+          if (modelUrl.startsWith('/')) {
+            modelUrl = location.origin + modelUrl;
+          } else {
+            modelUrl = location.origin + '/wp-content/uploads/' + modelUrl;
+          }
+        }
+        
+        // Verificar que el archivo exista
+        fetch(modelUrl, { method: 'HEAD' })
+          .then(response => {
+            if (!response.ok) {
+              console.error('❌ Archivo GLB no accesible:', response.status, modelUrl);
+            } else {
+              console.log('✅ Archivo GLB accesible:', modelUrl);
+            }
+          })
+          .catch(e => console.error('❌ Error verificando GLB:', e));
+      }
+      
+      const drawingUrl = attributes['technical-drawing'] || 
+                        attributes['drawing'] || 
+                        attributes['technical_drawing'] ||
+                        product['technical_drawing_url'] ||
+                        '';
+
+      console.log('🎯 Debug - Model URL:', modelUrl);
+      console.log('🎯 Debug - Drawing URL:', drawingUrl);
+      console.log('🎯 Debug - Product attributes:', attributes);
+
+      // Show/hide buttons based on availability
+      const modelBtn = $('#open3DBtn');
+      const drawingBtn = $('#openDrawingBtn');
+      
+      if (!modelUrl) {
+        modelBtn.style.display = 'none';
+      }
+      if (!drawingUrl) {
+        drawingBtn.style.display = 'none';
+      }
+
+      // Set up 3D Model Modal with advanced configurator
+      if (modelUrl) {
+        const modelViewer = $('#productModelModal');
+        
+        console.log('🎯 Setting model URL:', modelUrl);
+        
+        // Verificar que la URL sea válida
+        if (modelUrl.startsWith('http')) {
+          modelViewer.setAttribute('src', modelUrl);
+          modelViewer.setAttribute('poster', (product.images?.[0]?.src)||'');
+          
+          // Agregar event listeners para debug
+          modelViewer.addEventListener('load', () => {
+            console.log('✅ Modelo 3D cargado exitosamente');
+            // Ocultar el loading
+            const progressBar = modelViewer.querySelector('[slot="progress-bar"]');
+            if (progressBar) progressBar.style.display = 'none';
+          });
+          
+          modelViewer.addEventListener('error', (e) => {
+            console.error('❌ Error cargando modelo 3D:', e);
+            console.error('❌ URL problemática:', modelUrl);
+            console.error('❌ Detalles del error:', e.detail);
+          });
+          
+          modelViewer.addEventListener('progress', (e) => {
+            console.log('⏳ Progreso de carga:', e.detail.totalProgress);
+            // Actualizar barra de progreso visual
+            const progressFill = document.querySelector('.progress-fill');
+            if (progressFill) {
+              progressFill.style.width = (e.detail.totalProgress * 100) + '%';
+            }
+          });
+          
+          modelViewer.addEventListener('model-visibility', (e) => {
+            console.log('👁️ Visibilidad del modelo:', e.detail.visible);
+          });
+          
+          // Verificar después de 3 segundos si el modelo es visible y aplicar defaults
+          setTimeout(() => {
+            const model = modelViewer.model;
+            console.log('🔍 Estado del modelo después de 3s:');
+            console.log('   - Modelo cargado:', !!model);
+            console.log('   - Model-viewer ready:', modelViewer.loaded);
+            console.log('   - Dimensiones modelo:', model ? model.size : 'N/A');
+
+            if (model) {
+              console.log('✅ Modelo existe, aplicando configuración por defecto...');
+              // Aplicar configuración por defecto (material brass + entorno studio)
+              resetConfiguration(modelViewer);
+
+              // Auto-ajustar la cámara
+              setTimeout(() => {
+                if (modelViewer.jumpCameraToGoal) modelViewer.jumpCameraToGoal();
+                console.log('🎯 Auto-framing aplicado');
+              }, 500);
+            }
+          }, 3000);
+          
+        } else {
+          console.error('❌ URL del modelo no válida:', modelUrl);
+        }
+        
+        modelBtn.addEventListener('click', () => open3DModal());
+        
+        // Initialize 3D configurator
+        initialize3DConfigurator(modelViewer);
+      } else {
+        console.warn('⚠️ No se encontró URL del modelo 3D');
+      }
+
+      // Set up Technical Drawing Modal
+      if (drawingUrl) {
+        $('#technicalDrawingModal').src = drawingUrl;
+        drawingBtn.addEventListener('click', () => openDrawingModal());
+      }
+
+      // Modal close events
+      $('#modelModalClose').addEventListener('click', close3DModal);
+      $('#drawingModalClose').addEventListener('click', closeDrawingModal);
+      
+      // Close on background click
+      $('#modelModal').addEventListener('click', (e) => {
+        if (e.target === $('#modelModal')) close3DModal();
+      });
+      $('#drawingModal').addEventListener('click', (e) => {
+        if (e.target === $('#drawingModal')) closeDrawingModal();
+      });
+
+      // ESC key to close
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          close3DModal();
+          closeDrawingModal();
+        }
+      });
+    }
+
+    // Apply material properties to 3D model using model-viewer's scene-graph API
+  function applyMaterialToModel(modelViewer, materialConfig) {
+      console.log('🎨 Aplicando material:', materialConfig?.name || 'Sin nombre');
+
+      // Helper: hex -> [r,g,b,a]
+      const hexToRGBA = (hex) => {
+        if (!hex) return [1,1,1,1];
+        const h = hex.replace('#','');
+        const bigint = parseInt(h, 16);
+        const r = ((bigint >> 16) & 255) / 255;
+        const g = ((bigint >> 8) & 255) / 255;
+        const b = (bigint & 255) / 255;
+        return [r,g,b,1];
+      };
+
+      const loadImage = (url) => new Promise((resolve, reject)=>{ const img = new Image(); img.crossOrigin='anonymous'; img.onload=()=>resolve(img); img.onerror=reject; img.src=url; });
+
+      // Compose baseColor from layers (simple blending) → returns dataURL
+      const composeBaseLayers = async (layers, size=1024) => {
+        if (!Array.isArray(layers) || !layers.length) return null;
+        try{
+          const canvas = document.createElement('canvas');
+          const ctx = canvas.getContext('2d');
+          canvas.width = canvas.height = size;
+          ctx.clearRect(0,0,size,size);
+          for (const layer of layers){
+            const img = await loadImage(layer.url);
+            ctx.globalAlpha = (typeof layer.opacity==='number'? layer.opacity : 1);
+            const blend = (layer.blend||'source-over');
+            ctx.globalCompositeOperation = blend;
+            ctx.drawImage(img, 0, 0, size, size);
+          }
+          ctx.globalCompositeOperation = 'source-over';
+          ctx.globalAlpha = 1;
+          return canvas.toDataURL('image/png');
+        }catch(e){ console.warn('⚠️ Error componiendo capas baseColor', e); return null; }
+      };
+
+      // Wait for model to be loaded
+      if (!modelViewer.model) {
+        console.warn('⚠️ Modelo no cargado aún, esperando...');
+        modelViewer.addEventListener('load', () => {
+          applyMaterialToModel(modelViewer, materialConfig);
+        }, { once: true });
+        return;
+      }
+
+      const sceneModel = modelViewer.model;
+      let mats = sceneModel.materials || [];
+
+      // Optional: apply to specific target material names
+      const targets = Array.isArray(materialConfig?.targets) ? new Set(materialConfig.targets.map(String)) : null;
+      if (targets && targets.size){
+        mats = mats.filter(m => targets.has(String(m.name)));
+        if (!mats.length){ console.warn('⚠️ Ningún material coincide con targets:', Array.from(targets)); }
+      }
+      if (!mats.length) {
+        console.warn('⚠️ No se encontraron materiales en el modelo');
+        return;
+      }
+
+      let changed = 0;
+      const baseColor = hexToRGBA(materialConfig.color || '#ffffff');
+      const metallic = (materialConfig.metalness ?? 0.5);
+      const rough = (materialConfig.roughness ?? 0.5);
+
+      // Helper: create and set a texture on a TextureInfo node if supported
+      const setTextureIfPossible = async (texInfo, url, transform) => {
+        try{
+          if (!texInfo || !url) return false;
+          const mdl = modelViewer.model;
+          if (!mdl) return false;
+          const create = mdl.createTexture || modelViewer.createTexture;
+          if (typeof create !== 'function') return false;
+          const texture = await create.call(mdl, url);
+          if (!texture) return false;
+          if (typeof texInfo.setTexture === 'function') {
+            await texInfo.setTexture(texture);
+          } else if ('texture' in texInfo) {
+            texInfo.texture = texture;
+          }
+          if (transform && typeof texInfo.setTextureTransform === 'function') {
+            texInfo.setTextureTransform(transform);
+          }
+          return true;
+        }catch(err){
+          console.warn('⚠️ No se pudo asignar textura', url, err);
+          return false;
+        }
+      };
+
+  const textures = materialConfig.textures || materialConfig.maps || null;
+      const tTransform = materialConfig.textureTransform || null; // {offset:[x,y], scale:[x,y], rotation:rad}
+  const layers = Array.isArray(materialConfig.layers) ? materialConfig.layers : null;
+
+      for (const mat of mats) {
+        try {
+          if (mat.pbrMetallicRoughness) {
+            mat.pbrMetallicRoughness.setBaseColorFactor(baseColor);
+            if (typeof mat.pbrMetallicRoughness.setMetallicFactor === 'function') {
+              mat.pbrMetallicRoughness.setMetallicFactor(metallic);
+            } else if ('metallicFactor' in mat.pbrMetallicRoughness) {
+              mat.pbrMetallicRoughness.metallicFactor = metallic;
+            }
+            if (typeof mat.pbrMetallicRoughness.setRoughnessFactor === 'function') {
+              mat.pbrMetallicRoughness.setRoughnessFactor(rough);
+            } else if ('roughnessFactor' in mat.pbrMetallicRoughness) {
+              mat.pbrMetallicRoughness.roughnessFactor = rough;
+            }
+
+            // Optional textures
+            if (textures) {
+              // base color texture
+              if (mat.pbrMetallicRoughness.baseColorTexture) {
+                setTextureIfPossible(mat.pbrMetallicRoughness.baseColorTexture, textures.baseColor||textures.base_color||textures.albedo||textures.diffuse, tTransform);
+              }
+              // metallic-roughness texture
+              if (mat.pbrMetallicRoughness.metallicRoughnessTexture) {
+                setTextureIfPossible(mat.pbrMetallicRoughness.metallicRoughnessTexture, textures.metallicRoughness||textures.metallic_roughness||textures.mr, tTransform);
+              }
+            }
+            // Base layers composition (if defined and no explicit baseColor texture)
+            if (!textures?.baseColor && layers && mat.pbrMetallicRoughness.baseColorTexture) {
+              composeBaseLayers(layers).then(url => {
+                if (url) setTextureIfPossible(mat.pbrMetallicRoughness.baseColorTexture, url, tTransform);
+              });
+            }
+          }
+
+          // Optional emissive
+          if (materialConfig.emissive) {
+            const [er, eg, eb] = hexToRGBA(materialConfig.emissive);
+            if (typeof mat.setEmissiveFactor === 'function') {
+              mat.setEmissiveFactor([er, eg, eb]);
+            } else if ('emissiveFactor' in mat) {
+              mat.emissiveFactor = [er, eg, eb];
+            }
+          }
+
+          // Normal, Occlusion, Emissive textures (if provided)
+          if (textures) {
+            if (mat.normalTexture) {
+              setTextureIfPossible(mat.normalTexture, textures.normal||textures.normalMap, tTransform);
+              // Normal strength/scale if provided
+              if (typeof mat.normalTexture.setScale === 'function' && typeof materialConfig.normalStrength === 'number'){
+                try { mat.normalTexture.setScale(materialConfig.normalStrength); } catch(_){}
+              } else if ('scale' in mat.normalTexture && typeof materialConfig.normalStrength === 'number'){
+                mat.normalTexture.scale = materialConfig.normalStrength;
+              }
+            }
+            if (mat.occlusionTexture) {
+              setTextureIfPossible(mat.occlusionTexture, textures.occlusion||textures.ao||textures.occlusionMap, tTransform);
+            }
+            if (mat.emissiveTexture) {
+              setTextureIfPossible(mat.emissiveTexture, textures.emissive||textures.emissiveMap, tTransform);
+            }
+          }
+
+          changed++;
+        } catch (err) {
+          console.warn('⚠️ No se pudo aplicar material a un mat:', err);
+        }
+      }
+
+      console.log(`✅ ${changed} materiales actualizados con ${materialConfig?.name || 'material'}`);
+      // Optional: per-finish environment and exposure
+      if (materialConfig.environment){
+        modelViewer.setAttribute('environment-image', materialConfig.environment);
+      }
+      if (typeof materialConfig.exposure === 'number'){
+        modelViewer.setAttribute('exposure', String(materialConfig.exposure));
+      }
+      // Optional: glTF variants
+      if (materialConfig.variant){
+        try {
+          modelViewer.setAttribute('variant-name', materialConfig.variant);
+          if ('variantName' in modelViewer) modelViewer.variantName = materialConfig.variant;
+        } catch(_){}
+      }
+      modelViewer.requestUpdate('material');
+    }
+
+    // Advanced 3D Configurator
+    function initialize3DConfigurator(modelViewer) {
+      console.log('🎮 Inicializando configurador 3D');
+
+      // Default material presets (fallback when no custom JSON is provided)
+      const defaultMaterials = {
+        brass: { color: '#b8860b', metalness: 0.8, roughness: 0.2, name: 'Polished Brass' },
+        copper: { color: '#cd7f32', metalness: 0.7, roughness: 0.3, name: 'Aged Copper' },
+        black: { color: '#2d3748', metalness: 0.1, roughness: 0.8, name: 'Matte Black' },
+        chrome: { color: '#c0c0c0', metalness: 1.0, roughness: 0.1, name: 'Polished Chrome' },
+        'oil-rubbed-bronze': { color: '#4a4238', metalness: 0.6, roughness: 0.7, name: 'Oil Rubbed Bronze' },
+        'brushed-nickel': { color: '#8c8c8c', metalness: 0.8, roughness: 0.4, name: 'Brushed Nickel' }
+      };
+
+      // Helper to Title Case labels from keys
+      const titleCase = (str='') => str
+        .replace(/[-_]+/g,' ')
+        .replace(/\s+/g,' ')
+        .trim()
+        .replace(/\b\w/g, c => c.toUpperCase());
+
+      // Extract per-product materials from meta JSON
+  let materials = { ...defaultMaterials };
+      let order = Object.keys(materials);
+      let defaultKey = 'brass';
+      let usedCustomOnly = false;
+  let views = null; // camera presets
+  let defaultViewKey = null;
+
+      try {
+        const meta = (typeof state !== 'undefined' ? (state.product?.meta_data || []) : (window.state?.product?.meta_data || []));
+        const custom = meta?.find?.(m => m.key === '3d_materials' || m.key === '_3d_materials');
+        let parsed = null;
+        if (custom) {
+          if (typeof custom.value === 'string') {
+            try { parsed = JSON.parse(custom.value); } catch(_) { parsed = null; }
+          } else if (typeof custom.value === 'object' && custom.value) {
+            parsed = custom.value;
+          }
+        }
+
+        if (parsed && typeof parsed === 'object' && !Array.isArray(parsed)) {
+          // If JSON includes wrapper with fields, allow shapes:
+          // { materials: {key:{...}}, order:[...], default:"key" }
+          if (parsed.materials && typeof parsed.materials === 'object') {
+            materials = { ...parsed.materials };
+          } else {
+            // Assume direct map { key: { ... } }
+            materials = { ...parsed };
+          }
+          usedCustomOnly = true; // only show what author defined
+          if (Array.isArray(parsed.order)) {
+            order = parsed.order.filter(k => materials[k]);
+          } else {
+            order = Object.keys(materials);
+          }
+          defaultKey = parsed.default || parsed.defaultFinish || parsed._default || order[0] || 'brass';
+          // Views can also be embedded: { views: {key:{...}}, defaultView:"..." }
+          if (parsed.views && typeof parsed.views === 'object') {
+            views = { ...parsed.views };
+          }
+          if (parsed.defaultView) defaultViewKey = parsed.defaultView;
+          console.log('🧩 Usando presets personalizados desde meta 3d_materials', { order, defaultKey, materials });
+        } else {
+          // No custom JSON → keep defaults
+          materials = { ...defaultMaterials };
+          order = Object.keys(materials);
+          defaultKey = 'brass';
+          console.log('ℹ️ Usando presets por defecto (no se encontró JSON personalizado)');
+        }
+      } catch (e) {
+        console.warn('⚠️ No se pudo leer 3d_materials del producto:', e);
+        materials = { ...defaultMaterials };
+        order = Object.keys(materials);
+        defaultKey = 'brass';
+      }
+
+      // Expose current materials/default for other functions (reset/save)
+      window.lunvyrMaterials = materials;
+      window.lunvyrMaterialsOrder = order;
+      window.lunvyrDefaultFinish = defaultKey;
+      // Views exposure
+      // Also allow separate meta key 3d_views
+      try{
+        if (!views) {
+          const meta = (typeof state !== 'undefined' ? (state.product?.meta_data || []) : (window.state?.product?.meta_data || []));
+          const v = meta?.find?.(m => m.key === '3d_views' || m.key === '_3d_views');
+          let vp = null;
+          if (v) {
+            if (typeof v.value === 'string') { try{ vp = JSON.parse(v.value); } catch(_){ vp=null; } }
+            else if (typeof v.value === 'object' && v.value) { vp = v.value; }
+          }
+          if (vp && typeof vp === 'object') {
+            if (vp.views) { views = { ...vp.views }; }
+            else { views = { ...vp }; }
+            if (vp.defaultView) defaultViewKey = vp.defaultView;
+          }
+        }
+      }catch(e){ console.warn('⚠️ No se pudo leer 3d_views:', e); }
+      window.lunvyrViews = views;
+      window.lunvyrDefaultView = defaultViewKey;
+
+      // Build the Materials Grid dynamically
+      const grid = document.getElementById('materialGrid');
+      if (grid) {
+        grid.innerHTML = '';
+        order.forEach((key, idx) => {
+          const cfg = materials[key] || {};
+          const name = cfg.name || titleCase(key);
+          const swatch = cfg.swatch; // optional image URL for thumbnail
+          const color = cfg.color || '#b8860b';
+          const bgStyle = swatch 
+            ? `background-image: url('${swatch}')` 
+            : `background-image: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect fill=%22${encodeURIComponent(color)}%22 width=%22100%22 height=%22100%22/></svg>')`;
+
+          const div = document.createElement('div');
+          div.className = 'material-option' + (key === defaultKey ? ' active' : '');
+          div.dataset.material = key;
+          div.setAttribute('style', bgStyle);
+          div.innerHTML = `<div class="material-label">${name}</div>`;
+          grid.appendChild(div);
+        });
+      }
+
+      // Bind click events to new grid items
+      const bindMaterialClicks = () => {
+        document.querySelectorAll('.material-option').forEach(option => {
+          option.addEventListener('click', () => {
+            // Update active state
+            document.querySelectorAll('.material-option').forEach(opt => opt.classList.remove('active'));
+            option.classList.add('active');
+            const materialKey = option.dataset.material;
+            const materialCfg = materials[materialKey];
+            if (materialCfg) {
+              console.log(`🎨 Cambiando a material: ${materialCfg.name || titleCase(materialKey)}`);
+              applyMaterialToModel(modelViewer, materialCfg);
+            } else {
+              console.warn(`⚠️ Material no encontrado: ${materialKey}`);
+            }
+          });
+        });
+      };
+
+      bindMaterialClicks();
+
+      // Build Views UI if views are provided
+      const buildViewsUI = () => {
+        if (!views || !Object.keys(views).length) return;
+        const panel = document.querySelector('.model-modal-sidebar .config-panel');
+        if (!panel) return;
+        const section = document.createElement('div');
+        section.className = 'config-section';
+        section.innerHTML = `
+          <h4 class="config-title">Views</h4>
+          <div class="environment-grid" id="viewsGrid"></div>
+        `;
+        panel.insertBefore(section, panel.firstChild); // insert at top
+        const vg = section.querySelector('#viewsGrid');
+        const keys = Object.keys(views);
+        keys.forEach((k, i) => {
+          const view = views[k];
+          const btn = document.createElement('div');
+          btn.className = 'env-option' + (k === defaultViewKey ? ' active' : '');
+          btn.dataset.view = k;
+          btn.textContent = view?.name || titleCase(k);
+          btn.addEventListener('click', () => {
+            vg.querySelectorAll('.env-option').forEach(x=>x.classList.remove('active'));
+            btn.classList.add('active');
+            applyView(modelViewer, view);
+          });
+          vg.appendChild(btn);
+        });
+      };
+
+      // Helper to apply a camera view
+      const applyView = (mv, v) => {
+        if (!v || !mv) return;
+        if (v.cameraTarget) mv.setAttribute('camera-target', v.cameraTarget);
+        if (v.cameraOrbit) mv.setAttribute('camera-orbit', v.cameraOrbit);
+        if (v.fieldOfView) mv.setAttribute('field-of-view', v.fieldOfView);
+        if (mv.jumpCameraToGoal) mv.jumpCameraToGoal();
+      };
+
+      buildViewsUI();
+
+      const environments = {
+        studio: 'neutral',
+        neutral: 'legacy',
+        sunset: ''  // Removemos el HDR que causaba 404
+      };
+
+      // Environment selection
+      document.querySelectorAll('.env-option').forEach(option => {
+        option.addEventListener('click', () => {
+          document.querySelectorAll('.env-option').forEach(opt => opt.classList.remove('active'));
+          option.classList.add('active');
+          
+          const envType = option.dataset.env;
+          const envValue = environments[envType];
+          if (envValue) {
+            modelViewer.setAttribute('environment-image', envValue);
+            console.log('🌍 Environment cambiado a:', envValue);
+          }
+        });
+      });
+
+      // Lighting controls
+      const intensitySlider = $('#intensitySlider');
+      const shadowSlider = $('#shadowSlider');
+      const exposureSlider = $('#exposureSlider');
+
+      if (intensitySlider) {
+        intensitySlider.addEventListener('input', (e) => {
+          const value = e.target.value;
+          $('#intensityValue').textContent = value;
+          modelViewer.setAttribute('shadow-intensity', value);
+          console.log('💡 Shadow intensity:', value);
+        });
+      }
+
+      if (shadowSlider) {
+        shadowSlider.addEventListener('input', (e) => {
+          const value = e.target.value;
+          $('#shadowValue').textContent = value;
+          modelViewer.setAttribute('shadow-softness', value);
+          console.log('🌫️ Shadow softness:', value);
+        });
+      }
+
+      if (exposureSlider) {
+        exposureSlider.addEventListener('input', (e) => {
+          const value = e.target.value;
+          $('#exposureValue').textContent = value;
+          modelViewer.setAttribute('exposure', value);
+          console.log('📸 Exposure:', value);
+        });
+      }
+
+      // Configuration actions
+      const resetBtn = $('#resetConfigBtn');
+      const saveBtn = $('#saveConfigBtn');
+      
+      if (resetBtn) {
+        resetBtn.addEventListener('click', () => {
+          resetConfiguration(modelViewer);
+        });
+      }
+
+      if (saveBtn) {
+        saveBtn.addEventListener('click', () => {
+          saveConfiguration();
+        });
+      }
+
+      // Model controls (scoped to this modelViewer)
+      const resetViewBtn = $('#resetModelModalBtn');
+      const zoomInBtn = $('#zoomInModalBtn');
+      const zoomOutBtn = $('#zoomOutModalBtn');
+      const autoRotateBtn = $('#autoRotateModalBtn');
+      const fullscreenBtn = $('#fullscreenModalBtn');
+
+      if (resetViewBtn) {
+        resetViewBtn.addEventListener('click', () => {
+          if (modelViewer.resetTurntableRotation) modelViewer.resetTurntableRotation();
+          if (modelViewer.jumpCameraToGoal) modelViewer.jumpCameraToGoal();
+          console.log('🔄 Vista reiniciada');
+        });
+      }
+
+      if (zoomInBtn) {
+        zoomInBtn.addEventListener('click', () => {
+          const orbit = modelViewer.getCameraOrbit();
+          const newRadius = Math.max(orbit.radius * 0.8, 0.1);
+          modelViewer.cameraOrbit = `${orbit.theta}deg ${orbit.phi}deg ${newRadius}m`;
+          console.log('🔍 Zoom in:', newRadius);
+        });
+      }
+
+      if (zoomOutBtn) {
+        zoomOutBtn.addEventListener('click', () => {
+          const orbit = modelViewer.getCameraOrbit();
+          const newRadius = Math.min(orbit.radius * 1.25, 50);
+          modelViewer.cameraOrbit = `${orbit.theta}deg ${orbit.phi}deg ${newRadius}m`;
+          console.log('🔍 Zoom out:', newRadius);
+        });
+      }
+
+      if (autoRotateBtn) {
+        autoRotateBtn.addEventListener('click', () => {
+          const isRotating = modelViewer.autoRotate;
+          modelViewer.autoRotate = !isRotating;
+          autoRotateBtn.style.background = !isRotating ? 'var(--brass)' : 'var(--surface)';
+          autoRotateBtn.style.color = !isRotating ? 'white' : 'var(--text-primary)';
+          console.log('🔄 Auto rotate:', !isRotating);
+        });
+      }
+
+      if (fullscreenBtn) {
+        fullscreenBtn.addEventListener('click', () => {
+          if (modelViewer.requestFullscreen) {
+            modelViewer.requestFullscreen();
+          }
+        });
+      }
+    }
+
+    // Reset configuration to defaults (uses per-product JSON when present)
+    function resetConfiguration(modelViewer) {
+      // Reset environment selections
+      document.querySelectorAll('.env-option').forEach(opt => opt.classList.remove('active'));
+      const studioOption = document.querySelector('.env-option[data-env="studio"]');
+      if (studioOption) studioOption.classList.add('active');
+
+      // Reset sliders
+      const intensitySlider = $('#intensitySlider');
+      const shadowSlider = $('#shadowSlider');
+      const exposureSlider = $('#exposureSlider');
+      if (intensitySlider) { intensitySlider.value = 1.2; $('#intensityValue').textContent = '1.2'; }
+      if (shadowSlider)   { shadowSlider.value   = 1.0; $('#shadowValue').textContent   = '1.0'; }
+      if (exposureSlider) { exposureSlider.value = 1.2; $('#exposureValue').textContent = '1.2'; }
+
+      // Apply defaults to model-viewer attrs
+      modelViewer.setAttribute('environment-image', 'neutral');
+      modelViewer.setAttribute('shadow-intensity', '1.2');
+      modelViewer.setAttribute('shadow-softness', '1.0');
+      modelViewer.setAttribute('exposure', '1.2');
+
+      // Materials: pick default from per-product config or fallback
+      const mats = window.lunvyrMaterials || {};
+      const defKey = window.lunvyrDefaultFinish || Object.keys(mats)[0] || 'brass';
+
+      // Reset active state on grid
+      document.querySelectorAll('.material-option').forEach(opt => opt.classList.remove('active'));
+      const defOption = document.querySelector(`.material-option[data-material="${defKey}"]`) || document.querySelector('.material-option');
+      if (defOption) defOption.classList.add('active');
+
+      const defCfg = mats[defKey] || { color: '#b8860b', metalness: 0.8, roughness: 0.2, name: 'Polished Brass' };
+      if (typeof applyMaterialToModel === 'function') {
+        applyMaterialToModel(modelViewer, defCfg);
+      }
+
+      // Apply default view if available
+      const vmap = window.lunvyrViews || null;
+      const vkey = window.lunvyrDefaultView || null;
+      if (vmap && vkey && vmap[vkey]) {
+        // Defer slightly to ensure model-viewer is ready
+        setTimeout(()=>{
+          if (vmap[vkey].cameraTarget) modelViewer.setAttribute('camera-target', vmap[vkey].cameraTarget);
+          if (vmap[vkey].cameraOrbit) modelViewer.setAttribute('camera-orbit', vmap[vkey].cameraOrbit);
+          if (vmap[vkey].fieldOfView) modelViewer.setAttribute('field-of-view', vmap[vkey].fieldOfView);
+          if (modelViewer.jumpCameraToGoal) modelViewer.jumpCameraToGoal();
+        }, 100);
+      }
+
+      console.log('🔄 Configuración reseteada (material por defecto:', defKey, ')');
+    }
+
+    // Save current configuration
+    function saveConfiguration() {
+      const activeOption = document.querySelector('.material-option.active');
+      const activeEnv = document.querySelector('.env-option.active');
+      
+      const config = {
+        material: activeOption ? activeOption.dataset.material : 'brass',
+        environment: activeEnv ? activeEnv.dataset.env : 'studio',
+        intensity: $('#intensitySlider') ? $('#intensitySlider').value : '1.2',
+        shadow: $('#shadowSlider') ? $('#shadowSlider').value : '1.0',
+        exposure: $('#exposureSlider') ? $('#exposureSlider').value : '1.2',
+        timestamp: new Date().toISOString()
+      };
+      
+      // Save to localStorage
+      localStorage.setItem('lunvyr_3d_config', JSON.stringify(config));
+      
+      // Show success message
+      const btn = $('#saveConfigBtn');
+      if (btn) {
+        const originalText = btn.innerHTML;
+        btn.innerHTML = '<span>✓</span> Saved!';
+        btn.style.background = 'var(--success)';
+        
+        setTimeout(() => {
+          btn.innerHTML = originalText;
+          btn.style.background = 'var(--brass)';
+        }, 2000);
+      }
+      
+      console.log('💾 Configuración guardada:', config);
+    }
+
+    // 3D Model Modal Functions
+    function open3DModal() {
+      $('#modelModal').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function close3DModal() {
+      $('#modelModal').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    // Technical Drawing Modal Functions
+    function openDrawingModal() {
+      $('#drawingModal').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeDrawingModal() {
+      $('#drawingModal').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+  })();
+  </script>

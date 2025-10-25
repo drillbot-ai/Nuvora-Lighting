@@ -1,0 +1,375 @@
+<!-- LUNVYR — Contact (CF7 integrated, Editorial Hero, Info Cards, Project Brief, Hours, Map, CTA) -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Inter:wght@300;400;500&display=swap');
+
+:root{ --ink:#1c222b; --paper:#f2f0eb; --coal:#111; --ash:#666; --brass:#b2956d; --white:#fff;
+  --radius:14px; --shadow:0 12px 32px rgba(0,0,0,.08); --ring: 0 0 0 3px rgba(178,149,109,.25);
+}
+
+.contact-page{font-family:Inter,system-ui,sans-serif;color:var(--coal);line-height:1.65}
+.contact-page h1,.contact-page h2,.contact-page h3{font-family:Cinzel,serif;font-weight:400;margin:0}
+.contact-page .eyebrow{letter-spacing:.12em;text-transform:uppercase;font-size:.8rem;color:var(--ash);margin-bottom:.6rem}
+
+/* HERO mejorado */
+.contact-hero{
+  position:relative; isolation:isolate; color:var(--paper); text-align:center;
+  background:#0e0f12 url('https://lunvyr.com/wp-content/uploads/2025/08/f07dabad-5599-4f19-bb21-0e2537614e98.png') center/cover no-repeat;
+  padding:clamp(100px,15vh,160px) 10%; min-height:70vh; display:flex; align-items:center; justify-content:center;
+}
+.contact-hero::before{
+  content:""; position:absolute; top:0; left:0; right:0; height:1px;
+  background:linear-gradient(90deg, transparent, var(--brass), transparent);
+}
+.contact-hero::after{
+  content:""; position:absolute; inset:0; 
+  background:radial-gradient(110% 110% at 70% 30%, rgba(0,0,0,0) 0%, rgba(0,0,0,.7) 70%);
+}
+.contact-hero .inner{position:relative; z-index:2; max-width:900px; margin:0 auto}
+.contact-hero h1{
+  font-size:clamp(2.6rem,5.2vw,3.8rem); color:var(--paper); margin-bottom:16px;
+  font-family:'Cinzel',serif; font-weight:400; line-height:1.15;
+  background:linear-gradient(135deg, #fff 0%, #e9ecef 100%);
+  -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
+}
+.contact-hero p{color:#d6d3ce; margin:0 auto; max-width:760px; font-size:1.1rem; line-height:1.6}
+
+/* INFO STRIP mejorado */
+.info-strip{
+  background:linear-gradient(135deg, var(--paper) 0%, #f8f6f0 100%);
+  padding:clamp(64px,10vh,120px) 10%; position:relative;
+}
+.info-strip::before{
+  content:""; position:absolute; top:0; left:0; right:0; height:1px;
+  background:linear-gradient(90deg, transparent, var(--brass), transparent);
+}
+.info-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:28px; max-width:1000px; margin:0 auto}
+.info-card{
+  background:var(--white); border:1px solid rgba(17,17,17,.06); 
+  border-radius:20px; padding:28px 24px; text-align:center; 
+  box-shadow:0 8px 30px rgba(0,0,0,.06); transition:all .4s ease;
+  position:relative; overflow:hidden;
+}
+.info-card::before{
+  content:""; position:absolute; top:0; left:0; right:0; height:3px;
+  background:linear-gradient(90deg, var(--brass) 0%, #d4af78 100%);
+  transform:scaleX(0); transition:transform .4s ease;
+}
+.info-card:hover::before{transform:scaleX(1)}
+.info-card:hover{
+  transform:translateY(-6px); 
+  box-shadow:0 16px 45px rgba(0,0,0,.1);
+}
+.info-card .icon{
+  width:40px; height:40px; color:var(--brass); margin:0 auto 16px;
+  background:rgba(178,149,109,.1); border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+}
+.info-card h3{font-size:1.3rem; color:var(--ink); margin:0 0 8px; font-weight:600}
+.info-card p, .info-card a{
+  color:var(--ash); margin:0; text-decoration:none; 
+  font-size:.95rem; line-height:1.5;
+}
+.info-card a{transition:color .3s ease}
+.info-card a:hover{color:var(--brass); text-decoration:underline}
+
+/* LAYOUT main: form + sidebar mejorado */
+.contact-main{
+  padding:clamp(84px,12vh,140px) 10%; 
+  background:linear-gradient(135deg, #f7f7f7 0%, #f2f0eb 100%);
+  position:relative;
+}
+.contact-main::before{
+  content:""; position:absolute; top:0; left:0; right:0; height:1px;
+  background:linear-gradient(90deg, transparent, var(--brass), transparent);
+}
+.contact-grid{display:grid; grid-template-columns:1.3fr .7fr; gap:48px; align-items:start; max-width:1200px; margin:0 auto}
+.card{
+  background:var(--white); border:1px solid rgba(17,17,17,.06); 
+  border-radius:20px; box-shadow:0 8px 30px rgba(0,0,0,.08);
+  transition:box-shadow .4s ease;
+}
+.card:hover{box-shadow:0 16px 45px rgba(0,0,0,.12)}
+
+/* FORM wrapper (título + ayuda) mejorado */
+.contact-form{padding:32px 28px}
+.contact-form h2{
+  font-size:clamp(1.8rem,2.8vw,2.2rem); color:var(--ink); margin-bottom:12px;
+  font-family:'Cinzel',serif; font-weight:400;
+}
+.contact-form .help{font-size:1rem; color:var(--ash); margin-bottom:24px; line-height:1.5}
+
+/* CF7 estilos mejorados */
+.wpcf7 form input[type="text"],
+.wpcf7 form input[type="email"],
+.wpcf7 form input[type="tel"],
+.wpcf7 form input[type="file"],
+.wpcf7 form select,
+.wpcf7 form textarea{
+  width:100%; padding:16px 18px; border:2px solid rgba(17,17,17,.12); 
+  border-radius:16px; font-size:1rem; background:var(--white); 
+  transition:all .3s ease; font-family:inherit;
+}
+.wpcf7 form textarea{ height:160px; resize:vertical; }
+.wpcf7 form input:focus,
+.wpcf7 form select:focus,
+.wpcf7 form textarea:focus{ 
+  outline:none; border-color:var(--brass); 
+  box-shadow:0 0 0 4px rgba(178,149,109,.15);
+  background:rgba(178,149,109,.02);
+}
+.wpcf7 form input[type="submit"],
+.wpcf7-submit{
+  font-family:Cinzel,serif; padding:1rem 2rem; border-radius:50px;
+  border:2px solid var(--ink); background:var(--ink); color:var(--paper);
+  cursor:pointer; transition:all .4s ease; font-weight:500;
+  position:relative; overflow:hidden;
+}
+.wpcf7 form input[type="submit"]::before{
+  content:""; position:absolute; top:0; left:-100%; width:100%; height:100%;
+  background:linear-gradient(90deg, transparent, rgba(255,255,255,.1), transparent);
+  transition:left .6s ease;
+}
+.wpcf7 form input[type="submit"]:hover::before{left:100%}
+.wpcf7 form input[type="submit"]:hover{ 
+  background:#0a0b0e; transform:translateY(-2px); 
+  box-shadow:0 8px 25px rgba(0,0,0,.2);
+}
+.wpcf7 .wpcf7-spinner{ margin-left:12px }
+.wpcf7-not-valid-tip{ 
+  color:#d73527; font-size:.9rem; margin-top:8px; 
+  padding:8px 12px; background:rgba(215,53,39,.1); 
+  border-radius:8px; border-left:3px solid #d73527;
+}
+.wpcf7 form .wpcf7-response-output{ 
+  border-radius:16px; border:2px solid rgba(17,17,17,.08);
+  padding:16px 20px; margin-top:20px;
+}
+.wpcf7-mail-sent-ok{
+  background:rgba(40,167,69,.1); border-color:#28a745; 
+  color:#155724;
+}
+.wpcf7-validation-errors{
+  background:rgba(215,53,39,.1); border-color:#d73527; 
+  color:#721c24;
+}
+
+/* Optional: layout helpers si usaste mi markup de CF7 con form-row/form-field */
+.form-row{display:grid; grid-template-columns:1fr 1fr; gap:14px}
+.form-row.full{grid-template-columns:1fr}
+.form-field label{display:block; font-size:.9rem; color:var(--coal); margin:0 0 6px}
+.counter{float:right; font-size:.8rem; color:var(--ash)}
+
+/* SIDEBAR */
+.sidebar{padding:20px}
+.sidebar .block{padding:18px 18px 16px; border-bottom:1px solid rgba(17,17,17,.08)}
+.sidebar .block:last-child{border-bottom:none}
+.sidebar h3{font-size:1.1rem; color:var(--ink); margin-bottom:6px}
+.hours{display:grid; grid-template-columns:1fr auto; gap:6px; color:var(--ash)}
+
+/* APPOINTMENT BAND */
+.appointment{background:#111; color:var(--paper); text-align:center; padding:16px 12px}
+.appointment a{color:var(--paper); border:1px solid rgba(242,240,235,.6); padding:.5rem 1rem; border-radius:40px; text-decoration:none}
+.appointment a:hover{background:rgba(242,240,235,.1)}
+
+/* MAP */
+.contact-map{padding:clamp(56px,8vh,96px) 10%; background:#fafafa}
+.map-wrap{border:1px solid rgba(17,17,17,.1); border-radius:16px; overflow:hidden; box-shadow:var(--shadow)}
+.contact-map h2{font-family:'Cinzel',serif; font-size:clamp(1.4rem,2.4vw,1.8rem); color:var(--ink); text-align:center; margin-bottom:14px}
+
+/* CTA FINAL */
+.cta-final{ position:relative; color:var(--paper);
+  background:#0e0f12 url('https://lunvyr.com/wp-content/uploads/2025/08/f07dabad-5599-4f19-bb21-0e2537614e98.png') center/cover no-repeat;}
+.cta-final::before{content:""; position:absolute; inset:0; background:radial-gradient(120% 120% at 70% 20%, rgba(0,0,0,.0) 0%, rgba(0,0,0,.65) 70%)}
+.cta-final .wrap{position:relative; z-index:1; max-width:960px; margin:0 auto; padding:clamp(84px,12vh,140px) 10%; text-align:center}
+.cta-final h2{ font-size:clamp(28px,3.2vw,42px); margin:0 0 12px; }
+.cta-final p{ color:#efece7; margin:0 0 22px; }
+.cta-final .actions{ display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
+.cta-final .btn-ghost{ background:transparent; color:var(--paper); border-color:rgba(242,240,235,.6) }
+.cta-final .btn-ghost:hover{ background:rgba(242,240,235,.1); border-color:var(--paper) }
+.cta-final .btn{font-family:Cinzel,serif; padding:.9rem 1.6rem; border-radius:40px; border:1px solid var(--ink); background:var(--ink); color:var(--paper);}
+
+/* Reveal */
+.reveal{opacity:0; transform:translateY(18px); transition:opacity .6s ease, transform .6s ease}
+.reveal.in{opacity:1; transform:none}
+
+/* Responsive mejorado */
+@media (max-width:1199px){ 
+  .info-grid{grid-template-columns:1fr 1fr; gap:24px; max-width:700px} 
+  .contact-grid{gap:40px}
+}
+
+@media (max-width:899px){
+  .contact-grid{grid-template-columns:1fr; gap:32px}
+  .contact-form{padding:28px 24px}
+}
+
+@media (max-width:767px){
+  .contact-hero{padding:clamp(80px,12vh,120px) 7%; min-height:60vh}
+  .contact-hero h1{font-size:clamp(2.2rem,7vw,3.2rem)}
+  .info-strip{padding:clamp(48px,8vh,80px) 7%}
+  .info-grid{grid-template-columns:1fr; gap:20px; max-width:400px}
+  .info-card{padding:24px 20px}
+  .contact-main{padding:clamp(64px,10vh,100px) 7%}
+  .form-row{grid-template-columns:1fr}
+}
+
+@media (max-width:599px){
+  .contact-hero{padding:clamp(60px,10vh,80px) 6%}
+  .info-card{text-align:left; padding:20px 18px}
+  .info-card .icon{margin:0 0 12px}
+  .contact-form{padding:24px 20px}
+  .wpcf7 form input, .wpcf7 form select, .wpcf7 form textarea{padding:14px 16px}
+}
+
+@media (max-width:479px){
+  .contact-hero .inner{max-width:100%}
+  .wpcf7 form input[type="submit"]{width:100%; justify-content:center}
+}
+
+/* Reduced motion + failsafe */
+@media (prefers-reduced-motion: reduce){ .reveal{transition:none} }
+.contact-page .reveal{opacity:1!important; transform:none!important}
+</style>
+
+<div class="contact-page">
+
+  <!-- HERO -->
+  <section class="contact-hero">
+    <div class="inner reveal">
+      <div class="eyebrow">Get in Touch</div>
+      <h1>Let’s Build Something Beautiful</h1>
+      <p>Questions about our collections, product specifications, or trade inquiries—we're here to help you find the perfect lighting solution.</p>
+    </div>
+  </section>
+
+  <!-- INFO STRIP -->
+  <section class="info-strip">
+    <div class="info-grid">
+      <article class="info-card reveal">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 9l9-6 9 6v9a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V9z"/><path d="M9 22V12h6v10"/></svg>
+        <h3>Studio</h3>
+        <p>Long Island City, NY 11101</p>
+      </article>
+      <article class="info-card reveal">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 4h16v16H4z"/><path d="M4 9h16"/></svg>
+        <h3>Email</h3>
+        <p><a href="mailto:info@lunvyr.com">info@lunvyr.com</a></p>
+      </article>
+      <article class="info-card reveal">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 16.92V21a1 1 0 0 1-1.09 1A19.86 19.86 0 0 1 3 3.09 1 1 0 0 1 4 2h4.09a1 1 0 0 1 1 .75l1 3.5a1 1 0 0 1-.27 1l-2.2 2.2a16 16 0 0 0 6.8 6.8l2.2-2.2a1 1 0 0 1 1-.27l3.5 1a1 1 0 0 1 .75 1z"/></svg>
+        <h3>Phone</h3>
+        <p><a href="tel:+19297282394">+1 (929) 728-2394</a></p>
+      </article>
+    </div>
+  </section>
+
+  <!-- MAIN: FORM + SIDEBAR -->
+  <section class="contact-main">
+    <div class="contact-grid">
+      <!-- FORM CARD -->
+      <div class="card contact-form reveal">
+        <h2>Get in Touch</h2>
+        <p class="help">Questions about our products or need help selecting fixtures? We usually respond within 1–2 business days.</p>
+
+        <!-- Reemplaza el formulario dummy por tu shortcode CF7 -->
+        [contact-form-7 id="16917ea" title="LUNVYR Project Brief"]
+      </div>
+
+      <!-- SIDEBAR -->
+      <aside class="card sidebar reveal">
+        <div class="block">
+          <h3>Trade & Wholesale</h3>
+          <p class="help">We work with architects and designers on product selection and specifications. Email <a href="mailto:info@lunvyr.com">info@lunvyr.com</a> for trade pricing and project support.</p>
+        </div>
+        <div class="block">
+          <h3>Hours</h3>
+          <div class="hours">
+            <span>Mon–Fri</span><span>10:00–18:00</span>
+            <span>Saturday</span><span>By appointment</span>
+            <span>Sunday</span><span>Closed</span>
+          </div>
+        </div>
+        <div class="block">
+          <h3>Shipping & Lead Times</h3>
+          <p class="help">Most pieces ship in 4–6 weeks. Rush options may be available depending on finish and quantity.</p>
+        </div>
+        <div class="block">
+          <h3>Installation</h3>
+          <p class="help">Wired to UL standards. We recommend installation by a licensed electrician.</p>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- APPOINTMENT BAND -->
+  <div class="appointment">
+    Studio visits by appointment — <a href="/contact">Request a time</a>
+  </div>
+
+  <!-- MAP -->
+  <section class="contact-map">
+    <h2>Find Us</h2>
+    <div class="map-wrap">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3023.899824645843!2d-74.0060!3d40.7128!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzBCMcKwMDknNTIiTiA3NMKwMDAnMDkiVw!5e0!3m2!1sen!2us!4v1635555555555" width="100%" height="440" style="border:0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="cta-final">
+    <div class="wrap">
+      <h2>Find Your Perfect Fixture</h2>
+      <p>Browse our complete collections to discover the ideal lighting solution for your space.</p>
+      <div class="actions">
+        <a class="btn" href="/contact">Ask Questions</a>
+        <a class="btn" href="/shop">Explore the Collection</a>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Reveal on scroll
+  const reveals = document.querySelectorAll('.contact-page .reveal');
+  if(!prefersReduced && 'IntersectionObserver' in window){
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+    }, {rootMargin:'-10% 0px -10% 0px', threshold:0.05});
+    reveals.forEach(el=>io.observe(el));
+  } else { reveals.forEach(el=>el.classList.add('in')); }
+
+  // --- Contador de caracteres para CF7 (textarea your-message o id:message) ---
+  function wireCounter(){
+    const ta = document.getElementById('message') || document.querySelector('.wpcf7 form textarea[name="your-message"]');
+    if(!ta) return;
+
+    // Buscar/crear el contenedor del contador cerca del textarea
+    let counter = document.getElementById('count') || ta.closest('.form-field')?.querySelector('.counter');
+    if(!counter){
+      counter = document.createElement('div');
+      counter.className = 'counter';
+      counter.id = 'count';
+      const field = ta.closest('.form-field') || ta.parentElement;
+      field.insertBefore(counter, ta);
+    }
+
+    const max = parseInt(ta.getAttribute('maxlength') || '1000', 10);
+    const update = () => { counter.textContent = `${ta.value.length} / ${max}`; };
+    ta.removeEventListener('input', update); // evitar duplicados
+    ta.addEventListener('input', update);
+    update();
+  }
+
+  // CF7 re-render events
+  document.addEventListener('wpcf7mailsent', wireCounter, false);
+  document.addEventListener('wpcf7invalid', wireCounter, false);
+  document.addEventListener('wpcf7spam', wireCounter, false);
+  document.addEventListener('wpcf7submit', wireCounter, false);
+
+  // Inicial
+  wireCounter();
+});
+</script>

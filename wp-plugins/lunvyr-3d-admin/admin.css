@@ -1,0 +1,30 @@
+/* LUNVYR 3D Admin Styles */
+.lunvyr-3d-admin.shell{ display:grid; grid-template-columns: 1.2fr 0.8fr; gap:16px; }
+.l3d-view{ position:relative; }
+.l3d-toolbar{ margin-top:8px; display:flex; gap:8px; align-items:center; }
+.l3d-toolbar .spacer{ flex:1; }
+.l3d-sidebar{ background:#fff; border:1px solid #e5e7eb; border-radius:12px; overflow:hidden; display:flex; flex-direction:column; min-height:480px; }
+.l3d-tabs{ display:flex; border-bottom:1px solid #e5e7eb; }
+.l3d-tabs button{ flex:1; padding:10px 12px; background:#f8fafc; border:none; border-right:1px solid #e5e7eb; cursor:pointer; font-weight:600; }
+.l3d-tabs button:last-child{ border-right:none; }
+.l3d-tabs button.active{ background:#fff; color:#111827; }
+.l3d-panels{ padding:12px; overflow:auto; }
+.l3d-panels section{ display:none; }
+.l3d-panels section.active{ display:block; }
+.acc{ border:1px solid #e5e7eb; border-radius:8px; margin-bottom:12px; }
+.acc > summary{ padding:10px 12px; font-weight:700; cursor:pointer; background:#f9fafb; }
+.acc .acc-body{ padding:12px; display:flex; flex-direction:column; gap:8px; }
+.row{ display:flex; gap:12px; align-items:flex-start; }
+.row.small{ gap:8px; }
+.col{ flex:1; min-width:0; display:flex; flex-direction:column; gap:6px; }
+.finish-list{ list-style:none; padding:0; margin:0; border:1px solid #e5e7eb; border-radius:8px; max-height:220px; overflow:auto; }
+.finish-list li{ padding:8px 10px; border-bottom:1px solid #f0f0f0; cursor:grab; display:flex; justify-content:space-between; align-items:center; gap:8px; }
+.finish-list li:last-child{ border-bottom:none; }
+.finish-list li.active{ background:#eef2ff; }
+.finish-list li.drag-over{ outline:2px dashed #93c5fd; background:#f0f9ff; }
+.finish-list li .drag-handle{ opacity:0.6; font-size:14px; }
+.finish-list li .name{ flex:1; }
+.materials-list{ max-height:160px; overflow:auto; border:1px solid #e5e7eb; border-radius:8px; padding:8px; }
+.l3d-actions{ padding:12px; border-top:1px solid #e5e7eb; display:flex; gap:8px; justify-content:flex-end; }
+.l3d-legacy{ display:none; }
+.val{ color:#6b7280; font-size:12px; margin-left:6px; }

@@ -1,0 +1,226 @@
+<!-- LUNVYR — Header con menú hamburguesa accesible -->
+<style>
+  :root{
+    --ink:#1c222b; --paper:#f3f0eb; --brass:#c2a574; --hdr-h:64px;
+  }
+
+  /* Wrapper */
+  header.lunvyr-header{
+    position:sticky; top:0; z-index:999;
+    background:#1c222b; color:var(--paper);
+    padding:12px 5%;
+    display:grid; grid-template-columns: auto 1fr auto; align-items:center;
+    font-family:'Cinzel', serif;
+  }
+
+  /* Toggle (hamburger) */
+  .menu-toggle{
+    -webkit-tap-highlight-color: transparent;
+    display:none; appearance:none; border:0; background:transparent; cursor:pointer;
+    width:34px; height:28px; position:relative;
+  }
+  .menu-toggle .bar{
+    position:absolute; left:0; right:0; height:2px; background:var(--paper); border-radius:2px;
+    transition:transform .25s ease, opacity .2s ease, top .25s ease, bottom .25s ease;
+  }
+  .menu-toggle .bar:nth-child(1){ top:4px }
+  .menu-toggle .bar:nth-child(2){ top:13px }
+  .menu-toggle .bar:nth-child(3){ bottom:4px }
+  .menu-toggle[aria-expanded="true"] .bar:nth-child(1){ top:13px; transform:rotate(45deg) }
+  .menu-toggle[aria-expanded="true"] .bar:nth-child(2){ opacity:0 }
+  .menu-toggle[aria-expanded="true"] .bar:nth-child(3){ bottom:auto; top:13px; transform:rotate(-45deg) }
+
+  /* Logo */
+  .lunvyr-logo{ display:flex; justify-content:center }
+  .lunvyr-logo img{ max-height:50px; width:auto; display:block }
+
+  /* Iconos derecha */
+  .lunvyr-icons{ display:flex; gap:20px; justify-content:flex-end; align-items:center }
+  .lunvyr-icons a{ color:var(--paper); text-decoration:none; display:inline-flex; align-items:center; position:relative }
+  .lunvyr-icons a:hover{ color:var(--brass) }
+  .lunvyr-icons svg{ width:22px; height:22px; fill:currentColor; transition:transform .15s }
+  .lunvyr-icons a:active svg{ transform:scale(.96) }
+  .cart-count{
+    position:absolute; top:-8px; right:-10px; background:var(--brass); color:#1c222b;
+    font-size:.7rem; font-weight:700; border-radius:999px; padding:2px 6px; line-height:1;
+  }
+  .cart-count[data-count="0"]{ display:none; } /* oculta si es 0 */
+
+  /* Navegación (desktop) */
+  nav.lunvyr-nav{ justify-self:start }
+  nav.lunvyr-nav ul{ display:flex; gap:24px; list-style:none; margin:0; padding:0 }
+  nav.lunvyr-nav a{
+    color:var(--paper); text-decoration:none; font-size:.95rem; letter-spacing:.6px; transition:color .2s
+  }
+  nav.lunvyr-nav a:hover{ color:var(--brass) }
+
+  /* Overlay + panel móvil */
+  .nav-overlay{
+    position:fixed; inset:0; background:rgba(0,0,0,.45);
+    opacity:0; pointer-events:none; transition:opacity .25s ease; z-index:998;
+  }
+  .nav-panel{
+    position:fixed; inset:0 0 0 0; top:0; background:#1c222b;
+    transform:translateX(-100%); transition:transform .25s ease;
+    padding:calc(var(--hdr-h) + 12px) 8% 24px; z-index:999;
+    display:flex; flex-direction:column; gap:14px;
+  }
+  .nav-panel ul{
+    list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:8px;
+  }
+  .nav-panel a{
+    color:var(--paper); text-decoration:none; font-size:1.1rem; padding:14px 0; display:block;
+    border-bottom:1px solid rgba(255,255,255,.08);
+  }
+  .nav-panel .cta{
+    margin-top:12px; display:flex; gap:10px; flex-wrap:wrap;
+  }
+  .nav-panel .btn{
+    font-family:'Cinzel', serif; font-size:.95rem; border-radius:40px; padding:.7rem 1.2rem;
+    border:1px solid var(--paper); color:var(--paper); text-decoration:none; display:inline-block;
+  }
+  .nav-panel .btn:hover{ background:rgba(255,255,255,.08) }
+
+  /* Estado abierto */
+  .menu-open .nav-overlay{ opacity:1; pointer-events:auto }
+  .menu-open .nav-panel{ transform:none }
+  .menu-open body{ overflow:hidden }
+
+  /* Responsive */
+  @media (max-width: 900px){
+    /* muestra toggle, oculta menú inline */
+    .menu-toggle{ display:inline-flex; grid-column:1 / 2 }
+    nav.lunvyr-nav{ display:none } /* el nav inline se reemplaza por panel móvil */
+  }
+  @media (max-width: 480px){
+    .lunvyr-logo img{ max-height:44px }
+  }
+
+  /* Accesibilidad: foco visible */
+  a:focus-visible, button:focus-visible{ outline:2px solid var(--brass); outline-offset:3px }
+  @media (prefers-reduced-motion: reduce){
+    .nav-overlay, .nav-panel, .menu-toggle .bar{ transition:none }
+  }
+  /* — Fix: logo realmente centrado en desktop con Grid — */
+@media (min-width: 901px){
+  header.lunvyr-header{
+    display: grid !important;
+    grid-template-columns: 1fr auto 1fr !important;
+    align-items: center;
+  }
+  /* Asegura la columna de cada bloque */
+  header.lunvyr-header nav.lunvyr-nav{ grid-column: 1; justify-self: start; }
+  header.lunvyr-header .lunvyr-logo{ grid-column: 2; justify-self: center; }
+  header.lunvyr-header .lunvyr-icons{ grid-column: 3; justify-self: end; }
+}
+
+</style>
+
+<header class="lunvyr-header" data-header>
+  <!-- Botón hamburguesa -->
+  <button class="menu-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+    <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+  </button>
+
+  <!-- Menú desktop (inline) -->
+  <nav class="lunvyr-nav" aria-label="Primary">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/shop">Shop</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Logo centro -->
+  <div class="lunvyr-logo">
+    <a href="/" aria-label="LUNVYR Home">
+      <img src="https://lunvyr.com/wp-content/uploads/2025/08/cropped-LOGO-1-4.png" alt="LUNVYR Logo">
+    </a>
+  </div>
+
+  <!-- Iconos derecha -->
+  <div class="lunvyr-icons">
+    <a href="/my-account" title="My Account" aria-label="My Account">
+      <svg viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5zm0 2c-4.418 0-8 2.239-8 5v1h16v-1c0-2.761-3.582-5-8-5z"/></svg>
+    </a>
+    <a href="/cart" title="Cart" aria-label="Cart">
+      <svg viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M7 18a2 2 0 1 0 2 2 2 2 0 0 0-2-2zm10 0a2 2 0 1 0 2 2 2 2 0 0 0-2-2zM6.2 5l.3 2H21l-2 8H8a2 2 0 0 1-2-1.6L4.1 4H2V2h3a1 1 0 0 1 1 .8L6.2 5z"/></svg>
+      <span class="cart-count" data-count="0">0</span>
+    </a>
+  </div>
+
+  <!-- Overlay + Panel móvil (clona enlaces del inline para no duplicar contenido en edición) -->
+  <div class="nav-overlay" data-overlay hidden></div>
+  <nav id="mobile-menu" class="nav-panel" aria-label="Mobile menu" aria-hidden="true">
+    <ul data-mobile-list><!-- se rellena por JS --></ul>
+    <div class="cta">
+      <a class="btn" href="/shop">Shop the Collection</a>
+      <a class="btn" href="/contact">Start a Custom Project</a>
+    </div>
+  </nav>
+</header>
+
+<script>
+  (function(){
+    const header   = document.querySelector('[data-header]');
+    const toggle   = header.querySelector('.menu-toggle');
+    const overlay  = header.querySelector('[data-overlay]');
+    const panel    = header.querySelector('#mobile-menu');
+    const mobileUl = panel.querySelector('[data-mobile-list]');
+    const desktopUl= header.querySelector('.lunvyr-nav ul');
+
+    // Clona items del menú desktop -> móvil (evita mantener dos listas)
+    if (desktopUl && mobileUl && !mobileUl.childElementCount){
+      mobileUl.innerHTML = desktopUl.innerHTML;
+    }
+
+    // Helpers
+    const openMenu = () => {
+      document.documentElement.classList.add('menu-open'); // para .nav-panel y overlay
+      overlay.hidden = false;
+      panel.setAttribute('aria-hidden','false');
+      toggle.setAttribute('aria-expanded','true');
+      // focus al primer link
+      const f = panel.querySelector('a,button,[tabindex]:not([tabindex="-1"])');
+      if (f) f.focus({preventScroll:true});
+      // Bloquear scroll body
+      document.body.style.overflow = 'hidden';
+    };
+    const closeMenu = () => {
+      document.documentElement.classList.remove('menu-open');
+      overlay.hidden = true;
+      panel.setAttribute('aria-hidden','true');
+      toggle.setAttribute('aria-expanded','false');
+      toggle.focus({preventScroll:true});
+      document.body.style.overflow = '';
+    };
+    const isOpen = () => document.documentElement.classList.contains('menu-open');
+
+    toggle.addEventListener('click', () => isOpen() ? closeMenu() : openMenu());
+    overlay.addEventListener('click', closeMenu);
+    window.addEventListener('keydown', (e)=>{ if(e.key === 'Escape' && isOpen()) closeMenu(); });
+
+    // Pequeño "focus trap" básico
+    panel.addEventListener('keydown', (e)=>{
+      if(e.key !== 'Tab') return;
+      const focusables = panel.querySelectorAll('a,button,input,select,textarea,[tabindex]:not([tabindex="-1"])');
+      if(!focusables.length) return;
+      const first = focusables[0], last = focusables[focusables.length -1];
+      if(e.shiftKey && document.activeElement === first){ last.focus(); e.preventDefault(); }
+      else if(!e.shiftKey && document.activeElement === last){ first.focus(); e.preventDefault(); }
+    });
+
+    // Cart count: oculta si 0 (si tu tema actualiza el número, refleja en data-count)
+    const cartCountEl = header.querySelector('.cart-count');
+    if(cartCountEl){
+      const num = parseInt(cartCountEl.textContent.trim(), 10);
+      cartCountEl.setAttribute('data-count', isNaN(num) ? '0' : String(num));
+      // Si WooCommerce actualiza con fragments, escucha y actualiza data-count
+      document.body.addEventListener('wc_fragments_refreshed', ()=>{
+        const n = parseInt(cartCountEl.textContent.trim(), 10);
+        cartCountEl.setAttribute('data-count', isNaN(n) ? '0' : String(n));
+      });
+    }
+  })();
+</script>

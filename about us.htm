@@ -1,0 +1,587 @@
+<!-- LUNVYR — About (Editorial layout, Parallax Hero, Story, Ethos, Process Timeline, Gallery, FAQ, Map, CTA) -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Inter:wght@300;400;500&family=Playfair+Display:wght@400;500&display=swap');
+
+:root { --ink:#1c222b; --paper:#f2f0eb; --coal:#111; --ash:#666; --brass:#b2956d; --white:#fff;
+  --radius:14px; --shadow:0 12px 32px rgba(0,0,0,.08);
+}
+
+.about-page{font-family:Inter,system-ui,sans-serif;color:var(--coal);line-height:1.65}
+.about-page h1,.about-page h2,.about-page h3,.about-page h4{font-family:Cinzel,serif;font-weight:400;margin:0}
+.about-page .eyebrow{letter-spacing:.12em;text-transform:uppercase;font-size:.8rem;color:var(--ash);margin-bottom:.7rem}
+
+/* HERO con imagen y parallax sutil */
+.about-hero{
+  position:relative; min-height:80vh; display:flex; align-items:center; justify-content:center;
+  padding:clamp(84px,10vh,140px) 10%; color:var(--paper);
+  background:#0e0f12 url('https://lunvyr.com/wp-content/uploads/2025/08/f07dabad-5599-4f19-bb21-0e2537614e98.png') center/cover no-repeat;
+  text-align:center; isolation:isolate;
+}
+.about-hero::after{content:"";position:absolute;inset:0;background:radial-gradient(100% 100% at 70% 25%, rgba(0,0,0,0) 0%, rgba(0,0,0,.55) 70%);z-index:0}
+.about-hero .hero-inner{position:relative;z-index:1;max-width:900px}
+.about-hero h1{font-size:clamp(2.4rem,5vw,3.6rem);line-height:1.15;margin-bottom:.6rem;color:var(--paper)}
+.about-hero p{color:#efece7;margin:0 auto;max-width:740px}
+
+/* Split: Story + Portrait mejorado */
+.about-split{
+  padding:clamp(84px,12vh,140px) 10%; display:grid; grid-template-columns:1.3fr .7fr; 
+  gap:64px; align-items:center; background:var(--paper); position:relative;
+}
+.about-split::before{
+  content:""; position:absolute; right:0; top:20%; width:200px; height:200px;
+  background:radial-gradient(circle, rgba(178,149,109,.08) 0%, transparent 70%);
+  border-radius:50%; z-index:0;
+}
+.about-split .copy{position:relative; z-index:1}
+.about-split .copy h2{
+  font-family:'Cinzel',serif; font-size:clamp(2rem,3.5vw,2.6rem); 
+  color:var(--ink); margin-bottom:20px; line-height:1.2;
+}
+.about-split .copy p{
+  color:var(--ash); margin:0 0 20px; font-size:1.05rem; line-height:1.7;
+}
+.about-split .copy .highlight{
+  background:linear-gradient(120deg, rgba(178,149,109,.15) 0%, transparent 100%);
+  padding:24px; border-radius:12px; border-left:4px solid var(--brass);
+  margin:24px 0; font-style:italic;
+}
+.about-split .media{
+  position:relative; border-radius:20px; overflow:hidden; 
+  box-shadow:0 20px 60px rgba(0,0,0,.12); border:1px solid rgba(17,17,17,.06);
+  transform:rotate(2deg); transition:transform .4s ease;
+}
+.about-split .media:hover{transform:rotate(0deg) scale(1.02)}
+.about-split .media img{width:100%;height:100%;object-fit:cover; display:block}
+
+/* Studio stats - diseño horizontal elegante */
+.stats{padding:clamp(64px,10vh,120px) 10%; background:linear-gradient(135deg, #f7f7f7 0%, #f2f0eb 100%)}
+.stats .grid{
+  display:grid; grid-template-columns:repeat(4,1fr); 
+  gap:2px; max-width:1100px; margin:0 auto;
+  border-radius:20px; overflow:hidden; box-shadow:0 8px 30px rgba(0,0,0,.08);
+}
+.stats .card{
+  background:var(--white); padding:32px 24px; text-align:center; 
+  transition:all .4s ease; position:relative; border-right:1px solid rgba(17,17,17,.06);
+}
+.stats .card:last-child{border-right:none}
+.stats .card:hover{background:rgba(178,149,109,.02)}
+.stats .card::before{
+  content:""; position:absolute; top:0; left:0; right:0; height:3px;
+  background:linear-gradient(90deg, var(--brass) 0%, #d4af76 100%);
+  transform:scaleX(0); transition:transform .4s ease;
+}
+.stats .card:hover::before{transform:scaleX(1)}
+.stats .num{
+  font-family:Cinzel,serif; font-size:clamp(1.4rem,2vw,1.8rem); color:var(--ink); 
+  margin:0 0 8px; font-weight:600; line-height:1.1;
+  white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+}
+.stats .label{
+  color:var(--ash); font-size:0.8rem; font-weight:500; 
+  letter-spacing:.02em; text-transform:uppercase; line-height:1.3;
+  white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+}
+
+/* Ethos (cards) */
+.ethos{padding:clamp(64px,9vh,104px) 10%; background:var(--paper)}
+.ethos header{max-width:760px;margin:0 auto 28px;text-align:center}
+.ethos h2{font-size:clamp(1.8rem,3vw,2.2rem); color:var(--ink)}
+.ethos p.sub{color:var(--ash)}
+.ethos .grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px}
+.ethos .card{background:var(--white); border:1px solid rgba(17,17,17,.08); border-radius:16px; padding:22px; box-shadow:var(--shadow)}
+.ethos .card h3{font-size:1.2rem; color:var(--ink); margin-bottom:.4rem}
+
+/* Process timeline mejorado */
+.timeline{
+  padding:clamp(84px,12vh,140px) 10%; 
+  background:linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  position:relative;
+}
+.timeline::before{
+  content:""; position:absolute; top:0; left:0; right:0; height:1px;
+  background:linear-gradient(90deg, transparent, var(--brass), transparent);
+}
+.timeline header{margin-bottom:48px; text-align:center}
+.timeline h2{
+  font-size:clamp(2rem,3.5vw,2.6rem); color:var(--ink); 
+  font-family:'Cinzel',serif; position:relative;
+}
+.timeline h2::after{
+  content:""; position:absolute; bottom:-12px; left:50%; transform:translateX(-50%);
+  width:80px; height:3px; background:var(--brass); border-radius:2px;
+}
+.timeline .steps{position:relative; margin-top:24px; max-width:800px; margin-left:auto; margin-right:auto}
+.timeline .steps::before{
+  content:""; position:absolute; left:28px; top:0; bottom:0; width:3px; 
+  background:linear-gradient(180deg, var(--brass) 0%, rgba(178,149,109,.3) 100%);
+  border-radius:2px;
+}
+.timeline .step{
+  position:relative; padding-left:80px; margin:32px 0; 
+  animation:fadeInLeft .6s ease forwards;
+  opacity:0; transform:translateX(-20px);
+}
+.timeline .step:nth-child(1){animation-delay:.1s}
+.timeline .step:nth-child(2){animation-delay:.2s}
+.timeline .step:nth-child(3){animation-delay:.3s}
+.timeline .step:nth-child(4){animation-delay:.4s}
+.timeline .dot{
+  position:absolute; left:20px; top:8px; width:24px; height:24px; 
+  border-radius:50%; border:3px solid var(--brass); background:var(--white);
+  box-shadow:0 4px 12px rgba(178,149,109,.3); 
+  transition:all .3s ease; z-index:2;
+}
+.timeline .step:hover .dot{
+  transform:scale(1.2); background:var(--brass);
+  box-shadow:0 6px 20px rgba(178,149,109,.4);
+}
+.timeline .step h3{
+  color:var(--ink); margin:0 0 8px; font-size:1.2rem; font-weight:600;
+  transition:color .3s ease;
+}
+.timeline .step:hover h3{color:var(--brass)}
+.timeline .step p{
+  color:var(--ash); margin:0; font-size:1rem; line-height:1.6;
+}
+
+@keyframes fadeInLeft{to{opacity:1; transform:translateX(0)}}
+
+/* Gallery grid mejorado */
+.gallery{
+  padding:clamp(64px,10vh,120px) 10%; background:var(--paper);
+  position:relative;
+}
+.gallery h2{
+  text-align:center; font-family:'Cinzel',serif; 
+  font-size:clamp(2rem,3.5vw,2.6rem); color:var(--ink); 
+  margin-bottom:56px; position:relative;
+}
+.gallery h2::after{
+  content:""; position:absolute; bottom:-12px; left:50%; transform:translateX(-50%);
+  width:80px; height:3px; background:var(--brass); border-radius:2px;
+}
+.gallery .track{display:grid; grid-template-columns:repeat(4,1fr); gap:24px}
+.gallery .ph{
+  aspect-ratio:4/5; border-radius:16px; overflow:hidden; 
+  border:1px solid rgba(17,17,17,.06); 
+  box-shadow:0 8px 30px rgba(0,0,0,.08); 
+  background:#e9ecef; position:relative;
+  transition:all .4s ease; cursor:pointer;
+}
+.gallery .ph::before{
+  content:""; position:absolute; inset:0; 
+  background:linear-gradient(135deg, rgba(178,149,109,.0) 0%, rgba(178,149,109,.1) 100%);
+  opacity:0; transition:opacity .4s ease; z-index:1;
+}
+.gallery .ph:hover::before{opacity:1}
+.gallery .ph img{
+  width:100%;height:100%;object-fit:cover; display:block; 
+  transform:scale(1); transition:transform .5s ease;
+}
+.gallery .ph:hover{
+  transform:translateY(-8px); 
+  box-shadow:0 20px 50px rgba(0,0,0,.15);
+}
+.gallery .ph:hover img{transform:scale(1.05)}
+
+/* Gallery responsive mejorado */
+@media (max-width:1199px){ 
+  .gallery .track{grid-template-columns:repeat(3,1fr); gap:20px} 
+}
+@media (max-width:899px){ 
+  .gallery .track{grid-template-columns:repeat(2,1fr); gap:18px} 
+}
+@media (max-width:599px){ 
+  .gallery .track{grid-template-columns:1fr; gap:16px} 
+}
+@media (max-width:767px){ .gallery .track{grid-template-columns:repeat(2,1fr)} }
+
+/* FAQ (accordion mejorado) */
+.faq{padding:clamp(64px,9vh,104px) 10%; background:#f7f7f7}
+.faq header{text-align:center; margin-bottom:32px}
+.faq h2{font-size:clamp(1.8rem,3vw,2.2rem); color:var(--ink); margin-bottom:8px}
+.faq .subtitle{color:var(--ash); font-size:1.1rem; max-width:600px; margin:0 auto}
+.faq .items{max-width:800px; margin:0 auto}
+.faq .item{
+  border:1px solid rgba(17,17,17,.08); border-radius:16px; background:var(--white); 
+  margin-bottom:16px; overflow:hidden; box-shadow:var(--shadow); 
+  transition:all .3s ease;
+}
+.faq .item:hover{transform:translateY(-2px); box-shadow:0 16px 40px rgba(0,0,0,.12)}
+.faq .q{
+  display:flex; justify-content:space-between; align-items:center; 
+  padding:20px 24px; cursor:pointer; transition:all .2s ease;
+  border:none; background:none; width:100%; text-align:left;
+}
+.faq .q:hover{background:rgba(178,149,109,.04)}
+.faq .q h3{font-size:1.1rem; color:var(--ink); font-weight:500; margin:0}
+.faq .q .icon{
+  width:24px; height:24px; display:flex; align-items:center; justify-content:center;
+  border:2px solid var(--brass); border-radius:50%; color:var(--brass);
+  font-size:16px; font-weight:bold; transition:all .3s ease;
+  flex-shrink:0; margin-left:16px;
+}
+.faq .item[data-open="true"] .q .icon{
+  background:var(--brass); color:var(--white); transform:rotate(45deg);
+}
+.faq .a{
+  max-height:0; overflow:hidden; 
+  transition:max-height .4s ease, padding .4s ease;
+}
+.faq .a-inner{
+  padding:0 24px 24px; color:var(--ash); line-height:1.6;
+  border-top:1px solid rgba(17,17,17,.06);
+}
+
+/* Map (styled container) */
+.about-map{padding:clamp(56px,8vh,96px) 10%; background:#fafafa}
+.about-map h3{font-family:'Cinzel',serif; font-size:clamp(1.4rem,2.4vw,1.8rem); color:var(--ink); text-align:center; margin-bottom:16px}
+.about-map .map-wrap{border-radius:16px; overflow:hidden; border:1px solid rgba(17,17,17,.1); box-shadow:var(--shadow)}
+
+/* CTA final mejorado */
+.cta-final{ 
+  position:relative; color:var(--paper); 
+  background:#0e0f12 url('https://lunvyr.com/wp-content/uploads/2025/08/f07dabad-5599-4f19-bb21-0e2537614e98.png') center/cover no-repeat; 
+  overflow:hidden;
+}
+.cta-final::before{
+  content:""; position:absolute; inset:0; 
+  background:radial-gradient(120% 120% at 70% 20%, rgba(0,0,0,.1) 0%, rgba(0,0,0,.75) 70%);
+}
+.cta-final::after{
+  content:""; position:absolute; top:0; left:0; right:0; height:1px;
+  background:linear-gradient(90deg, transparent, var(--brass), transparent);
+}
+.cta-final .wrap{ 
+  position:relative; z-index:2; max-width:1000px; margin:0 auto; 
+  padding:clamp(100px,15vh,160px) 10%; text-align:center; 
+}
+.cta-final h2{ 
+  font-size:clamp(2.2rem,4vw,3.2rem); margin:0 0 20px; 
+  font-family:'Cinzel',serif; font-weight:400; line-height:1.2;
+  background:linear-gradient(135deg, #fff 0%, #e9ecef 100%);
+  -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
+}
+.cta-final p{ 
+  color:#d6d3ce; margin:0 0 32px; font-size:1.1rem; 
+  max-width:600px; margin-left:auto; margin-right:auto; line-height:1.6;
+}
+.cta-final .actions{ display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
+.cta-final .btn{
+  font-family:Cinzel,serif; padding:1rem 2rem; border-radius:50px; 
+  border:2px solid rgba(242,240,235,.4); display:inline-flex; 
+  align-items:center; gap:.7rem; transition:all .4s ease;
+  background:rgba(255,255,255,.05); backdrop-filter:blur(10px);
+  font-weight:500; position:relative; overflow:hidden;
+}
+.cta-final .btn::before{
+  content:""; position:absolute; top:0; left:-100%; width:100%; height:100%;
+  background:linear-gradient(90deg, transparent, rgba(255,255,255,.1), transparent);
+  transition:left .6s ease;
+}
+.cta-final .btn:hover::before{left:100%}
+.cta-final .btn:hover{ 
+  background:rgba(242,240,235,.12); border-color:var(--brass); 
+  transform:translateY(-2px); box-shadow:0 8px 25px rgba(178,149,109,.2);
+}
+
+/* Reveal */
+.reveal{opacity:0; transform:translateY(18px); transition:opacity .6s ease, transform .6s ease}
+.reveal.in{opacity:1; transform:none}
+
+/* Responsive completo */
+@media (max-width:1199px){
+  .stats .grid{grid-template-columns:repeat(2,2fr); gap:2px; max-width:700px}
+  .ethos .grid{grid-template-columns:repeat(2,1fr)}
+  .about-split{gap:48px}
+  .timeline .steps{max-width:700px}
+}
+
+@media (max-width:899px){
+  .about-split{grid-template-columns:1fr; text-align:center; gap:40px}
+  .about-split .media{margin:0 auto; max-width:400px; transform:rotate(0deg)}
+  .timeline .steps::before{left:15px}
+  .timeline .dot{left:7px}
+  .timeline .step{padding-left:50px}
+  .faq-item{padding:24px 20px}
+}
+
+@media (max-width:767px){
+  .about-hero{min-height:70vh; text-align:center; padding:clamp(64px,12vh,96px) 7%}
+  .about-split{grid-template-columns:1fr; gap:24px; padding:clamp(56px,9vh,84px) 7%}
+  .stats .grid{grid-template-columns:repeat(2,1fr); gap:8px; max-width:400px; border-radius:16px}
+  .stats .card{padding:24px 16px; border-right:none; border-bottom:1px solid rgba(17,17,17,.06)}
+  .stats .card:nth-child(2){border-right:none}
+  .stats .card:nth-child(3), .stats .card:nth-child(4){border-bottom:none}
+  .ethos .grid{grid-template-columns:1fr}
+  .timeline h2, .gallery h2, .about-split h2{font-size:clamp(1.6rem,5vw,2rem)}
+}
+
+@media (max-width:599px){
+  .stats .grid{grid-template-columns:1fr; max-width:320px; gap:0}
+  .stats .card{padding:28px 20px; border-right:none; border-bottom:1px solid rgba(17,17,17,.06)}
+  .stats .card:last-child{border-bottom:none}
+  .about-split .copy .highlight{padding:20px}
+  .cta-final .actions{flex-direction:column; align-items:center}
+  .cta-final .btn{min-width:200px; justify-content:center}
+  .timeline .step{margin:24px 0}
+}
+
+@media (max-width:479px){
+  .stat-card .stat-number{font-size:2rem}
+  .about-split::before{display:none}
+}
+
+/* Reduced motion + failsafe */
+@media (prefers-reduced-motion: reduce){ .reveal{transition:none} }
+.about-page .reveal{opacity:1 !important; transform:none !important;}
+</style>
+
+<div class="about-page">
+
+  <!-- HERO -->
+  <section class="about-hero" data-parallax>
+    <div class="hero-inner reveal">
+      <div class="eyebrow">Studio & Ethos</div>
+      <h1>Lighting as Sculptural Poetry</h1>
+      <p>We craft timeless lighting in New York—handcrafted metal fixtures with brass and premium finishes—guided by geometric precision and architectural clarity.</p>
+    </div>
+  </section>
+
+  <!-- STORY + PORTRAIT -->
+  <section class="about-split">
+    <div class="copy reveal">
+      <div class="eyebrow">Our Story</div>
+      <h2>From sketch to quiet drama</h2>
+      <p>LUNVYR began with an obsession for the dialogue between light and material. Each piece starts as a graphite study, moves into scale models, and is refined through countless iterations until the form feels inevitable.</p>
+      <p>We work slowly: metal carefully shaped and finished, brass detailed and patinated, optics tuned to achieve a calm, architectural glow. The result is lighting that feels collected rather than manufactured.</p>
+      <p>Our studio collaborates with architects and interior designers to tailor proportion, finish and mounting—delivering fixtures that integrate seamlessly into the built environment.</p>
+    </div>
+    <figure class="media reveal">
+      <img src="https://lunvyr.com/wp-content/uploads/2025/08/001.jpg" alt="LUNVYR studio—workbench with metal forms">
+    </figure>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats">
+    <div class="grid">
+      <div class="card reveal"><div class="num">100%<br>Handcrafted</div><div class="label">Made in New York</div></div>
+      <div class="card reveal"><div class="num">UL</div><div class="label">Listed & Code Compliant</div></div>
+      <div class="card reveal"><div class="num">Premium</div><div class="label">Materials & Finishes</div></div>
+      <div class="card reveal"><div class="num">Lead&nbsp;Time</div><div class="label">Typically 4–6 weeks</div></div>
+    </div>
+  </section>
+
+  <!-- ETHOS -->
+  <section class="ethos">
+    <header class="reveal">
+      <h2>Ethos</h2>
+      <p class="sub">Material honesty, proportion, and longevity.</p>
+    </header>
+    <div class="grid">
+      <article class="card reveal">
+        <h3>Material Honesty</h3>
+        <p>We let metal read as metal and brass as brass—embracing the industrial strength and refined finish of each medium.</p>
+      </article>
+      <article class="card reveal">
+        <h3>Architectural Calm</h3>
+        <p>Quiet silhouettes that support spatial composition rather than compete with it.</p>
+      </article>
+      <article class="card reveal">
+        <h3>Built to Last</h3>
+        <p>Repairable construction, replaceable components and finishes that age with grace.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- PROCESS TIMELINE -->
+  <section class="timeline">
+    <header class="reveal">
+      <h2>Process</h2>
+    </header>
+    <div class="steps">
+      <div class="step reveal">
+        <span class="dot" aria-hidden="true"></span>
+        <h3>01 — Research & Sketch</h3>
+        <p>Architectural references, proportion studies and early light tests.</p>
+      </div>
+      <div class="step reveal">
+        <span class="dot" aria-hidden="true"></span>
+        <h3>02 — Material & Form</h3>
+        <p>Precision metalwork, structural design, and quality checks.</p>
+      </div>
+      <div class="step reveal">
+        <span class="dot" aria-hidden="true"></span>
+        <h3>03 — Finish & Patina</h3>
+        <p>Layered textures and controlled aging for depth and warmth.</p>
+      </div>
+      <div class="step reveal">
+        <span class="dot" aria-hidden="true"></span>
+        <h3>04 — Wiring & UL</h3>
+        <p>Assembly, testing and compliance for safe installation.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY STRIP -->
+  <section class="gallery">
+    <div class="track" aria-label="Studio & material gallery">
+      <div class="ph reveal"><img src="https://lunvyr.com/wp-content/uploads/2025/08/image-2.png" alt="Metal surface detail"></div>
+      <div class="ph reveal"><img src="https://lunvyr.com/wp-content/uploads/2025/08/image6.png" alt="Brass patina detail"></div>
+      <div class="ph reveal"><img src="https://lunvyr.com/wp-content/uploads/2025/08/Imagen-de-WhatsApp-2023-12-05-a-las-07.02.44_842f7e4b.jpg" alt="Marine collection mood"></div>
+      <div class="ph reveal"><img src="https://lunvyr.com/wp-content/uploads/2025/08/001.jpg" alt="Workshop scene"></div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq">
+    <header class="reveal">
+      <h2>Frequently Asked Questions</h2>
+      <p class="subtitle">Everything you need to know about our lighting fixtures and process.</p>
+    </header>
+    <div class="items">
+      <div class="item reveal" data-open="false">
+        <button class="q" aria-expanded="false">
+          <h3>What sizes and finishes are available?</h3>
+          <span class="icon">+</span>
+        </button>
+        <div class="a"><div class="a-inner">Our collections offer multiple standard sizes and premium finishes. Each product page shows available options and dimensions. All fixtures come with detailed specification sheets including mounting requirements.</div></div>
+      </div>
+      <div class="item reveal" data-open="false">
+        <button class="q" aria-expanded="false">
+          <h3>What are your lead times and shipping options?</h3>
+          <span class="icon">+</span>
+        </button>
+        <div class="a"><div class="a-inner">Typical lead time is 4–6 weeks depending on collection and finish. We offer standard shipping across the continental US, with white-glove delivery available for larger orders. Rush options may be available for select items.</div></div>
+      </div>
+      <div class="item reveal" data-open="false">
+        <button class="q" aria-expanded="false">
+          <h3>Are your fixtures UL listed and safe for installation?</h3>
+          <span class="icon">+</span>
+        </button>
+        <div class="a"><div class="a-inner">All fixtures are wired to UL standards and ship with complete mounting hardware and installation instructions. We recommend installation by a licensed electrician to ensure safety and warranty coverage.</div></div>
+      </div>
+      <div class="item reveal" data-open="false">
+        <button class="q" aria-expanded="false">
+          <h3>Do you offer trade pricing for professionals?</h3>
+          <span class="icon">+</span>
+        </button>
+        <div class="a"><div class="a-inner">Yes, we work with architects, interior designers, and contractors. Trade pricing is available with approved credentials. Contact us at info@lunvyr.com for application details and project support.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAP -->
+  <section class="about-map">
+    <h3>Our Studio</h3>
+    <div class="map-wrap">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3023.899824645843!2d-74.0060!3d40.7128!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzBCMcKwMDknNTIiTiA3NMKwMDAnMDkiVw!5e0!3m2!1sen!2sus!4v1635555555555" width="100%" height="420" style="border:0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="cta-final">
+    <div class="wrap">
+      <h2>Discover Our Collections</h2>
+      <p>Premium lighting fixtures in refined finishes, ready to elevate your architectural vision.</p>
+      <div class="actions">
+        <a class="btn" href="/contact" aria-label="Get in touch">Get in Touch</a>
+        <a class="btn" href="/shop" aria-label="Explore the collection">Explore the Collection</a>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Reveal on scroll (con fallback arriba en CSS)
+  const els = document.querySelectorAll('.about-page .reveal');
+  if(!prefersReduced && 'IntersectionObserver' in window){
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+    }, {rootMargin:'-10% 0px -10% 0px', threshold:0.05});
+    els.forEach(el=>io.observe(el));
+  } else { els.forEach(el=>el.classList.add('in')); }
+
+  // Parallax sutil en hero
+  const hero = document.querySelector('.about-hero');
+  if(hero && !prefersReduced){
+    window.addEventListener('scroll', ()=>{
+      const y = window.scrollY * 0.12;
+      hero.style.backgroundPosition = `center calc(50% + ${y}px)`;
+    }, {passive:true});
+  }
+
+  // FAQ accordion mejorado
+  document.querySelectorAll('.faq .item').forEach(item=>{
+    const btn = item.querySelector('.q');
+    const panel = item.querySelector('.a');
+    const icon = item.querySelector('.icon');
+    
+    btn.addEventListener('click', ()=>{
+      const open = item.getAttribute('data-open') === 'true';
+      
+      // Cerrar otros elementos abiertos
+      document.querySelectorAll('.faq .item').forEach(otherItem => {
+        if(otherItem !== item) {
+          otherItem.setAttribute('data-open', 'false');
+          otherItem.querySelector('.q').setAttribute('aria-expanded', 'false');
+          otherItem.querySelector('.a').style.maxHeight = 0;
+          otherItem.querySelector('.icon').textContent = '+';
+        }
+      });
+      
+      // Toggle elemento actual
+      const newState = !open;
+      item.setAttribute('data-open', String(newState));
+      btn.setAttribute('aria-expanded', String(newState));
+      panel.style.maxHeight = newState ? (panel.scrollHeight + 'px') : 0;
+      icon.textContent = newState ? '×' : '+';
+    });
+  });
+
+  // Animación de contadores de números
+  function animateCounters() {
+    const counters = document.querySelectorAll('.stat-number');
+    
+    counters.forEach(counter => {
+      const target = parseInt(counter.textContent);
+      const duration = 2000; // 2 segundos
+      const step = target / (duration / 16); // 60fps
+      let current = 0;
+      
+      const timer = setInterval(() => {
+        current += step;
+        if (current >= target) {
+          counter.textContent = target + (counter.textContent.includes('+') ? '+' : '');
+          clearInterval(timer);
+        } else {
+          counter.textContent = Math.floor(current);
+        }
+      }, 16);
+    });
+  }
+
+  // Activar contadores cuando la sección sea visible
+  const statsSection = document.querySelector('.stats');
+  if (statsSection && 'IntersectionObserver' in window) {
+    let countersAnimated = false;
+    const statsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !countersAnimated) {
+          animateCounters();
+          countersAnimated = true;
+          statsObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    
+    statsObserver.observe(statsSection);
+  }
+
+});
+</script>

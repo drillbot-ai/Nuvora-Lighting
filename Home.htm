@@ -1,0 +1,706 @@
+<!-- LUNVYR — Home (Fade Hero, Feature Bar, Collections, Products, Process, Testimonials, IG, Newsletter, CTA) -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Inter:wght@300;400;500&display=swap');
+
+:root{
+  --ink:#1c222b; --paper:#f2f0eb; --coal:#111; --ash:#666; --brass:#b2956d; --white:#fff;
+  --radius:14px; --soft-shadow:0 12px 32px rgba(0,0,0,.08);
+}
+
+/* Base */
+.lunvyr-home{font-family:Inter,system-ui,sans-serif;color:var(--coal);line-height:1.6}
+.lunvyr-home h1,.lunvyr-home h2,.lunvyr-home h3,.lunvyr-home h4{font-family:Cinzel,serif;font-weight:400;margin:0}
+.lunvyr-home a{text-decoration:none;color:inherit}
+.lunvyr-home .section{padding:clamp(72px,10vh,120px) 10%}
+.lunvyr-home .section-narrow{padding:clamp(56px,8vh,96px) 10%}
+.lunvyr-home .eyebrow{letter-spacing:.12em;text-transform:uppercase;font-size:.8rem;color:var(--ash);margin-bottom:.6rem}
+
+/* Buttons mejorados */
+.lunvyr-home .btn{
+  font-family:Cinzel,serif; padding:1rem 2rem; border-radius:50px; 
+  border:2px solid rgba(0,0,0,.14); display:inline-flex; gap:.7rem; 
+  align-items:center; transition:all .4s ease; font-weight:500;
+  position:relative; overflow:hidden;
+}
+.lunvyr-home .btn::before{
+  content:""; position:absolute; top:0; left:-100%; width:100%; height:100%;
+  background:linear-gradient(90deg, transparent, rgba(255,255,255,.1), transparent);
+  transition:left .6s ease;
+}
+.lunvyr-home .btn:hover::before{left:100%}
+.lunvyr-home .btn-dark{
+  background:var(--ink); color:var(--paper); border-color:var(--ink);
+}
+.lunvyr-home .btn-dark:hover{
+  background:#0a0b0e; transform:translateY(-2px); 
+  box-shadow:0 8px 25px rgba(0,0,0,.2);
+}
+.lunvyr-home .btn-light{
+  background:var(--paper); color:var(--ink); border-color:var(--brass);
+}
+.lunvyr-home .btn-light:hover{
+  background:#f8f6f0; transform:translateY(-2px);
+  box-shadow:0 8px 25px rgba(178,149,109,.2);
+}
+.lunvyr-home .btn-ghost{
+  background:rgba(255,255,255,.05); color:var(--paper); 
+  border-color:rgba(242,240,235,.4); backdrop-filter:blur(10px);
+}
+.lunvyr-home .btn-ghost:hover{
+  background:rgba(242,240,235,.12); border-color:var(--brass);
+  transform:translateY(-2px); box-shadow:0 8px 25px rgba(178,149,109,.2);
+}
+
+/* ===== HERO FADE SLIDER MEJORADO ===== */
+.hero-slider{position:relative;isolation:isolate}
+.hero-stage{
+  position:relative; height:100vh; min-height:580px; overflow:hidden; 
+  background:linear-gradient(135deg, var(--ink) 0%, #0a0b0e 100%);
+}
+.hero-slide{
+  position:absolute; inset:0; display:flex; align-items:center; justify-content:flex-start;
+  padding:clamp(100px,12vh,140px) 10%;
+  background:no-repeat center right/cover; color:var(--paper);
+  opacity:0; visibility:hidden; 
+  transition:opacity 1.2s cubic-bezier(0.4, 0.0, 0.2, 1), visibility 0s linear 1.2s;
+}
+.hero-slide.active{opacity:1; visibility:visible; transition:opacity 1.2s cubic-bezier(0.4, 0.0, 0.2, 1)}
+.hero-slide::before{
+  content:""; position:absolute; top:0; left:0; right:0; height:1px;
+  background:linear-gradient(90deg, transparent, var(--brass), transparent);
+  z-index:1;
+}
+.hero-slide::after{
+  content:""; position:absolute; inset:0;
+  background:radial-gradient(100% 100% at 75% 25%, rgba(0,0,0,0) 0%, rgba(0,0,0,.65) 70%);
+}
+.hero-slide .content{
+  max-width:720px; position:relative; z-index:3;
+  animation:heroContentIn 1.5s cubic-bezier(0.4, 0.0, 0.2, 1) forwards;
+  opacity:0; transform:translateY(40px);
+}
+.hero-slide.active .content{animation-delay:.3s}
+.hero-slide h1{
+  font-size:clamp(2.8rem,5.5vw,4.4rem); line-height:1.1; margin-bottom:20px;
+  font-family:'Cinzel',serif; font-weight:400;
+  background:linear-gradient(135deg, #fff 0%, #e9ecef 100%);
+  -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
+}
+.hero-slide p{color:#d6d3ce; margin:0 0 36px; font-size:1.1rem; line-height:1.7}
+.hero-slide .actions{display:flex; gap:16px; flex-wrap:wrap}
+.hero-slide .meta-strip{
+  display:flex; gap:16px; flex-wrap:wrap; color:#c1beb8; opacity:.85; 
+  font-size:.9rem; margin-top:16px; font-weight:500;
+}
+.hero-slide .meta-pill{
+  border:1px solid rgba(242,240,235,.3); border-radius:50px; 
+  padding:.5rem 1rem; background:rgba(255,255,255,.05); 
+  backdrop-filter:blur(10px); transition:all .3s ease;
+}
+.hero-slide .meta-pill:hover{
+  border-color:var(--brass); background:rgba(255,255,255,.08);
+}
+
+@keyframes heroContentIn{
+  to{opacity:1; transform:translateY(0)}
+}
+
+/* slide backgrounds */
+.hero--shop{background-image:url('https://lunvyr.com/wp-content/uploads/2025/08/001.jpg')}
+.hero--custom{background-image:url('https://lunvyr.com/wp-content/uploads/2025/08/f07dabad-5599-4f19-bb21-0e2537614e98.png')}
+.hero--custom::after{background:radial-gradient(110% 110% at 70% 30%, rgba(0,0,0,.0) 0%, rgba(0,0,0,.65) 70%)}
+
+/* controls */
+/* controls – dots como puntos */
+.hero-dots{
+  position:absolute; left:50%; bottom:22px;
+  transform:translateX(-50%);
+  display:flex; gap:6px;           /* un poco menos de separación */
+  z-index:3;
+}
+
+.hero-dots button{
+  /* reset del botón nativo */
+  appearance:none; -webkit-appearance:none;
+  padding:0; margin:0; line-height:0; min-width:0;
+  display:block; box-sizing:border-box;
+
+  /* círculo pequeño */
+  width:8px; height:8px;            /* baja a 6–8px para que se vean como puntos */
+  aspect-ratio:1/1;
+  border-radius:50%;
+  border:1px solid rgba(242,240,235,.7);
+  background:transparent;
+  cursor:pointer;
+}
+
+.hero-dots button.active{ background:var(--paper); }
+.hero-dots button:hover{ background:rgba(242,240,235,.35); }
+
+.hero-dots button:focus-visible{
+  outline:2px solid var(--brass);
+  outline-offset:2px;
+}
+
+.hero-dots{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);display:flex;gap:8px;z-index:3}
+.hero-dots button{width:10px;height:10px;border-radius:50%;border:1px solid rgba(242,240,235,.6);background:transparent;cursor:pointer}
+.hero-dots button.active{background:var(--paper)}
+.hero-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:3;border:1px solid rgba(242,240,235,.6);
+  width:40px;height:40px;border-radius:50%;background:rgba(0,0,0,.15);backdrop-filter:saturate(1.05);cursor:pointer}
+.hero-arrow:hover{background:rgba(0,0,0,.25)}
+.hero-arrow--prev{left:14px}.hero-arrow--next{right:14px}
+
+/* Feature Bar mejorada */
+.feature-bar{
+  background:linear-gradient(135deg, var(--paper) 0%, #f8f6f0 100%);
+  position:relative;
+}
+.feature-bar::before{
+  content:""; position:absolute; top:0; left:0; right:0; height:1px;
+  background:linear-gradient(90deg, transparent, var(--brass), transparent);
+}
+.feature-bar .wrap{display:grid; grid-template-columns:repeat(3,1fr); gap:28px; max-width:1000px; margin:0 auto}
+.feature-bar .card{
+  background:var(--white); border:1px solid rgba(17,17,17,.06); 
+  border-radius:20px; padding:24px 22px; display:flex; gap:18px; 
+  align-items:flex-start; box-shadow:0 8px 30px rgba(0,0,0,.06);
+  transition:all .4s ease; position:relative; overflow:hidden;
+}
+.feature-bar .card::before{
+  content:""; position:absolute; top:0; left:0; right:0; height:3px;
+  background:linear-gradient(90deg, var(--brass) 0%, #d4af78 100%);
+  transform:scaleX(0); transition:transform .4s ease;
+}
+.feature-bar .card:hover::before{transform:scaleX(1)}
+.feature-bar .card:hover{
+  transform:translateY(-6px); 
+  box-shadow:0 16px 45px rgba(0,0,0,.1);
+}
+.feature-bar .icon{
+  width:36px; height:36px; min-width:36px; color:var(--brass);
+  background:rgba(178,149,109,.1); border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+}
+.feature-bar .card h4{color:var(--ink); margin-bottom:6px; font-weight:600}
+.feature-bar .card p{color:var(--ash); margin:0; font-size:.9rem; line-height:1.5}
+
+/* Explore by Collection mejorado */
+.collections{
+  background:linear-gradient(135deg, var(--paper) 0%, #f8f6f0 100%);
+  position:relative;
+}
+.collections::before{
+  content:""; position:absolute; top:0; left:0; right:0; height:1px;
+  background:linear-gradient(90deg, transparent, var(--brass), transparent);
+}
+.collections header{margin-bottom:clamp(24px,2.5vw,40px); text-align:center}
+.collections h2{
+  font-size:clamp(2rem,3.5vw,2.8rem); color:var(--ink); 
+  font-family:'Cinzel',serif; position:relative;
+}
+.collections h2::after{
+  content:""; position:absolute; bottom:-8px; left:50%; transform:translateX(-50%);
+  width:60px; height:3px; background:var(--brass); border-radius:2px;
+}
+.collections p.sub{color:var(--ash); margin:.8rem 0 0; font-size:1.1rem}
+.collections .grid{
+  display:grid; gap:28px; grid-template-columns:repeat(3,1fr); 
+  min-height:clamp(540px,65vh,750px); max-width:1200px; margin:0 auto;
+}
+.collections .card{
+  position:relative; overflow:hidden; border:1px solid rgba(17,17,17,.08); 
+  background:var(--white); transform:translateZ(0); border-radius:20px;
+  box-shadow:0 8px 30px rgba(0,0,0,.08); transition:all .4s ease;
+}
+.collections .card::before{
+  content:""; position:absolute; inset:16px; border:2px solid rgba(178,149,109,.4); 
+  border-radius:12px; transform:translate(8px,8px); 
+  transition:all .4s cubic-bezier(0.4, 0.0, 0.2, 1); z-index:3; pointer-events:none;
+}
+.collections .card:hover{transform:translateY(-8px); box-shadow:0 20px 50px rgba(0,0,0,.15)}
+.collections .card:hover::before{transform:translate(12px,12px); border-color:var(--brass)}
+.collections .media{position:absolute; inset:0; border-radius:20px; overflow:hidden}
+.collections .media img{
+  width:100%; height:100%; object-fit:cover; 
+  transition:transform .6s cubic-bezier(0.4, 0.0, 0.2, 1); 
+  filter:saturate(.95) contrast(1.05);
+}
+.collections .card:hover .media img{transform:scale(1.05)}
+.collections .shade{
+  position:absolute; inset:0; 
+  background:linear-gradient(180deg,rgba(0,0,0,0) 35%,rgba(0,0,0,.6) 100%);
+  opacity:.4; transition:opacity .4s ease; z-index:1;
+}
+.collections .card:hover .shade{opacity:.85}
+.collections .meta{
+  position:absolute; left:0; right:0; bottom:0; padding:32px 28px; 
+  color:var(--paper); z-index:2; text-shadow:0 2px 8px rgba(0,0,0,.4);
+}
+.collections .meta h3{
+  font-size:clamp(1.3rem,2.2vw,1.8rem); margin:0 0 8px; 
+  font-weight:500; font-family:'Cinzel',serif;
+}
+.collections .meta p{margin:0 0 12px; opacity:.9; font-size:.9rem}
+.collections .btn{
+  border:2px solid rgba(242,240,235,.5); color:var(--paper); 
+  border-radius:50px; padding:.7rem 1.4rem; font-weight:500;
+  transition:all .3s ease; backdrop-filter:blur(10px);
+  background:rgba(255,255,255,.1);
+}
+.collections .btn:hover{
+  border-color:var(--brass); background:rgba(178,149,109,.2);
+  transform:translateY(-2px);
+}
+
+/* WooCommerce grids */
+.wc-section header{margin-bottom:18px}
+.wc-section h2{font-size:clamp(24px,2.8vw,34px);color:var(--ink)}
+.wc-section ul.products{--gap:18px;display:grid;grid-template-columns:repeat(4,1fr);gap:var(--gap)!important}
+.wc-section ul.products li.product{background:var(--white);border:1px solid rgba(17,17,17,.08);border-radius:var(--radius);overflow:hidden;box-shadow:var(--soft-shadow)}
+.wc-section ul.products li.product a img{transition:transform .3s}
+.wc-section ul.products li.product a:hover img{transform:scale(1.03)}
+.wc-section .woocommerce-loop-product__title{font-family:Inter,system-ui,sans-serif;font-weight:600;font-size:1rem;color:var(--ink)}
+.wc-section .price{color:var(--ink);font-weight:600}
+.wc-section .button{font-family:Cinzel,serif;border-radius:40px}
+
+/* NEW IN — fila única carrusel */
+.newin .products{display:flex !important;gap:16px;overflow:auto;scroll-snap-type:x mandatory;padding-bottom:6px}
+.newin .products li.product{flex:0 0 clamp(220px,25vw,260px);scroll-snap-align:start}
+.newin .carousel-controls{display:flex;justify-content:flex-end;gap:8px;margin:-8px 0 12px}
+.newin .ctrl{border:1px solid rgba(17,17,17,.2);background:var(--white);border-radius:50%;width:38px;height:38px;cursor:pointer}
+.newin .ctrl:disabled{opacity:.5;cursor:default}
+
+/* Process + Testimonials + IG */
+.process h2{color:var(--ink)}
+.process .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.process .step{background:var(--white);border:1px solid rgba(17,17,17,.08);border-radius:var(--radius);padding:22px;box-shadow:var(--soft-shadow)}
+.process .step .num{font-family:Cinzel,serif;color:var(--brass);font-size:1.4rem;margin-bottom:.5rem}
+.process .step h3{color:var(--ink)}
+.testimonials{background:#f7f7f7}
+.testimonials h2{color:var(--ink)}
+.testimonials .track{display:flex;gap:18px;overflow:auto;scroll-snap-type:x mandatory;padding-bottom:4px}
+.testimonials .card{scroll-snap-align:start;flex:0 0 360px;background:var(--white);border:1px solid rgba(17,17,17,.08);border-radius:var(--radius);padding:20px;box-shadow:var(--soft-shadow)}
+.testimonials .quote{font-style:italic;color:#333}
+.testimonials .author{margin-top:10px;color:#777}
+.ig .grid{display:grid;grid-template-columns:repeat(6,1fr);gap:8px}
+.ig .grid a{position:relative;display:block;overflow:hidden;border-radius:8px}
+.ig .grid img{width:100%;aspect-ratio:1/1;object-fit:cover;transition:transform .35s}
+.ig .grid a:hover img{transform:scale(1.05)}
+/* IG – color del título */
+.ig header h2 { color: var(--brass); }   /* o usa #1c222b, #000, etc. */
+
+/* (opcional) cambia el color del "FOLLOW" */
+.ig header .eyebrow { color: var(--ash); }  /* o el color que prefieras */
+
+
+/* Newsletter */
+.newsletter{background:#f5f5f5;text-align:center}
+.newsletter form{max-width:540px;margin:12px auto 0;display:flex;gap:10px}
+.newsletter input[type="email"]{flex:1;padding:14px;border:1px solid var(--ash);border-radius:30px;font-size:1rem;background:var(--white)}
+.newsletter .message{margin-top:10px;color:var(--brass)}
+
+/* CTA final */
+.cta-final{ position:relative; color:var(--paper);
+  background:#0e0f12 url('https://lunvyr.com/wp-content/uploads/2025/08/f07dabad-5599-4f19-bb21-0e2537614e98.png') center/cover no-repeat;}
+.cta-final::before{content:""; position:absolute; inset:0; background:radial-gradient(120% 120% at 70% 20%, rgba(0,0,0,.0) 0%, rgba(0,0,0,.65) 70%);}
+.cta-final .wrap{ position:relative; z-index:1; max-width:960px; margin:0 auto; padding:clamp(84px,12vh,140px) 10%; text-align:center; }
+.cta-final h2{ font-size:clamp(28px,3.2vw,42px); margin:0 0 12px; }
+.cta-final p{ color:#efece7; margin:0 0 22px; }
+.cta-final .actions{ display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
+.cta-final .btn-ghost{ background:transparent; color:var(--paper); border-color:rgba(242,240,235,.6) }
+.cta-final .btn-ghost:hover{ background:rgba(242,240,235,.1); border-color:var(--paper) }
+
+/* Responsive mejorado */
+@media (max-width:1199px){
+  .feature-bar .wrap{grid-template-columns:1fr 1fr; gap:24px}
+  .collections .grid{grid-template-columns:1fr 1fr; gap:24px}
+  .collections .card::before{inset:12px; transform:translate(6px,6px)}
+  .collections .card:hover::before{transform:translate(8px,8px)}
+  .wc-section ul.products{grid-template-columns:repeat(3,1fr)}
+  .ig .grid{grid-template-columns:repeat(4,1fr)}
+}
+
+@media (max-width:899px){
+  .hero-slide .content{max-width:600px}
+  .feature-bar .wrap{max-width:700px}
+  .collections .grid{max-width:600px}
+}
+
+@media (max-width:767px){
+  .hero-slide{
+    padding:clamp(80px,12vh,100px) 7%; text-align:center; 
+    background-position:center; align-items:center;
+  }
+  .hero-slide .actions{justify-content:center}
+  .hero-slide h1{font-size:clamp(2.2rem,7vw,3.2rem)}
+  .feature-bar .wrap{grid-template-columns:1fr; max-width:400px}
+  .collections .grid{grid-template-columns:1fr; min-height:unset; gap:20px}
+  .collections .card{border-radius:16px}
+  .collections .card::before{inset:10px; border-radius:8px}
+  .wc-section ul.products{grid-template-columns:repeat(2,1fr)}
+  .process .grid{grid-template-columns:1fr}
+  .ig .grid{grid-template-columns:repeat(3,1fr)}
+}
+
+@media (max-width:599px){
+  .hero-slide{padding:clamp(60px,10vh,80px) 6%}
+  .feature-bar .card{padding:20px 18px}
+  .collections .meta{padding:24px 20px}
+  .wc-section ul.products{grid-template-columns:1fr}
+}
+
+@media (max-width:479px){
+  .hero-slide .actions{flex-direction:column; align-items:center}
+  .lunvyr-home .btn{min-width:200px; justify-content:center}
+}
+
+/* Reduced motion + failsafe */
+@media (prefers-reduced-motion: reduce){ .hero-slide{transition:none} }
+.lunvyr-home .reveal{opacity:1!important;transform:none!important}
+
+/* --- FIX: Explore by Collection en móvil (altura intrínseca) --- */
+.collections .card{
+  aspect-ratio: 4 / 5;              /* altura natural para desktop */
+  min-height: 360px;                 /* fallback por si el navegador ignora aspect-ratio */
+}
+@media (max-width: 767px){
+  .collections .card{
+    aspect-ratio: 3 / 4;             /* un poco más alta en móvil */
+    min-height: 300px;
+  }
+}
+
+/* --- NEW IN: mejora scroll-snap en móvil para autoplay --- */
+.newin .products{
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Hero slide 1: enfocar CENTRO-DERECHA en móvil */
+@media (max-width: 767px){
+  .hero-slide.hero--shop{
+    /* mueve el foco hacia la derecha manteniendo el centro vertical */
+    background-position: 80% 50%; /* prueba 75–85% según tu imagen */
+    background-size: cover;       /* por si algún navegador ajusta distinto */
+  }
+}
+
+
+</style>
+
+<div class="lunvyr-home">
+
+  <!-- ===== HERO FADE (2 slides) ===== -->
+  <section class="hero-slider" aria-roledescription="carousel">
+    <div class="hero-stage">
+      <button class="hero-arrow hero-arrow--prev" aria-label="Previous slide">‹</button>
+      <button class="hero-arrow hero-arrow--next" aria-label="Next slide">›</button>
+
+      <div class="hero-slide hero--shop active" role="group" aria-label="1 of 2">
+        <div class="content">
+          <div class="eyebrow">Handcrafted in New York</div>
+          <h1>Sculptural Lighting.<br>Timeless Design.</h1>
+          <p>Handcrafted lighting—wall, ceiling, and table fixtures—blending artisanal craft with architectural elegance.</p>
+          <div class="actions">
+            <a class="btn btn-ghost" href="/shop">Explore the Collection</a>
+          </div>
+          
+        </div>
+      </div>
+
+      <div class="hero-slide hero--custom" role="group" aria-label="2 of 2">
+        <div class="content">
+          <div class="eyebrow">Premium Quality</div>
+          <h1>Precision Lighting.<br>Ready to Ship.</h1>
+          <p>Complete collections available in our signature finishes—each piece crafted to exacting standards.</p>
+          <div class="actions">
+            <a class="btn btn-ghost" href="/shop">Browse Collections</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-dots" role="tablist" aria-label="Hero slides">
+        <button aria-label="Go to slide 1" class="active"></button>
+        <button aria-label="Go to slide 2"></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURE BAR -->
+  <section class="feature-bar section-narrow">
+    <div class="wrap">
+      <article class="card"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 3l7 4v7c0 4-7 7-7 7s-7-3-7-7V7l7-4z"/></svg><div><h4 style="margin:0 0 4px">Premium Craft</h4><p style="margin:0;color:var(--ash)">Handcrafted metal fixtures with brass and fine finishes—built to last.</p></div></article>
+      <article class="card"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 12h18M12 3v18"/></svg><div><h4 style="margin:0 0 4px">Multiple Sizes</h4><p style="margin:0;color:var(--ash)">Available in various standard proportions and finishes.</p></div></article>
+      <article class="card"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20 12a8 8 0 1 1-16 0"/></svg><div><h4 style="margin:0 0 4px">UL & Compliance</h4><p style="margin:0;color:var(--ash)">Built to US electrical standards and safety codes.</p></div></article>
+    </div>
+  </section>
+
+  <!-- EXPLORE BY COLLECTION (updated) -->
+<section class="collections section" aria-labelledby="collections-title">
+  <header>
+    <h2 id="collections-title">Explore by Collection</h2>
+    <p class="sub">Architectural design meets precision metalwork.</p>
+  </header>
+
+  <div class="grid">
+    <!-- AUREA -->
+    <article class="card">
+      <div class="media">
+        <img src="https://lunvyr.com/wp-content/uploads/2025/08/c9ea6458-53bb-4486-a4b5-04f51cf932f3.png" alt="AUREA collection" loading="lazy">
+        <span class="shade" aria-hidden="true"></span>
+      </div>
+      <div class="meta">
+        <h3>AUREA</h3>
+        <p>Mid-century curves in satin brass and opaline glass; warm, golden harmony.</p>
+        <a class="btn" href="/shop/?collection=aurea&tag=collection-aurea">View Collection</a>
+      </div>
+      <a class="card-link" href="/shop/?collection=aurea&tag=collection-aurea" aria-hidden="true" tabindex="-1"></a>
+    </article>
+
+    <!-- BLACK LABEL -->
+    <article class="card">
+      <div class="media">
+        <img src="https://lunvyr.com/wp-content/uploads/2025/08/image-60.png" alt="BLACK LABEL collection" loading="lazy">
+        <span class="shade" aria-hidden="true"></span>
+      </div>
+      <div class="meta">
+        <h3>BLACK LABEL</h3>
+        <p>Dramatic blackened brass with satin contrasts; a nocturnal, ultra-premium mood.</p>
+        <a class="btn" href="/shop/?collection=black-label&tag=collection-black-label">View Collection</a>
+      </div>
+      <a class="card-link" href="/shop/?collection=black-label&tag=collection-black-label" aria-hidden="true" tabindex="-1"></a>
+    </article>
+
+    <!-- DECO STRATA -->
+    <article class="card">
+      <div class="media">
+        <img src="https://lunvyr.com/wp-content/uploads/2025/08/image-65.png" alt="DECO STRATA collection" loading="lazy">
+        <span class="shade" aria-hidden="true"></span>
+      </div>
+      <div class="meta">
+        <h3>DECO STRATA</h3>
+        <p>Art Deco layering—polished cones, tiered forms, brass and nickel gleam.</p>
+        <a class="btn" href="/shop/?collection=deco-strata&tag=collection-deco-strata">View Collection</a>
+      </div>
+      <a class="card-link" href="/shop/?collection=deco-strata&tag=collection-deco-strata" aria-hidden="true" tabindex="-1"></a>
+    </article>
+
+    <!-- ORBIT -->
+    <article class="card">
+      <div class="media">
+        <img src="https://lunvyr.com/wp-content/uploads/2025/08/451aa3d9-d27b-419d-901c-ab1b2e01fcc8.png" alt="ORBIT collection" loading="lazy">
+        <span class="shade" aria-hidden="true"></span>
+      </div>
+      <div class="meta">
+        <h3>ORBIT</h3>
+        <p>Sculptural and playful—spun spheres and balanced motion in contemporary brass.</p>
+        <a class="btn" href="/shop/?collection=orbit&tag=collection-orbit">View Collection</a>
+      </div>
+      <a class="card-link" href="/shop/?collection=orbit&tag=collection-orbit" aria-hidden="true" tabindex="-1"></a>
+    </article>
+
+    <!-- INDUSTRIAL -->
+    <article class="card">
+      <div class="media">
+        <img src="https://lunvyr.com/wp-content/uploads/2025/08/image-2-1.png" alt="INDUSTRIAL collection" loading="lazy">
+        <span class="shade" aria-hidden="true"></span>
+      </div>
+      <div class="meta">
+        <h3>Industrial</h3>
+        <p>Raw geometric forms in blackened steel and brass—bold, architectural and uncompromising.</p>
+        <a class="btn" href="/shop/?collection=industrial&tag=collection-industrial">View Collection</a>
+      </div>
+      <a class="card-link" href="/shop/?collection=industrial&tag=collection-industrial" aria-hidden="true" tabindex="-1"></a>
+    </article>
+
+    <!-- METALLIC FUSION -->
+    <article class="card">
+      <div class="media">
+        <img src="https://lunvyr.com/wp-content/uploads/2025/08/Untitled-1.png" alt="METALLIC FUSION collection" loading="lazy">
+        <span class="shade" aria-hidden="true"></span>
+      </div>
+      <div class="meta">
+        <h3>Metallic Fusion</h3>
+        <p>Multi-metal compositions—copper, brass, and steel harmoniously layered for rich textural depth.</p>
+        <a class="btn" href="/shop/?collection=metallic-fusion&tag=collection-metallic-fusion">View Collection</a>
+      </div>
+      <a class="card-link" href="/shop/?collection=metallic-fusion&tag=collection-metallic-fusion" aria-hidden="true" tabindex="-1"></a>
+    </article>
+
+  </div>
+</section>
+
+
+  <!-- BESTSELLERS (4 productos) -->
+  <section class="wc-section section" aria-labelledby="bestsellers-title">
+    <header><div class="eyebrow">Top Picks</div><h2 id="bestsellers-title">Bestsellers</h2></header>
+    [products limit="4" columns="4" orderby="popularity" visibility="visible"]
+  </section>
+
+  <!-- NEW IN — fila única carrusel -->
+  <section class="wc-section section newin" aria-labelledby="newin-title">
+    <header style="display:flex;align-items:end;justify-content:space-between;gap:16px">
+      <div><div class="eyebrow">Fresh Arrivals</div><h2 id="newin-title">New In</h2></div>
+      <div class="carousel-controls">
+        <button class="ctrl" data-dir="-1" aria-label="Scroll left">‹</button>
+        <button class="ctrl" data-dir="1" aria-label="Scroll right">›</button>
+      </div>
+    </header>
+    [products limit="12" columns="4" orderby="random" order="DESC" visibility="visible"]
+  </section>
+
+  <!-- PROCESS -->
+  <section class="process section" aria-labelledby="process-title">
+    <header><div class="eyebrow">Our Approach</div><h2 id="process-title">The LUNVYR Studio Process</h2></header>
+    <div class="grid">
+      <article class="step"><div class="num">01</div><h3 style="margin:0 0 6px">Design & Material Study</h3><p style="margin:0;color:var(--ash)">From architectural concepts to precision sketches and scale models.</p></article>
+      <article class="step"><div class="num">02</div><h3 style="margin:0 0 6px">Handcraft & Finishing</h3><p style="margin:0;color:var(--ash)">Precision metalwork, sanding, sealing and patina development.</p></article>
+      <article class="step"><div class="num">03</div><h3 style="margin:0 0 6px">Assembly & UL Listing</h3><p style="margin:0;color:var(--ash)">Wiring to code, testing and safe packaging for delivery.</p></article>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials section-narrow" aria-labelledby="testimonials-title">
+    <header><div class="eyebrow">Testimonials</div><h2 id="testimonials-title">What Clients Say</h2></header>
+    <div class="track">
+      <article class="card"><p class="quote">"Impeccable craftsmanship and elegant proportions. The sconces transformed our foyer."</p><div class="author">— Interior Designer, Manhattan</div></article>
+      <article class="card"><p class="quote">"Perfect quality and finish. Exactly what we needed for our project specifications."</p><div class="author">— Architect, Brooklyn</div></article>
+      <article class="card"><p class="quote">"The metal fixtures are stunning—sculptural, sophisticated and premium quality."</p><div class="author">— Residential Client, Tribeca</div></article>
+    </div>
+  </section>
+
+  <!-- INSTAGRAM -->
+  <section class="ig section-narrow" aria-labelledby="ig-title">
+    <header><div class="eyebrow">Follow</div><h2 id="ig-title">@lunvyr_</h2></header>
+    <div class="grid">
+      <a href="https://www.instagram.com/p/DNg81W5hgJ1/" target="_blank" rel="noopener"><img loading="lazy" src="https://lunvyr.com/wp-content/uploads/2025/08/lunvyr.png" alt="Instagram 1"></a>
+      <a href="https://instagram.com/lunvyr_" target="_blank" rel="noopener"><img loading="lazy" src="https://lunvyr.com/wp-content/uploads/2025/08/image2.png"></a>
+      <a href="https://instagram.com/lunvyr_" target="_blank" rel="noopener"><img loading="lazy" src="https://lunvyr.com/wp-content/uploads/2025/08/451aa3d9-d27b-419d-901c-ab1b2e01fcc8.png"></a>
+      <a href="https://instagram.com/lunvyr_" target="_blank" rel="noopener"><img loading="lazy" src="https://lunvyr.com/wp-content/uploads/2025/08/image-65.png"></a>
+      <a href="https://instagram.com/lunvyr_" target="_blank" rel="noopener"><img loading="lazy" src="https://lunvyr.com/wp-content/uploads/2025/08/Imagen-de-WhatsApp-2023-11-15-a-las-22.21.04_f1e40143.jpg"></a>
+      <a href="https://instagram.com/lunvyr_" target="_blank" rel="noopener"><img loading="lazy" src="https://lunvyr.com/wp-content/uploads/2025/08/Untitled-1.png"></a>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="cta-final">
+    <div class="wrap">
+      <h2>Illuminate Your Space</h2>
+      <p>Precision-crafted fixtures in premium finishes, ready to transform your environment.</p>
+      <div class="actions">
+        <a class="btn btn-ghost" href="/shop">Shop the Collection</a>
+        <a class="btn btn-dark" href="/contact">Get in Touch</a>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* === HERO FADE === */
+  const slides = Array.from(document.querySelectorAll('.hero-slide'));
+  const dotsWrap = document.querySelector('.hero-dots');
+  // crear dots si no existen (por seguridad)
+  if(dotsWrap && !dotsWrap.children.length){
+    slides.forEach((_,i)=>{ const b=document.createElement('button'); if(i===0)b.className='active'; b.setAttribute('aria-label',`Go to slide ${i+1}`); dotsWrap.appendChild(b); });
+  }
+  const dots = Array.from(document.querySelectorAll('.hero-dots button'));
+  const prev = document.querySelector('.hero-arrow--prev');
+  const next = document.querySelector('.hero-arrow--next');
+  let index = 0, timer;
+
+  function show(i){
+    slides[index].classList.remove('active');
+    index = (i + slides.length) % slides.length;
+    slides[index].classList.add('active');
+    dots.forEach((d,di)=>d.classList.toggle('active', di===index));
+    restart();
+  }
+  function restart(){
+    if(prefersReduced) return;
+    clearInterval(timer);
+    timer = setInterval(()=>show(index+1), 7000);
+  }
+
+  prev.addEventListener('click', ()=>show(index-1));
+  next.addEventListener('click', ()=>show(index+1));
+  dots.forEach((d,di)=>d.addEventListener('click', ()=>show(di)));
+
+  // swipe
+  let sx=0, dx=0; const stage=document.querySelector('.hero-stage');
+  stage.addEventListener('touchstart', e=>{sx=e.touches[0].clientX;}, {passive:true});
+  stage.addEventListener('touchmove', e=>{dx=e.touches[0].clientX - sx;}, {passive:true});
+  stage.addEventListener('touchend', ()=>{ if(Math.abs(dx)>50) show(index + (dx<0?1:-1)); dx=0; });
+
+  restart();
+
+  /* === NEW IN: botones === */
+  const newIn = document.querySelector('.newin .products');
+  const ctrls = document.querySelectorAll('.newin .ctrl');
+  function nudger(dir){ if(!newIn) return; newIn.scrollBy({left: dir * 320, behavior:'smooth'}); }
+  ctrls.forEach(c=>c.addEventListener('click', ()=>nudger(parseInt(c.dataset.dir,10))));
+
+  /* Newsletter validation */
+  const form = document.querySelector('.newsletter-form');
+  const message = document.querySelector('.newsletter .message');
+  if(form){
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      const email = form.querySelector('input[type="email"]').value.trim();
+      const ok = /^[\w-.]+@([\w-]+\.)+[\w-]{2,}$/i.test(email);
+      message.style.display = 'block';
+      if(!ok){ message.textContent = 'Please enter a valid email address.'; return; }
+      message.textContent = 'Thank you for subscribing!';
+      form.reset();
+    });
+  }
+});
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* === NEW IN: carrusel con botones + autoplay suave === */
+  const newIn = document.querySelector('.newin .products');
+  const ctrls = document.querySelectorAll('.newin .ctrl');
+
+  function nudge(dir){
+    if(!newIn) return;
+    const cardWidth = newIn.querySelector('li.product')?.getBoundingClientRect().width || 280;
+    newIn.scrollBy({ left: dir * (cardWidth + 16), behavior: 'smooth' });
+  }
+  ctrls.forEach(c => c.addEventListener('click', ()=> nudge(parseInt(c.dataset.dir,10))));
+
+  // Autoplay suave (pausa al interactuar)
+  let niTimer;
+  function startAuto(){
+    if(prefersReduced || !newIn) return;
+    stopAuto();
+    niTimer = setInterval(() => {
+      const max = newIn.scrollWidth - newIn.clientWidth;
+      const cardW = newIn.querySelector('li.product')?.getBoundingClientRect().width || 280;
+      const step = cardW + 16; // card + gap
+      const next = Math.min(newIn.scrollLeft + step, max);
+      newIn.scrollTo({ left: next, behavior: 'smooth' });
+
+      // si llegamos al final, resetea al inicio con un pequeño delay
+      if (next >= max - 4) {
+        setTimeout(()=>{ newIn.scrollLeft = 0; }, 1200);
+      }
+    }, 3200);
+  }
+  function stopAuto(){ clearInterval(niTimer); }
+
+  if(newIn){
+    startAuto();
+    // Pausar en hover/drag/touch
+    ['mouseenter','touchstart','mousedown','focusin'].forEach(ev => newIn.addEventListener(ev, stopAuto, {passive:true}));
+    ['mouseleave','touchend','mouseup','focusout'].forEach(ev => newIn.addEventListener(ev, ()=>setTimeout(startAuto,600), {passive:true}));
+  }
+});
+</script>
+

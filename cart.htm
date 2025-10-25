@@ -1,0 +1,56 @@
+<!-- LUNVYR — Cart content-only block to paste into your WordPress Cart page.
+     Use with a Shortcode block/widget that renders [woocommerce_cart].
+     No header/footer. Styles are scoped to .lunvyr-woo and force readable
+     colors/background even if the theme sets white text.
+
+     Elementor tip:
+       - Put this HTML widget and the Shortcode widget inside the SAME Section.
+       - Assign the Section CSS class: lunvyr-woo
+       - If you do that, you can remove the outer <div class="lunvyr-woo"> below
+         and keep only the inner markup; the styles will still apply. -->
+
+<div class="lunvyr-woo">
+  <style>
+    .lunvyr-woo{ --ink:#1c222b; --paper:#f3f0eb; --brass:#c2a574; --surface:#ffffff; --surface-2:#f7f7f7; --border:#e1e1e1; --radius:12px; --shadow:0 12px 30px rgba(0,0,0,.08); color:#1c222b !important; isolation:isolate; position:relative; padding-bottom:120px }
+    /* Full-width background that extends beyond the content bottom to avoid dark bands */
+    .lunvyr-woo::before{ content:""; position:absolute; z-index:-1; top:0; left:50%; transform:translateX(-50%); width:100vw; bottom:-160px; background:linear-gradient(135deg,#f3f0eb,#ffffff) }
+    .lunvyr-woo *{ box-sizing:border-box }
+    /* Force readable text even if theme forces white */
+    .lunvyr-woo, .lunvyr-woo h1, .lunvyr-woo h2, .lunvyr-woo h3, .lunvyr-woo p{ color:#1c222b !important }
+    /* Layout */
+    .lunvyr-woo .lv-container{ max-width:1200px; margin:0 auto; padding:0 20px }
+  .lunvyr-woo .lv-hero{ padding:28px 0 8px }
+    .lunvyr-woo .lv-title{ margin:0; font-family:Cinzel,serif; font-size:clamp(28px,3.5vw,40px); letter-spacing:.4px }
+    .lunvyr-woo .lv-sub{ margin:6px 0 0; color:#666a70 !important }
+    .lunvyr-woo .lv-content{ margin:20px 0 40px }
+    .lunvyr-woo .lv-card{ background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow); padding:24px }
+    /* Woo buttons look */
+    .lunvyr-woo .woocommerce .button,
+    .lunvyr-woo .woocommerce a.button,
+    .lunvyr-woo .woocommerce button.button,
+    .lunvyr-woo .woocommerce input.button,
+    .lunvyr-woo .woocommerce .button.wc-forward,
+    .lunvyr-woo .woocommerce .button.wc-backward{
+      background:var(--ink); border:2px solid var(--ink); border-radius:10px; color:#fff !important; padding:.7rem 1.2rem; font-weight:600
+    }
+    .lunvyr-woo .woocommerce .button:hover,
+    .lunvyr-woo .woocommerce a.button:hover,
+    .lunvyr-woo .woocommerce button.button:hover,
+    .lunvyr-woo .woocommerce input.button:hover{
+      background:var(--brass); border-color:var(--brass); color:#1c222b !important
+    }
+  </style>
+
+  <section class="lv-hero">
+    <div class="lv-container">
+      <h1 class="lv-title">Your Cart</h1>
+      <p class="lv-sub">Review your selection and proceed to checkout.</p>
+    </div>
+  </section>
+
+  <section class="lv-container lv-content">
+    <div class="lv-card">
+      [woocommerce_cart]
+    </div>
+  </section>
+</div>

@@ -1,0 +1,156 @@
+<!-- FOOTER — LUNVYR (ajustado al ancho del sitio) -->
+<style>
+  :root{
+    --ink:#1c222b; --paper:#f3f0eb; --ash:#a7a7a7; --brass:#c2a574;
+    /* toma el ancho del contenedor de Elementor si existe; si no, 1200px */
+    --site-max: var(--container-max-width, var(--content-width, 1200px));
+    --site-pad: clamp(16px, 4vw, 40px);
+  }
+  footer.lunvyr-footer{ background:var(--ink); color:var(--paper); font-family:Inter,system-ui,sans-serif }
+  .f-wrap{
+    /* ancho alineado al de la página */
+    box-sizing:border-box;
+    max-width:var(--site-max);
+    margin:0 auto;
+    padding:48px var(--site-pad) 20px;
+  }
+
+  /* Grid columns (3 columnas según tu contenido actual) */
+  .f-grid{
+    display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:34px; margin-bottom:26px;
+  }
+  .f-col h4{ font-family:Cinzel,serif; font-size:1.05rem; letter-spacing:.4px; margin:0 0 10px; font-weight:400 }
+  .f-brand h2{ font-family:Cinzel,serif; letter-spacing:.8px; margin:0 0 8px; font-weight:600 }
+  .f-brand p{ color:#d9d6d2; margin:.3rem 0 0; max-width:32ch }
+
+  .f-links{ list-style:none; padding:0; margin:0 }
+  .f-links li{ margin:6px 0 }
+  .f-links a{ color:var(--paper); text-decoration:none; font-size:.95rem; opacity:.9; transition:color .2s, opacity .2s }
+  .f-links a:hover{ color:var(--brass); opacity:1 }
+
+  /* Social */
+  .f-social{ display:flex; gap:12px; margin-top:6px }
+  .f-social a{
+    display:inline-flex; width:36px; height:36px; align-items:center; justify-content:center;
+    border:1px solid rgba(255,255,255,.18); border-radius:999px; color:var(--paper); text-decoration:none;
+    transition:background .2s, border-color .2s, transform .1s
+  }
+  .f-social a:hover{ background:rgba(255,255,255,.08); border-color:#fff }
+  .f-social a:active{ transform:scale(.96) }
+  .f-social svg{ width:18px; height:18px; fill:currentColor }
+
+  /* Bottom */
+  .f-bottom{
+    border-top:1px solid rgba(255,255,255,.14); padding-top:12px; display:flex; gap:12px;
+    justify-content:space-between; align-items:center; color:#cfcfcc; font-size:.9rem; flex-wrap:wrap
+  }
+  .f-legal{ display:flex; gap:14px; flex-wrap:wrap }
+  .f-legal a{ color:#cfcfcc; text-decoration:none; opacity:.85 }
+  .f-legal a:hover{ color:var(--brass); opacity:1 }
+
+  /* Mobile accordions (no JS) */
+  .f-acc{ display:none }
+  @media (max-width: 900px){
+    .f-grid{ grid-template-columns:1fr 1fr }
+  }
+  @media (max-width: 640px){
+    .f-grid{ display:block }
+    .f-col{ margin-bottom:14px; border-top:1px solid rgba(255,255,255,.12) }
+    .f-col > div{ padding:10px 0 6px }
+    .f-acc{ display:block }
+    .f-col details{ border-top:1px solid rgba(255,255,255,.12) }
+    .f-col summary{
+      list-style:none; cursor:pointer; padding:14px 0; position:relative;
+      font-family:Cinzel,serif; font-size:1.05rem;
+    }
+    .f-col summary::-webkit-details-marker{ display:none }
+    .f-col summary::after{
+      content:"+"; position:absolute; right:0; top:14px; color:#fff; transition:transform .2s
+    }
+    .f-col details[open] summary::after{ transform:rotate(45deg) }
+    .f-col .panel{ padding:0 0 12px }
+    .f-col h4{ display:none }
+  }
+</style>
+
+<footer class="lunvyr-footer">
+  <div class="f-wrap">
+    <div class="f-grid">
+      <!-- Brand -->
+      <div class="f-col f-brand">
+        <h2>LUNVYR</h2>
+        <p>Timeless sculptural lighting, handcrafted in New York with precision and artistry.</p>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="f-col">
+        <h4>Quick Links</h4>
+        <details class="f-acc"><summary>Quick Links</summary><div class="panel">
+          <ul class="f-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/shop">Shop</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/my-account">My Account</a></li>
+          </ul>
+        </div></details>
+        <div><ul class="f-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="/shop">Shop</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/contact">Contact</a></li>
+          <li><a href="/my-account">My Account</a></li>
+        </ul></div>
+      </div>
+
+      <!-- Studio -->
+      <div class="f-col">
+        <h4>Studio</h4>
+        <details class="f-acc"><summary>Studio</summary><div class="panel">
+          <ul class="f-links">
+            <li>Long Island City, NY</li>
+            <li><a href="mailto:info@lunvyr.com">info@lunvyr.com</a></li>
+            <li><a href="tel:+19297282394">+1 (929) 728-2394</a></li>
+            <li>Visits by appointment</li>
+          </ul>
+          <div class="f-social" aria-label="Social">
+            <a href="https://instagram.com/lunvyr" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg viewBox="0 0 24 24"><path d="M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4zm5 4a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm6.5-.75a1.25 1.25 0 1 0 0 2.5 1.25 1.25 0 0 0 0-2.5z"/></svg>
+            </a>
+            <a href="https://www.pinterest.com/" target="_blank" rel="noopener" aria-label="Pinterest">
+              <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-3.6 19.3c-.05-.82-.1-2.08.02-2.98l1.05-4.48s-.27-.54-.27-1.34c0-1.26.73-2.2 1.64-2.2.77 0 1.15.58 1.15 1.28 0 .78-.5 1.94-.76 3.02-.22.93.47 1.68 1.39 1.68 1.67 0 2.96-1.76 2.96-4.3 0-2.25-1.62-3.83-3.94-3.83-2.68 0-4.25 2.01-4.25 4.09 0 .81.31 1.68.7 2.15.08.1.09.19.07.29l-.29 1.13c-.04.14-.15.19-.28.12-1.06-.5-1.73-2.08-1.73-3.35 0-2.72 1.98-5.22 5.72-5.22 3 0 5.33 2.14 5.33 5 0 2.98-1.88 5.39-4.49 5.39-0.88 0-1.72-.46-2.01-1 0 0-.48 1.82-.6 2.26-.18.69-.53 1.39-.84 2.01A10 10 0 1 0 12 2z"/></svg>
+            </a>
+          </div>
+        </div></details>
+        <div>
+          <ul class="f-links">
+            <li>Long Island City, NY</li>
+            <li><a href="mailto:info@lunvyr.com">info@lunvyr.com</a></li>
+            <li><a href="tel:+19297282394">+1 (929) 728-2394</a></li>
+          </ul>
+          <div class="f-social" aria-label="Social">
+            <a href="https://instagram.com/lunvyr_" target="_blank" rel="noopener" aria-label="Instagram">
+              <svg viewBox="0 0 24 24"><path d="M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4zm5 4a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm6.5-.75a1.25 1.25 0 1 0 0 2.5 1.25 1.25 0 0 0 0-2.5z"/></svg>
+            </a>
+            <a href="https://www.pinterest.com/" target="_blank" rel="noopener" aria-label="Pinterest">
+              <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-3.6 19.3c-.05-.82-.1-2.08.02-2.98l1.05-4.48s-.27-.54-.27-1.34c0-1.26.73-2.2 1.64-2.2.77 0 1.15.58 1.15 1.28 0 .78-.5 1.94-.76 3.02-.22.93.47 1.68 1.39 1.68 1.67 0 2.96-1.76 2.96-4.3 0-2.25-1.62-3.83-3.94-3.83-2.68 0-4.25 2.01-4.25 4.09 0 .81.31 1.68.7 2.15.08.1.09.19.07.29l-.29 1.13c-.04.14-.15.19-.28.12-1.06-.5-1.73-2.08-1.73-3.35 0-2.72 1.98-5.22 5.72-5.22 3 0 5.33 2.14 5.33 5 0 2.98-1.88 5.39-4.49 5.39-0.88 0-1.72-.46-2.01-1 0 0-.48 1.82-.6 2.26-.18.69-.53 1.39-.84 2.01A10 10 0 1 0 12 2z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="f-bottom">
+      <div>© <span id="f-year"></span> LUNVYR. All rights reserved.</div>
+      <div class="f-legal">
+        <a href="/privacy-policy">Privacy</a>
+        <a href="/terms-and-conditions">Terms</a>
+        <a href="/refund_returns">Returns</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('f-year').textContent = new Date().getFullYear();
+</script>
