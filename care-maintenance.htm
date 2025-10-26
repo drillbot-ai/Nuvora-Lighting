@@ -45,6 +45,10 @@
 
 /* Finish Types */
 .finish-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr)); gap:28px; max-width:1200px; margin:0 auto 60px}
+/* Desktop layout for 4 finish cards - 2x2 grid */
+@media (min-width:1024px){
+  .finish-grid{grid-template-columns:repeat(2, 1fr); max-width:800px}
+}
 .finish-card{
   background:var(--white); border:1px solid rgba(17,17,17,.06); 
   border-radius:20px; padding:28px 24px; box-shadow:0 8px 30px rgba(0,0,0,.06);
@@ -168,6 +172,10 @@
   background:linear-gradient(90deg, transparent, var(--brass), transparent);
 }
 .schedule-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); gap:24px; max-width:1000px; margin:0 auto}
+/* Desktop layout for 4 schedule cards - 2x2 grid */
+@media (min-width:1024px){
+  .schedule-grid{grid-template-columns:repeat(2, 1fr); max-width:600px}
+}
 .schedule-card{
   background:rgba(255,255,255,.05); border:1px solid rgba(242,240,235,.2);
   border-radius:16px; padding:24px 20px; backdrop-filter:blur(10px);

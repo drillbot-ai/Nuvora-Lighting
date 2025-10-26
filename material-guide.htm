@@ -43,6 +43,10 @@
   background:linear-gradient(90deg, transparent, var(--brass), transparent);
 }
 .types-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:28px; max-width:1200px; margin:0 auto}
+/* Desktop layout for 4 type cards - 2x2 grid */
+@media (min-width:1024px){
+  .types-grid{grid-template-columns:repeat(2, 1fr); max-width:700px}
+}
 .type-card{
   background:var(--white); border:1px solid rgba(17,17,17,.06); 
   border-radius:20px; overflow:hidden; box-shadow:var(--shadow);

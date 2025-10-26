@@ -47,6 +47,10 @@
   display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
   gap:20px; max-width:800px; margin:0 auto;
 }
+/* Desktop layout for 4 access cards - 2x2 grid */
+@media (min-width:1024px){
+  .access-grid{grid-template-columns:repeat(2, 1fr); max-width:500px}
+}
 .access-card{
   background:var(--white); border:2px solid rgba(139,92,246,.2);
   border-radius:16px; padding:24px 20px; text-align:center;

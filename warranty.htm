@@ -43,6 +43,10 @@
   background:linear-gradient(90deg, transparent, var(--brass), transparent);
 }
 .coverage-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:28px; max-width:1200px; margin:0 auto}
+/* Desktop layout for 4 coverage cards - 2x2 grid */
+@media (min-width:1024px){
+  .coverage-grid{grid-template-columns:repeat(2, 1fr); max-width:700px}
+}
 .coverage-card{
   background:var(--white); border:1px solid rgba(17,17,17,.06); 
   border-radius:20px; padding:32px 28px; box-shadow:0 8px 30px rgba(0,0,0,.06);

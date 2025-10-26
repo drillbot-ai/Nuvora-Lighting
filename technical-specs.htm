@@ -195,6 +195,10 @@
   display:grid; grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
   gap:24px; max-width:1000px; margin:0 auto;
 }
+/* Desktop layout for 4 download cards - 2x2 grid */
+@media (min-width:1024px){
+  .downloads-grid{grid-template-columns:repeat(2, 1fr); max-width:600px}
+}
 .download-card{
   background:rgba(255,255,255,.05); border:1px solid rgba(59,130,246,.2);
   border-radius:16px; padding:24px 20px; text-align:center;

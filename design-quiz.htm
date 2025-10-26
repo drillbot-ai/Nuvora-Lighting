@@ -91,6 +91,10 @@
   display:grid; grid-template-columns:repeat(auto-fit, minmax(180px, 1fr));
   gap:16px; margin-bottom:32px;
 }
+/* Desktop layout for 4 answer options - 2x2 grid */
+@media (min-width:1024px){
+  .answer-grid{grid-template-columns:repeat(2, 1fr); max-width:500px; margin:0 auto 32px}
+}
 .answer-option{
   background:var(--white); border:2px solid rgba(139,92,246,.2);
   border-radius:16px; padding:24px 16px; cursor:pointer;
