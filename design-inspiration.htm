@@ -156,6 +156,10 @@
   display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); 
   gap:28px; max-width:1000px; margin:0 auto;
 }
+/* Desktop layout for 4 trend cards - 2x2 grid */
+@media (min-width:1024px){
+  .trends-grid{grid-template-columns:repeat(2, 1fr); max-width:700px}
+}
 .trend-card{
   background:var(--white); border:1px solid rgba(17,17,17,.08);
   border-radius:20px; padding:28px 24px; box-shadow:var(--shadow);
@@ -195,9 +199,9 @@
   max-width:1000px; margin:0 auto; display:grid; 
   grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); gap:24px;
 }
-/* Desktop layout for 4 tip cards - 2x2 grid */
+/* Desktop layout for design tips - 3 columns */
 @media (min-width:1024px){
-  .tips-grid{grid-template-columns:repeat(2, 1fr); max-width:600px}
+  .tips-grid{grid-template-columns:repeat(3, 1fr); max-width:900px}
 }
 .tip-card{
   background:rgba(255,255,255,.05); border:1px solid rgba(242,240,235,.2);

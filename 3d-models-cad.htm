@@ -175,6 +175,10 @@
   display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
   gap:24px; max-width:1000px; margin:0 auto;
 }
+/* Desktop layout for 6 software cards - 3x2 grid */
+@media (min-width:1024px){
+  .software-grid{grid-template-columns:repeat(3, 1fr); max-width:900px}
+}
 .software-card{
   background:rgba(255,255,255,.05); border:1px solid rgba(139,92,246,.2);
   border-radius:16px; padding:24px 20px; text-align:center;

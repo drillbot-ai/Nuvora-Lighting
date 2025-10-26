@@ -83,6 +83,10 @@
   background:linear-gradient(90deg, transparent, var(--light-green), transparent);
 }
 .metrics-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:32px; max-width:1000px; margin:0 auto}
+/* Desktop layout for 5 metric cards - single row */
+@media (min-width:1024px){
+  .metrics-grid{grid-template-columns:repeat(5, 1fr); max-width:1200px}
+}
 .metric-item{
   text-align:center; padding:24px 16px; background:rgba(255,255,255,.1);
   border-radius:16px; border:1px solid rgba(255,255,255,.2);
@@ -136,6 +140,10 @@
 .tab-content.active{display:block}
 .tab-content h3{color:var(--ink); margin-bottom:20px; font-size:1.3rem}
 .practice-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:24px; margin-top:24px}
+/* Desktop layout for 4 practice cards - 2x2 grid */
+@media (min-width:1024px){
+  .practice-grid{grid-template-columns:repeat(2, 1fr); max-width:600px; margin:24px auto 0}
+}
 .practice-item{
   background:rgba(22,163,74,.05); border:1px solid rgba(22,163,74,.2);
   border-radius:12px; padding:20px 16px; text-align:center;
@@ -187,6 +195,10 @@
   background:linear-gradient(90deg, transparent, var(--green), transparent);
 }
 .cert-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:24px; max-width:800px; margin:0 auto}
+/* Desktop layout for 4 certification cards - 2x2 grid */
+@media (min-width:1024px){
+  .cert-grid{grid-template-columns:repeat(2, 1fr); max-width:500px}
+}
 .cert-badge{
   background:var(--white); border:2px solid rgba(22,163,74,.2);
   border-radius:16px; padding:24px 20px; text-align:center;
