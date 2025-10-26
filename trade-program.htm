@@ -1,0 +1,658 @@
+<!-- LUNVYR — Trade Program (Professional Discounts, Bulk Pricing, Account Benefits) -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Inter:wght@300;400;500&display=swap');
+
+:root{
+  --ink:#1c222b; --paper:#f2f0eb; --coal:#111; --ash:#666; --brass:#b2956d; --white:#fff;
+  --radius:14px; --shadow:0 12px 32px rgba(0,0,0,.08);
+}
+
+.trade{font-family:Inter,system-ui,sans-serif;color:var(--coal);line-height:1.65}
+.trade h1,.trade h2,.trade h3{font-family:Cinzel,serif;font-weight:400;margin:0}
+.trade .eyebrow{letter-spacing:.12em;text-transform:uppercase;font-size:.8rem;color:var(--ash);margin-bottom:.6rem}
+
+/* Hero */
+.trade-hero{
+  position:relative; color:var(--paper); text-align:center;
+  background:#0e0f12 url('https://lunvyr.com/wp-content/uploads/2025/08/f07dabad-5599-4f19-bb21-0e2537614e98.png') center/cover no-repeat;
+  padding:clamp(100px,15vh,160px) 10%; min-height:70vh; display:flex; align-items:center; justify-content:center;
+}
+.trade-hero::before{
+  content:""; position:absolute; top:0; left:0; right:0; height:1px;
+  background:linear-gradient(90deg, transparent, var(--brass), transparent);
+}
+.trade-hero::after{
+  content:""; position:absolute; inset:0; 
+  background:radial-gradient(110% 110% at 70% 30%, rgba(0,0,0,0) 0%, rgba(0,0,0,.7) 70%);
+}
+.trade-hero .inner{position:relative; z-index:2; max-width:900px; margin:0 auto}
+.trade-hero h1{
+  font-size:clamp(2.6rem,5.2vw,3.8rem); color:var(--paper); margin-bottom:16px;
+  font-family:'Cinzel',serif; font-weight:400; line-height:1.15;
+}
+.trade-hero p{color:#d6d3ce; margin:0 auto; max-width:760px; font-size:1.1rem; line-height:1.6}
+
+/* Benefits */
+.benefits{
+  padding:clamp(84px,12vh,140px) 10%; 
+  background:linear-gradient(135deg, var(--paper) 0%, #f8f6f0 100%);
+  position:relative;
+}
+.benefits::before{
+  content:""; position:absolute; top:0; left:0; right:0; height:1px;
+  background:linear-gradient(90deg, transparent, var(--brass), transparent);
+}
+.benefits-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:24px; max-width:1200px; margin:0 auto}
+.benefit-card{
+  background:var(--white); border:1px solid rgba(17,17,17,.06); 
+  border-radius:16px; padding:28px 24px; box-shadow:var(--shadow);
+  text-align:center; transition:all .4s ease; position:relative; overflow:hidden;
+}
+.benefit-card::before{
+  content:""; position:absolute; top:0; left:0; right:0; height:3px;
+  background:linear-gradient(90deg, var(--brass) 0%, #d4af78 100%);
+}
+.benefit-card:hover{transform:translateY(-4px); box-shadow:0 16px 40px rgba(0,0,0,.12)}
+.benefit-icon{
+  width:56px; height:56px; color:var(--brass); margin:0 auto 16px;
+  background:rgba(178,149,109,.1); border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+}
+.benefit-card h3{color:var(--ink); margin-bottom:12px; font-size:1.2rem}
+.benefit-card p{color:var(--ash); margin:0; font-size:.9rem; line-height:1.6}
+
+/* Tiers */
+.tiers{
+  background:#f7f7f7; padding:clamp(64px,10vh,100px) 10%;
+  position:relative;
+}
+.tiers::before{
+  content:""; position:absolute; top:0; left:0; right:0; height:1px;
+  background:linear-gradient(90deg, transparent, var(--brass), transparent);
+}
+.tiers-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:24px; max-width:1000px; margin:0 auto}
+.tier-card{
+  background:var(--white); border:1px solid rgba(17,17,17,.08);
+  border-radius:20px; padding:32px 28px; box-shadow:var(--shadow);
+  position:relative; overflow:hidden; text-align:center;
+}
+.tier-featured{
+  border:2px solid var(--brass); transform:scale(1.05);
+  box-shadow:0 20px 60px rgba(178,149,109,.25);
+}
+.tier-featured::before{
+  content:"MOST POPULAR"; position:absolute; top:16px; left:50%; transform:translateX(-50%);
+  background:var(--brass); color:var(--ink); padding:4px 16px; border-radius:12px;
+  font-size:.75rem; font-weight:600; letter-spacing:.1em;
+}
+.tier-badge{
+  width:80px; height:80px; margin:0 auto 20px; background:rgba(178,149,109,.1);
+  border-radius:50%; display:flex; align-items:center; justify-content:center;
+  color:var(--brass); font-family:Cinzel,serif; font-size:1.5rem; font-weight:600;
+}
+.tier-card h3{color:var(--ink); margin-bottom:8px; font-size:1.4rem}
+.tier-subtitle{color:var(--ash); margin-bottom:20px; font-size:.9rem}
+.tier-discount{
+  color:var(--brass); font-size:2rem; font-weight:600; margin-bottom:16px;
+  font-family:Cinzel,serif; display:block;
+}
+.tier-requirements{
+  background:rgba(178,149,109,.05); border-radius:12px; padding:16px; margin-bottom:20px;
+  border-left:4px solid var(--brass);
+}
+.tier-requirements h4{color:var(--ink); margin-bottom:8px; font-size:.9rem; text-transform:uppercase; letter-spacing:.1em}
+.tier-requirements p{color:var(--ash); margin:0; font-size:.85rem}
+.tier-features{list-style:none; padding:0; margin:0 0 24px; text-align:left}
+.tier-features li{
+  color:var(--ash); margin-bottom:8px; padding-left:20px; position:relative;
+  font-size:.9rem; line-height:1.5;
+}
+.tier-features li::before{
+  content:"✓"; color:var(--brass); font-weight:bold; position:absolute; left:0;
+}
+
+/* Application */
+.application{
+  padding:clamp(64px,10vh,100px) 10%; 
+  background:linear-gradient(135deg, var(--paper) 0%, #f8f6f0 100%);
+  position:relative;
+}
+.application::before{
+  content:""; position:absolute; top:0; left:0; right:0; height:1px;
+  background:linear-gradient(90deg, transparent, var(--brass), transparent);
+}
+.application-content{
+  max-width:800px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:start;
+}
+.application-form{
+  background:var(--white); border:1px solid rgba(17,17,17,.08);
+  border-radius:16px; padding:32px 28px; box-shadow:var(--shadow);
+}
+.form-field{margin-bottom:16px}
+.form-field label{display:block; color:var(--ink); margin-bottom:6px; font-size:.9rem; font-weight:500}
+.form-field input, .form-field select, .form-field textarea{
+  width:100%; padding:12px 16px; border:1px solid rgba(17,17,17,.2);
+  border-radius:8px; background:var(--white); color:var(--coal);
+  font-family:inherit; transition:border-color .3s ease;
+}
+.form-field input:focus, .form-field select:focus, .form-field textarea:focus{
+  outline:none; border-color:var(--brass);
+}
+.form-grid{display:grid; grid-template-columns:1fr 1fr; gap:16px}
+.btn{
+  font-family:Cinzel,serif; padding:14px 28px; border-radius:50px;
+  border:2px solid var(--brass); background:var(--brass); color:var(--ink);
+  cursor:pointer; transition:all .4s ease; font-weight:500; width:100%;
+}
+.btn:hover{
+  background:transparent; color:var(--brass); transform:translateY(-2px);
+}
+
+.application-info{
+  background:var(--white); border:1px solid rgba(17,17,17,.08);
+  border-radius:16px; padding:32px 28px; box-shadow:var(--shadow);
+}
+.info-section{margin-bottom:24px}
+.info-section h4{color:var(--ink); margin-bottom:12px; font-size:1.1rem; display:flex; align-items:center; gap:8px}
+.info-section .icon{width:20px; height:20px; color:var(--brass)}
+.info-list{list-style:none; padding:0; margin:0}
+.info-list li{
+  color:var(--ash); margin-bottom:8px; font-size:.9rem; line-height:1.5;
+  padding-left:16px; position:relative;
+}
+.info-list li::before{
+  content:"•"; color:var(--brass); position:absolute; left:0; font-weight:bold;
+}
+
+/* Portal */
+.portal{
+  background:var(--ink); color:var(--paper); padding:clamp(64px,10vh,100px) 10%;
+  position:relative; text-align:center;
+}
+.portal::before{
+  content:""; position:absolute; top:0; left:0; right:0; height:1px;
+  background:linear-gradient(90deg, transparent, var(--brass), transparent);
+}
+.portal-features{
+  max-width:1000px; margin:0 auto; display:grid; 
+  grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); gap:24px;
+}
+.portal-feature{
+  background:rgba(255,255,255,.05); border:1px solid rgba(242,240,235,.2);
+  border-radius:16px; padding:24px 20px; backdrop-filter:blur(10px);
+  transition:all .4s ease;
+}
+.portal-feature:hover{
+  background:rgba(255,255,255,.1); transform:translateY(-4px);
+}
+.portal-feature .icon{
+  width:48px; height:48px; color:var(--brass); margin:0 auto 16px;
+}
+.portal-feature h4{color:var(--paper); margin-bottom:8px; font-size:1.1rem}
+.portal-feature p{color:#d6d3ce; margin:0; font-size:.9rem; line-height:1.5}
+
+/* FAQ */
+.trade-faq{
+  padding:clamp(64px,10vh,100px) 10%; background:#f7f7f7;
+  position:relative;
+}
+.trade-faq::before{
+  content:""; position:absolute; top:0; left:0; right:0; height:1px;
+  background:linear-gradient(90deg, transparent, var(--brass), transparent);
+}
+.faq-accordion{max-width:800px; margin:0 auto}
+.faq-item{
+  background:var(--white); border:1px solid rgba(17,17,17,.08);
+  border-radius:12px; margin-bottom:16px; overflow:hidden;
+}
+.faq-header{
+  padding:20px 24px; cursor:pointer; display:flex; justify-content:space-between;
+  align-items:center; transition:background .3s ease;
+}
+.faq-header:hover{background:rgba(178,149,109,.05)}
+.faq-title{color:var(--ink); font-weight:500; margin:0}
+.faq-icon{color:var(--brass); transition:transform .3s ease}
+.faq-header.active .faq-icon{transform:rotate(180deg)}
+.faq-content{
+  padding:0 24px 24px; color:var(--ash); line-height:1.6; display:none;
+}
+.faq-content.active{display:block}
+
+/* CTA */
+.cta{
+  background:linear-gradient(135deg, var(--paper) 0%, #f8f6f0 100%);
+  text-align:center; padding:clamp(64px,10vh,100px) 10%;
+}
+.cta h2{margin-bottom:16px; color:var(--ink)}
+.cta p{color:var(--ash); margin:0 0 24px; max-width:600px; margin-left:auto; margin-right:auto}
+.cta .btn{text-decoration:none; display:inline-flex; align-items:center; gap:.7rem; margin:0 8px; width:auto}
+
+/* Responsive */
+@media (max-width:767px){
+  .trade-hero{padding:clamp(80px,12vh,120px) 7%; min-height:60vh}
+  .benefits-grid{grid-template-columns:1fr}
+  .tiers-grid{grid-template-columns:1fr}
+  .tier-featured{transform:none}
+  .application-content{grid-template-columns:1fr; gap:24px}
+  .form-grid{grid-template-columns:1fr}
+  .portal-features{grid-template-columns:1fr}
+}
+</style>
+
+<div class="trade">
+  <!-- HERO -->
+  <section class="trade-hero">
+    <div class="inner">
+      <div class="eyebrow">Professional Partnership</div>
+      <h1>Trade Program</h1>
+      <p>Join LUNVYR's trade program and unlock exclusive benefits designed for interior designers, architects, contractors, and lighting professionals.</p>
+    </div>
+  </section>
+
+  <!-- BENEFITS -->
+  <section class="benefits">
+    <div class="eyebrow">Program Benefits</div>
+    <h2 style="text-align:center; margin-bottom:40px; color:var(--ink); font-size:clamp(1.8rem,2.8vw,2.4rem)">Why Join LUNVYR Trade</h2>
+    
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2v6m0 8v6m-6-6h6m8 0h-6M8.5 8.5l3 3m6 0l-3-3m0 6l3 3m-6 0l3-3"/></svg>
+        <h3>Exclusive Pricing</h3>
+        <p>Access tiered discounts up to 40% off retail pricing based on your annual volume and professional status.</p>
+      </div>
+
+      <div class="benefit-card">
+        <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        <h3>Priority Support</h3>
+        <p>Dedicated trade account managers, expedited customer service, and priority technical support for your projects.</p>
+      </div>
+
+      <div class="benefit-card">
+        <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M8 7l4-4 4 4m0 6l-4 4-4-4"/></svg>
+        <h3>Project Planning</h3>
+        <p>Custom lighting layouts, specification assistance, and project consultation to ensure perfect results.</p>
+      </div>
+
+      <div class="benefit-card">
+        <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 9l9-7 9 7v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9z"/></svg>
+        <h3>Sample Program</h3>
+        <p>Access to finish samples, demo fixtures, and material libraries to help clients visualize their selections.</p>
+      </div>
+
+      <div class="benefit-card">
+        <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg>
+        <h3>Marketing Support</h3>
+        <p>High-resolution product images, spec sheets, CAD files, and marketing materials for your presentations.</p>
+      </div>
+
+      <div class="benefit-card">
+        <svg class="benefit-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        <h3>Fast Delivery</h3>
+        <p>Expedited shipping options, bulk order coordination, and jobsite delivery for large installations.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIERS -->
+  <section class="tiers">
+    <div class="eyebrow" style="text-align:center">Membership Levels</div>
+    <h2 style="text-align:center; margin-bottom:40px; color:var(--ink); font-size:clamp(1.6rem,2.4vw,2rem)">Trade Program Tiers</h2>
+    
+    <div class="tiers-grid">
+      <div class="tier-card">
+        <div class="tier-badge">PRO</div>
+        <h3>Professional</h3>
+        <div class="tier-subtitle">Interior Designers & Architects</div>
+        <span class="tier-discount">15% OFF</span>
+        
+        <div class="tier-requirements">
+          <h4>Requirements</h4>
+          <p>Valid business license, design credentials, or architectural certification</p>
+        </div>
+        
+        <ul class="tier-features">
+          <li>15% discount on all products</li>
+          <li>Free finish samples</li>
+          <li>Priority customer support</li>
+          <li>Access to CAD files</li>
+          <li>Project consultation</li>
+          <li>Marketing materials</li>
+        </ul>
+        
+        <button class="btn" onclick="startApplication('professional')">Apply Now</button>
+      </div>
+
+      <div class="tier-card tier-featured">
+        <div class="tier-badge">PLUS</div>
+        <h3>Professional Plus</h3>
+        <div class="tier-subtitle">High-Volume Projects</div>
+        <span class="tier-discount">25% OFF</span>
+        
+        <div class="tier-requirements">
+          <h4>Requirements</h4>
+          <p>$25,000+ annual volume or 50+ fixture projects</p>
+        </div>
+        
+        <ul class="tier-features">
+          <li>25% discount on all products</li>
+          <li>Demo fixture program</li>
+          <li>Dedicated account manager</li>
+          <li>Custom lighting layouts</li>
+          <li>Expedited shipping</li>
+          <li>Net 30 payment terms</li>
+          <li>Bulk order coordination</li>
+        </ul>
+        
+        <button class="btn" onclick="startApplication('plus')">Apply Now</button>
+      </div>
+
+      <div class="tier-card">
+        <div class="tier-badge">VIP</div>
+        <h3>VIP Partner</h3>
+        <div class="tier-subtitle">Elite Design Firms</div>
+        <span class="tier-discount">40% OFF</span>
+        
+        <div class="tier-requirements">
+          <h4>Requirements</h4>
+          <p>$100,000+ annual volume, invitation only</p>
+        </div>
+        
+        <ul class="tier-features">
+          <li>40% discount on all products</li>
+          <li>Custom finish development</li>
+          <li>White-glove service</li>
+          <li>Jobsite delivery</li>
+          <li>Installation support</li>
+          <li>Co-marketing opportunities</li>
+          <li>Exclusive product previews</li>
+        </ul>
+        
+        <button class="btn" onclick="startApplication('vip')">Contact Us</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- APPLICATION -->
+  <section class="application">
+    <div class="eyebrow" style="text-align:center">Get Started</div>
+    <h2 style="text-align:center; margin-bottom:40px; color:var(--ink); font-size:clamp(1.6rem,2.4vw,2rem)">Apply for Trade Membership</h2>
+    
+    <div class="application-content">
+      <form class="application-form" onsubmit="return submitApplication(event)">
+        <div class="form-grid">
+          <div class="form-field">
+            <label for="app-name">Full Name*</label>
+            <input type="text" id="app-name" required>
+          </div>
+          <div class="form-field">
+            <label for="app-email">Email*</label>
+            <input type="email" id="app-email" required>
+          </div>
+        </div>
+        
+        <div class="form-grid">
+          <div class="form-field">
+            <label for="app-company">Company Name*</label>
+            <input type="text" id="app-company" required>
+          </div>
+          <div class="form-field">
+            <label for="app-phone">Phone Number</label>
+            <input type="tel" id="app-phone">
+          </div>
+        </div>
+        
+        <div class="form-field">
+          <label for="app-profession">Profession*</label>
+          <select id="app-profession" required>
+            <option value="">Select Profession</option>
+            <option value="interior-designer">Interior Designer</option>
+            <option value="architect">Architect</option>
+            <option value="contractor">General Contractor</option>
+            <option value="electrician">Electrical Contractor</option>
+            <option value="lighting-designer">Lighting Designer</option>
+            <option value="retail">Retail/Showroom</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        
+        <div class="form-grid">
+          <div class="form-field">
+            <label for="app-volume">Annual Volume</label>
+            <select id="app-volume">
+              <option value="">Select Range</option>
+              <option value="under-10k">Under $10,000</option>
+              <option value="10k-25k">$10,000 - $25,000</option>
+              <option value="25k-50k">$25,000 - $50,000</option>
+              <option value="50k-100k">$50,000 - $100,000</option>
+              <option value="over-100k">Over $100,000</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="app-license">Business License #</label>
+            <input type="text" id="app-license" placeholder="If applicable">
+          </div>
+        </div>
+        
+        <div class="form-field">
+          <label for="app-website">Website/Portfolio</label>
+          <input type="url" id="app-website" placeholder="https://yourwebsite.com">
+        </div>
+        
+        <div class="form-field">
+          <label for="app-projects">Recent Projects</label>
+          <textarea id="app-projects" rows="4" placeholder="Describe 1-2 recent lighting projects or relevant experience"></textarea>
+        </div>
+        
+        <button type="submit" class="btn">Submit Application</button>
+      </form>
+
+      <div class="application-info">
+        <div class="info-section">
+          <h4>
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M9 11l3 3 7-7"/></svg>
+            Application Process
+          </h4>
+          <ul class="info-list">
+            <li>Submit application with credentials</li>
+            <li>Review within 2-3 business days</li>
+            <li>Account setup and portal access</li>
+            <li>Begin ordering with trade pricing</li>
+          </ul>
+        </div>
+
+        <div class="info-section">
+          <h4>
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg>
+            Required Documents
+          </h4>
+          <ul class="info-list">
+            <li>Business license or registration</li>
+            <li>Professional certifications</li>
+            <li>Portfolio or project examples</li>
+            <li>Trade references (if applicable)</li>
+          </ul>
+        </div>
+
+        <div class="info-section">
+          <h4>
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+            Next Steps
+          </h4>
+          <ul class="info-list">
+            <li>Account manager assignment</li>
+            <li>Portal training and orientation</li>
+            <li>Sample kit shipment</li>
+            <li>First project consultation</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTAL -->
+  <section class="portal">
+    <div class="eyebrow">Trade Portal</div>
+    <h2 style="margin-bottom:16px">Exclusive Trade Features</h2>
+    <p style="margin-bottom:40px; max-width:700px; margin-left:auto; margin-right:auto">Access our comprehensive trade portal with tools and resources designed specifically for design professionals.</p>
+    
+    <div class="portal-features">
+      <div class="portal-feature">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M9 11l3 3 7-7"/></svg>
+        <h4>Real-Time Pricing</h4>
+        <p>Instant access to your tier pricing, availability, and lead times across all collections.</p>
+      </div>
+
+      <div class="portal-feature">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg>
+        <h4>Project Management</h4>
+        <p>Track multiple projects, save specifications, and coordinate deliveries all in one place.</p>
+      </div>
+
+      <div class="portal-feature">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 9l9-7 9 7v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9z"/></svg>
+        <h4>Sample Management</h4>
+        <p>Order finish samples, track shipments, and manage your sample library efficiently.</p>
+      </div>
+
+      <div class="portal-feature">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        <h4>Resource Library</h4>
+        <p>Download CAD files, spec sheets, high-res images, and marketing materials instantly.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="trade-faq">
+    <div class="eyebrow" style="text-align:center">Common Questions</div>
+    <h2 style="text-align:center; margin-bottom:40px; color:var(--ink); font-size:clamp(1.6rem,2.4vw,2rem)">Trade Program FAQ</h2>
+    
+    <div class="faq-accordion">
+      <div class="faq-item">
+        <div class="faq-header" onclick="toggleFAQ(this)">
+          <h4 class="faq-title">How long does the application process take?</h4>
+          <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="faq-content">
+          <p>Most applications are reviewed and approved within 2-3 business days. Complex applications may take up to 5 business days for verification.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-header" onclick="toggleFAQ(this)">
+          <h4 class="faq-title">Can I upgrade my tier level later?</h4>
+          <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="faq-content">
+          <p>Yes, tier levels are reviewed annually based on purchase volume. You can also request a tier review if your business grows significantly during the year.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-header" onclick="toggleFAQ(this)">
+          <h4 class="faq-title">Are there minimum order requirements?</h4>
+          <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="faq-content">
+          <p>No minimum orders for Professional tier. Professional Plus requires $500 minimum. VIP Partners have flexible terms based on annual commitments.</p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-header" onclick="toggleFAQ(this)">
+          <h4 class="faq-title">What payment terms are available?</h4>
+          <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="faq-content">
+          <p>Professional tier: Credit card or NET 15. Professional Plus: NET 30 terms available. VIP Partners: Custom payment terms based on relationship.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <h2>Ready to Join LUNVYR Trade?</h2>
+    <p>Start your application today and unlock exclusive pricing, priority support, and professional resources.</p>
+    <a href="#application" class="btn">Apply Now</a>
+    <a href="/contact" class="btn" style="background:transparent; color:var(--ink); border-color:var(--brass)">Contact Trade Team</a>
+  </section>
+</div>
+
+<script>
+function toggleFAQ(header) {
+  const content = header.nextElementSibling;
+  const isActive = header.classList.contains('active');
+  
+  // Close all FAQ items
+  document.querySelectorAll('.faq-header').forEach(h => {
+    h.classList.remove('active');
+    h.nextElementSibling.classList.remove('active');
+  });
+  
+  // Open clicked item if it wasn't active
+  if (!isActive) {
+    header.classList.add('active');
+    content.classList.add('active');
+  }
+}
+
+function startApplication(tier) {
+  // Scroll to application form
+  document.querySelector('.application').scrollIntoView({ behavior: 'smooth' });
+  
+  // Pre-select appropriate volume based on tier
+  const volumeSelect = document.getElementById('app-volume');
+  if (tier === 'plus') {
+    volumeSelect.value = '25k-50k';
+  } else if (tier === 'vip') {
+    volumeSelect.value = 'over-100k';
+  }
+}
+
+function submitApplication(event) {
+  event.preventDefault();
+  
+  const formData = {
+    name: document.getElementById('app-name').value,
+    email: document.getElementById('app-email').value,
+    company: document.getElementById('app-company').value,
+    phone: document.getElementById('app-phone').value,
+    profession: document.getElementById('app-profession').value,
+    volume: document.getElementById('app-volume').value,
+    license: document.getElementById('app-license').value,
+    website: document.getElementById('app-website').value,
+    projects: document.getElementById('app-projects').value
+  };
+  
+  // Simulate application submission
+  alert('Thank you for your trade application! We will review your submission and contact you within 2-3 business days.');
+  
+  // Reset form
+  event.target.reset();
+  
+  return false;
+}
+
+// Reveal animations
+document.addEventListener('DOMContentLoaded', function(){
+  const cards = document.querySelectorAll('.benefit-card, .tier-card, .portal-feature, .faq-item');
+  if('IntersectionObserver' in window){
+    const observer = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, {threshold: 0.1});
+    
+    cards.forEach(card=>{
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(20px)';
+      card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      observer.observe(card);
+    });
+  }
+});
+</script>

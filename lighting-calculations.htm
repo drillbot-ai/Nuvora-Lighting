@@ -1,0 +1,947 @@
+<!-- LUNVYR — Lighting Calculations (Light Level Planning, Space Analysis, Professional Tools) -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Inter:wght@300;400;500&display=swap');
+
+:root{
+  --ink:#1c222b; --paper:#f2f0eb; --coal:#111; --ash:#666; --brass:#b2956d; --white:#fff;
+  --orange:#f97316; --yellow:#eab308; --green:#22c55e; --blue:#3b82f6;
+  --radius:14px; --shadow:0 12px 32px rgba(0,0,0,.08); --ring: 0 0 0 3px rgba(178,149,109,.25);
+}
+
+.lighting-calc{font-family:Inter,system-ui,sans-serif;color:var(--coal);line-height:1.65}
+.lighting-calc h1,.lighting-calc h2,.lighting-calc h3{font-family:Cinzel,serif;font-weight:400;margin:0}
+.lighting-calc .eyebrow{letter-spacing:.12em;text-transform:uppercase;font-size:.8rem;color:var(--ash);margin-bottom:.6rem}
+
+/* Hero */
+.calc-hero{
+  position:relative; color:var(--paper); text-align:center;
+  background:#2c1810 url('https://lunvyr.com/wp-content/uploads/2025/08/f07dabad-5599-4f19-bb21-0e2537614e98.png') center/cover no-repeat;
+  padding:clamp(100px,15vh,160px) 10%; min-height:70vh; display:flex; align-items:center; justify-content:center;
+}
+.calc-hero::before{
+  content:""; position:absolute; top:0; left:0; right:0; height:1px;
+  background:linear-gradient(90deg, transparent, var(--orange), transparent);
+}
+.calc-hero::after{
+  content:""; position:absolute; inset:0; 
+  background:radial-gradient(110% 110% at 50% 50%, rgba(249,115,22,0) 0%, rgba(249,115,22,.8) 70%);
+}
+.calc-hero .inner{position:relative; z-index:2; max-width:900px; margin:0 auto}
+.calc-hero h1{
+  font-size:clamp(2.6rem,5.2vw,3.8rem); color:var(--paper); margin-bottom:16px;
+  font-family:'Cinzel',serif; font-weight:400; line-height:1.15;
+}
+.calc-hero p{color:#fed7aa; margin:0 auto; max-width:760px; font-size:1.1rem; line-height:1.6}
+
+/* Calculator Tools */
+.calc-tools{
+  padding:clamp(64px,10vh,80px) 10%; 
+  background:linear-gradient(135deg, var(--paper) 0%, #f8f6f0 100%);
+  position:relative; text-align:center;
+}
+.calc-tools::before{
+  content:""; position:absolute; top:0; left:0; right:0; height:1px;
+  background:linear-gradient(90deg, transparent, var(--orange), transparent);
+}
+.tools-grid{
+  display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+  gap:24px; max-width:1000px; margin:0 auto;
+}
+.tool-card{
+  background:var(--white); border:2px solid rgba(249,115,22,.2);
+  border-radius:16px; padding:24px 20px; text-align:center;
+  transition:all .3s ease; cursor:pointer; position:relative; overflow:hidden;
+}
+.tool-card::before{
+  content:""; position:absolute; inset:0;
+  background:linear-gradient(135deg, transparent 0%, rgba(249,115,22,.05) 50%, transparent 100%);
+  opacity:0; transition:opacity .3s ease;
+}
+.tool-card:hover::before{opacity:1}
+.tool-card:hover{
+  border-color:var(--orange); transform:translateY(-4px);
+  box-shadow:0 12px 30px rgba(249,115,22,.15);
+}
+.tool-icon{
+  width:60px; height:60px; margin:0 auto 16px;
+  background:linear-gradient(135deg, var(--orange), var(--yellow));
+  border-radius:50%; display:flex; align-items:center; justify-content:center;
+  color:var(--white); font-size:1.5rem;
+}
+.tool-card h4{color:var(--ink); margin-bottom:8px; font-size:1.1rem}
+.tool-card p{color:var(--ash); margin:0 0 16px; font-size:.9rem; line-height:1.4}
+.tool-btn{
+  background:var(--orange); color:var(--white); border:none;
+  padding:10px 20px; border-radius:8px; font-size:.9rem;
+  cursor:pointer; transition:all .3s ease; font-family:inherit;
+}
+.tool-btn:hover{background:var(--yellow); transform:translateY(-1px)}
+
+/* Main Calculator */
+.main-calculator{
+  padding:clamp(64px,10vh,100px) 10%; 
+  background:#f7f7f7; position:relative;
+}
+.main-calculator::before{
+  content:""; position:absolute; top:0; left:0; right:0; height:1px;
+  background:linear-gradient(90deg, transparent, var(--orange), transparent);
+}
+.calculator-container{
+  max-width:1200px; margin:0 auto; display:grid;
+  grid-template-columns:1fr 1fr; gap:40px; align-items:start;
+}
+.calc-inputs{
+  background:var(--white); border:1px solid rgba(249,115,22,.1);
+  border-radius:16px; padding:32px 28px; box-shadow:var(--shadow);
+}
+.calc-inputs h3{color:var(--ink); margin-bottom:24px; font-size:1.4rem}
+.input-group{margin-bottom:20px}
+.input-group label{
+  display:block; color:var(--ink); margin-bottom:6px;
+  font-weight:500; font-size:.9rem;
+}
+.input-field{
+  width:100%; padding:12px 16px; border:2px solid rgba(249,115,22,.2);
+  border-radius:8px; background:var(--white); color:var(--coal);
+  font-size:.9rem; transition:border-color .3s ease;
+}
+.input-field:focus{outline:none; border-color:var(--orange)}
+.input-row{display:grid; grid-template-columns:1fr 1fr; gap:12px}
+.unit-select{
+  padding:12px 16px; border:2px solid rgba(249,115,22,.2);
+  border-radius:8px; background:var(--white); color:var(--coal);
+  font-size:.9rem; cursor:pointer;
+}
+.unit-select:focus{outline:none; border-color:var(--orange)}
+.calc-btn{
+  width:100%; background:var(--orange); color:var(--white);
+  border:none; padding:14px 20px; border-radius:8px;
+  font-size:1rem; font-weight:500; cursor:pointer;
+  transition:all .3s ease; margin-top:20px;
+}
+.calc-btn:hover{background:var(--yellow); transform:translateY(-1px)}
+
+.calc-results{
+  background:var(--white); border:1px solid rgba(249,115,22,.1);
+  border-radius:16px; padding:32px 28px; box-shadow:var(--shadow);
+}
+.calc-results h3{color:var(--ink); margin-bottom:24px; font-size:1.4rem}
+.result-item{
+  display:flex; justify-content:space-between; align-items:center;
+  padding:12px 0; border-bottom:1px solid rgba(249,115,22,.1);
+}
+.result-item:last-child{border-bottom:none}
+.result-label{color:var(--ash); font-size:.9rem}
+.result-value{
+  color:var(--ink); font-weight:600; font-size:1.1rem;
+  padding:4px 12px; background:rgba(249,115,22,.1);
+  border-radius:6px; color:var(--orange);
+}
+.recommendations{
+  margin-top:24px; padding:20px; background:rgba(249,115,22,.05);
+  border-radius:8px; border-left:4px solid var(--orange);
+}
+.recommendations h5{
+  color:var(--orange); margin-bottom:8px; font-size:.9rem; font-weight:600;
+}
+.recommendations p{
+  color:var(--ash); margin:0; font-size:.85rem; line-height:1.4;
+}
+
+/* Guidelines */
+.guidelines{
+  padding:clamp(64px,10vh,100px) 10%; 
+  background:var(--ink); color:var(--paper); position:relative;
+}
+.guidelines::before{
+  content:""; position:absolute; top:0; left:0; right:0; height:1px;
+  background:linear-gradient(90deg, transparent, var(--orange), transparent);
+}
+.guidelines-grid{
+  display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
+  gap:24px; max-width:1200px; margin:0 auto;
+}
+.guideline-card{
+  background:rgba(255,255,255,.05); border:1px solid rgba(249,115,22,.2);
+  border-radius:16px; padding:24px 20px;
+  transition:all .3s ease;
+}
+.guideline-card:hover{
+  background:rgba(255,255,255,.08); border-color:var(--orange);
+  transform:translateY(-4px);
+}
+.guideline-icon{
+  width:48px; height:48px; margin-bottom:16px;
+  background:rgba(249,115,22,.2); border-radius:12px;
+  display:flex; align-items:center; justify-content:center;
+  color:var(--orange); font-size:1.2rem;
+}
+.guideline-card h4{
+  color:var(--paper); margin-bottom:12px; font-size:1.1rem;
+}
+.guideline-card p{
+  color:#fed7aa; margin:0 0 16px; font-size:.9rem; line-height:1.5;
+}
+.light-levels{
+  list-style:none; padding:0; margin:0;
+}
+.light-levels li{
+  display:flex; justify-content:space-between; align-items:center;
+  padding:6px 0; color:#fed7aa; font-size:.85rem;
+}
+.light-levels .level{
+  color:var(--orange); font-weight:600;
+}
+
+/* Room Calculator */
+.room-calculator{
+  padding:clamp(64px,10vh,100px) 10%; 
+  background:linear-gradient(135deg, var(--paper) 0%, #f8f6f0 100%);
+  position:relative;
+}
+.room-calculator::before{
+  content:""; position:absolute; top:0; left:0; right:0; height:1px;
+  background:linear-gradient(90deg, transparent, var(--orange), transparent);
+}
+.room-types{
+  max-width:1000px; margin:0 auto;
+}
+.room-grid{
+  display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
+  gap:20px; margin-bottom:32px;
+}
+.room-card{
+  background:var(--white); border:2px solid rgba(249,115,22,.2);
+  border-radius:12px; padding:20px 16px; text-align:center;
+  cursor:pointer; transition:all .3s ease;
+}
+.room-card:hover{border-color:var(--orange); transform:translateY(-2px)}
+.room-card.active{
+  background:var(--orange); color:var(--white); border-color:var(--orange);
+}
+.room-card .icon{
+  font-size:2rem; margin-bottom:8px; display:block;
+}
+.room-card h5{margin-bottom:4px; font-size:.9rem}
+.room-card .requirements{
+  font-size:.8rem; color:var(--ash); margin:0;
+}
+.room-card.active .requirements{color:#fed7aa}
+
+.room-details{
+  background:var(--white); border:1px solid rgba(249,115,22,.1);
+  border-radius:16px; padding:32px 28px; box-shadow:var(--shadow);
+  display:none;
+}
+.room-details.active{display:block}
+.fixture-suggestions{
+  display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
+  gap:16px; margin-top:20px;
+}
+.fixture-card{
+  background:rgba(249,115,22,.05); border:1px solid rgba(249,115,22,.2);
+  border-radius:8px; padding:16px 12px; text-align:center;
+}
+.fixture-card h6{
+  color:var(--orange); margin-bottom:6px; font-size:.9rem;
+}
+.fixture-card p{
+  color:var(--ash); margin:0; font-size:.8rem; line-height:1.3;
+}
+
+/* Professional Tools */
+.pro-tools{
+  background:#f7f7f7; padding:clamp(64px,10vh,100px) 10%;
+  position:relative;
+}
+.pro-tools::before{
+  content:""; position:absolute; top:0; left:0; right:0; height:1px;
+  background:linear-gradient(90deg, transparent, var(--orange), transparent);
+}
+.pro-grid{
+  display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+  gap:24px; max-width:1000px; margin:0 auto;
+}
+.pro-card{
+  background:var(--white); border:1px solid rgba(249,115,22,.1);
+  border-radius:12px; padding:20px 16px;
+}
+.pro-card h4{
+  color:var(--orange); margin-bottom:12px; font-size:1rem;
+  display:flex; align-items:center; gap:8px;
+}
+.pro-card .icon{width:16px; height:16px; color:var(--orange)}
+.feature-list{list-style:none; padding:0; margin:0}
+.feature-list li{
+  color:var(--ash); margin-bottom:6px; padding-left:16px;
+  position:relative; font-size:.9rem; line-height:1.4;
+}
+.feature-list li::before{
+  content:"•"; color:var(--orange); position:absolute; left:0;
+}
+.download-btn{
+  background:var(--orange); color:var(--white); border:none;
+  padding:8px 16px; border-radius:6px; font-size:.85rem;
+  cursor:pointer; transition:all .3s ease; margin-top:12px;
+  display:inline-flex; align-items:center; gap:6px;
+}
+.download-btn:hover{background:var(--yellow)}
+
+/* CTA */
+.cta{
+  background:linear-gradient(135deg, var(--orange) 0%, var(--yellow) 100%);
+  text-align:center; padding:clamp(64px,10vh,100px) 10%; color:var(--white);
+  position:relative;
+}
+.cta::before{
+  content:""; position:absolute; top:0; left:0; right:0; height:1px;
+  background:linear-gradient(90deg, transparent, rgba(255,255,255,.3), transparent);
+}
+.cta h2{margin-bottom:16px; color:var(--white)}
+.cta p{color:#fed7aa; margin:0 0 24px; max-width:600px; margin-left:auto; margin-right:auto}
+.cta .btn{
+  font-family:Cinzel,serif; padding:1rem 2rem; border-radius:50px;
+  border:2px solid var(--white); background:var(--white); color:var(--orange);
+  text-decoration:none; display:inline-flex; align-items:center; gap:.7rem;
+  transition:all .4s ease; font-weight:500; margin:0 8px;
+}
+.cta .btn:hover{
+  background:transparent; color:var(--white); transform:translateY(-2px);
+  box-shadow:0 8px 25px rgba(0,0,0,.2);
+}
+.cta .btn-secondary{
+  background:transparent; color:var(--white); border-color:var(--white);
+}
+.cta .btn-secondary:hover{
+  background:var(--white); color:var(--orange);
+}
+
+/* Responsive */
+@media (max-width:767px){
+  .calc-hero{padding:clamp(80px,12vh,120px) 7%; min-height:60vh}
+  .calc-hero h1{font-size:clamp(2.2rem,7vw,3.2rem)}
+  .calc-tools{padding:clamp(48px,8vh,60px) 7%}
+  .tools-grid{grid-template-columns:repeat(2, 1fr); gap:16px}
+  .calculator-container{grid-template-columns:1fr; gap:24px}
+  .room-grid{grid-template-columns:repeat(2, 1fr)}
+  .fixture-suggestions{grid-template-columns:1fr}
+}
+
+@media (max-width:599px){
+  .calc-hero{padding:clamp(60px,10vh,80px) 6%}
+  .tools-grid{grid-template-columns:1fr}
+  .room-grid{grid-template-columns:1fr}
+  .pro-grid{grid-template-columns:1fr}
+}
+</style>
+
+<div class="lighting-calc">
+
+  <!-- HERO -->
+  <section class="calc-hero">
+    <div class="inner">
+      <div class="eyebrow">Professional Planning Tools</div>
+      <h1>Lighting Calculations</h1>
+      <p>Professional-grade tools and guidelines for accurate light level planning. Calculate illumination requirements, fixture quantities, and optimal spacing for any project.</p>
+    </div>
+  </section>
+
+  <!-- CALCULATOR TOOLS -->
+  <section class="calc-tools">
+    <div class="eyebrow">Interactive Tools</div>
+    <h2 style="margin-bottom:32px; color:var(--ink); font-size:clamp(1.4rem,2.2vw,1.8rem)">Calculation Tools</h2>
+    
+    <div class="tools-grid">
+      <div class="tool-card" onclick="activateTool('lumen')">
+        <div class="tool-icon">💡</div>
+        <h4>Lumen Calculator</h4>
+        <p>Calculate required lumens based on space size and activity</p>
+        <button class="tool-btn">Launch Tool</button>
+      </div>
+      
+      <div class="tool-card" onclick="activateTool('fixture')">
+        <div class="tool-icon">🔢</div>
+        <h4>Fixture Count</h4>
+        <p>Determine optimal number and spacing of fixtures</p>
+        <button class="tool-btn">Launch Tool</button>
+      </div>
+      
+      <div class="tool-card" onclick="activateTool('room')">
+        <div class="tool-icon">🏠</div>
+        <h4>Room Analyzer</h4>
+        <p>Space-specific lighting recommendations and guidelines</p>
+        <button class="tool-btn">Launch Tool</button>
+      </div>
+      
+      <div class="tool-card" onclick="activateTool('energy')">
+        <div class="tool-icon">⚡</div>
+        <h4>Energy Calculator</h4>
+        <p>Estimate power consumption and operating costs</p>
+        <button class="tool-btn">Launch Tool</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAIN CALCULATOR -->
+  <section class="main-calculator">
+    <div class="eyebrow" style="text-align:center">Lumen Calculation Tool</div>
+    <h2 style="text-align:center; margin-bottom:40px; color:var(--ink); font-size:clamp(1.6rem,2.4vw,2rem)">Calculate Required Illumination</h2>
+    
+    <div class="calculator-container">
+      <div class="calc-inputs">
+        <h3>Space Details</h3>
+        
+        <div class="input-group">
+          <label for="room-length">Room Length</label>
+          <div class="input-row">
+            <input type="number" id="room-length" class="input-field" placeholder="12" oninput="calculateLighting()">
+            <select class="unit-select" id="length-unit" onchange="calculateLighting()">
+              <option value="ft">Feet</option>
+              <option value="m">Meters</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="input-group">
+          <label for="room-width">Room Width</label>
+          <div class="input-row">
+            <input type="number" id="room-width" class="input-field" placeholder="10" oninput="calculateLighting()">
+            <select class="unit-select" id="width-unit" onchange="calculateLighting()">
+              <option value="ft">Feet</option>
+              <option value="m">Meters</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="input-group">
+          <label for="ceiling-height">Ceiling Height</label>
+          <div class="input-row">
+            <input type="number" id="ceiling-height" class="input-field" placeholder="9" oninput="calculateLighting()">
+            <select class="unit-select" id="height-unit" onchange="calculateLighting()">
+              <option value="ft">Feet</option>
+              <option value="m">Meters</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="input-group">
+          <label for="room-type">Room Type</label>
+          <select id="room-type" class="input-field" onchange="calculateLighting()">
+            <option value="living">Living Room</option>
+            <option value="dining">Dining Room</option>
+            <option value="kitchen">Kitchen</option>
+            <option value="bedroom">Bedroom</option>
+            <option value="bathroom">Bathroom</option>
+            <option value="office">Office</option>
+            <option value="retail">Retail Space</option>
+            <option value="restaurant">Restaurant</option>
+            <option value="lobby">Hotel Lobby</option>
+          </select>
+        </div>
+        
+        <div class="input-group">
+          <label for="lighting-type">Lighting Type</label>
+          <select id="lighting-type" class="input-field" onchange="calculateLighting()">
+            <option value="general">General/Ambient</option>
+            <option value="task">Task Lighting</option>
+            <option value="accent">Accent Lighting</option>
+            <option value="decorative">Decorative</option>
+          </select>
+        </div>
+        
+        <button class="calc-btn" onclick="calculateLighting()">Calculate Requirements</button>
+      </div>
+      
+      <div class="calc-results">
+        <h3>Lighting Requirements</h3>
+        
+        <div class="result-item">
+          <span class="result-label">Room Area:</span>
+          <span class="result-value" id="room-area">—</span>
+        </div>
+        
+        <div class="result-item">
+          <span class="result-label">Recommended Light Level:</span>
+          <span class="result-value" id="light-level">—</span>
+        </div>
+        
+        <div class="result-item">
+          <span class="result-label">Total Lumens Required:</span>
+          <span class="result-value" id="total-lumens">—</span>
+        </div>
+        
+        <div class="result-item">
+          <span class="result-label">Recommended Fixtures:</span>
+          <span class="result-value" id="fixture-count">—</span>
+        </div>
+        
+        <div class="result-item">
+          <span class="result-label">Lumens per Fixture:</span>
+          <span class="result-value" id="lumens-per-fixture">—</span>
+        </div>
+        
+        <div class="recommendations" id="recommendations">
+          <h5>Recommendations</h5>
+          <p>Enter room dimensions and select room type to receive personalized lighting recommendations.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIGHTING GUIDELINES -->
+  <section class="guidelines">
+    <div class="eyebrow" style="text-align:center; color:var(--orange)">Professional Standards</div>
+    <h2 style="text-align:center; margin-bottom:40px; color:var(--paper); font-size:clamp(1.6rem,2.4vw,2rem)">Lighting Guidelines</h2>
+    
+    <div class="guidelines-grid">
+      <div class="guideline-card">
+        <div class="guideline-icon">🏠</div>
+        <h4>Residential Spaces</h4>
+        <p>Recommended illumination levels for comfortable living environments</p>
+        <ul class="light-levels">
+          <li><span>Living Room:</span> <span class="level">10-20 FC</span></li>
+          <li><span>Dining Room:</span> <span class="level">20-30 FC</span></li>
+          <li><span>Kitchen (General):</span> <span class="level">20-50 FC</span></li>
+          <li><span>Kitchen (Task):</span> <span class="level">50-100 FC</span></li>
+          <li><span>Bedroom:</span> <span class="level">10-20 FC</span></li>
+          <li><span>Bathroom:</span> <span class="level">20-50 FC</span></li>
+        </ul>
+      </div>
+      
+      <div class="guideline-card">
+        <div class="guideline-icon">🏢</div>
+        <h4>Commercial Spaces</h4>
+        <p>Professional lighting standards for business environments</p>
+        <ul class="light-levels">
+          <li><span>Office (General):</span> <span class="level">20-50 FC</span></li>
+          <li><span>Office (Task):</span> <span class="level">50-100 FC</span></li>
+          <li><span>Retail (General):</span> <span class="level">20-50 FC</span></li>
+          <li><span>Retail (Display):</span> <span class="level">100-200 FC</span></li>
+          <li><span>Restaurant:</span> <span class="level">5-20 FC</span></li>
+          <li><span>Hotel Lobby:</span> <span class="level">10-20 FC</span></li>
+        </ul>
+      </div>
+      
+      <div class="guideline-card">
+        <div class="guideline-icon">📐</div>
+        <h4>Fixture Spacing</h4>
+        <p>Optimal spacing guidelines for even light distribution</p>
+        <ul class="light-levels">
+          <li><span>Pendant Lights:</span> <span class="level">30-36"</span></li>
+          <li><span>Chandelier Height:</span> <span class="level">30-34"</span></li>
+          <li><span>Sconce Height:</span> <span class="level">60-66"</span></li>
+          <li><span>Track Spacing:</span> <span class="level">4-6 ft</span></li>
+          <li><span>Recessed Spacing:</span> <span class="level">4-6 ft</span></li>
+          <li><span>Under-Cabinet:</span> <span class="level">12-18"</span></li>
+        </ul>
+      </div>
+      
+      <div class="guideline-card">
+        <div class="guideline-icon">🔆</div>
+        <h4>Light Quality</h4>
+        <p>Color temperature and rendering guidelines</p>
+        <ul class="light-levels">
+          <li><span>Warm White:</span> <span class="level">2700K</span></li>
+          <li><span>Soft White:</span> <span class="level">3000K</span></li>
+          <li><span>Cool White:</span> <span class="level">4000K</span></li>
+          <li><span>CRI Minimum:</span> <span class="level">80+</span></li>
+          <li><span>CRI Preferred:</span> <span class="level">90+</span></li>
+          <li><span>R9 Value:</span> <span class="level">50+</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROOM CALCULATOR -->
+  <section class="room-calculator">
+    <div class="eyebrow" style="text-align:center">Space-Specific Tools</div>
+    <h2 style="text-align:center; margin-bottom:32px; color:var(--ink); font-size:clamp(1.6rem,2.4vw,2rem)">Room-by-Room Calculator</h2>
+    
+    <div class="room-types">
+      <div class="room-grid">
+        <div class="room-card active" onclick="showRoom('living')">
+          <span class="icon">🛋️</span>
+          <h5>Living Room</h5>
+          <p class="requirements">10-20 FC ambient</p>
+        </div>
+        
+        <div class="room-card" onclick="showRoom('dining')">
+          <span class="icon">🍽️</span>
+          <h5>Dining Room</h5>
+          <p class="requirements">20-30 FC general</p>
+        </div>
+        
+        <div class="room-card" onclick="showRoom('kitchen')">
+          <span class="icon">👩‍🍳</span>
+          <h5>Kitchen</h5>
+          <p class="requirements">20-100 FC task</p>
+        </div>
+        
+        <div class="room-card" onclick="showRoom('bedroom')">
+          <span class="icon">🛏️</span>
+          <h5>Bedroom</h5>
+          <p class="requirements">10-20 FC ambient</p>
+        </div>
+        
+        <div class="room-card" onclick="showRoom('bathroom')">
+          <span class="icon">🚿</span>
+          <h5>Bathroom</h5>
+          <p class="requirements">20-50 FC task</p>
+        </div>
+        
+        <div class="room-card" onclick="showRoom('office')">
+          <span class="icon">💼</span>
+          <h5>Office</h5>
+          <p class="requirements">20-100 FC work</p>
+        </div>
+      </div>
+      
+      <!-- Living Room Details -->
+      <div class="room-details active" id="living-room">
+        <h3>Living Room Lighting</h3>
+        <p style="color:var(--ash); margin-bottom:20px">Create a comfortable, layered lighting scheme for relaxation and entertainment.</p>
+        
+        <div class="fixture-suggestions">
+          <div class="fixture-card">
+            <h6>Chandelier/Pendant</h6>
+            <p>Central focal point for ambient lighting. 30-34" above seating area.</p>
+          </div>
+          
+          <div class="fixture-card">
+            <h6>Table Lamps</h6>
+            <p>Task lighting for reading. 58-64" from floor to shade bottom.</p>
+          </div>
+          
+          <div class="fixture-card">
+            <h6>Wall Sconces</h6>
+            <p>Accent lighting to create ambiance. 60-66" mounting height.</p>
+          </div>
+          
+          <div class="fixture-card">
+            <h6>Floor Lamps</h6>
+            <p>Additional task and ambient lighting. Position for reading areas.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Dining Room Details -->
+      <div class="room-details" id="dining-room">
+        <h3>Dining Room Lighting</h3>
+        <p style="color:var(--ash); margin-bottom:20px">Focus on creating intimate dining atmosphere with proper task lighting.</p>
+        
+        <div class="fixture-suggestions">
+          <div class="fixture-card">
+            <h6>Dining Chandelier</h6>
+            <p>Primary lighting centered over table. 30-34" above table surface.</p>
+          </div>
+          
+          <div class="fixture-card">
+            <h6>Buffet Lamps</h6>
+            <p>Accent lighting for serving areas. Coordinate with chandelier style.</p>
+          </div>
+          
+          <div class="fixture-card">
+            <h6>Wall Sconces</h6>
+            <p>Ambient lighting to enhance atmosphere. Consider dimmable options.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Kitchen Details -->
+      <div class="room-details" id="kitchen-room">
+        <h3>Kitchen Lighting</h3>
+        <p style="color:var(--ash); margin-bottom:20px">Layer task, ambient, and accent lighting for both function and style.</p>
+        
+        <div class="fixture-suggestions">
+          <div class="fixture-card">
+            <h6>Island Pendants</h6>
+            <p>Task lighting over work surfaces. 30-36" above countertop.</p>
+          </div>
+          
+          <div class="fixture-card">
+            <h6>Under-Cabinet</h6>
+            <p>Task lighting for food preparation. LED strips work well.</p>
+          </div>
+          
+          <div class="fixture-card">
+            <h6>Recessed Lights</h6>
+            <p>General illumination. Space 4-6 feet apart for even coverage.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Additional room details would continue... -->
+    </div>
+  </section>
+
+  <!-- PROFESSIONAL TOOLS -->
+  <section class="pro-tools">
+    <div class="eyebrow" style="text-align:center">Professional Resources</div>
+    <h2 style="text-align:center; margin-bottom:40px; color:var(--ink); font-size:clamp(1.6rem,2.4vw,2rem)">Advanced Tools</h2>
+    
+    <div class="pro-grid">
+      <div class="pro-card">
+        <h4>
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14,2 14,8 20,8"/>
+          </svg>
+          IES Files
+        </h4>
+        <ul class="feature-list">
+          <li>Photometric data for accurate simulations</li>
+          <li>Compatible with AGi32, DIALux, and Relux</li>
+          <li>Updated regularly with new fixtures</li>
+          <li>Multiple beam angle options</li>
+        </ul>
+        <button class="download-btn" onclick="downloadResource('ies-files')">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4m4-5l5 5 5-5m-5 5V3"/>
+          </svg>
+          Download IES
+        </button>
+      </div>
+      
+      <div class="pro-card">
+        <h4>
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+          </svg>
+          Calculation Sheets
+        </h4>
+        <ul class="feature-list">
+          <li>Excel templates for lighting calculations</li>
+          <li>Lumen method and point-by-point</li>
+          <li>Energy consumption estimators</li>
+          <li>Code compliance checklists</li>
+        </ul>
+        <button class="download-btn" onclick="downloadResource('calc-sheets')">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4m4-5l5 5 5-5m-5 5V3"/>
+          </svg>
+          Download Sheets
+        </button>
+      </div>
+      
+      <div class="pro-card">
+        <h4>
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <polyline points="12,6 12,12 16,14"/>
+          </svg>
+          Mobile App
+        </h4>
+        <ul class="feature-list">
+          <li>Quick calculations on job sites</li>
+          <li>Light meter integration</li>
+          <li>Project documentation tools</li>
+          <li>Offline calculation capability</li>
+        </ul>
+        <button class="download-btn" onclick="downloadResource('mobile-app')">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4m4-5l5 5 5-5m-5 5V3"/>
+          </svg>
+          Get App
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <h2>Professional Support</h2>
+    <p>Need help with complex lighting calculations? Our lighting designers are here to assist with your project requirements.</p>
+    <a href="/trade-program" class="btn-secondary btn">Trade Program</a>
+    <a href="/contact" class="btn">Contact Designer</a>
+  </section>
+
+</div>
+
+<script>
+// Lighting calculation data
+const lightingRequirements = {
+  living: { min: 10, max: 20, recommended: 15 },
+  dining: { min: 20, max: 30, recommended: 25 },
+  kitchen: { min: 20, max: 100, recommended: 50 },
+  bedroom: { min: 10, max: 20, recommended: 15 },
+  bathroom: { min: 20, max: 50, recommended: 35 },
+  office: { min: 20, max: 100, recommended: 50 },
+  retail: { min: 20, max: 200, recommended: 50 },
+  restaurant: { min: 5, max: 20, recommended: 10 },
+  lobby: { min: 10, max: 20, recommended: 15 }
+};
+
+// Main lighting calculator
+function calculateLighting() {
+  const length = parseFloat(document.getElementById('room-length').value) || 0;
+  const width = parseFloat(document.getElementById('room-width').value) || 0;
+  const height = parseFloat(document.getElementById('ceiling-height').value) || 0;
+  const roomType = document.getElementById('room-type').value;
+  const lightingType = document.getElementById('lighting-type').value;
+  
+  if (length === 0 || width === 0) {
+    return;
+  }
+  
+  // Convert to square feet if in meters
+  const lengthUnit = document.getElementById('length-unit').value;
+  const widthUnit = document.getElementById('width-unit').value;
+  
+  let area = length * width;
+  if (lengthUnit === 'm' || widthUnit === 'm') {
+    area = area * 10.764; // Convert to sq ft
+  }
+  
+  // Get lighting requirements
+  const requirements = lightingRequirements[roomType];
+  let footCandles = requirements.recommended;
+  
+  // Adjust for lighting type
+  const lightingMultipliers = {
+    general: 1.0,
+    task: 1.5,
+    accent: 0.7,
+    decorative: 0.8
+  };
+  
+  footCandles *= lightingMultipliers[lightingType];
+  
+  // Calculate total lumens (1 FC = 1 lumen per sq ft)
+  const totalLumens = Math.round(area * footCandles);
+  
+  // Estimate fixture count (assuming 800-1200 lumens per fixture)
+  const lumensPerFixture = 1000;
+  const fixtureCount = Math.ceil(totalLumens / lumensPerFixture);
+  
+  // Update results
+  document.getElementById('room-area').textContent = `${Math.round(area)} sq ft`;
+  document.getElementById('light-level').textContent = `${Math.round(footCandles)} FC`;
+  document.getElementById('total-lumens').textContent = `${totalLumens.toLocaleString()} lm`;
+  document.getElementById('fixture-count').textContent = `${fixtureCount}`;
+  document.getElementById('lumens-per-fixture').textContent = `${lumensPerFixture} lm`;
+  
+  // Update recommendations
+  updateRecommendations(roomType, lightingType, area, fixtureCount);
+}
+
+function updateRecommendations(roomType, lightingType, area, fixtureCount) {
+  const recommendations = document.getElementById('recommendations');
+  const roomNames = {
+    living: 'Living Room',
+    dining: 'Dining Room', 
+    kitchen: 'Kitchen',
+    bedroom: 'Bedroom',
+    bathroom: 'Bathroom',
+    office: 'Office',
+    retail: 'Retail Space',
+    restaurant: 'Restaurant',
+    lobby: 'Hotel Lobby'
+  };
+  
+  let text = `For your ${roomNames[roomType].toLowerCase()}, we recommend ${fixtureCount} fixtures for optimal ${lightingType} lighting. `;
+  
+  if (roomType === 'dining') {
+    text += "Consider a chandelier as the primary source, positioned 30-34\" above the table surface.";
+  } else if (roomType === 'kitchen') {
+    text += "Layer your lighting with pendant lights over islands, under-cabinet task lighting, and general overhead illumination.";
+  } else if (roomType === 'living') {
+    text += "Create layers with ambient, task, and accent lighting for maximum flexibility.";
+  } else {
+    text += "Ensure even distribution and consider dimmer controls for versatility.";
+  }
+  
+  recommendations.querySelector('p').textContent = text;
+}
+
+// Tool activation
+function activateTool(toolType) {
+  console.log(`Activating ${toolType} calculator`);
+  // In production, this would switch to different calculator interfaces
+  
+  const toolNames = {
+    lumen: 'Lumen Calculator',
+    fixture: 'Fixture Count Calculator', 
+    room: 'Room Analyzer',
+    energy: 'Energy Calculator'
+  };
+  
+  alert(`${toolNames[toolType]} - This advanced tool would provide specialized calculations for ${toolType} requirements.`);
+}
+
+// Room selector
+function showRoom(roomType) {
+  // Update active room card
+  document.querySelectorAll('.room-card').forEach(card => {
+    card.classList.remove('active');
+  });
+  event.currentTarget.classList.add('active');
+  
+  // Hide all room details
+  document.querySelectorAll('.room-details').forEach(detail => {
+    detail.classList.remove('active');
+  });
+  
+  // Show selected room (simplified for demo)
+  const activeRoom = document.querySelector('.room-details.active') || document.querySelector('.room-details');
+  if (activeRoom) {
+    activeRoom.classList.add('active');
+  }
+}
+
+// Resource downloads
+function downloadResource(resourceType) {
+  const resources = {
+    'ies-files': 'LUNVYR_IES_Photometric_Data.zip',
+    'calc-sheets': 'LUNVYR_Lighting_Calculation_Templates.xlsx',
+    'mobile-app': 'LUNVYR_Lighting_Calculator_App'
+  };
+  
+  const fileName = resources[resourceType];
+  console.log(`Downloading: ${fileName}`);
+  
+  // Show download feedback
+  const button = event.currentTarget;
+  const originalText = button.innerHTML;
+  button.innerHTML = '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v10m0 0l-3-3m3 3l3-3"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7"/></svg>Downloading...';
+  button.disabled = true;
+  
+  setTimeout(() => {
+    button.innerHTML = '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Downloaded';
+    setTimeout(() => {
+      button.innerHTML = originalText;
+      button.disabled = false;
+    }, 2000);
+  }, 1500);
+}
+
+// Initialize with sample calculation
+document.addEventListener('DOMContentLoaded', function() {
+  // Set sample values
+  document.getElementById('room-length').value = '12';
+  document.getElementById('room-width').value = '10';
+  document.getElementById('ceiling-height').value = '9';
+  
+  // Calculate initial results
+  setTimeout(calculateLighting, 100);
+  
+  // Reveal animations
+  const cards = document.querySelectorAll('.tool-card, .guideline-card, .pro-card');
+  if('IntersectionObserver' in window){
+    const observer = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, {threshold: 0.1});
+    
+    cards.forEach((card, index)=>{
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(20px)';
+      card.style.transition = `opacity 0.6s ease ${index * 0.05}s, transform 0.6s ease ${index * 0.05}s`;
+      observer.observe(card);
+    });
+  }
+});
+</script>

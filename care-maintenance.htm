@@ -1,0 +1,732 @@
+<!-- LUNVYR — Care & Maintenance (Cleaning Guide, Finish Care, Maintenance Schedule, Troubleshooting) -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Inter:wght@300;400;500&display=swap');
+
+:root{
+  --ink:#1c222b; --paper:#f2f0eb; --coal:#111; --ash:#666; --brass:#b2956d; --white:#fff;
+  --radius:14px; --shadow:0 12px 32px rgba(0,0,0,.08); --ring: 0 0 0 3px rgba(178,149,109,.25);
+}
+
+.care-guide{font-family:Inter,system-ui,sans-serif;color:var(--coal);line-height:1.65}
+.care-guide h1,.care-guide h2,.care-guide h3{font-family:Cinzel,serif;font-weight:400;margin:0}
+.care-guide .eyebrow{letter-spacing:.12em;text-transform:uppercase;font-size:.8rem;color:var(--ash);margin-bottom:.6rem}
+
+/* Hero */
+.care-hero{
+  position:relative; color:var(--paper); text-align:center;
+  background:#0e0f12 url('https://lunvyr.com/wp-content/uploads/2025/08/f07dabad-5599-4f19-bb21-0e2537614e98.png') center/cover no-repeat;
+  padding:clamp(100px,15vh,160px) 10%; min-height:70vh; display:flex; align-items:center; justify-content:center;
+}
+.care-hero::before{
+  content:""; position:absolute; top:0; left:0; right:0; height:1px;
+  background:linear-gradient(90deg, transparent, var(--brass), transparent);
+}
+.care-hero::after{
+  content:""; position:absolute; inset:0; 
+  background:radial-gradient(110% 110% at 70% 30%, rgba(0,0,0,0) 0%, rgba(0,0,0,.7) 70%);
+}
+.care-hero .inner{position:relative; z-index:2; max-width:900px; margin:0 auto}
+.care-hero h1{
+  font-size:clamp(2.6rem,5.2vw,3.8rem); color:var(--paper); margin-bottom:16px;
+  font-family:'Cinzel',serif; font-weight:400; line-height:1.15;
+}
+.care-hero p{color:#d6d3ce; margin:0 auto; max-width:760px; font-size:1.1rem; line-height:1.6}
+
+/* Section */
+.section{
+  padding:clamp(84px,12vh,140px) 10%; 
+  background:linear-gradient(135deg, var(--paper) 0%, #f8f6f0 100%);
+  position:relative;
+}
+.section::before{
+  content:""; position:absolute; top:0; left:0; right:0; height:1px;
+  background:linear-gradient(90deg, transparent, var(--brass), transparent);
+}
+
+/* Finish Types */
+.finish-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr)); gap:28px; max-width:1200px; margin:0 auto 60px}
+.finish-card{
+  background:var(--white); border:1px solid rgba(17,17,17,.06); 
+  border-radius:20px; padding:28px 24px; box-shadow:0 8px 30px rgba(0,0,0,.06);
+  transition:all .4s ease; position:relative; overflow:hidden;
+}
+.finish-card::before{
+  content:""; position:absolute; top:0; left:0; right:0; height:3px;
+  background:linear-gradient(90deg, var(--brass) 0%, #d4af78 100%);
+  transform:scaleX(0); transition:transform .4s ease;
+}
+.finish-card:hover::before{transform:scaleX(1)}
+.finish-card:hover{
+  transform:translateY(-6px); 
+  box-shadow:0 16px 45px rgba(0,0,0,.1);
+}
+.finish-card .finish-sample{
+  width:60px; height:60px; border-radius:50%; margin:0 auto 16px;
+  box-shadow:0 4px 20px rgba(0,0,0,.15); position:relative;
+}
+.finish-card .finish-sample.brass{background:linear-gradient(135deg, #b8860b 0%, #daa520 100%)}
+.finish-card .finish-sample.aged-brass{background:linear-gradient(135deg, #8b6914 0%, #b8860b 100%)}
+.finish-card .finish-sample.blackened{background:linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%)}
+.finish-card .finish-sample.steel{background:linear-gradient(135deg, #a8a8a8 0%, #c0c0c0 100%)}
+.finish-card h3{font-size:1.3rem; color:var(--ink); margin-bottom:12px; text-align:center; font-weight:500}
+.finish-card .care-steps{list-style:none; padding:0; margin:16px 0 0}
+.finish-card .care-steps li{
+  color:var(--ash); margin-bottom:8px; padding-left:20px; position:relative;
+  font-size:.9rem; line-height:1.5;
+}
+.finish-card .care-steps li::before{
+  content:"✓"; color:var(--brass); font-weight:bold; position:absolute; left:0;
+}
+
+/* General Care */
+.general-care{
+  background:#f7f7f7; padding:clamp(64px,10vh,100px) 10%;
+  position:relative;
+}
+.general-care::before{
+  content:""; position:absolute; top:0; left:0; right:0; height:1px;
+  background:linear-gradient(90deg, transparent, var(--brass), transparent);
+}
+.care-tabs{
+  max-width:1000px; margin:0 auto;
+}
+.tab-nav{
+  display:flex; justify-content:center; gap:8px; margin-bottom:32px;
+  flex-wrap:wrap;
+}
+.tab-btn{
+  padding:12px 24px; background:var(--white); border:2px solid rgba(17,17,17,.12);
+  border-radius:50px; color:var(--coal); cursor:pointer; transition:all .3s ease;
+  font-family:inherit; font-size:.9rem; font-weight:500;
+}
+.tab-btn.active{
+  background:var(--brass); color:var(--ink); border-color:var(--brass);
+}
+.tab-btn:hover:not(.active){
+  border-color:var(--brass); background:rgba(178,149,109,.1);
+}
+.tab-content{
+  background:var(--white); border:1px solid rgba(17,17,17,.08);
+  border-radius:16px; padding:32px 28px; box-shadow:var(--shadow);
+  display:none;
+}
+.tab-content.active{display:block}
+.tab-content h3{color:var(--ink); margin-bottom:20px; font-size:1.3rem}
+.care-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:24px; margin-top:24px}
+.care-item{
+  background:rgba(178,149,109,.05); border:1px solid rgba(178,149,109,.2);
+  border-radius:12px; padding:20px 16px; text-align:center;
+}
+.care-item .icon{
+  width:32px; height:32px; color:var(--brass); margin:0 auto 12px;
+  background:rgba(178,149,109,.1); border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+}
+.care-item h4{color:var(--ink); margin-bottom:6px; font-size:1rem}
+.care-item p{color:var(--ash); margin:0; font-size:.85rem; line-height:1.4}
+
+/* Do's and Don'ts */
+.dos-donts{
+  padding:clamp(64px,10vh,100px) 10%; 
+  background:linear-gradient(135deg, var(--paper) 0%, #f8f6f0 100%);
+  position:relative;
+}
+.dos-donts::before{
+  content:""; position:absolute; top:0; left:0; right:0; height:1px;
+  background:linear-gradient(90deg, transparent, var(--brass), transparent);
+}
+.dos-donts-grid{display:grid; grid-template-columns:1fr 1fr; gap:40px; max-width:1000px; margin:0 auto}
+.dos-section, .donts-section{
+  background:var(--white); border:1px solid rgba(17,17,17,.08);
+  border-radius:16px; padding:28px 24px; box-shadow:var(--shadow);
+}
+.dos-section h3{color:#16a34a; margin-bottom:20px; display:flex; align-items:center; gap:8px}
+.donts-section h3{color:#dc2626; margin-bottom:20px; display:flex; align-items:center; gap:8px}
+.dos-list, .donts-list{list-style:none; padding:0; margin:0}
+.dos-list li, .donts-list li{
+  margin-bottom:12px; padding-left:28px; position:relative; line-height:1.5;
+  color:var(--ash); font-size:.95rem;
+}
+.dos-list li::before{
+  content:"✓"; color:#16a34a; font-weight:bold; position:absolute; left:0; top:0;
+  width:20px; height:20px; background:rgba(22,163,74,.1); border-radius:50%;
+  display:flex; align-items:center; justify-content:center; font-size:.8rem;
+}
+.donts-list li::before{
+  content:"✗"; color:#dc2626; font-weight:bold; position:absolute; left:0; top:0;
+  width:20px; height:20px; background:rgba(220,38,38,.1); border-radius:50%;
+  display:flex; align-items:center; justify-content:center; font-size:.8rem;
+}
+
+/* Maintenance Schedule */
+.schedule{
+  background:var(--ink); color:var(--paper); padding:clamp(64px,10vh,100px) 10%;
+  position:relative;
+}
+.schedule::before{
+  content:""; position:absolute; top:0; left:0; right:0; height:1px;
+  background:linear-gradient(90deg, transparent, var(--brass), transparent);
+}
+.schedule-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); gap:24px; max-width:1000px; margin:0 auto}
+.schedule-card{
+  background:rgba(255,255,255,.05); border:1px solid rgba(242,240,235,.2);
+  border-radius:16px; padding:24px 20px; backdrop-filter:blur(10px);
+  transition:all .3s ease; text-align:center;
+}
+.schedule-card:hover{
+  background:rgba(255,255,255,.08); border-color:var(--brass);
+  transform:translateY(-4px);
+}
+.schedule-card .frequency{
+  color:var(--brass); font-weight:600; font-size:1.1rem; margin-bottom:8px;
+  text-transform:uppercase; letter-spacing:.05em;
+}
+.schedule-card h4{color:var(--paper); margin-bottom:12px; font-size:1.1rem}
+.schedule-card ul{list-style:none; padding:0; margin:0}
+.schedule-card li{
+  color:#d6d3ce; margin-bottom:6px; font-size:.9rem; line-height:1.4;
+}
+
+/* Troubleshooting */
+.troubleshooting{
+  padding:clamp(64px,10vh,100px) 10%; 
+  background:#f7f7f7; position:relative;
+}
+.troubleshooting::before{
+  content:""; position:absolute; top:0; left:0; right:0; height:1px;
+  background:linear-gradient(90deg, transparent, var(--brass), transparent);
+}
+.trouble-accordion{max-width:800px; margin:0 auto}
+.trouble-item{
+  background:var(--white); border:1px solid rgba(17,17,17,.08);
+  border-radius:12px; margin-bottom:16px; overflow:hidden;
+  transition:all .3s ease;
+}
+.trouble-item:hover{box-shadow:0 8px 25px rgba(0,0,0,.1)}
+.trouble-header{
+  padding:20px 24px; cursor:pointer; display:flex; justify-content:space-between;
+  align-items:center; background:var(--white); transition:all .3s ease;
+}
+.trouble-header:hover{background:rgba(178,149,109,.05)}
+.trouble-header.active{background:rgba(178,149,109,.1)}
+.trouble-title{color:var(--ink); font-weight:500; margin:0}
+.trouble-icon{color:var(--brass); transition:transform .3s ease}
+.trouble-header.active .trouble-icon{transform:rotate(180deg)}
+.trouble-content{
+  padding:0 24px 24px; color:var(--ash); line-height:1.6;
+  display:none;
+}
+.trouble-content.active{display:block}
+
+/* CTA */
+.cta{
+  background:linear-gradient(135deg, var(--paper) 0%, #f8f6f0 100%);
+  text-align:center; padding:clamp(64px,10vh,100px) 10%;
+  position:relative;
+}
+.cta::before{
+  content:""; position:absolute; top:0; left:0; right:0; height:1px;
+  background:linear-gradient(90deg, transparent, var(--brass), transparent);
+}
+.cta h2{margin-bottom:16px; color:var(--ink)}
+.cta p{color:var(--ash); margin:0 0 24px; max-width:600px; margin-left:auto; margin-right:auto}
+.cta .btn{
+  font-family:Cinzel,serif; padding:1rem 2rem; border-radius:50px;
+  border:2px solid var(--ink); background:var(--ink); color:var(--paper);
+  text-decoration:none; display:inline-flex; align-items:center; gap:.7rem;
+  transition:all .4s ease; font-weight:500; margin:0 8px;
+}
+.cta .btn:hover{
+  background:transparent; color:var(--ink); transform:translateY(-2px);
+  box-shadow:0 8px 25px rgba(28,34,43,.2);
+}
+.cta .btn-secondary{
+  background:transparent; color:var(--ink); border-color:var(--brass);
+}
+.cta .btn-secondary:hover{
+  background:var(--brass); color:var(--ink);
+}
+
+/* Responsive */
+@media (max-width:767px){
+  .care-hero{padding:clamp(80px,12vh,120px) 7%; min-height:60vh}
+  .care-hero h1{font-size:clamp(2.2rem,7vw,3.2rem)}
+  .section{padding:clamp(64px,10vh,100px) 7%}
+  .finish-grid{grid-template-columns:1fr; gap:20px}
+  .dos-donts-grid{grid-template-columns:1fr; gap:24px}
+  .tab-nav{justify-content:stretch}
+  .tab-btn{flex:1; text-align:center}
+}
+
+@media (max-width:599px){
+  .care-hero{padding:clamp(60px,10vh,80px) 6%}
+  .finish-card{padding:24px 20px}
+  .tab-content{padding:24px 20px}
+  .dos-section, .donts-section{padding:24px 20px}
+}
+</style>
+
+<div class="care-guide">
+
+  <!-- HERO -->
+  <section class="care-hero">
+    <div class="inner">
+      <div class="eyebrow">Preservation Guide</div>
+      <h1>Care & Maintenance</h1>
+      <p>Proper care ensures your LUNVYR fixtures maintain their beauty and performance for decades. Follow our comprehensive guide for finish-specific maintenance.</p>
+    </div>
+  </section>
+
+  <!-- FINISH-SPECIFIC CARE -->
+  <section class="section">
+    <div class="eyebrow">Finish Care</div>
+    <h2 style="text-align:center; margin-bottom:40px; color:var(--ink); font-size:clamp(1.8rem,2.8vw,2.4rem)">Care by Finish Type</h2>
+    
+    <div class="finish-grid">
+      <!-- Natural Brass -->
+      <div class="finish-card">
+        <div class="finish-sample brass"></div>
+        <h3>Natural Brass</h3>
+        <p style="color:var(--ash); margin-bottom:16px; font-size:.9rem; text-align:center">Living finish that develops patina over time</p>
+        <ul class="care-steps">
+          <li>Dust weekly with microfiber cloth</li>
+          <li>Clean with warm water and mild soap</li>
+          <li>Dry immediately to prevent water spots</li>
+          <li>Apply brass cleaner monthly for shine</li>
+          <li>Wax quarterly with paste wax</li>
+          <li>Embrace natural patina development</li>
+        </ul>
+      </div>
+
+      <!-- Aged Brass -->
+      <div class="finish-card">
+        <div class="finish-sample aged-brass"></div>
+        <h3>Aged Brass</h3>
+        <p style="color:var(--ash); margin-bottom:16px; font-size:.9rem; text-align:center">Pre-patinated finish with rich depth</p>
+        <ul class="care-steps">
+          <li>Dust regularly with soft brush</li>
+          <li>Clean gently with damp cloth only</li>
+          <li>Avoid brass cleaners and polishes</li>
+          <li>Pat dry, never rub aggressively</li>
+          <li>Protect patina with light wax coat</li>
+          <li>Touch up with patina solution if needed</li>
+        </ul>
+      </div>
+
+      <!-- Blackened Steel -->
+      <div class="finish-card">
+        <div class="finish-sample blackened"></div>
+        <h3>Blackened Steel</h3>
+        <p style="color:var(--ash); margin-bottom:16px; font-size:.9rem; text-align:center">Dark oxide finish requiring gentle care</p>
+        <ul class="care-steps">
+          <li>Dust with soft, dry cloth</li>
+          <li>Use minimal moisture when cleaning</li>
+          <li>Apply light coat of paste wax</li>
+          <li>Avoid abrasive cleaners</li>
+          <li>Check for rust in humid areas</li>
+          <li>Re-blacken if finish wears</li>
+        </ul>
+      </div>
+
+      <!-- Polished Steel -->
+      <div class="finish-card">
+        <div class="finish-sample steel"></div>
+        <h3>Polished Steel</h3>
+        <p style="color:var(--ash); margin-bottom:16px; font-size:.9rem; text-align:center">High-gloss finish requiring regular maintenance</p>
+        <ul class="care-steps">
+          <li>Clean weekly with stainless cleaner</li>
+          <li>Buff with microfiber for shine</li>
+          <li>Remove fingerprints immediately</li>
+          <li>Polish monthly with metal polish</li>
+          <li>Protect with clear coat if desired</li>
+          <li>Address scratches promptly</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- GENERAL CARE TABS -->
+  <section class="general-care">
+    <div class="eyebrow" style="text-align:center">Comprehensive Care</div>
+    <h2 style="text-align:center; margin-bottom:40px; color:var(--ink); font-size:clamp(1.6rem,2.4vw,2rem)">General Maintenance</h2>
+    
+    <div class="care-tabs">
+      <div class="tab-nav">
+        <button class="tab-btn active" onclick="showTab('cleaning')">Cleaning</button>
+        <button class="tab-btn" onclick="showTab('electrical')">Electrical</button>
+        <button class="tab-btn" onclick="showTab('hardware')">Hardware</button>
+        <button class="tab-btn" onclick="showTab('glass')">Glass Components</button>
+      </div>
+
+      <!-- Cleaning Tab -->
+      <div class="tab-content active" id="cleaning-tab">
+        <h3>Cleaning Procedures</h3>
+        <p style="color:var(--ash); margin-bottom:24px">Proper cleaning preserves finish integrity and extends fixture life.</p>
+        
+        <div class="care-grid">
+          <div class="care-item">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 3v18m-4-8l4 4 4-4"/></svg>
+            <h4>Weekly Dusting</h4>
+            <p>Use microfiber cloth to remove dust and debris before it accumulates.</p>
+          </div>
+          
+          <div class="care-item">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+            <h4>Deep Cleaning</h4>
+            <p>Monthly thorough cleaning with appropriate finish-specific products.</p>
+          </div>
+          
+          <div class="care-item">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 3l9 4.5v9L12 21l-9-4.5v-9L12 3z"/></svg>
+            <h4>Spot Treatment</h4>
+            <p>Address stains and marks immediately to prevent permanent damage.</p>
+          </div>
+          
+          <div class="care-item">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M9 11l3 3 7-7"/></svg>
+            <h4>Protection</h4>
+            <p>Apply protective coatings as recommended for specific finishes.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Electrical Tab -->
+      <div class="tab-content" id="electrical-tab">
+        <h3>Electrical Maintenance</h3>
+        <p style="color:var(--ash); margin-bottom:24px">Regular electrical checks ensure safety and optimal performance.</p>
+        
+        <div class="care-grid">
+          <div class="care-item">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            <h4>Connection Check</h4>
+            <p>Annual inspection of wire connections by licensed electrician.</p>
+          </div>
+          
+          <div class="care-item">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2l9 4.5v9L12 21l-9-4.5v-9L12 3z"/></svg>
+            <h4>LED Testing</h4>
+            <p>Test LED functionality and color consistency every 6 months.</p>
+          </div>
+          
+          <div class="care-item">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 12h18M12 3v18"/></svg>
+            <h4>Dimmer Compatibility</h4>
+            <p>Verify dimmer settings and compatibility annually.</p>
+          </div>
+          
+          <div class="care-item">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M9 11l3 3 7-7"/></svg>
+            <h4>Safety Inspection</h4>
+            <p>Professional electrical safety check every 2-3 years.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hardware Tab -->
+      <div class="tab-content" id="hardware-tab">
+        <h3>Hardware Maintenance</h3>
+        <p style="color:var(--ash); margin-bottom:24px">Keep mechanical components secure and functioning properly.</p>
+        
+        <div class="care-grid">
+          <div class="care-item">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+            <h4>Screw Tightening</h4>
+            <p>Check and tighten mounting screws every 6 months.</p>
+          </div>
+          
+          <div class="care-item">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2l9 4.5v9L12 21l-9-4.5v-9L12 3z"/></svg>
+            <h4>Pivot Points</h4>
+            <p>Lubricate adjustable joints with light machine oil annually.</p>
+          </div>
+          
+          <div class="care-item">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 12h18M12 3v18"/></svg>
+            <h4>Ceiling Attachment</h4>
+            <p>Verify ceiling box security and weight capacity annually.</p>
+          </div>
+          
+          <div class="care-item">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M9 11l3 3 7-7"/></svg>
+            <h4>Wear Inspection</h4>
+            <p>Check for metal fatigue or stress points during cleaning.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Glass Tab -->
+      <div class="tab-content" id="glass-tab">
+        <h3>Glass Component Care</h3>
+        <p style="color:var(--ash); margin-bottom:24px">Preserve clarity and prevent damage to glass elements.</p>
+        
+        <div class="care-grid">
+          <div class="care-item">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+            <h4>Regular Cleaning</h4>
+            <p>Clean glass weekly with streak-free glass cleaner.</p>
+          </div>
+          
+          <div class="care-item">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2l9 4.5v9L12 21l-9-4.5v-9L12 3z"/></svg>
+            <h4>Scratch Prevention</h4>
+            <p>Use only soft cloths and avoid abrasive materials.</p>
+          </div>
+          
+          <div class="care-item">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 12h18M12 3v18"/></svg>
+            <h4>Secure Mounting</h4>
+            <p>Check glass mounting clips and seals for security.</p>
+          </div>
+          
+          <div class="care-item">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M9 11l3 3 7-7"/></svg>
+            <h4>Replacement</h4>
+            <p>Replace damaged glass immediately to prevent injury.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DO'S AND DON'TS -->
+  <section class="dos-donts">
+    <div class="eyebrow" style="text-align:center">Best Practices</div>
+    <h2 style="text-align:center; margin-bottom:40px; color:var(--ink); font-size:clamp(1.6rem,2.4vw,2rem)">Do's and Don'ts</h2>
+    
+    <div class="dos-donts-grid">
+      <!-- Do's -->
+      <div class="dos-section">
+        <h3>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M9 11l3 3 7-7"/></svg>
+          Do's
+        </h3>
+        <ul class="dos-list">
+          <li>Turn off power before any maintenance</li>
+          <li>Use appropriate cleaning products for each finish</li>
+          <li>Clean glass components regularly for optimal light output</li>
+          <li>Check mounting hardware periodically</li>
+          <li>Store cleaning supplies in original containers</li>
+          <li>Follow manufacturer's care instructions</li>
+          <li>Document maintenance dates and procedures</li>
+          <li>Replace worn or damaged components promptly</li>
+          <li>Use soft brushes for detailed cleaning</li>
+          <li>Apply protective coatings as recommended</li>
+        </ul>
+      </div>
+
+      <!-- Don'ts -->
+      <div class="donts-section">
+        <h3>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M18 6L6 18M6 6l12 12"/></svg>
+          Don'ts
+        </h3>
+        <ul class="donts-list">
+          <li>Never use abrasive cleaners on metal finishes</li>
+          <li>Don't use ammonia-based products on brass</li>
+          <li>Avoid pressure washing or high-pressure water</li>
+          <li>Don't disassemble electrical components</li>
+          <li>Never use steel wool or scouring pads</li>
+          <li>Don't allow water to pool on metal surfaces</li>
+          <li>Avoid cleaning when fixture is warm from use</li>
+          <li>Don't use generic metal polishes without testing</li>
+          <li>Never spray cleaners directly on electrical parts</li>
+          <li>Don't ignore signs of wear or damage</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAINTENANCE SCHEDULE -->
+  <section class="schedule">
+    <div class="eyebrow" style="text-align:center">Schedule</div>
+    <h2 style="text-align:center; margin-bottom:40px; color:var(--paper); font-size:clamp(1.6rem,2.4vw,2rem)">Maintenance Timeline</h2>
+    
+    <div class="schedule-grid">
+      <div class="schedule-card">
+        <div class="frequency">Weekly</div>
+        <h4>Basic Maintenance</h4>
+        <ul>
+          <li>Dust metal surfaces</li>
+          <li>Clean glass components</li>
+          <li>Check for loose elements</li>
+          <li>Spot clean as needed</li>
+        </ul>
+      </div>
+      
+      <div class="schedule-card">
+        <div class="frequency">Monthly</div>
+        <h4>Deep Cleaning</h4>
+        <ul>
+          <li>Thorough finish cleaning</li>
+          <li>Polish metal surfaces</li>
+          <li>Inspect electrical connections</li>
+          <li>Test dimmer functionality</li>
+        </ul>
+      </div>
+      
+      <div class="schedule-card">
+        <div class="frequency">Quarterly</div>
+        <h4>Protective Care</h4>
+        <ul>
+          <li>Apply protective wax coats</li>
+          <li>Tighten mounting hardware</li>
+          <li>Check ceiling attachment</li>
+          <li>Update maintenance log</li>
+        </ul>
+      </div>
+      
+      <div class="schedule-card">
+        <div class="frequency">Annually</div>
+        <h4>Professional Service</h4>
+        <ul>
+          <li>Electrical safety inspection</li>
+          <li>Hardware security check</li>
+          <li>LED performance test</li>
+          <li>Finish restoration if needed</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- TROUBLESHOOTING -->
+  <section class="troubleshooting">
+    <div class="eyebrow" style="text-align:center">Problem Solving</div>
+    <h2 style="text-align:center; margin-bottom:40px; color:var(--ink); font-size:clamp(1.6rem,2.4vw,2rem)">Troubleshooting Guide</h2>
+    
+    <div class="trouble-accordion">
+      <div class="trouble-item">
+        <div class="trouble-header" onclick="toggleTrouble(this)">
+          <h4 class="trouble-title">Finish appears dull or cloudy</h4>
+          <svg class="trouble-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="trouble-content">
+          <p><strong>Cause:</strong> Buildup of oils, dust, or improper cleaning products.</p>
+          <p><strong>Solution:</strong> Clean with appropriate finish-specific cleaner, rinse thoroughly, and dry completely. Apply protective coating if recommended for your finish type.</p>
+        </div>
+      </div>
+
+      <div class="trouble-item">
+        <div class="trouble-header" onclick="toggleTrouble(this)">
+          <h4 class="trouble-title">Water spots on metal surface</h4>
+          <svg class="trouble-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="trouble-content">
+          <p><strong>Cause:</strong> Mineral deposits from hard water or incomplete drying.</p>
+          <p><strong>Solution:</strong> Use a 50/50 vinegar and water solution to dissolve mineral deposits. Rinse with clean water and dry immediately. Consider using distilled water for cleaning in hard water areas.</p>
+        </div>
+      </div>
+
+      <div class="trouble-item">
+        <div class="trouble-header" onclick="toggleTrouble(this)">
+          <h4 class="trouble-title">LED lights flickering or dim</h4>
+          <svg class="trouble-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="trouble-content">
+          <p><strong>Cause:</strong> Incompatible dimmer, loose connections, or LED driver issues.</p>
+          <p><strong>Solution:</strong> Check dimmer compatibility first. Verify all electrical connections are secure. If problem persists, contact a licensed electrician to inspect the LED driver and connections.</p>
+        </div>
+      </div>
+
+      <div class="trouble-item">
+        <div class="trouble-header" onclick="toggleTrouble(this)">
+          <h4 class="trouble-title">Scratches on polished surfaces</h4>
+          <svg class="trouble-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="trouble-content">
+          <p><strong>Cause:</strong> Abrasive cleaning materials or accidental contact with sharp objects.</p>
+          <p><strong>Solution:</strong> Minor scratches can be buffed out with appropriate metal polish. Deep scratches may require professional refinishing. Always use soft cloths and non-abrasive cleaners.</p>
+        </div>
+      </div>
+
+      <div class="trouble-item">
+        <div class="trouble-header" onclick="toggleTrouble(this)">
+          <h4 class="trouble-title">Fixture feels loose or wobbly</h4>
+          <svg class="trouble-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="trouble-content">
+          <p><strong>Cause:</strong> Loose mounting hardware or insufficient ceiling box support.</p>
+          <p><strong>Solution:</strong> Turn off power and check all mounting screws and connections. If ceiling box appears inadequate, consult an electrician about upgrading to a properly rated mounting system.</p>
+        </div>
+      </div>
+
+      <div class="trouble-item">
+        <div class="trouble-header" onclick="toggleTrouble(this)">
+          <h4 class="trouble-title">Glass appears cloudy or etched</h4>
+          <svg class="trouble-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="trouble-content">
+          <p><strong>Cause:</strong> Hard water deposits, chemical etching from cleaners, or age-related deterioration.</p>
+          <p><strong>Solution:</strong> Try cleaning with white vinegar solution. If etching has occurred, the glass may need replacement. Use only glass-safe cleaners and ensure complete rinsing.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <h2>Need Maintenance Support?</h2>
+    <p>Our support team can help with specific care questions or connect you with authorized service providers.</p>
+    <a href="/warranty" class="btn-secondary btn">View Warranty</a>
+    <a href="/contact" class="btn">Contact Support</a>
+  </section>
+
+</div>
+
+<script>
+// Tab functionality
+function showTab(tabName) {
+  // Hide all tab contents
+  document.querySelectorAll('.tab-content').forEach(tab => {
+    tab.classList.remove('active');
+  });
+  
+  // Remove active class from all buttons
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.classList.remove('active');
+  });
+  
+  // Show selected tab and activate button
+  document.getElementById(tabName + '-tab').classList.add('active');
+  event.target.classList.add('active');
+}
+
+// Accordion functionality
+function toggleTrouble(header) {
+  const content = header.nextElementSibling;
+  const isActive = header.classList.contains('active');
+  
+  // Close all accordions
+  document.querySelectorAll('.trouble-header').forEach(h => {
+    h.classList.remove('active');
+    h.nextElementSibling.classList.remove('active');
+  });
+  
+  // Open clicked accordion if it wasn't active
+  if (!isActive) {
+    header.classList.add('active');
+    content.classList.add('active');
+  }
+}
+
+// Reveal animations
+document.addEventListener('DOMContentLoaded', function(){
+  const cards = document.querySelectorAll('.finish-card, .care-item, .schedule-card, .trouble-item');
+  if('IntersectionObserver' in window){
+    const observer = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, {threshold: 0.1});
+    
+    cards.forEach(card=>{
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(20px)';
+      card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      observer.observe(card);
+    });
+  }
+});
+</script>

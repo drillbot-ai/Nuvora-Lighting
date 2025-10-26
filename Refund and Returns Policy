@@ -1,0 +1,472 @@
+<!-- LUNVYR — Refund and Returns Policy -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Inter:wght@300;400;500&display=swap');
+
+:root{
+  --ink: #1c222b; --paper: #f2f0eb; --coal: #111; --ash: #666; 
+  --brass: #b2956d; --white: #fff; --surface: #ffffff;
+  --radius: 12px; --shadow: 0 4px 20px rgba(0,0,0,.08);
+  --success: #10b981; --warning: #f59e0b; --danger: #ef4444;
+}
+
+.returns-policy{
+  font-family: 'Inter', sans-serif; color: var(--coal); line-height: 1.7;
+  background: var(--paper); min-height: 100vh;
+}
+
+/* Header */
+.policy-header{
+  background: linear-gradient(135deg, var(--ink) 0%, #0f141a 100%);
+  color: var(--paper); padding: 80px 10% 60px; text-align: center;
+}
+.policy-header h1{
+  font-family: 'Cinzel', serif; font-size: clamp(2.5rem, 4vw, 3.5rem);
+  margin: 0 0 16px; font-weight: 500;
+}
+.policy-header .subtitle{
+  font-size: 1.1rem; opacity: 0.9; max-width: 600px; margin: 0 auto;
+}
+
+/* Quick Summary */
+.policy-summary{
+  background: var(--white); margin: -30px 10% 40px; padding: 40px;
+  border-radius: var(--radius); box-shadow: var(--shadow);
+  border-left: 4px solid var(--brass);
+}
+.policy-summary h2{
+  font-family: 'Cinzel', serif; color: var(--ink); margin: 0 0 16px;
+  display: flex; align-items: center; gap: 12px;
+}
+.policy-summary h2::before{
+  content: "📋"; font-size: 1.2rem;
+}
+.policy-summary .summary-grid{
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 24px; margin-top: 24px;
+}
+.summary-item{
+  text-align: center; padding: 20px; background: var(--paper);
+  border-radius: 8px; border: 1px solid rgba(178,149,109,0.2);
+}
+.summary-item .icon{
+  font-size: 2rem; margin-bottom: 12px; display: block;
+}
+.summary-item h3{
+  font-family: 'Cinzel', serif; color: var(--coal); margin: 0 0 8px;
+  font-size: 1.1rem;
+}
+.summary-item p{
+  color: var(--ash); margin: 0; font-size: 0.9rem;
+}
+
+/* Content */
+.policy-content{
+  max-width: 1400px; margin: 0 auto; padding: 0 8% 60px;
+}
+
+.policy-section{
+  background: var(--white); border-radius: var(--radius);
+  box-shadow: var(--shadow); padding: 48px; margin-bottom: 32px;
+  border-left: 4px solid var(--brass); max-width: none;
+}
+
+.policy-section h2{
+  font-family: 'Cinzel', serif; font-size: 1.8rem; color: var(--ink);
+  margin: 0 0 20px; display: flex; align-items: center; gap: 12px;
+}
+.policy-section h2::before{
+  content: ""; width: 8px; height: 8px; background: var(--brass);
+  border-radius: 50%; flex-shrink: 0;
+}
+
+.policy-section h3{
+  font-family: 'Inter', sans-serif; font-size: 1.2rem; color: var(--coal);
+  margin: 24px 0 12px; font-weight: 600;
+}
+
+.policy-section p{
+  margin: 0 0 16px; color: var(--ash);
+}
+
+.policy-section ul{
+  margin: 16px 0; padding-left: 20px; color: var(--ash);
+}
+.policy-section li{
+  margin-bottom: 8px;
+}
+
+/* Alert Boxes */
+.alert{
+  padding: 20px; border-radius: 8px; margin: 20px 0;
+  border-left: 4px solid;
+}
+.alert-warning{
+  background: rgba(245,158,11,0.1); border-left-color: var(--warning);
+  color: #92400e;
+}
+.alert-success{
+  background: rgba(16,185,129,0.1); border-left-color: var(--success);
+  color: #047857;
+}
+.alert-danger{
+  background: rgba(239,68,68,0.1); border-left-color: var(--danger);
+  color: #dc2626;
+}
+
+/* Timeline */
+.timeline{
+  position: relative; padding-left: 30px;
+}
+.timeline::before{
+  content: ""; position: absolute; left: 10px; top: 0; bottom: 0;
+  width: 2px; background: var(--brass);
+}
+.timeline-item{
+  position: relative; margin-bottom: 24px; padding-left: 20px;
+}
+.timeline-item::before{
+  content: ""; position: absolute; left: -25px; top: 6px;
+  width: 12px; height: 12px; background: var(--brass);
+  border-radius: 50%; border: 3px solid var(--white);
+}
+.timeline-item h4{
+  font-weight: 600; color: var(--coal); margin: 0 0 8px;
+}
+.timeline-item p{
+  color: var(--ash); margin: 0;
+}
+
+/* Contact Info */
+.contact-info{
+  background: linear-gradient(135deg, var(--brass) 0%, #9d8354 100%);
+  color: var(--white); padding: 40px; border-radius: var(--radius);
+  text-align: center; margin-top: 40px;
+}
+.contact-info h3{
+  font-family: 'Cinzel', serif; margin: 0 0 16px; font-size: 1.5rem;
+}
+.contact-info p{
+  margin: 0 0 8px; opacity: 0.95;
+}
+.contact-info a{
+  color: var(--white); text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px){
+  .policy-header{ padding: 60px 6% 40px; }
+  .policy-summary{ margin: -20px 6% 30px; padding: 24px; }
+  .policy-content{ padding: 0 6% 40px; }
+  .policy-section{ padding: 32px; }
+  .summary-grid{ grid-template-columns: 1fr; }
+}
+</style>
+
+<div class="returns-policy">
+  <!-- Header -->
+  <header class="policy-header">
+    <h1>Refund & Returns Policy</h1>
+    <p class="subtitle">Important information about returns, exchanges, and refunds for LUNVYR handcrafted lighting.</p>
+  </header>
+
+  <!-- Quick Summary -->
+  <section class="policy-summary">
+    <h2>Policy at a Glance</h2>
+    <p>We want you to be completely satisfied with your LUNVYR lighting. While our pieces are handcrafted to order, we accept returns within specific guidelines to ensure your peace of mind.</p>
+    
+    <div class="summary-grid">
+      <div class="summary-item">
+        <span class="icon">✅</span>
+        <h3>Returns Accepted</h3>
+        <p>30-day return window for eligible items</p>
+      </div>
+      <div class="summary-item">
+        <span class="icon">⏰</span>
+        <h3>48-Hour Notice</h3>
+        <p>Must notify within 48 hours of delivery</p>
+      </div>
+      <div class="summary-item">
+        <span class="icon">🛡️</span>
+        <h3>Damage Protection</h3>
+        <p>Full protection against shipping damage</p>
+      </div>
+      <div class="summary-item">
+        <span class="icon">🎨</span>
+        <h3>Quality Guarantee</h3>
+        <p>Craftsmanship warranty included</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Content -->
+  <main class="policy-content">
+
+    <section class="policy-section">
+      <h2>Return Policy</h2>
+      
+      <div class="alert alert-success">
+        <strong>Returns Accepted:</strong> We accept returns on eligible LUNVYR lighting fixtures within 30 days of delivery, provided you notify us within 48 hours of receiving your order.
+      </div>
+
+      <h3>Return Eligibility</h3>
+      <p>To be eligible for return, items must meet the following criteria:</p>
+      <ul>
+        <li><strong>48-Hour Notification:</strong> You must contact us within 48 hours of delivery to initiate the return process</li>
+        <li><strong>30-Day Window:</strong> Physical return must be completed within 30 days of delivery</li>
+        <li><strong>Original Condition:</strong> Item must be unused, undamaged, and in original packaging</li>
+        <li><strong>Standard Products:</strong> Only applies to our standard collection pieces (custom orders excluded)</li>
+        <li><strong>All Components:</strong> Must include all original hardware, instructions, and accessories</li>
+      </ul>
+
+      <h3>Non-Returnable Items</h3>
+      <p>The following items cannot be returned:</p>
+      <ul>
+        <li>Custom or made-to-order pieces with specific modifications</li>
+        <li>Items damaged by customer installation or use</li>
+        <li>Products returned after the 30-day window</li>
+        <li>Items missing original packaging or components</li>
+        <li>Special finishes or custom color requests</li>
+      </ul>
+
+      <h3>Why the 48-Hour Notification?</h3>
+      <p>The 48-hour notification requirement allows us to:</p>
+      <ul>
+        <li>Quickly address any immediate concerns or issues</li>
+        <li>Provide installation support that might resolve concerns</li>
+        <li>Ensure proper documentation for return processing</li>
+        <li>Maintain quality control and customer satisfaction records</li>
+      </ul>
+    </section>
+
+    <section class="policy-section">
+      <h2>How to Return</h2>
+      
+      <div class="alert alert-warning">
+        <strong>Important:</strong> You must notify us within 48 hours of delivery to initiate a return, even though you have 30 days to physically return the item.
+      </div>
+
+      <h3>Step-by-Step Return Process</h3>
+      <div class="timeline">
+        <div class="timeline-item">
+          <h4>Step 1: Notify Within 48 Hours</h4>
+          <p>Contact us immediately after delivery with your order number and reason for return. This starts the return process.</p>
+        </div>
+        <div class="timeline-item">
+          <h4>Step 2: Return Authorization</h4>
+          <p>We'll provide a return authorization number and detailed return instructions within 24 hours of your notification.</p>
+        </div>
+        <div class="timeline-item">
+          <h4>Step 3: Package Securely</h4>
+          <p>Carefully repackage the item in its original materials. We recommend additional protective wrapping for shipping.</p>
+        </div>
+        <div class="timeline-item">
+          <h4>Step 4: Ship Back</h4>
+          <p>Send the item back using the prepaid return label we provide. Must be shipped within 30 days of original delivery.</p>
+        </div>
+        <div class="timeline-item">
+          <h4>Step 5: Inspection & Refund</h4>
+          <p>Once received, we'll inspect the item and process your refund within 5-7 business days if approved.</p>
+        </div>
+      </div>
+
+      <h3>Return Shipping</h3>
+      <ul>
+        <li><strong>Prepaid Label:</strong> We provide a prepaid return shipping label for standard returns</li>
+        <li><strong>Secure Packaging:</strong> Use original packaging plus additional protection we recommend</li>
+        <li><strong>Insurance:</strong> All returns are fully insured during transit</li>
+        <li><strong>Tracking:</strong> You'll receive tracking information for your return shipment</li>
+      </ul>
+
+      <h3>Contact for Returns</h3>
+      <p>To initiate a return within the 48-hour window:</p>
+      <ul>
+        <li><strong>Email:</strong> <strong>info@lunvyr.com</strong> with "RETURN REQUEST" in subject line</li>
+        <li><strong>Phone:</strong> +1 (929) 728-2394 during business hours</li>
+        <li><strong>Include:</strong> Order number, delivery date, reason for return, and photos if applicable</li>
+        <li><strong>Response Time:</strong> We'll respond within 4 hours during business days</li>
+      </ul>
+    </section>
+
+    <section class="policy-section">
+      <h2>Order Cancellation</h2>
+      
+      <div class="alert alert-success">
+        <strong>Pre-Production Cancellation:</strong> Orders can be cancelled for a full refund before production begins, typically within 48 hours of purchase.
+      </div>
+
+      <h3>Cancellation Timeline</h3>
+      <div class="timeline">
+        <div class="timeline-item">
+          <h4>0-48 Hours After Order</h4>
+          <p>Full cancellation and refund available. Order has not yet entered production phase.</p>
+        </div>
+        <div class="timeline-item">
+          <h4>48+ Hours After Order</h4>
+          <p>Order enters production. Cancellation may incur restocking fees depending on production progress.</p>
+        </div>
+        <div class="timeline-item">
+          <h4>Production Complete</h4>
+          <p>Order ships within 6-8 weeks. Standard return policy applies instead of cancellation.</p>
+        </div>
+      </div>
+
+      <h3>How to Cancel</h3>
+      <p>To cancel your order:</p>
+      <ul>
+        <li>Email us at <strong>info@lunvyr.com</strong> with your order number</li>
+        <li>Include "CANCELLATION REQUEST" in the subject line</li>
+        <li>Provide reason for cancellation (helps us improve our service)</li>
+        <li>Refund will be processed within 3-5 business days if approved</li>
+      </ul>
+    </section>
+
+    <section class="policy-section">
+      <h2>Damage & Quality Protection</h2>
+      
+      <div class="alert alert-success">
+        <strong>Full Protection:</strong> We stand behind our craftsmanship and ensure your fixture arrives in perfect condition.
+      </div>
+
+      <h3>Shipping Damage</h3>
+      <p>If your LUNVYR fixture arrives damaged:</p>
+      <ul>
+        <li><strong>Report immediately:</strong> Contact us within 48 hours of delivery</li>
+        <li><strong>Document damage:</strong> Take clear photos of packaging and damaged areas</li>
+        <li><strong>Keep packaging:</strong> Retain all original packaging materials</li>
+        <li><strong>Resolution:</strong> We'll arrange repair, replacement, or full refund</li>
+      </ul>
+
+      <h3>Manufacturing Defects</h3>
+      <p>Rare manufacturing defects are covered under our quality guarantee:</p>
+      <ul>
+        <li>Electrical component failures within 90 days</li>
+        <li>Structural integrity issues</li>
+        <li>Finish defects not consistent with product description</li>
+        <li>Missing components or hardware</li>
+      </ul>
+
+      <h3>What's Not Covered</h3>
+      <ul>
+        <li>Normal wear and tear from use</li>
+        <li>Damage from improper installation</li>
+        <li>Changes in personal preference</li>
+        <li>Damage from misuse or accidents</li>
+        <li>Electrical issues due to improper wiring</li>
+      </ul>
+    </section>
+
+    <section class="policy-section">
+      <h2>Refund Process</h2>
+      
+      <h3>When Refunds Apply</h3>
+      <ul>
+        <li>Approved returns received within 30 days (with 48-hour notification)</li>
+        <li>Order cancelled before production begins</li>
+        <li>Item arrives damaged (full replacement or refund)</li>
+        <li>Manufacturing defect confirmed by our team</li>
+        <li>Our error in order fulfillment</li>
+      </ul>
+
+      <h3>Refund Amounts</h3>
+      <ul>
+        <li><strong>Full Refund:</strong> Items returned in original condition</li>
+        <li><strong>Partial Refund:</strong> Items with minor issues or missing components (case-by-case basis)</li>
+        <li><strong>Return Shipping:</strong> Deducted from refund unless item was damaged or defective</li>
+        <li><strong>Original Shipping:</strong> Non-refundable unless we made an error</li>
+      </ul>
+
+      <h3>Refund Timeline</h3>
+      <ul>
+        <li><strong>Processing Time:</strong> 3-5 business days after we receive and inspect the returned item</li>
+        <li><strong>Credit Card:</strong> 3-7 business days to appear on your statement</li>
+        <li><strong>PayPal:</strong> 1-3 business days</li>
+        <li><strong>Bank Transfer:</strong> 5-10 business days</li>
+      </ul>
+
+      <h3>Restocking Fees</h3>
+      <p>Restocking fees may apply in certain situations:</p>
+      <ul>
+        <li><strong>Standard Returns:</strong> No restocking fee for returns notified within 48 hours</li>
+        <li><strong>Late Notification:</strong> 15% restocking fee if notification was after 48 hours but item is still returnable</li>
+        <li><strong>Custom Elements:</strong> 25% restocking fee for items with any custom modifications</li>
+      </ul>
+    </section>
+
+    <section class="policy-section">
+      <h2>Custom Orders</h2>
+      
+      <div class="alert alert-warning">
+        <strong>Limited Returns:</strong> Custom orders have special return conditions due to their bespoke nature.
+      </div>
+
+      <h3>Custom Order Return Policy</h3>
+      <p>For custom lighting solutions:</p>
+      <ul>
+        <li><strong>48-Hour Rule Applies:</strong> Must notify within 48 hours of delivery, same as standard orders</li>
+        <li><strong>Design Discrepancy:</strong> Returns accepted if final product doesn't match approved specifications</li>
+        <li><strong>Quality Issues:</strong> Manufacturing defects or damage covered under standard protection</li>
+        <li><strong>Preference Changes:</strong> Not eligible for return once production is approved and completed</li>
+      </ul>
+
+      <h3>Custom Order Process</h3>
+      <ul>
+        <li><strong>Consultation required:</strong> All specifications confirmed before production</li>
+        <li><strong>Design approval:</strong> Technical drawings and material samples provided</li>
+        <li><strong>50% deposit:</strong> Required to begin custom work</li>
+        <li><strong>Final approval:</strong> You approve final design before production begins</li>
+      </ul>
+
+      <h3>Quality Assurance</h3>
+      <p>Every custom piece includes:</p>
+      <ul>
+        <li>Pre-production design approval process</li>
+        <li>Regular progress updates with photos</li>
+        <li>Final quality inspection before shipping</li>
+        <li>Detailed installation instructions and mounting hardware included</li>
+      </ul>
+    </section>
+
+    <section class="policy-section">
+      <h2>Contact for Returns & Issues</h2>
+      
+      <h3>Before Contacting Us</h3>
+      <p>Please have the following information ready:</p>
+      <ul>
+        <li>Order number and delivery date</li>
+        <li>Clear photos of any damage, defects, or the item itself</li>
+        <li>Description of the issue or reason for return</li>
+        <li>Preferred resolution (return, exchange, repair, refund)</li>
+      </ul>
+
+      <h3>Contact Methods</h3>
+      <ul>
+        <li><strong>Email:</strong> <strong>info@lunvyr.com</strong> (for all inquiries including returns)</li>
+        <li><strong>Phone:</strong> +1 (929) 728-2394</li>
+        <li><strong>Live Chat:</strong> Available on our website during business hours</li>
+      </ul>
+
+      <h3>Response Times</h3>
+      <ul>
+        <li><strong>Return notifications (within 48h):</strong> Within 4 hours during business days</li>
+        <li><strong>Damage reports:</strong> Within 6 hours</li>
+        <li><strong>General inquiries:</strong> Within 24 hours</li>
+        <li><strong>Custom order questions:</strong> Within 12 hours</li>
+      </ul>
+
+      <h3>Business Hours</h3>
+      <p><strong>Monday-Friday:</strong> 9:00 AM - 6:00 PM EST<br>
+      <strong>Saturday:</strong> 10:00 AM - 4:00 PM EST<br>
+      <strong>Sunday:</strong> Closed (emergency support via email)</p>
+    </section>
+
+    <!-- Contact Information -->
+    <div class="contact-info">
+      <h3>Questions About Returns?</h3>
+      <p>Our customer service team is here to help with all return and refund questions:</p>
+      <p><strong>Email:</strong> <a href="mailto:info@lunvyr.com">info@lunvyr.com</a></p>
+      <p><strong>Phone:</strong> +1 (929) 728-2394</p>
+      <p><strong>Hours:</strong> Monday-Friday, 9AM-6PM EST | Saturday 10AM-4PM EST</p>
+    </div>
+
+  </main>
+</div>

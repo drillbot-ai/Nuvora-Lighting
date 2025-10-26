@@ -1,0 +1,1089 @@
+<!-- LUNVYR — Compatibility Guide (Dimmer Compatibility, Smart Home Integration, Technical Compatibility) -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Inter:wght@300;400;500&display=swap');
+
+:root{
+  --ink:#1c222b; --paper:#f2f0eb; --coal:#111; --ash:#666; --brass:#b2956d; --white:#fff;
+  --teal:#14b8a6; --emerald:#10b981; --sky:#0ea5e9; --violet:#8b5cf6;
+  --radius:14px; --shadow:0 12px 32px rgba(0,0,0,.08); --ring: 0 0 0 3px rgba(178,149,109,.25);
+}
+
+.compatibility{font-family:Inter,system-ui,sans-serif;color:var(--coal);line-height:1.65}
+.compatibility h1,.compatibility h2,.compatibility h3{font-family:Cinzel,serif;font-weight:400;margin:0}
+.compatibility .eyebrow{letter-spacing:.12em;text-transform:uppercase;font-size:.8rem;color:var(--ash);margin-bottom:.6rem}
+
+/* Hero */
+.compat-hero{
+  position:relative; color:var(--paper); text-align:center;
+  background:#0f4c43 url('https://lunvyr.com/wp-content/uploads/2025/08/f07dabad-5599-4f19-bb21-0e2537614e98.png') center/cover no-repeat;
+  padding:clamp(100px,15vh,160px) 10%; min-height:70vh; display:flex; align-items:center; justify-content:center;
+}
+.compat-hero::before{
+  content:""; position:absolute; top:0; left:0; right:0; height:1px;
+  background:linear-gradient(90deg, transparent, var(--teal), transparent);
+}
+.compat-hero::after{
+  content:""; position:absolute; inset:0; 
+  background:radial-gradient(110% 110% at 50% 50%, rgba(20,184,166,0) 0%, rgba(20,184,166,.8) 70%);
+}
+.compat-hero .inner{position:relative; z-index:2; max-width:900px; margin:0 auto}
+.compat-hero h1{
+  font-size:clamp(2.6rem,5.2vw,3.8rem); color:var(--paper); margin-bottom:16px;
+  font-family:'Cinzel',serif; font-weight:400; line-height:1.15;
+}
+.compat-hero p{color:#a7f3d0; margin:0 auto; max-width:760px; font-size:1.1rem; line-height:1.6}
+
+/* Quick Check */
+.quick-check{
+  padding:clamp(64px,10vh,80px) 10%; 
+  background:linear-gradient(135deg, var(--paper) 0%, #f8f6f0 100%);
+  position:relative; text-align:center;
+}
+.quick-check::before{
+  content:""; position:absolute; top:0; left:0; right:0; height:1px;
+  background:linear-gradient(90deg, transparent, var(--teal), transparent);
+}
+.checker-form{
+  max-width:600px; margin:0 auto; background:var(--white);
+  border:1px solid rgba(20,184,166,.1); border-radius:16px;
+  padding:32px 28px; box-shadow:var(--shadow);
+}
+.checker-form h3{color:var(--ink); margin-bottom:24px; font-size:1.4rem}
+.form-group{margin-bottom:20px}
+.form-group label{
+  display:block; color:var(--ink); margin-bottom:8px;
+  font-weight:500; font-size:.9rem;
+}
+.form-select{
+  width:100%; padding:12px 16px; border:2px solid rgba(20,184,166,.2);
+  border-radius:8px; background:var(--white); color:var(--coal);
+  font-size:.9rem; cursor:pointer; transition:border-color .3s ease;
+}
+.form-select:focus{outline:none; border-color:var(--teal)}
+.check-btn{
+  width:100%; background:var(--teal); color:var(--white);
+  border:none; padding:14px 20px; border-radius:8px;
+  font-size:1rem; font-weight:500; cursor:pointer;
+  transition:all .3s ease; margin-top:16px;
+}
+.check-btn:hover{background:var(--emerald); transform:translateY(-1px)}
+.result-box{
+  margin-top:24px; padding:20px; border-radius:8px;
+  display:none; text-align:left;
+}
+.result-box.compatible{
+  background:rgba(16,185,129,.1); border:1px solid var(--emerald);
+}
+.result-box.incompatible{
+  background:rgba(239,68,68,.1); border:1px solid #ef4444;
+}
+.result-box.partial{
+  background:rgba(245,158,11,.1); border:1px solid #f59e0b;
+}
+
+/* Dimmer Compatibility */
+.dimmer-section{
+  padding:clamp(64px,10vh,100px) 10%; 
+  background:#f7f7f7; position:relative;
+}
+.dimmer-section::before{
+  content:""; position:absolute; top:0; left:0; right:0; height:1px;
+  background:linear-gradient(90deg, transparent, var(--teal), transparent);
+}
+.dimmer-grid{
+  display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
+  gap:24px; max-width:1200px; margin:0 auto;
+}
+.dimmer-card{
+  background:var(--white); border:1px solid rgba(20,184,166,.1);
+  border-radius:16px; padding:24px 20px;
+  transition:all .3s ease; position:relative; overflow:hidden;
+}
+.dimmer-card::before{
+  content:""; position:absolute; top:0; left:0; right:0; height:3px;
+  background:linear-gradient(90deg, var(--teal), var(--emerald));
+}
+.dimmer-card:hover{
+  transform:translateY(-4px); box-shadow:0 12px 30px rgba(20,184,166,.1);
+}
+.dimmer-brand{
+  display:flex; align-items:center; gap:12px; margin-bottom:16px;
+}
+.brand-logo{
+  width:48px; height:48px; background:rgba(20,184,166,.1);
+  border-radius:8px; display:flex; align-items:center; justify-content:center;
+  color:var(--teal); font-weight:600; font-size:1.1rem;
+}
+.dimmer-card h4{color:var(--ink); margin:0; font-size:1.1rem}
+.compatibility-status{
+  display:inline-block; padding:4px 8px; border-radius:6px;
+  font-size:.75rem; font-weight:600; margin-bottom:12px;
+}
+.status-full{background:rgba(16,185,129,.2); color:#059669}
+.status-partial{background:rgba(245,158,11,.2); color:#d97706}
+.status-limited{background:rgba(239,68,68,.2); color:#dc2626}
+.model-list{
+  list-style:none; padding:0; margin:0;
+}
+.model-list li{
+  display:flex; justify-content:space-between; align-items:center;
+  padding:6px 0; color:var(--ash); font-size:.85rem;
+  border-bottom:1px solid rgba(20,184,166,.05);
+}
+.model-list li:last-child{border-bottom:none}
+.model-name{color:var(--coal); font-weight:500}
+.compat-icon{
+  width:16px; height:16px; border-radius:50%;
+}
+.compat-yes{background:#10b981}
+.compat-partial{background:#f59e0b}
+.compat-no{background:#ef4444}
+
+/* Smart Home Integration */
+.smart-home{
+  padding:clamp(64px,10vh,100px) 10%; 
+  background:var(--ink); color:var(--paper); position:relative;
+}
+.smart-home::before{
+  content:""; position:absolute; top:0; left:0; right:0; height:1px;
+  background:linear-gradient(90deg, transparent, var(--teal), transparent);
+}
+.platform-grid{
+  display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+  gap:24px; max-width:1000px; margin:0 auto;
+}
+.platform-card{
+  background:rgba(255,255,255,.05); border:1px solid rgba(20,184,166,.2);
+  border-radius:16px; padding:24px 20px; text-align:center;
+  transition:all .3s ease;
+}
+.platform-card:hover{
+  background:rgba(255,255,255,.08); border-color:var(--teal);
+  transform:translateY(-4px);
+}
+.platform-logo{
+  width:64px; height:64px; margin:0 auto 16px;
+  background:rgba(20,184,166,.2); border-radius:12px;
+  display:flex; align-items:center; justify-content:center;
+  color:var(--teal); font-size:1.5rem; font-weight:600;
+}
+.platform-card h4{
+  color:var(--paper); margin-bottom:8px; font-size:1.1rem;
+}
+.platform-card p{
+  color:#a7f3d0; margin:0 0 16px; font-size:.9rem; line-height:1.4;
+}
+.features-list{
+  list-style:none; padding:0; margin:0; text-align:left;
+}
+.features-list li{
+  color:#a7f3d0; margin-bottom:4px; padding-left:16px;
+  position:relative; font-size:.85rem;
+}
+.features-list li::before{
+  content:"✓"; color:var(--teal); position:absolute; left:0; font-weight:600;
+}
+
+/* Installation Guide */
+.install-guide{
+  padding:clamp(64px,10vh,100px) 10%; 
+  background:linear-gradient(135deg, var(--paper) 0%, #f8f6f0 100%);
+  position:relative;
+}
+.install-guide::before{
+  content:""; position:absolute; top:0; left:0; right:0; height:1px;
+  background:linear-gradient(90deg, transparent, var(--teal), transparent);
+}
+.guide-tabs{
+  max-width:1000px; margin:0 auto;
+}
+.tab-nav{
+  display:flex; justify-content:center; gap:8px; margin-bottom:32px; flex-wrap:wrap;
+}
+.tab-btn{
+  padding:12px 24px; background:var(--white); border:2px solid rgba(20,184,166,.2);
+  border-radius:50px; color:var(--coal); cursor:pointer; transition:all .3s ease;
+  font-family:inherit; font-size:.9rem; font-weight:500;
+}
+.tab-btn.active{
+  background:var(--teal); color:var(--white); border-color:var(--teal);
+}
+.tab-btn:hover:not(.active){
+  border-color:var(--teal); background:rgba(20,184,166,.1);
+}
+.tab-content{
+  background:var(--white); border:1px solid rgba(20,184,166,.1);
+  border-radius:16px; padding:32px 28px; box-shadow:var(--shadow);
+  display:none;
+}
+.tab-content.active{display:block}
+.tab-content h3{color:var(--ink); margin-bottom:20px; font-size:1.3rem}
+.step-list{list-style:none; padding:0; margin:0}
+.step-item{
+  display:flex; gap:16px; margin-bottom:20px; padding-bottom:20px;
+  border-bottom:1px solid rgba(20,184,166,.1);
+}
+.step-item:last-child{border-bottom:none}
+.step-number{
+  width:32px; height:32px; background:var(--teal); color:var(--white);
+  border-radius:50%; display:flex; align-items:center; justify-content:center;
+  font-weight:600; font-size:.9rem; flex-shrink:0;
+}
+.step-content h5{
+  color:var(--ink); margin-bottom:6px; font-size:1rem;
+}
+.step-content p{
+  color:var(--ash); margin:0; font-size:.9rem; line-height:1.5;
+}
+
+/* Troubleshooting */
+.troubleshooting{
+  background:#f7f7f7; padding:clamp(64px,10vh,100px) 10%;
+  position:relative;
+}
+.troubleshooting::before{
+  content:""; position:absolute; top:0; left:0; right:0; height:1px;
+  background:linear-gradient(90deg, transparent, var(--teal), transparent);
+}
+.issue-grid{
+  display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr));
+  gap:24px; max-width:1200px; margin:0 auto;
+}
+.issue-card{
+  background:var(--white); border:1px solid rgba(20,184,166,.1);
+  border-radius:12px; padding:20px 16px;
+}
+.issue-header{
+  display:flex; align-items:center; gap:12px; margin-bottom:12px;
+}
+.issue-icon{
+  width:32px; height:32px; background:rgba(239,68,68,.1);
+  border-radius:8px; display:flex; align-items:center; justify-content:center;
+  color:#dc2626; font-size:1rem;
+}
+.issue-card h4{
+  color:var(--ink); margin:0; font-size:1rem;
+}
+.issue-card p{
+  color:var(--ash); margin-bottom:12px; font-size:.9rem; line-height:1.4;
+}
+.solution-steps{
+  list-style:none; padding:0; margin:0;
+}
+.solution-steps li{
+  color:var(--ash); margin-bottom:6px; padding-left:20px;
+  position:relative; font-size:.85rem; line-height:1.4;
+}
+.solution-steps li::before{
+  content:counter(step-counter); counter-increment:step-counter;
+  position:absolute; left:0; top:0;
+  color:var(--teal); font-weight:600; width:16px;
+}
+.solution-steps{counter-reset:step-counter}
+
+/* CTA */
+.cta{
+  background:linear-gradient(135deg, var(--teal) 0%, var(--emerald) 100%);
+  text-align:center; padding:clamp(64px,10vh,100px) 10%; color:var(--white);
+  position:relative;
+}
+.cta::before{
+  content:""; position:absolute; top:0; left:0; right:0; height:1px;
+  background:linear-gradient(90deg, transparent, rgba(255,255,255,.3), transparent);
+}
+.cta h2{margin-bottom:16px; color:var(--white)}
+.cta p{color:#a7f3d0; margin:0 0 24px; max-width:600px; margin-left:auto; margin-right:auto}
+.cta .btn{
+  font-family:Cinzel,serif; padding:1rem 2rem; border-radius:50px;
+  border:2px solid var(--white); background:var(--white); color:var(--teal);
+  text-decoration:none; display:inline-flex; align-items:center; gap:.7rem;
+  transition:all .4s ease; font-weight:500; margin:0 8px;
+}
+.cta .btn:hover{
+  background:transparent; color:var(--white); transform:translateY(-2px);
+  box-shadow:0 8px 25px rgba(0,0,0,.2);
+}
+.cta .btn-secondary{
+  background:transparent; color:var(--white); border-color:var(--white);
+}
+.cta .btn-secondary:hover{
+  background:var(--white); color:var(--teal);
+}
+
+/* Responsive */
+@media (max-width:767px){
+  .compat-hero{padding:clamp(80px,12vh,120px) 7%; min-height:60vh}
+  .compat-hero h1{font-size:clamp(2.2rem,7vw,3.2rem)}
+  .quick-check{padding:clamp(48px,8vh,60px) 7%}
+  .checker-form{padding:24px 20px}
+  .dimmer-grid{grid-template-columns:1fr; gap:16px}
+  .platform-grid{grid-template-columns:repeat(2, 1fr)}
+  .tab-nav{justify-content:stretch}
+  .tab-btn{flex:1; text-align:center}
+}
+
+@media (max-width:599px){
+  .compat-hero{padding:clamp(60px,10vh,80px) 6%}
+  .platform-grid{grid-template-columns:1fr}
+  .issue-grid{grid-template-columns:1fr}
+}
+</style>
+
+<div class="compatibility">
+
+  <!-- HERO -->
+  <section class="compat-hero">
+    <div class="inner">
+      <div class="eyebrow">Technical Integration</div>
+      <h1>Compatibility Guide</h1>
+      <p>Comprehensive compatibility information for dimmers, smart home systems, and control technologies. Ensure seamless integration with your existing or planned infrastructure.</p>
+    </div>
+  </section>
+
+  <!-- QUICK COMPATIBILITY CHECK -->
+  <section class="quick-check">
+    <div class="eyebrow">Quick Check</div>
+    <h2 style="margin-bottom:32px; color:var(--ink); font-size:clamp(1.4rem,2.2vw,1.8rem)">Compatibility Checker</h2>
+    
+    <div class="checker-form">
+      <h3>Check Your Setup</h3>
+      
+      <div class="form-group">
+        <label for="fixture-type">Fixture Type</label>
+        <select id="fixture-type" class="form-select">
+          <option value="">Select fixture type...</option>
+          <option value="pendant">Pendant Light</option>
+          <option value="chandelier">Chandelier</option>
+          <option value="sconce">Wall Sconce</option>
+          <option value="linear">Linear Fixture</option>
+          <option value="track">Track Light</option>
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <label for="dimmer-brand">Dimmer Brand</label>
+        <select id="dimmer-brand" class="form-select">
+          <option value="">Select dimmer brand...</option>
+          <option value="lutron">Lutron</option>
+          <option value="leviton">Leviton</option>
+          <option value="cooper">Cooper Controls</option>
+          <option value="legrand">Legrand</option>
+          <option value="ge">GE</option>
+          <option value="other">Other/Unknown</option>
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <label for="smart-system">Smart Home System</label>
+        <select id="smart-system" class="form-select">
+          <option value="">Select system (optional)...</option>
+          <option value="alexa">Amazon Alexa</option>
+          <option value="google">Google Assistant</option>
+          <option value="homekit">Apple HomeKit</option>
+          <option value="smartthings">SmartThings</option>
+          <option value="hubitat">Hubitat</option>
+          <option value="none">None</option>
+        </select>
+      </div>
+      
+      <button class="check-btn" onclick="checkCompatibility()">Check Compatibility</button>
+      
+      <div class="result-box" id="compatibility-result">
+        <h4 id="result-title"></h4>
+        <p id="result-details"></p>
+        <ul id="result-recommendations"></ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIMMER COMPATIBILITY -->
+  <section class="dimmer-section">
+    <div class="eyebrow" style="text-align:center">Dimmer Systems</div>
+    <h2 style="text-align:center; margin-bottom:40px; color:var(--ink); font-size:clamp(1.6rem,2.4vw,2rem)">Dimmer Compatibility</h2>
+    
+    <div class="dimmer-grid">
+      
+      <!-- Lutron -->
+      <div class="dimmer-card">
+        <div class="dimmer-brand">
+          <div class="brand-logo">LU</div>
+          <h4>Lutron</h4>
+        </div>
+        <span class="compatibility-status status-full">Full Compatibility</span>
+        <p style="color:var(--ash); margin-bottom:16px; font-size:.9rem">Industry-leading dimming performance with all LUNVYR LED fixtures.</p>
+        
+        <ul class="model-list">
+          <li>
+            <span class="model-name">Caseta Wireless</span>
+            <span class="compat-icon compat-yes"></span>
+          </li>
+          <li>
+            <span class="model-name">Maestro C.L</span>
+            <span class="compat-icon compat-yes"></span>
+          </li>
+          <li>
+            <span class="model-name">Skylark C.L</span>
+            <span class="compat-icon compat-yes"></span>
+          </li>
+          <li>
+            <span class="model-name">Diva C.L</span>
+            <span class="compat-icon compat-yes"></span>
+          </li>
+          <li>
+            <span class="model-name">Toggler C.L</span>
+            <span class="compat-icon compat-yes"></span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Leviton -->
+      <div class="dimmer-card">
+        <div class="dimmer-brand">
+          <div class="brand-logo">LE</div>
+          <h4>Leviton</h4>
+        </div>
+        <span class="compatibility-status status-full">Full Compatibility</span>
+        <p style="color:var(--ash); margin-bottom:16px; font-size:.9rem">Excellent compatibility with most Leviton LED dimmers and smart switches.</p>
+        
+        <ul class="model-list">
+          <li>
+            <span class="model-name">Decora Smart</span>
+            <span class="compat-icon compat-yes"></span>
+          </li>
+          <li>
+            <span class="model-name">SureSlide</span>
+            <span class="compat-icon compat-yes"></span>
+          </li>
+          <li>
+            <span class="model-name">Vizia+</span>
+            <span class="compat-icon compat-yes"></span>
+          </li>
+          <li>
+            <span class="model-name">IllumaTech</span>
+            <span class="compat-icon compat-partial"></span>
+          </li>
+          <li>
+            <span class="model-name">Trimatron</span>
+            <span class="compat-icon compat-partial"></span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Cooper Controls -->
+      <div class="dimmer-card">
+        <div class="dimmer-brand">
+          <div class="brand-logo">CC</div>
+          <h4>Cooper Controls</h4>
+        </div>
+        <span class="compatibility-status status-partial">Partial Compatibility</span>
+        <p style="color:var(--ash); margin-bottom:16px; font-size:.9rem">Good compatibility with newer LED-rated models. Some older units may require testing.</p>
+        
+        <ul class="model-list">
+          <li>
+            <span class="model-name">Aspire Series</span>
+            <span class="compat-icon compat-yes"></span>
+          </li>
+          <li>
+            <span class="model-name">SAL Series</span>
+            <span class="compat-icon compat-yes"></span>
+          </li>
+          <li>
+            <span class="model-name">SI Series</span>
+            <span class="compat-icon compat-partial"></span>
+          </li>
+          <li>
+            <span class="model-name">Wiring Devices</span>
+            <span class="compat-icon compat-partial"></span>
+          </li>
+          <li>
+            <span class="model-name">Legacy Models</span>
+            <span class="compat-icon compat-no"></span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Legrand -->
+      <div class="dimmer-card">
+        <div class="dimmer-brand">
+          <div class="brand-logo">LG</div>
+          <h4>Legrand</h4>
+        </div>
+        <span class="compatibility-status status-full">Full Compatibility</span>
+        <p style="color:var(--ash); margin-bottom:16px; font-size:.9rem">Reliable performance with Legrand's LED-compatible dimming solutions.</p>
+        
+        <ul class="model-list">
+          <li>
+            <span class="model-name">radiant Series</span>
+            <span class="compat-icon compat-yes"></span>
+          </li>
+          <li>
+            <span class="model-name">adorne Collection</span>
+            <span class="compat-icon compat-yes"></span>
+          </li>
+          <li>
+            <span class="model-name">Pass & Seymour</span>
+            <span class="compat-icon compat-yes"></span>
+          </li>
+          <li>
+            <span class="model-name">Wattstopper</span>
+            <span class="compat-icon compat-partial"></span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- GE -->
+      <div class="dimmer-card">
+        <div class="dimmer-brand">
+          <div class="brand-logo">GE</div>
+          <h4>GE</h4>
+        </div>
+        <span class="compatibility-status status-partial">Partial Compatibility</span>
+        <p style="color:var(--ash); margin-bottom:16px; font-size:.9rem">Mixed compatibility. Newer Z-Wave models perform well, older units vary.</p>
+        
+        <ul class="model-list">
+          <li>
+            <span class="model-name">Z-Wave Smart</span>
+            <span class="compat-icon compat-yes"></span>
+          </li>
+          <li>
+            <span class="model-name">C by GE</span>
+            <span class="compat-icon compat-yes"></span>
+          </li>
+          <li>
+            <span class="model-name">Zigbee Smart</span>
+            <span class="compat-icon compat-partial"></span>
+          </li>
+          <li>
+            <span class="model-name">Standard Dimmers</span>
+            <span class="compat-icon compat-partial"></span>
+          </li>
+          <li>
+            <span class="model-name">Older Models</span>
+            <span class="compat-icon compat-no"></span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Professional Systems -->
+      <div class="dimmer-card">
+        <div class="dimmer-brand">
+          <div class="brand-logo">PR</div>
+          <h4>Professional Systems</h4>
+        </div>
+        <span class="compatibility-status status-full">Full Compatibility</span>
+        <p style="color:var(--ash); margin-bottom:16px; font-size:.9rem">Commercial-grade dimming systems with excellent LUNVYR compatibility.</p>
+        
+        <ul class="model-list">
+          <li>
+            <span class="model-name">Lutron Grafik Eye</span>
+            <span class="compat-icon compat-yes"></span>
+          </li>
+          <li>
+            <span class="model-name">Crestron DIN-AP3</span>
+            <span class="compat-icon compat-yes"></span>
+          </li>
+          <li>
+            <span class="model-name">Control4 Dimmers</span>
+            <span class="compat-icon compat-yes"></span>
+          </li>
+          <li>
+            <span class="model-name">ETC Paradigm</span>
+            <span class="compat-icon compat-yes"></span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SMART HOME INTEGRATION -->
+  <section class="smart-home">
+    <div class="eyebrow" style="text-align:center; color:var(--teal)">Smart Home</div>
+    <h2 style="text-align:center; margin-bottom:40px; color:var(--paper); font-size:clamp(1.6rem,2.4vw,2rem)">Smart Home Integration</h2>
+    
+    <div class="platform-grid">
+      <div class="platform-card">
+        <div class="platform-logo">AX</div>
+        <h4>Amazon Alexa</h4>
+        <p>Full voice control and automation through compatible smart dimmers</p>
+        <ul class="features-list">
+          <li>Voice dimming commands</li>
+          <li>Scheduled lighting scenes</li>
+          <li>Group control</li>
+          <li>Smart home routines</li>
+          <li>Echo device integration</li>
+        </ul>
+      </div>
+      
+      <div class="platform-card">
+        <div class="platform-logo">GA</div>
+        <h4>Google Assistant</h4>
+        <p>Seamless integration with Google Home ecosystem</p>
+        <ul class="features-list">
+          <li>Natural voice commands</li>
+          <li>Room-based controls</li>
+          <li>Sunrise/sunset automation</li>
+          <li>Nest device coordination</li>
+          <li>Custom light scenes</li>
+        </ul>
+      </div>
+      
+      <div class="platform-card">
+        <div class="platform-logo">HK</div>
+        <h4>Apple HomeKit</h4>
+        <p>Native iOS control with advanced automation features</p>
+        <ul class="features-list">
+          <li>Siri voice control</li>
+          <li>HomeKit scenes</li>
+          <li>Automation rules</li>
+          <li>Remote access</li>
+          <li>Family sharing</li>
+        </ul>
+      </div>
+      
+      <div class="platform-card">
+        <div class="platform-logo">ST</div>
+        <h4>SmartThings</h4>
+        <p>Comprehensive automation through Samsung's smart platform</p>
+        <ul class="features-list">
+          <li>Custom automations</li>
+          <li>Sensor integration</li>
+          <li>Mobile app control</li>
+          <li>Third-party device support</li>
+          <li>Energy monitoring</li>
+        </ul>
+      </div>
+      
+      <div class="platform-card">
+        <div class="platform-logo">HU</div>
+        <h4>Hubitat</h4>
+        <p>Local processing hub for advanced home automation</p>
+        <ul class="features-list">
+          <li>Local control</li>
+          <li>Advanced rules</li>
+          <li>Custom apps</li>
+          <li>No cloud dependency</li>
+          <li>Fast response times</li>
+        </ul>
+      </div>
+      
+      <div class="platform-card">
+        <div class="platform-logo">C4</div>
+        <h4>Control4</h4>
+        <p>Professional automation system for luxury installations</p>
+        <ul class="features-list">
+          <li>Whole-home integration</li>
+          <li>Custom programming</li>
+          <li>Professional installation</li>
+          <li>Advanced scenes</li>
+          <li>System monitoring</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- INSTALLATION GUIDE -->
+  <section class="install-guide">
+    <div class="eyebrow" style="text-align:center">Setup Instructions</div>
+    <h2 style="text-align:center; margin-bottom:40px; color:var(--ink); font-size:clamp(1.6rem,2.4vw,2rem)">Installation Guide</h2>
+    
+    <div class="guide-tabs">
+      <div class="tab-nav">
+        <button class="tab-btn active" onclick="showInstallTab('dimmer')">Dimmer Setup</button>
+        <button class="tab-btn" onclick="showInstallTab('smart')">Smart Integration</button>
+        <button class="tab-btn" onclick="showInstallTab('testing')">Testing & Optimization</button>
+      </div>
+
+      <!-- Dimmer Setup Tab -->
+      <div class="tab-content active" id="dimmer-tab">
+        <h3>Dimmer Installation & Setup</h3>
+        <p style="color:var(--ash); margin-bottom:24px">Professional installation steps for optimal dimming performance with LUNVYR fixtures.</p>
+        
+        <ol class="step-list">
+          <li class="step-item">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <h5>Power Safety</h5>
+              <p>Turn off power at the circuit breaker and verify with a non-contact voltage tester. Safety is paramount when working with electrical systems.</p>
+            </div>
+          </li>
+          
+          <li class="step-item">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <h5>Wire Installation</h5>
+              <p>Connect dimmer according to manufacturer's wiring diagram. Ensure proper neutral connections for LED compatibility.</p>
+            </div>
+          </li>
+          
+          <li class="step-item">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <h5>Load Configuration</h5>
+              <p>Set dimmer to LED mode if available. Adjust minimum and maximum light levels for optimal performance range.</p>
+            </div>
+          </li>
+          
+          <li class="step-item">
+            <div class="step-number">4</div>
+            <div class="step-content">
+              <h5>Testing & Calibration</h5>
+              <p>Test full dimming range, checking for flicker, noise, or compatibility issues. Fine-tune settings as needed.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+
+      <!-- Smart Integration Tab -->
+      <div class="tab-content" id="smart-tab">
+        <h3>Smart Home Integration</h3>
+        <p style="color:var(--ash); margin-bottom:24px">Connect your LUNVYR lighting to smart home systems for voice control and automation.</p>
+        
+        <ol class="step-list">
+          <li class="step-item">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <h5>Hub Connection</h5>
+              <p>Connect smart dimmer to your home network or hub following manufacturer's pairing instructions.</p>
+            </div>
+          </li>
+          
+          <li class="step-item">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <h5>Device Discovery</h5>
+              <p>Use your smart home app to discover and add the new lighting devices to your system.</p>
+            </div>
+          </li>
+          
+          <li class="step-item">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <h5>Room Assignment</h5>
+              <p>Assign fixtures to appropriate rooms and create meaningful names for easy voice control.</p>
+            </div>
+          </li>
+          
+          <li class="step-item">
+            <div class="step-number">4</div>
+            <div class="step-content">
+              <h5>Scene Creation</h5>
+              <p>Set up lighting scenes for different activities like dining, entertaining, or relaxing.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+
+      <!-- Testing Tab -->
+      <div class="tab-content" id="testing-tab">
+        <h3>Testing & Optimization</h3>
+        <p style="color:var(--ash); margin-bottom:24px">Ensure optimal performance and troubleshoot any compatibility issues.</p>
+        
+        <ol class="step-list">
+          <li class="step-item">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <h5>Performance Testing</h5>
+              <p>Test dimming range from 1% to 100%, checking for smooth operation without flicker or noise.</p>
+            </div>
+          </li>
+          
+          <li class="step-item">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <h5>Load Verification</h5>
+              <p>Verify that total connected load doesn't exceed dimmer capacity. Check power consumption at various levels.</p>
+            </div>
+          </li>
+          
+          <li class="step-item">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <h5>Smart Function Test</h5>
+              <p>Test all smart home functions including voice commands, app control, and automated scenes.</p>
+            </div>
+          </li>
+          
+          <li class="step-item">
+            <div class="step-number">4</div>
+            <div class="step-content">
+              <h5>Documentation</h5>
+              <p>Document all settings and configurations for future reference and maintenance.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- TROUBLESHOOTING -->
+  <section class="troubleshooting">
+    <div class="eyebrow" style="text-align:center">Problem Resolution</div>
+    <h2 style="text-align:center; margin-bottom:40px; color:var(--ink); font-size:clamp(1.6rem,2.4vw,2rem)">Troubleshooting Guide</h2>
+    
+    <div class="issue-grid">
+      <div class="issue-card">
+        <div class="issue-header">
+          <div class="issue-icon">⚡</div>
+          <h4>Flickering or Strobing</h4>
+        </div>
+        <p>Lights flicker at certain dimming levels or when adjusting brightness.</p>
+        <ol class="solution-steps">
+          <li>Verify dimmer is rated for LED loads</li>
+          <li>Check minimum load requirements</li>
+          <li>Adjust dimmer's low-end trim setting</li>
+          <li>Consider adding a neutral wire if missing</li>
+          <li>Test with different dimmer model if needed</li>
+        </ol>
+      </div>
+      
+      <div class="issue-card">
+        <div class="issue-header">
+          <div class="issue-icon">🔊</div>
+          <h4>Buzzing or Humming</h4>
+        </div>
+        <p>Audible noise coming from fixture or dimmer during operation.</p>
+        <ol class="solution-steps">
+          <li>Check if noise is from dimmer or fixture</li>
+          <li>Verify proper wire connections</li>
+          <li>Try different dimmer technology (MLV vs ELV)</li>
+          <li>Check for loose connections in fixture</li>
+          <li>Consider upgrading to premium dimmer</li>
+        </ol>
+      </div>
+      
+      <div class="issue-card">
+        <div class="issue-header">
+          <div class="issue-icon">📱</div>
+          <h4>Smart Control Issues</h4>
+        </div>
+        <p>Smart home commands not working or inconsistent response.</p>
+        <ol class="solution-steps">
+          <li>Check Wi-Fi or hub connectivity</li>
+          <li>Verify device is properly paired</li>
+          <li>Update smart home app and firmware</li>
+          <li>Reset and re-pair the device</li>
+          <li>Check for interference from other devices</li>
+        </ol>
+      </div>
+      
+      <div class="issue-card">
+        <div class="issue-header">
+          <div class="issue-icon">🌡️</div>
+          <h4>Overheating</h4>
+        </div>
+        <p>Dimmer or fixture running excessively hot during operation.</p>
+        <ol class="solution-steps">
+          <li>Check total connected load vs dimmer rating</li>
+          <li>Ensure proper ventilation around dimmer</li>
+          <li>Verify wire gauge is adequate for load</li>
+          <li>Consider de-rating for multi-gang installations</li>
+          <li>Upgrade to higher-capacity dimmer if needed</li>
+        </ol>
+      </div>
+      
+      <div class="issue-card">
+        <div class="issue-header">
+          <div class="issue-icon">🎚️</div>
+          <h4>Limited Dimming Range</h4>
+        </div>
+        <p>Lights don't dim to very low levels or turn off before 0%.</p>
+        <ol class="solution-steps">
+          <li>Adjust dimmer's low-end trim setting</li>
+          <li>Check for minimum load requirements</li>
+          <li>Verify LED driver compatibility</li>
+          <li>Try reverse-phase (ELV) dimmer</li>
+          <li>Consider adding a dummy load if necessary</li>
+        </ol>
+      </div>
+      
+      <div class="issue-card">
+        <div class="issue-header">
+          <div class="issue-icon">🔄</div>
+          <h4>Inconsistent Performance</h4>
+        </div>
+        <p>Lighting behavior varies between similar fixtures or installations.</p>
+        <ol class="solution-steps">
+          <li>Verify all fixtures are same model/revision</li>
+          <li>Check for consistent wiring methods</li>
+          <li>Ensure equal wire run lengths where possible</li>
+          <li>Test each circuit independently</li>
+          <li>Document any differences for future reference</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <h2>Technical Support</h2>
+    <p>Need help with compatibility issues or technical questions? Our lighting experts are here to ensure perfect integration with your systems.</p>
+    <a href="/technical-specs" class="btn-secondary btn">Technical Data</a>
+    <a href="/contact" class="btn">Get Support</a>
+  </section>
+
+</div>
+
+<script>
+// Compatibility checker
+function checkCompatibility() {
+  const fixtureType = document.getElementById('fixture-type').value;
+  const dimmerBrand = document.getElementById('dimmer-brand').value;
+  const smartSystem = document.getElementById('smart-system').value;
+  
+  const resultBox = document.getElementById('compatibility-result');
+  const resultTitle = document.getElementById('result-title');
+  const resultDetails = document.getElementById('result-details');
+  const resultRecommendations = document.getElementById('result-recommendations');
+  
+  if (!fixtureType || !dimmerBrand) {
+    alert('Please select both fixture type and dimmer brand to check compatibility.');
+    return;
+  }
+  
+  // Compatibility logic (simplified)
+  const compatibility = getCompatibilityInfo(fixtureType, dimmerBrand, smartSystem);
+  
+  // Show results
+  resultBox.className = `result-box ${compatibility.status}`;
+  resultBox.style.display = 'block';
+  
+  resultTitle.textContent = compatibility.title;
+  resultDetails.textContent = compatibility.details;
+  
+  // Clear previous recommendations
+  resultRecommendations.innerHTML = '';
+  compatibility.recommendations.forEach(rec => {
+    const li = document.createElement('li');
+    li.textContent = rec;
+    li.style.marginBottom = '6px';
+    li.style.color = 'var(--ash)';
+    li.style.fontSize = '.85rem';
+    resultRecommendations.appendChild(li);
+  });
+}
+
+function getCompatibilityInfo(fixture, dimmer, smart) {
+  // Compatibility matrix (simplified)
+  const compatibilityMatrix = {
+    lutron: {
+      status: 'compatible',
+      title: 'Excellent Compatibility',
+      details: 'Lutron dimmers provide outstanding performance with all LUNVYR fixtures.',
+      recommendations: [
+        'Use Caseta or Maestro C.L series for best results',
+        'Set dimmer to LED mode during installation',
+        'Adjust low-end trim for optimal dimming range'
+      ]
+    },
+    leviton: {
+      status: 'compatible', 
+      title: 'Full Compatibility',
+      details: 'Leviton LED-rated dimmers work excellently with LUNVYR lighting.',
+      recommendations: [
+        'Choose Decora Smart or SureSlide models',
+        'Ensure proper neutral wire connections',
+        'Test dimming range during installation'
+      ]
+    },
+    cooper: {
+      status: 'partial',
+      title: 'Partial Compatibility',
+      details: 'Newer Cooper LED dimmers work well, but older models may require testing.',
+      recommendations: [
+        'Use Aspire or SAL series for best results',
+        'Avoid legacy models without LED rating',
+        'Consider upgrading older dimmers'
+      ]
+    },
+    legrand: {
+      status: 'compatible',
+      title: 'Good Compatibility', 
+      details: 'Legrand LED dimmers provide reliable performance with LUNVYR fixtures.',
+      recommendations: [
+        'radiant and adorne series work excellently',
+        'Check for proper load ratings',
+        'Use LED-compatible models only'
+      ]
+    },
+    ge: {
+      status: 'partial',
+      title: 'Mixed Compatibility',
+      details: 'Newer GE smart dimmers work well, but standard models vary in performance.',
+      recommendations: [
+        'Use Z-Wave or C by GE smart models',
+        'Test thoroughly before final installation',
+        'Consider upgrading to premium dimmers'
+      ]
+    },
+    other: {
+      status: 'partial',
+      title: 'Unknown Compatibility',
+      details: 'Compatibility depends on specific dimmer model and LED rating.',
+      recommendations: [
+        'Verify dimmer is rated for LED loads',
+        'Check minimum load requirements',
+        'Test before completing installation'
+      ]
+    }
+  };
+  
+  let result = compatibilityMatrix[dimmer] || compatibilityMatrix.other;
+  
+  // Add smart home recommendations if applicable
+  if (smart && smart !== 'none') {
+    const smartRecommendations = {
+      alexa: 'Enable Alexa skill for voice control',
+      google: 'Add to Google Home for voice commands',
+      homekit: 'Ensure HomeKit compatibility for iOS control',
+      smartthings: 'Install SmartThings device handler if needed',
+      hubitat: 'Use local processing for faster response'
+    };
+    
+    if (smartRecommendations[smart]) {
+      result.recommendations.push(smartRecommendations[smart]);
+    }
+  }
+  
+  return result;
+}
+
+// Tab functionality
+function showInstallTab(tabName) {
+  // Hide all tab contents
+  document.querySelectorAll('.tab-content').forEach(tab => {
+    tab.classList.remove('active');
+  });
+  
+  // Remove active class from all buttons
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.classList.remove('active');
+  });
+  
+  // Show selected tab and activate button
+  document.getElementById(tabName + '-tab').classList.add('active');
+  event.target.classList.add('active');
+}
+
+// Reveal animations
+document.addEventListener('DOMContentLoaded', function(){
+  const cards = document.querySelectorAll('.dimmer-card, .platform-card, .issue-card');
+  if('IntersectionObserver' in window){
+    const observer = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, {threshold: 0.1});
+    
+    cards.forEach((card, index)=>{
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(20px)';
+      card.style.transition = `opacity 0.6s ease ${index * 0.05}s, transform 0.6s ease ${index * 0.05}s`;
+      observer.observe(card);
+    });
+  }
+});
+</script>

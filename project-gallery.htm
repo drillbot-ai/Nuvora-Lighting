@@ -1,0 +1,840 @@
+<!-- LUNVYR — Project Gallery (Installation Showcase, Before/After, Case Studies) -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Inter:wght@300;400;500&display=swap');
+
+:root{
+  --ink:#1c222b; --paper:#f2f0eb; --coal:#111; --ash:#666; --brass:#b2956d; --white:#fff;
+  --gold:#f59e0b; --emerald:#10b981; --rose:#f43f5e; --violet:#8b5cf6;
+  --radius:14px; --shadow:0 12px 32px rgba(0,0,0,.08); --ring: 0 0 0 3px rgba(178,149,109,.25);
+}
+
+.project-gallery{font-family:Inter,system-ui,sans-serif;color:var(--coal);line-height:1.65}
+.project-gallery h1,.project-gallery h2,.project-gallery h3{font-family:Cinzel,serif;font-weight:400;margin:0}
+.project-gallery .eyebrow{letter-spacing:.12em;text-transform:uppercase;font-size:.8rem;color:var(--ash);margin-bottom:.6rem}
+
+/* Hero */
+.gallery-hero{
+  position:relative; color:var(--paper); text-align:center;
+  background:#1a1a1a url('https://lunvyr.com/wp-content/uploads/2025/08/f07dabad-5599-4f19-bb21-0e2537614e98.png') center/cover no-repeat;
+  padding:clamp(100px,15vh,160px) 10%; min-height:70vh; display:flex; align-items:center; justify-content:center;
+}
+.gallery-hero::before{
+  content:""; position:absolute; top:0; left:0; right:0; height:1px;
+  background:linear-gradient(90deg, transparent, var(--brass), transparent);
+}
+.gallery-hero::after{
+  content:""; position:absolute; inset:0; 
+  background:radial-gradient(110% 110% at 50% 30%, rgba(0,0,0,0) 0%, rgba(0,0,0,.8) 70%);
+}
+.gallery-hero .inner{position:relative; z-index:2; max-width:900px; margin:0 auto}
+.gallery-hero h1{
+  font-size:clamp(2.6rem,5.2vw,3.8rem); color:var(--paper); margin-bottom:16px;
+  font-family:'Cinzel',serif; font-weight:400; line-height:1.15;
+}
+.gallery-hero p{color:#d6d3ce; margin:0 auto; max-width:760px; font-size:1.1rem; line-height:1.6}
+
+/* Filters */
+.filter-section{
+  padding:clamp(64px,10vh,80px) 10%; 
+  background:linear-gradient(135deg, var(--paper) 0%, #f8f6f0 100%);
+  position:relative; text-align:center;
+}
+.filter-section::before{
+  content:""; position:absolute; top:0; left:0; right:0; height:1px;
+  background:linear-gradient(90deg, transparent, var(--brass), transparent);
+}
+.filter-buttons{
+  display:flex; justify-content:center; gap:12px; flex-wrap:wrap;
+  max-width:800px; margin:0 auto;
+}
+.filter-btn{
+  padding:12px 24px; background:var(--white); border:2px solid rgba(17,17,17,.12);
+  border-radius:50px; color:var(--coal); cursor:pointer; transition:all .3s ease;
+  font-family:inherit; font-size:.9rem; font-weight:500;
+}
+.filter-btn.active{
+  background:var(--brass); color:var(--ink); border-color:var(--brass);
+}
+.filter-btn:hover:not(.active){
+  border-color:var(--brass); background:rgba(178,149,109,.1);
+}
+
+/* Gallery Grid */
+.gallery-grid{
+  padding:clamp(64px,10vh,100px) 10%; 
+  background:#f7f7f7; position:relative;
+}
+.gallery-grid::before{
+  content:""; position:absolute; top:0; left:0; right:0; height:1px;
+  background:linear-gradient(90deg, transparent, var(--brass), transparent);
+}
+.projects-container{
+  max-width:1400px; margin:0 auto;
+  display:grid; grid-template-columns:repeat(auto-fit, minmax(350px, 1fr));
+  gap:32px; position:relative;
+}
+
+/* Project Cards */
+.project-card{
+  background:var(--white); border-radius:20px; overflow:hidden;
+  box-shadow:0 8px 30px rgba(0,0,0,.08); transition:all .5s ease;
+  opacity:1; transform:scale(1); position:relative;
+}
+.project-card.hidden{
+  opacity:0; transform:scale(0.9); pointer-events:none;
+}
+.project-card:hover{
+  transform:translateY(-8px); box-shadow:0 20px 50px rgba(0,0,0,.15);
+}
+.project-card .image-container{
+  position:relative; overflow:hidden; height:240px;
+}
+.project-card .before-after{
+  position:relative; width:100%; height:100%;
+}
+.project-card .before-img, .project-card .after-img{
+  position:absolute; top:0; left:0; width:100%; height:100%;
+  object-fit:cover; transition:opacity .5s ease;
+}
+.project-card .after-img{opacity:0}
+.project-card:hover .after-img{opacity:1}
+.project-card .overlay{
+  position:absolute; inset:0; background:rgba(178,149,109,.1);
+  display:flex; align-items:center; justify-content:center;
+  opacity:0; transition:opacity .3s ease;
+}
+.project-card:hover .overlay{opacity:1}
+.project-card .view-btn{
+  background:var(--white); color:var(--brass); padding:12px 20px;
+  border-radius:25px; font-weight:500; text-decoration:none;
+  display:flex; align-items:center; gap:8px; transition:all .3s ease;
+}
+.project-card .view-btn:hover{
+  background:var(--brass); color:var(--white);
+}
+
+/* Project Content */
+.project-content{
+  padding:24px 20px; position:relative;
+}
+.project-content .category{
+  color:var(--brass); font-size:.8rem; font-weight:600;
+  text-transform:uppercase; letter-spacing:.08em; margin-bottom:8px;
+}
+.project-content h3{
+  color:var(--ink); margin-bottom:8px; font-size:1.3rem; line-height:1.3;
+}
+.project-content .location{
+  color:var(--ash); font-size:.9rem; margin-bottom:12px;
+  display:flex; align-items:center; gap:6px;
+}
+.project-content p{
+  color:var(--ash); margin:0 0 16px; font-size:.9rem; line-height:1.5;
+}
+.project-specs{
+  display:flex; gap:16px; margin-bottom:16px;
+}
+.spec-item{
+  text-align:center; flex:1;
+}
+.spec-value{
+  color:var(--brass); font-weight:600; font-size:.9rem;
+  display:block; margin-bottom:4px;
+}
+.spec-label{
+  color:var(--ash); font-size:.75rem; text-transform:uppercase;
+  letter-spacing:.05em;
+}
+.project-tags{
+  display:flex; gap:8px; flex-wrap:wrap;
+}
+.tag{
+  background:rgba(178,149,109,.1); color:var(--brass);
+  padding:4px 12px; border-radius:12px; font-size:.75rem;
+  font-weight:500;
+}
+
+/* Featured Project */
+.featured-section{
+  padding:clamp(64px,10vh,100px) 10%; 
+  background:var(--ink); color:var(--paper); position:relative;
+}
+.featured-section::before{
+  content:""; position:absolute; top:0; left:0; right:0; height:1px;
+  background:linear-gradient(90deg, transparent, var(--brass), transparent);
+}
+.featured-project{
+  max-width:1200px; margin:0 auto; display:grid;
+  grid-template-columns:1fr 1fr; gap:60px; align-items:center;
+}
+.featured-content h2{
+  color:var(--paper); margin-bottom:16px; font-size:clamp(1.8rem,2.8vw,2.4rem);
+}
+.featured-content .project-title{
+  color:var(--brass); font-size:1.4rem; margin-bottom:8px; font-weight:500;
+}
+.featured-content .project-location{
+  color:#d6d3ce; margin-bottom:20px; font-size:1rem;
+}
+.featured-content p{
+  color:#d6d3ce; margin-bottom:24px; line-height:1.6;
+}
+.featured-stats{
+  display:grid; grid-template-columns:repeat(3, 1fr); gap:24px;
+  margin:32px 0; padding:24px 0; border-top:1px solid rgba(242,240,235,.2);
+  border-bottom:1px solid rgba(242,240,235,.2);
+}
+.stat-item{text-align:center}
+.stat-number{
+  color:var(--brass); font-size:1.8rem; font-weight:600;
+  display:block; font-family:Cinzel,serif; margin-bottom:4px;
+}
+.stat-label{color:#d6d3ce; font-size:.85rem; text-transform:uppercase; letter-spacing:.05em}
+.featured-images{
+  display:grid; grid-template-columns:1fr 1fr; gap:16px;
+}
+.featured-img{
+  border-radius:12px; overflow:hidden; position:relative;
+}
+.featured-img img{
+  width:100%; height:200px; object-fit:cover; display:block;
+}
+.featured-img.large{
+  grid-column:1 / -1;
+}
+.featured-img.large img{height:280px}
+
+/* Case Study Modal */
+.modal{
+  position:fixed; inset:0; background:rgba(0,0,0,.8); z-index:1000;
+  display:none; align-items:center; justify-content:center; padding:20px;
+}
+.modal.active{display:flex}
+.modal-content{
+  background:var(--white); border-radius:20px; max-width:900px;
+  width:100%; max-height:90vh; overflow-y:auto; position:relative;
+}
+.modal-header{
+  padding:24px 24px 0; display:flex; justify-content:space-between;
+  align-items:flex-start;
+}
+.modal-close{
+  background:none; border:none; font-size:1.5rem; color:var(--ash);
+  cursor:pointer; padding:4px; border-radius:50%;
+  transition:all .3s ease;
+}
+.modal-close:hover{background:rgba(17,17,17,.1)}
+.modal-body{padding:0 24px 24px}
+.modal-images{
+  display:grid; gap:16px; margin-bottom:24px;
+}
+.modal-img{
+  border-radius:12px; overflow:hidden;
+}
+.modal-img img{width:100%; height:auto; display:block}
+
+/* CTA */
+.cta{
+  background:linear-gradient(135deg, var(--paper) 0%, #f8f6f0 100%);
+  text-align:center; padding:clamp(64px,10vh,100px) 10%;
+  position:relative;
+}
+.cta::before{
+  content:""; position:absolute; top:0; left:0; right:0; height:1px;
+  background:linear-gradient(90deg, transparent, var(--brass), transparent);
+}
+.cta h2{margin-bottom:16px; color:var(--ink)}
+.cta p{color:var(--ash); margin:0 0 24px; max-width:600px; margin-left:auto; margin-right:auto}
+.cta .btn{
+  font-family:Cinzel,serif; padding:1rem 2rem; border-radius:50px;
+  border:2px solid var(--ink); background:var(--ink); color:var(--paper);
+  text-decoration:none; display:inline-flex; align-items:center; gap:.7rem;
+  transition:all .4s ease; font-weight:500; margin:0 8px;
+}
+.cta .btn:hover{
+  background:transparent; color:var(--ink); transform:translateY(-2px);
+  box-shadow:0 8px 25px rgba(28,34,43,.2);
+}
+.cta .btn-secondary{
+  background:transparent; color:var(--ink); border-color:var(--brass);
+}
+.cta .btn-secondary:hover{
+  background:var(--brass); color:var(--ink);
+}
+
+/* Responsive */
+@media (max-width:767px){
+  .gallery-hero{padding:clamp(80px,12vh,120px) 7%; min-height:60vh}
+  .gallery-hero h1{font-size:clamp(2.2rem,7vw,3.2rem)}
+  .filter-section{padding:clamp(48px,8vh,60px) 7%}
+  .filter-buttons{gap:8px}
+  .filter-btn{padding:10px 16px; font-size:.8rem}
+  .gallery-grid{padding:clamp(48px,8vh,60px) 7%}
+  .projects-container{grid-template-columns:1fr; gap:24px}
+  .featured-project{grid-template-columns:1fr; gap:40px; text-align:center}
+  .featured-stats{grid-template-columns:1fr 1fr; gap:16px}
+  .featured-images{grid-template-columns:1fr}
+  .modal-content{margin:10px; max-height:80vh}
+}
+
+@media (max-width:599px){
+  .gallery-hero{padding:clamp(60px,10vh,80px) 6%}
+  .project-content{padding:20px 16px}
+  .project-specs{gap:12px}
+  .featured-stats{grid-template-columns:1fr}
+}
+</style>
+
+<div class="project-gallery">
+
+  <!-- HERO -->
+  <section class="gallery-hero">
+    <div class="inner">
+      <div class="eyebrow">Installation Showcase</div>
+      <h1>Project Gallery</h1>
+      <p>Discover how LUNVYR fixtures transform spaces through our curated collection of completed installations. From intimate residences to grand commercial spaces.</p>
+    </div>
+  </section>
+
+  <!-- FILTERS -->
+  <section class="filter-section">
+    <div class="eyebrow">Filter Projects</div>
+    <h2 style="margin-bottom:32px; color:var(--ink); font-size:clamp(1.4rem,2.2vw,1.8rem)">Browse by Category</h2>
+    
+    <div class="filter-buttons">
+      <button class="filter-btn active" onclick="filterProjects('all')">All Projects</button>
+      <button class="filter-btn" onclick="filterProjects('residential')">Residential</button>
+      <button class="filter-btn" onclick="filterProjects('commercial')">Commercial</button>
+      <button class="filter-btn" onclick="filterProjects('hospitality')">Hospitality</button>
+      <button class="filter-btn" onclick="filterProjects('retail')">Retail</button>
+      <button class="filter-btn" onclick="filterProjects('restaurant')">Restaurant</button>
+    </div>
+  </section>
+
+  <!-- GALLERY GRID -->
+  <section class="gallery-grid">
+    <div class="projects-container">
+      
+      <!-- Project 1: Modern Penthouse -->
+      <div class="project-card" data-category="residential">
+        <div class="image-container">
+          <div class="before-after">
+            <img class="before-img" src="data:image/svg+xml,%3Csvg width='350' height='240' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='350' height='240' fill='%23f3f4f6'/%3E%3Ctext x='50%25' y='45%25' font-size='14' text-anchor='middle' dy='.3em' fill='%236b7280'%3EBefore%3C/text%3E%3Ctext x='50%25' y='55%25' font-size='12' text-anchor='middle' dy='.3em' fill='%239ca3af'%3EModern Penthouse%3C/text%3E%3C/svg%3E" alt="Before">
+            <img class="after-img" src="data:image/svg+xml,%3Csvg width='350' height='240' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='350' height='240' fill='%23b2956d'/%3E%3Ctext x='50%25' y='45%25' font-size='14' text-anchor='middle' dy='.3em' fill='%23ffffff'%3EAfter%3C/text%3E%3Ctext x='50%25' y='55%25' font-size='12' text-anchor='middle' dy='.3em' fill='%23f2f0eb'%3EModern Penthouse%3C/text%3E%3C/svg%3E" alt="After">
+          </div>
+          <div class="overlay">
+            <a href="#" class="view-btn" onclick="openModal('penthouse')">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                <circle cx="12" cy="12" r="3"/>
+              </svg>
+              View Case Study
+            </a>
+          </div>
+        </div>
+        <div class="project-content">
+          <div class="category">Residential</div>
+          <h3>Manhattan Penthouse</h3>
+          <div class="location">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="10" r="3"/>
+              <path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 1 0-16 0c0 3 2.7 7 8 11.7z"/>
+            </svg>
+            New York, NY
+          </div>
+          <p>Complete lighting redesign of a 3,500 sq ft penthouse featuring custom brass fixtures throughout.</p>
+          <div class="project-specs">
+            <div class="spec-item">
+              <span class="spec-value">12</span>
+              <div class="spec-label">Fixtures</div>
+            </div>
+            <div class="spec-item">
+              <span class="spec-value">6 mo</span>
+              <div class="spec-label">Timeline</div>
+            </div>
+            <div class="spec-item">
+              <span class="spec-value">3,500</span>
+              <div class="spec-label">Sq Ft</div>
+            </div>
+          </div>
+          <div class="project-tags">
+            <span class="tag">Modern</span>
+            <span class="tag">Luxury</span>
+            <span class="tag">Brass</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 2: Boutique Hotel -->
+      <div class="project-card" data-category="hospitality">
+        <div class="image-container">
+          <div class="before-after">
+            <img class="before-img" src="data:image/svg+xml,%3Csvg width='350' height='240' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='350' height='240' fill='%23f3f4f6'/%3E%3Ctext x='50%25' y='45%25' font-size='14' text-anchor='middle' dy='.3em' fill='%236b7280'%3EBefore%3C/text%3E%3Ctext x='50%25' y='55%25' font-size='12' text-anchor='middle' dy='.3em' fill='%239ca3af'%3EBoutique Hotel%3C/text%3E%3C/svg%3E" alt="Before">
+            <img class="after-img" src="data:image/svg+xml,%3Csvg width='350' height='240' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='350' height='240' fill='%23b2956d'/%3E%3Ctext x='50%25' y='45%25' font-size='14' text-anchor='middle' dy='.3em' fill='%23ffffff'%3EAfter%3C/text%3E%3Ctext x='50%25' y='55%25' font-size='12' text-anchor='middle' dy='.3em' fill='%23f2f0eb'%3EBoutique Hotel%3C/text%3E%3C/svg%3E" alt="After">
+          </div>
+          <div class="overlay">
+            <a href="#" class="view-btn" onclick="openModal('hotel')">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                <circle cx="12" cy="12" r="3"/>
+              </svg>
+              View Case Study
+            </a>
+          </div>
+        </div>
+        <div class="project-content">
+          <div class="category">Hospitality</div>
+          <h3>The Sterling Hotel</h3>
+          <div class="location">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="10" r="3"/>
+              <path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 1 0-16 0c0 3 2.7 7 8 11.7z"/>
+            </svg>
+            San Francisco, CA
+          </div>
+          <p>Luxury boutique hotel featuring statement chandeliers in the lobby and custom wall sconces throughout.</p>
+          <div class="project-specs">
+            <div class="spec-item">
+              <span class="spec-value">45</span>
+              <div class="spec-label">Fixtures</div>
+            </div>
+            <div class="spec-item">
+              <span class="spec-value">8 mo</span>
+              <div class="spec-label">Timeline</div>
+            </div>
+            <div class="spec-item">
+              <span class="spec-value">12,000</span>
+              <div class="spec-label">Sq Ft</div>
+            </div>
+          </div>
+          <div class="project-tags">
+            <span class="tag">Traditional</span>
+            <span class="tag">Hospitality</span>
+            <span class="tag">Aged Brass</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 3: Tech Office -->
+      <div class="project-card" data-category="commercial">
+        <div class="image-container">
+          <div class="before-after">
+            <img class="before-img" src="data:image/svg+xml,%3Csvg width='350' height='240' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='350' height='240' fill='%23f3f4f6'/%3E%3Ctext x='50%25' y='45%25' font-size='14' text-anchor='middle' dy='.3em' fill='%236b7280'%3EBefore%3C/text%3E%3Ctext x='50%25' y='55%25' font-size='12' text-anchor='middle' dy='.3em' fill='%239ca3af'%3ETech Office%3C/text%3E%3C/svg%3E" alt="Before">
+            <img class="after-img" src="data:image/svg+xml,%3Csvg width='350' height='240' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='350' height='240' fill='%23b2956d'/%3E%3Ctext x='50%25' y='45%25' font-size='14' text-anchor='middle' dy='.3em' fill='%23ffffff'%3EAfter%3C/text%3E%3Ctext x='50%25' y='55%25' font-size='12' text-anchor='middle' dy='.3em' fill='%23f2f0eb'%3ETech Office%3C/text%3E%3C/svg%3E" alt="After">
+          </div>
+          <div class="overlay">
+            <a href="#" class="view-btn" onclick="openModal('tech')">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                <circle cx="12" cy="12" r="3"/>
+              </svg>
+              View Case Study
+            </a>
+          </div>
+        </div>
+        <div class="project-content">
+          <div class="category">Commercial</div>
+          <h3>Innovation Hub</h3>
+          <div class="location">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="10" r="3"/>
+              <path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 1 0-16 0c0 3 2.7 7 8 11.7z"/>
+            </svg>
+            Austin, TX
+          </div>
+          <p>Modern tech campus featuring industrial-inspired fixtures and smart lighting integration throughout.</p>
+          <div class="project-specs">
+            <div class="spec-item">
+              <span class="spec-value">78</span>
+              <div class="spec-label">Fixtures</div>
+            </div>
+            <div class="spec-item">
+              <span class="spec-value">10 mo</span>
+              <div class="spec-label">Timeline</div>
+            </div>
+            <div class="spec-item">
+              <span class="spec-value">25,000</span>
+              <div class="spec-label">Sq Ft</div>
+            </div>
+          </div>
+          <div class="project-tags">
+            <span class="tag">Industrial</span>
+            <span class="tag">Smart Tech</span>
+            <span class="tag">Steel</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 4: Fine Dining -->
+      <div class="project-card" data-category="restaurant">
+        <div class="image-container">
+          <div class="before-after">
+            <img class="before-img" src="data:image/svg+xml,%3Csvg width='350' height='240' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='350' height='240' fill='%23f3f4f6'/%3E%3Ctext x='50%25' y='45%25' font-size='14' text-anchor='middle' dy='.3em' fill='%236b7280'%3EBefore%3C/text%3E%3Ctext x='50%25' y='55%25' font-size='12' text-anchor='middle' dy='.3em' fill='%239ca3af'%3EFine Dining%3C/text%3E%3C/svg%3E" alt="Before">
+            <img class="after-img" src="data:image/svg+xml,%3Csvg width='350' height='240' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='350' height='240' fill='%23b2956d'/%3E%3Ctext x='50%25' y='45%25' font-size='14' text-anchor='middle' dy='.3em' fill='%23ffffff'%3EAfter%3C/text%3E%3Ctext x='50%25' y='55%25' font-size='12' text-anchor='middle' dy='.3em' fill='%23f2f0eb'%3EFine Dining%3C/text%3E%3C/svg%3E" alt="After">
+          </div>
+          <div class="overlay">
+            <a href="#" class="view-btn" onclick="openModal('restaurant')">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                <circle cx="12" cy="12" r="3"/>
+              </svg>
+              View Case Study
+            </a>
+          </div>
+        </div>
+        <div class="project-content">
+          <div class="category">Restaurant</div>
+          <h3>Meridian Brasserie</h3>
+          <div class="location">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="10" r="3"/>
+              <path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 1 0-16 0c0 3 2.7 7 8 11.7z"/>
+            </svg>
+            Chicago, IL
+          </div>
+          <p>Michelin-starred restaurant featuring custom pendant lighting designed to enhance the culinary experience.</p>
+          <div class="project-specs">
+            <div class="spec-item">
+              <span class="spec-value">24</span>
+              <div class="spec-label">Fixtures</div>
+            </div>
+            <div class="spec-item">
+              <span class="spec-value">4 mo</span>
+              <div class="spec-label">Timeline</div>
+            </div>
+            <div class="spec-item">
+              <span class="spec-value">4,200</span>
+              <div class="spec-label">Sq Ft</div>
+            </div>
+          </div>
+          <div class="project-tags">
+            <span class="tag">Elegant</span>
+            <span class="tag">Dining</span>
+            <span class="tag">Blackened</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 5: Luxury Retail -->
+      <div class="project-card" data-category="retail">
+        <div class="image-container">
+          <div class="before-after">
+            <img class="before-img" src="data:image/svg+xml,%3Csvg width='350' height='240' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='350' height='240' fill='%23f3f4f6'/%3E%3Ctext x='50%25' y='45%25' font-size='14' text-anchor='middle' dy='.3em' fill='%236b7280'%3EBefore%3C/text%3E%3Ctext x='50%25' y='55%25' font-size='12' text-anchor='middle' dy='.3em' fill='%239ca3af'%3ELuxury Retail%3C/text%3E%3C/svg%3E" alt="Before">
+            <img class="after-img" src="data:image/svg+xml,%3Csvg width='350' height='240' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='350' height='240' fill='%23b2956d'/%3E%3Ctext x='50%25' y='45%25' font-size='14' text-anchor='middle' dy='.3em' fill='%23ffffff'%3EAfter%3C/text%3E%3Ctext x='50%25' y='55%25' font-size='12' text-anchor='middle' dy='.3em' fill='%23f2f0eb'%3ELuxury Retail%3C/text%3E%3C/svg%3E" alt="After">
+          </div>
+          <div class="overlay">
+            <a href="#" class="view-btn" onclick="openModal('retail')">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                <circle cx="12" cy="12" r="3"/>
+              </svg>
+              View Case Study
+            </a>
+          </div>
+        </div>
+        <div class="project-content">
+          <div class="category">Retail</div>
+          <h3>Atelier Boutique</h3>
+          <div class="location">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="10" r="3"/>
+              <path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 1 0-16 0c0 3 2.7 7 8 11.7z"/>
+            </svg>
+            Beverly Hills, CA
+          </div>
+          <p>High-end fashion boutique with track lighting and accent fixtures that showcase merchandise beautifully.</p>
+          <div class="project-specs">
+            <div class="spec-item">
+              <span class="spec-value">18</span>
+              <div class="spec-label">Fixtures</div>
+            </div>
+            <div class="spec-item">
+              <span class="spec-value">3 mo</span>
+              <div class="spec-label">Timeline</div>
+            </div>
+            <div class="spec-item">
+              <span class="spec-value">2,800</span>
+              <div class="spec-label">Sq Ft</div>
+            </div>
+          </div>
+          <div class="project-tags">
+            <span class="tag">Luxury</span>
+            <span class="tag">Retail</span>
+            <span class="tag">Track</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 6: Historic Renovation -->
+      <div class="project-card" data-category="residential">
+        <div class="image-container">
+          <div class="before-after">
+            <img class="before-img" src="data:image/svg+xml,%3Csvg width='350' height='240' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='350' height='240' fill='%23f3f4f6'/%3E%3Ctext x='50%25' y='45%25' font-size='14' text-anchor='middle' dy='.3em' fill='%236b7280'%3EBefore%3C/text%3E%3Ctext x='50%25' y='55%25' font-size='12' text-anchor='middle' dy='.3em' fill='%239ca3af'%3EHistoric Home%3C/text%3E%3C/svg%3E" alt="Before">
+            <img class="after-img" src="data:image/svg+xml,%3Csvg width='350' height='240' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='350' height='240' fill='%23b2956d'/%3E%3Ctext x='50%25' y='45%25' font-size='14' text-anchor='middle' dy='.3em' fill='%23ffffff'%3EAfter%3C/text%3E%3Ctext x='50%25' y='55%25' font-size='12' text-anchor='middle' dy='.3em' fill='%23f2f0eb'%3EHistoric Home%3C/text%3E%3C/svg%3E" alt="After">
+          </div>
+          <div class="overlay">
+            <a href="#" class="view-btn" onclick="openModal('historic')">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                <circle cx="12" cy="12" r="3"/>
+              </svg>
+              View Case Study
+            </a>
+          </div>
+        </div>
+        <div class="project-content">
+          <div class="category">Residential</div>
+          <h3>Victorian Restoration</h3>
+          <div class="location">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="10" r="3"/>
+              <path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 1 0-16 0c0 3 2.7 7 8 11.7z"/>
+            </svg>
+            Boston, MA
+          </div>
+          <p>Careful restoration of a 1890s Victorian home with period-appropriate lighting that honors the original architecture.</p>
+          <div class="project-specs">
+            <div class="spec-item">
+              <span class="spec-value">16</span>
+              <div class="spec-label">Fixtures</div>
+            </div>
+            <div class="spec-item">
+              <span class="spec-value">7 mo</span>
+              <div class="spec-label">Timeline</div>
+            </div>
+            <div class="spec-item">
+              <span class="spec-value">4,800</span>
+              <div class="spec-label">Sq Ft</div>
+            </div>
+          </div>
+          <div class="project-tags">
+            <span class="tag">Historic</span>
+            <span class="tag">Restoration</span>
+            <span class="tag">Aged Brass</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FEATURED PROJECT -->
+  <section class="featured-section">
+    <div class="featured-project">
+      <div class="featured-content">
+        <div class="eyebrow" style="color:var(--brass)">Featured Case Study</div>
+        <h2>Design Excellence</h2>
+        <div class="project-title">The Metropolitan Residence</div>
+        <div class="project-location">Park Avenue, New York</div>
+        <p>A comprehensive lighting transformation of a 5,200 sq ft luxury residence featuring 18 custom LUNVYR fixtures. This project showcases the perfect marriage of traditional architecture with contemporary lighting design.</p>
+        <p>Working closely with the interior design team, we created a cohesive lighting scheme that enhances both the architectural details and the carefully curated art collection throughout the home.</p>
+        
+        <div class="featured-stats">
+          <div class="stat-item">
+            <span class="stat-number">18</span>
+            <div class="stat-label">Custom Fixtures</div>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">8</span>
+            <div class="stat-label">Months</div>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">5.2K</span>
+            <div class="stat-label">Sq Ft</div>
+          </div>
+        </div>
+        
+        <a href="/contact" class="btn" style="background:var(--brass); border-color:var(--brass); color:var(--ink)">
+          Start Your Project
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M9 18l6-6-6-6"/>
+          </svg>
+        </a>
+      </div>
+      
+      <div class="featured-images">
+        <div class="featured-img large">
+          <img src="data:image/svg+xml,%3Csvg width='400' height='280' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='400' height='280' fill='%23b2956d'/%3E%3Ctext x='50%25' y='45%25' font-size='16' text-anchor='middle' dy='.3em' fill='%23ffffff'%3EMetropolitan Residence%3C/text%3E%3Ctext x='50%25' y='55%25' font-size='14' text-anchor='middle' dy='.3em' fill='%23f2f0eb'%3EMain Gallery%3C/text%3E%3C/svg%3E" alt="Main Gallery">
+        </div>
+        <div class="featured-img">
+          <img src="data:image/svg+xml,%3Csvg width='190' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='190' height='200' fill='%23f3f4f6'/%3E%3Ctext x='50%25' y='45%25' font-size='12' text-anchor='middle' dy='.3em' fill='%236b7280'%3EDining Room%3C/text%3E%3Ctext x='50%25' y='55%25' font-size='10' text-anchor='middle' dy='.3em' fill='%239ca3af'%3ECustom Chandelier%3C/text%3E%3C/svg%3E" alt="Dining Room">
+        </div>
+        <div class="featured-img">
+          <img src="data:image/svg+xml,%3Csvg width='190' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='190' height='200' fill='%23f3f4f6'/%3E%3Ctext x='50%25' y='45%25' font-size='12' text-anchor='middle' dy='.3em' fill='%236b7280'%3ELibrary%3C/text%3E%3Ctext x='50%25' y='55%25' font-size='10' text-anchor='middle' dy='.3em' fill='%239ca3af'%3ETask Lighting%3C/text%3E%3C/svg%3E" alt="Library">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <h2>Ready to Transform Your Space?</h2>
+    <p>Let's discuss your lighting vision and create something extraordinary together.</p>
+    <a href="/design-quiz" class="btn-secondary btn">Take Design Quiz</a>
+    <a href="/contact" class="btn">Start Consultation</a>
+  </section>
+
+</div>
+
+<!-- Modal -->
+<div class="modal" id="project-modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h3 id="modal-title">Project Details</h3>
+      <button class="modal-close" onclick="closeModal()">&times;</button>
+    </div>
+    <div class="modal-body" id="modal-body">
+      <!-- Content will be populated by JavaScript -->
+    </div>
+  </div>
+</div>
+
+<script>
+// Filter functionality
+function filterProjects(category) {
+  // Update active button
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.classList.remove('active');
+  });
+  event.target.classList.add('active');
+  
+  // Filter projects
+  const projects = document.querySelectorAll('.project-card');
+  projects.forEach(project => {
+    if (category === 'all' || project.dataset.category === category) {
+      project.classList.remove('hidden');
+    } else {
+      project.classList.add('hidden');
+    }
+  });
+}
+
+// Modal functionality
+function openModal(projectId) {
+  const modal = document.getElementById('project-modal');
+  const title = document.getElementById('modal-title');
+  const body = document.getElementById('modal-body');
+  
+  // Project data
+  const projects = {
+    penthouse: {
+      title: 'Manhattan Penthouse',
+      content: `
+        <div class="modal-images">
+          <div class="modal-img">
+            <img src="data:image/svg+xml,%3Csvg width='850' height='400' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='850' height='400' fill='%23b2956d'/%3E%3Ctext x='50%25' y='45%25' font-size='24' text-anchor='middle' dy='.3em' fill='%23ffffff'%3EManhattan Penthouse%3C/text%3E%3Ctext x='50%25' y='55%25' font-size='16' text-anchor='middle' dy='.3em' fill='%23f2f0eb'%3ELiving Room Installation%3C/text%3E%3C/svg%3E" alt="Penthouse Living Room">
+          </div>
+        </div>
+        <h4>Project Overview</h4>
+        <p>This 3,500 sq ft Manhattan penthouse required a complete lighting overhaul to complement the stunning city views and contemporary interior design. The challenge was creating fixtures that would make a statement without competing with the dramatic skyline backdrop.</p>
+        
+        <h4>Design Solution</h4>
+        <p>We developed a custom collection of brass fixtures featuring clean geometric lines and warm LED technology. The centerpiece is a dramatic linear chandelier in the dining area that mirrors the city's architectural lines while providing intimate dining ambiance.</p>
+        
+        <h4>Key Features</h4>
+        <ul>
+          <li>Custom 8-foot linear dining chandelier</li>
+          <li>Geometric pendant cluster in living area</li>
+          <li>Integrated wall sconces with dimming</li>
+          <li>Smart home automation integration</li>
+          <li>Color temperature adjustment (2700K-4000K)</li>
+        </ul>
+        
+        <h4>Results</h4>
+        <p>The lighting transformation created distinct zones within the open-plan space while maintaining visual flow. The warm brass finishes complement the neutral palette and add sophistication. Client feedback highlighted the improved functionality and the "hotel-like luxury" feel.</p>
+      `
+    },
+    hotel: {
+      title: 'The Sterling Hotel',
+      content: `
+        <div class="modal-images">
+          <div class="modal-img">
+            <img src="data:image/svg+xml,%3Csvg width='850' height='400' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='850' height='400' fill='%23b2956d'/%3E%3Ctext x='50%25' y='45%25' font-size='24' text-anchor='middle' dy='.3em' fill='%23ffffff'%3EThe Sterling Hotel%3C/text%3E%3Ctext x='50%25' y='55%25' font-size='16' text-anchor='middle' dy='.3em' fill='%23f2f0eb'%3ELobby & Common Areas%3C/text%3E%3C/svg%3E" alt="Hotel Lobby">
+          </div>
+        </div>
+        <h4>Project Overview</h4>
+        <p>A boutique hotel renovation in San Francisco's historic district required lighting that honored the building's 1920s heritage while meeting modern hospitality standards. The goal was creating memorable moments throughout the guest experience.</p>
+        
+        <h4>Design Approach</h4>
+        <p>Our design team created a collection inspired by Art Deco glamour, featuring aged brass finishes and geometric patterns. Each fixture was carefully scaled to the intimate proportions of the historic building.</p>
+        
+        <h4>Installation Highlights</h4>
+        <ul>
+          <li>Grand chandelier in double-height lobby</li>
+          <li>Custom sconces in all 24 guest rooms</li>
+          <li>Restaurant pendant lighting system</li>
+          <li>Exterior wall lanterns at entrance</li>
+          <li>Emergency egress integration</li>
+        </ul>
+      `
+    },
+    tech: {
+      title: 'Innovation Hub',
+      content: `
+        <div class="modal-images">
+          <div class="modal-img">
+            <img src="data:image/svg+xml,%3Csvg width='850' height='400' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='850' height='400' fill='%23b2956d'/%3E%3Ctext x='50%25' y='45%25' font-size='24' text-anchor='middle' dy='.3em' fill='%23ffffff'%3EInnovation Hub%3C/text%3E%3Ctext x='50%25' y='55%25' font-size='16' text-anchor='middle' dy='.3em' fill='%23f2f0eb'%3ECorporate Campus%3C/text%3E%3C/svg%3E" alt="Tech Office">
+          </div>
+        </div>
+        <h4>Project Overview</h4>
+        <p>A 25,000 sq ft tech campus in Austin needed lighting that would support both focused work and creative collaboration. The industrial aesthetic required fixtures that felt both sophisticated and approachable.</p>
+        
+        <h4>Technical Requirements</h4>
+        <p>Advanced controls integration with building management system, circadian rhythm lighting, and zones for various work modes from focus time to team meetings.</p>
+        
+        <h4>Fixture Selection</h4>
+        <ul>
+          <li>Linear LED systems for open office areas</li>
+          <li>Pendant clusters in collaboration zones</li>
+          <li>Track lighting in presentation spaces</li>
+          <li>Integrated emergency lighting</li>
+          <li>Smart sensors and daylight harvesting</li>
+        </ul>
+      `
+    }
+  };
+  
+  const project = projects[projectId];
+  if (project) {
+    title.textContent = project.title;
+    body.innerHTML = project.content;
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+}
+
+function closeModal() {
+  const modal = document.getElementById('project-modal');
+  modal.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+// Close modal on background click
+document.getElementById('project-modal').addEventListener('click', function(e) {
+  if (e.target === this) {
+    closeModal();
+  }
+});
+
+// Reveal animations
+document.addEventListener('DOMContentLoaded', function(){
+  const cards = document.querySelectorAll('.project-card');
+  if('IntersectionObserver' in window){
+    const observer = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, {threshold: 0.1});
+    
+    cards.forEach((card, index)=>{
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(20px)';
+      card.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+      observer.observe(card);
+    });
+  }
+});
+</script>

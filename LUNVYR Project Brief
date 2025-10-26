@@ -1,0 +1,58 @@
+<div class="form-row">
+  <div class="form-field">
+    <label for="name">Name*</label>
+    [text* your-name id:name class:input]
+  </div>
+  <div class="form-field">
+    <label for="email">Email*</label>
+    [email* your-email id:email class:input]
+  </div>
+</div>
+
+<div class="form-row">
+  <div class="form-field">
+    <label for="phone">Phone</label>
+    [tel your-phone id:phone class:input placeholder "+1 …"]
+  </div>
+  <div class="form-field">
+    <label for="type">Project Type</label>
+    [select your-type id:type class:select include_blank "Residential" "Hospitality" "Retail" "Commercial"]
+  </div>
+</div>
+
+<div class="form-row">
+  <div class="form-field">
+    <label for="finish">Preferred Finish</label>
+    [select your-finish id:finish class:select include_blank "Brass — Natural/Polished" "Brass — Aged/Patina" "Custom"]
+  </div>
+  <div class="form-field">
+    <label>Budget</label>
+    [radio your-budget use_label_element class:radio " < $1k" "$1–3k" "$3–8k" "$8k+"]
+  </div>
+</div>
+
+<div class="form-row full">
+  <div class="form-field">
+    <label for="timeline">Timeline</label>
+    [text your-timeline id:timeline class:input placeholder "e.g., Install by Nov 15"]
+  </div>
+</div>
+
+<div class="form-row full">
+  <div class="form-field">
+    <label for="message">Message*</label>
+    <div class="counter" id="count">0 / 1000</div>
+    [textarea* your-message id:message class:textarea maxlength:1000 placeholder "Project scope, dimensions, quantities, site conditions…"]
+  </div>
+</div>
+
+<div class="form-row full">
+  <div class="form-field file">
+    <label for="file" style="margin:0">Attachments</label>
+    [file your-files id:file class:input filetypes:pdf|jpg|jpeg|png|webp limit:10mb multiple]
+  </div>
+</div>
+
+[checkbox* your-agree use_label_element "I agree to be contacted about my inquiry. We do not share your info."]
+
+[submit class:btn "Send Message"]

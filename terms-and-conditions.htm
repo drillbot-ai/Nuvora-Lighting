@@ -1,0 +1,477 @@
+<!-- LUNVYR — Terms and Conditions -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Inter:wght@300;400;500&display=swap');
+
+:root{
+  --ink: #1c222b; --paper: #f2f0eb; --coal: #111; --ash: #666; 
+  --brass: #b2956d; --white: #fff; --surface: #ffffff;
+  --radius: 12px; --shadow: 0 4px 20px rgba(0,0,0,.08);
+  --success: #10b981; --warning: #f59e0b; --danger: #ef4444;
+}
+
+.terms-conditions{
+  font-family: 'Inter', sans-serif; color: var(--coal); line-height: 1.7;
+  background: var(--paper); min-height: 100vh;
+}
+
+/* Header */
+.policy-header{
+  background: linear-gradient(135deg, var(--ink) 0%, #0f141a 100%);
+  color: var(--paper); padding: 80px 10% 60px; text-align: center;
+}
+.policy-header h1{
+  font-family: 'Cinzel', serif; font-size: clamp(2.5rem, 4vw, 3.5rem);
+  margin: 0 0 16px; font-weight: 500;
+}
+.policy-header .subtitle{
+  font-size: 1.1rem; opacity: 0.9; max-width: 600px; margin: 0 auto;
+}
+.policy-header .last-updated{
+  font-size: 0.9rem; opacity: 0.7; margin-top: 24px;
+  border-top: 1px solid rgba(242,240,235,0.2); padding-top: 16px;
+}
+
+/* Quick Summary */
+.policy-summary{
+  background: var(--white); margin: -30px 10% 40px; padding: 40px;
+  border-radius: var(--radius); box-shadow: var(--shadow);
+  border-left: 4px solid var(--brass);
+}
+.policy-summary h2{
+  font-family: 'Cinzel', serif; color: var(--ink); margin: 0 0 16px;
+  display: flex; align-items: center; gap: 12px;
+}
+.policy-summary h2::before{
+  content: "📋"; font-size: 1.2rem;
+}
+.policy-summary .summary-grid{
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 24px; margin-top: 24px;
+}
+.summary-item{
+  text-align: center; padding: 20px; background: var(--paper);
+  border-radius: 8px; border: 1px solid rgba(178,149,109,0.2);
+}
+.summary-item .icon{
+  font-size: 2rem; margin-bottom: 12px; display: block;
+}
+.summary-item h3{
+  font-family: 'Cinzel', serif; color: var(--coal); margin: 0 0 8px;
+  font-size: 1.1rem;
+}
+.summary-item p{
+  color: var(--ash); margin: 0; font-size: 0.9rem;
+}
+
+/* Content */
+.policy-content{
+  max-width: 1400px; margin: 0 auto; padding: 0 8% 60px;
+}
+
+.policy-section{
+  background: var(--white); border-radius: var(--radius);
+  box-shadow: var(--shadow); padding: 48px; margin-bottom: 32px;
+  border-left: 4px solid var(--brass);
+}
+
+.policy-section h2{
+  font-family: 'Cinzel', serif; font-size: 1.8rem; color: var(--ink);
+  margin: 0 0 20px; display: flex; align-items: center; gap: 12px;
+}
+.policy-section h2::before{
+  content: ""; width: 8px; height: 8px; background: var(--brass);
+  border-radius: 50%; flex-shrink: 0;
+}
+
+.policy-section h3{
+  font-family: 'Inter', sans-serif; font-size: 1.2rem; color: var(--coal);
+  margin: 24px 0 12px; font-weight: 600;
+}
+
+.policy-section p{
+  margin: 0 0 16px; color: var(--ash);
+}
+
+.policy-section ul{
+  margin: 16px 0; padding-left: 20px; color: var(--ash);
+}
+.policy-section li{
+  margin-bottom: 8px;
+}
+
+/* Alert Boxes */
+.alert{
+  padding: 20px; border-radius: 8px; margin: 20px 0;
+  border-left: 4px solid;
+}
+.alert-warning{
+  background: rgba(245,158,11,0.1); border-left-color: var(--warning);
+  color: #92400e;
+}
+.alert-success{
+  background: rgba(16,185,129,0.1); border-left-color: var(--success);
+  color: #047857;
+}
+.alert-danger{
+  background: rgba(239,68,68,0.1); border-left-color: var(--danger);
+  color: #dc2626;
+}
+
+/* Contact Info */
+.contact-info{
+  background: linear-gradient(135deg, var(--brass) 0%, #9d8354 100%);
+  color: var(--white); padding: 40px; border-radius: var(--radius);
+  text-align: center; margin-top: 40px;
+}
+.contact-info h3{
+  font-family: 'Cinzel', serif; margin: 0 0 16px; font-size: 1.5rem;
+}
+.contact-info p{
+  margin: 0 0 8px; opacity: 0.95;
+}
+.contact-info a{
+  color: var(--white); text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px){
+  .policy-header{ padding: 60px 6% 40px; }
+  .policy-summary{ margin: -20px 6% 30px; padding: 24px; }
+  .policy-content{ padding: 0 6% 40px; }
+  .policy-section{ padding: 32px; }
+  .summary-grid{ grid-template-columns: 1fr; }
+}
+</style>
+
+<div class="terms-conditions">
+  <!-- Header -->
+  <header class="policy-header">
+    <h1>Terms & Conditions</h1>
+    <p class="subtitle">Legal terms governing your use of LUNVYR services and the purchase of our handcrafted lighting fixtures.</p>
+    <div class="last-updated">Last updated: October 26, 2025</div>
+  </header>
+
+  <!-- Quick Summary -->
+  <section class="policy-summary">
+    <h2>Terms at a Glance</h2>
+    <p>These terms establish the legal framework for your relationship with LUNVYR, covering everything from ordering to warranty and intellectual property rights.</p>
+    
+    <div class="summary-grid">
+      <div class="summary-item">
+        <span class="icon">📋</span>
+        <h3>Binding Agreement</h3>
+        <p>Legal contract upon order placement</p>
+      </div>
+      <div class="summary-item">
+        <span class="icon">💎</span>
+        <h3>Custom Craftsmanship</h3>
+        <p>Made-to-order lighting fixtures</p>
+      </div>
+      <div class="summary-item">
+        <span class="icon">🛡️</span>
+        <h3>Limited Warranty</h3>
+        <p>Quality guarantee on materials & workmanship</p>
+      </div>
+      <div class="summary-item">
+        <span class="icon">⚖️</span>
+        <h3>Dispute Resolution</h3>
+        <p>New York law governs all agreements</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Content -->
+  <main class="policy-content">
+
+    <section class="policy-section">
+      <h2>Agreement to Terms</h2>
+      
+      <div class="alert alert-warning">
+        <strong>Important:</strong> By accessing our website or placing an order, you agree to be bound by these Terms and Conditions and our Privacy Policy.
+      </div>
+
+      <p>These Terms and Conditions ("Terms") constitute a legally binding agreement between you ("Customer," "you," or "your") and LUNVYR ("Company," "we," "our," or "us") regarding your use of our website and the purchase of our handcrafted lighting fixtures.</p>
+
+      <h3>Acceptance of Terms</h3>
+      <p>By placing an order or using our services, you confirm that:</p>
+      <ul>
+        <li>You are at least 18 years of age or have parental consent</li>
+        <li>You have the legal capacity to enter into binding contracts</li>
+        <li>You agree to these Terms and our Privacy Policy</li>
+        <li>All information provided is accurate and complete</li>
+      </ul>
+
+      <h3>Modifications to Terms</h3>
+      <p>We reserve the right to modify these Terms at any time. Updated Terms will be posted on our website with a new "Last updated" date. Your continued use of our services after changes constitutes acceptance of the modified Terms.</p>
+    </section>
+
+    <section class="policy-section">
+      <h2>Product Information & Ordering</h2>
+      
+      <h3>Product Descriptions</h3>
+      <p>We strive to provide accurate product descriptions, dimensions, and specifications. However:</p>
+      <ul>
+        <li>Minor variations may occur due to handcrafted nature</li>
+        <li>Colors may vary slightly from photos due to lighting and monitor settings</li>
+        <li>Natural materials may show unique characteristics</li>
+        <li>Custom specifications will be confirmed before production</li>
+      </ul>
+
+      <h3>Pricing & Availability</h3>
+      <ul>
+        <li><strong>Pricing:</strong> All prices are in USD and subject to change without notice</li>
+        <li><strong>Availability:</strong> Products are made-to-order; availability confirmed upon order</li>
+        <li><strong>Errors:</strong> We reserve the right to correct pricing or description errors</li>
+        <li><strong>Taxes:</strong> Applicable sales taxes will be added at checkout</li>
+      </ul>
+
+      <h3>Order Process</h3>
+      <div class="alert alert-success">
+        <strong>Order Confirmation:</strong> Your order is confirmed when we send you an order confirmation email with production timeline.
+      </div>
+      
+      <p>The ordering process includes:</p>
+      <ul>
+        <li>Product selection and customization (if applicable)</li>
+        <li>Secure checkout with payment processing</li>
+        <li>Order confirmation email within 24 hours</li>
+        <li>Production timeline and shipping estimate</li>
+      </ul>
+    </section>
+
+    <section class="policy-section">
+      <h2>Payment Terms</h2>
+      
+      <h3>Accepted Payment Methods</h3>
+      <p>We accept the following payment methods:</p>
+      <ul>
+        <li>Major credit cards (Visa, MasterCard, American Express)</li>
+        <li>PayPal</li>
+        <li>Bank transfers for large orders (upon approval)</li>
+        <li>Financing options through approved third-party providers</li>
+      </ul>
+
+      <h3>Payment Processing</h3>
+      <ul>
+        <li><strong>Standard Orders:</strong> Full payment required at checkout</li>
+        <li><strong>Custom Orders:</strong> 50% deposit required, balance due before shipping</li>
+        <li><strong>Large Projects:</strong> Payment schedule negotiated individually</li>
+        <li><strong>Security:</strong> All payments processed through secure, PCI-compliant systems</li>
+      </ul>
+
+      <h3>Currency & International Orders</h3>
+      <p>All prices are in US Dollars. International customers are responsible for:</p>
+      <ul>
+        <li>Currency conversion fees charged by their bank</li>
+        <li>Import duties and taxes in their country</li>
+        <li>Customs clearance procedures</li>
+      </ul>
+    </section>
+
+    <section class="policy-section">
+      <h2>Shipping & Product Delivery</h2>
+      
+      <h3>Production & Lead Times</h3>
+      <div class="alert alert-warning">
+        <strong>Handcrafted Products:</strong> Each piece is made-to-order with production times of 6-8 weeks for standard items, 8-12 weeks for custom pieces.
+      </div>
+
+      <h3>Shipping Methods</h3>
+      <ul>
+        <li><strong>Standard Shipping:</strong> Fully insured freight shipping to your specified address</li>
+        <li><strong>International Shipping:</strong> Available to most countries</li>
+        <li><strong>Freight Carrier:</strong> Large items shipped via professional freight services</li>
+        <li><strong>Tracking:</strong> Full tracking information provided for all shipments</li>
+      </ul>
+
+      <h3>Delivery Terms</h3>
+      <ul>
+        <li>Risk of loss transfers to customer upon delivery to specified address</li>
+        <li>Delivery dates are estimates, not guarantees</li>
+        <li>Customer must inspect items upon delivery and report damage within 48 hours</li>
+        <li>LUNVYR ships to your door - installation and setup are customer responsibility</li>
+        <li>All fixtures include mounting hardware and detailed installation instructions</li>
+      </ul>
+    </section>
+
+    <section class="policy-section">
+      <h2>Returns & Exchanges</h2>
+      
+      <p>Our return policy is detailed in our separate <a href="/refund-and-returns-policy.htm" style="color: var(--brass); text-decoration: underline;">Refund and Returns Policy</a>. Key points include:</p>
+      
+      <ul>
+        <li>30-day return window with 48-hour notification requirement</li>
+        <li>Items must be in original condition with all components</li>
+        <li>Custom orders have limited return eligibility</li>
+        <li>Return shipping costs may apply</li>
+      </ul>
+
+      <div class="alert alert-success">
+        <strong>Quality Guarantee:</strong> All products are backed by our craftsmanship warranty covering manufacturing defects.
+      </div>
+    </section>
+
+    <section class="policy-section">
+      <h2>Warranty & Liability</h2>
+      
+      <h3>Limited Warranty</h3>
+      <p>LUNVYR warrants that products will be free from defects in materials and workmanship for:</p>
+      <ul>
+        <li><strong>Structural Components:</strong> 2 years from delivery date</li>
+        <li><strong>Electrical Components:</strong> 1 year from delivery date</li>
+        <li><strong>Finishes:</strong> 1 year from delivery date (excluding normal wear)</li>
+        <li><strong>Custom Work:</strong> 1 year from delivery date</li>
+      </ul>
+
+      <h3>Warranty Exclusions</h3>
+      <p>This warranty does not cover:</p>
+      <ul>
+        <li>Normal wear and tear</li>
+        <li>Damage from misuse, accidents, or improper installation</li>
+        <li>Damage from environmental factors (moisture, UV, etc.)</li>
+        <li>Products modified by anyone other than LUNVYR</li>
+        <li>Damage due to electrical issues not related to the fixture</li>
+      </ul>
+
+      <h3>Limitation of Liability</h3>
+      <div class="alert alert-danger">
+        <strong>Important:</strong> Our liability is limited to repair, replacement, or refund of the purchase price. We are not liable for consequential, incidental, or punitive damages.
+      </div>
+    </section>
+
+    <section class="policy-section">
+      <h2>Intellectual Property</h2>
+      
+      <h3>LUNVYR Rights</h3>
+      <p>All content on our website and all product designs are protected by intellectual property laws:</p>
+      <ul>
+        <li><strong>Trademarks:</strong> LUNVYR name and logo are registered trademarks</li>
+        <li><strong>Design Rights:</strong> All lighting designs are proprietary to LUNVYR</li>
+        <li><strong>Website Content:</strong> Text, images, and graphics are copyrighted</li>
+        <li><strong>Photography:</strong> Product images are owned by LUNVYR</li>
+      </ul>
+
+      <h3>Permitted Use</h3>
+      <p>You may:</p>
+      <ul>
+        <li>View and browse our website for personal use</li>
+        <li>Share product images for editorial or review purposes with attribution</li>
+        <li>Download product specifications for installation purposes</li>
+      </ul>
+
+      <h3>Prohibited Use</h3>
+      <p>You may not:</p>
+      <ul>
+        <li>Copy, reproduce, or manufacture our designs</li>
+        <li>Use our trademarks without written permission</li>
+        <li>Reverse engineer or create derivative works</li>
+        <li>Use our content for commercial purposes without authorization</li>
+      </ul>
+    </section>
+
+    <section class="policy-section">
+      <h2>User Conduct</h2>
+      
+      <h3>Acceptable Use</h3>
+      <p>When using our website or services, you agree to:</p>
+      <ul>
+        <li>Provide accurate and truthful information</li>
+        <li>Respect intellectual property rights</li>
+        <li>Use services only for lawful purposes</li>
+        <li>Maintain confidentiality of account information</li>
+      </ul>
+
+      <h3>Prohibited Activities</h3>
+      <p>You may not:</p>
+      <ul>
+        <li>Interfere with website operation or security</li>
+        <li>Attempt to gain unauthorized access to systems</li>
+        <li>Upload malicious code or viruses</li>
+        <li>Engage in fraudulent activities</li>
+        <li>Violate any applicable laws or regulations</li>
+      </ul>
+    </section>
+
+    <section class="policy-section">
+      <h2>Dispute Resolution</h2>
+      
+      <h3>Governing Law</h3>
+      <p>These Terms are governed by the laws of the State of New York, without regard to conflict of law principles.</p>
+
+      <h3>Dispute Resolution Process</h3>
+      <div class="alert alert-success">
+        <strong>Preferred Resolution:</strong> We encourage direct communication to resolve any issues before formal dispute proceedings.
+      </div>
+
+      <p>For disputes that cannot be resolved directly:</p>
+      <ul>
+        <li><strong>Informal Resolution:</strong> Contact our customer service team first</li>
+        <li><strong>Mediation:</strong> Binding mediation in New York, NY if informal resolution fails</li>
+        <li><strong>Jurisdiction:</strong> Courts of New York have exclusive jurisdiction</li>
+        <li><strong>Class Action Waiver:</strong> Disputes must be resolved individually</li>
+      </ul>
+
+      <h3>Statute of Limitations</h3>
+      <p>Any claims must be filed within one year of the cause of action arising, except for warranty claims which follow the warranty periods specified above.</p>
+    </section>
+
+    <section class="policy-section">
+      <h2>Termination</h2>
+      
+      <h3>Termination by Customer</h3>
+      <p>You may terminate your relationship with us at any time, subject to:</p>
+      <ul>
+        <li>Completion of pending orders (unless eligible for cancellation)</li>
+        <li>Payment of all outstanding amounts</li>
+        <li>Return of any company property</li>
+      </ul>
+
+      <h3>Termination by LUNVYR</h3>
+      <p>We may terminate service for:</p>
+      <ul>
+        <li>Violation of these Terms</li>
+        <li>Fraudulent activity</li>
+        <li>Non-payment of amounts due</li>
+        <li>Abusive behavior toward staff</li>
+      </ul>
+
+      <h3>Effect of Termination</h3>
+      <p>Upon termination:</p>
+      <ul>
+        <li>Your access to services will cease</li>
+        <li>Outstanding obligations remain in effect</li>
+        <li>Provisions regarding liability and intellectual property survive</li>
+      </ul>
+    </section>
+
+    <section class="policy-section">
+      <h2>Miscellaneous</h2>
+      
+      <h3>Entire Agreement</h3>
+      <p>These Terms, together with our Privacy Policy and Return Policy, constitute the entire agreement between you and LUNVYR regarding your use of our services.</p>
+
+      <h3>Severability</h3>
+      <p>If any provision of these Terms is found to be unenforceable, the remaining provisions will remain in full force and effect.</p>
+
+      <h3>No Waiver</h3>
+      <p>Our failure to enforce any right or provision does not constitute a waiver of such right or provision.</p>
+
+      <h3>Assignment</h3>
+      <p>You may not assign your rights under these Terms. We may assign our rights and obligations to any party without restriction.</p>
+
+      <h3>Force Majeure</h3>
+      <p>We are not liable for delays or failures due to circumstances beyond our reasonable control, including natural disasters, pandemics, labor disputes, or supply chain disruptions.</p>
+    </section>
+
+    <!-- Contact Information -->
+    <div class="contact-info">
+      <h3>Questions About These Terms?</h3>
+      <p>If you have any questions about these Terms and Conditions, please contact us:</p>
+      <p><strong>Email:</strong> <a href="mailto:info@lunvyr.com">info@lunvyr.com</a></p>
+      <p><strong>Phone:</strong> +1 (929) 728-2394</p>
+      <p><strong>Address:</strong> LUNVYR Studio, New York, NY</p>
+      <p><strong>Hours:</strong> Monday-Friday, 9AM-6PM EST</p>
+    </div>
+
+  </main>
+</div>

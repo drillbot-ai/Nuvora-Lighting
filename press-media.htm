@@ -1,0 +1,577 @@
+<!-- LUNVYR — Press & Media (Media Kit, Press Releases, Brand Guidelines, Assets) -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Inter:wght@300;400;500&display=swap');
+
+:root{
+  --ink:#1c222b; --paper:#f2f0eb; --coal:#111; --ash:#666; --brass:#b2956d; --white:#fff;
+  --radius:14px; --shadow:0 12px 32px rgba(0,0,0,.08);
+}
+
+.press{font-family:Inter,system-ui,sans-serif;color:var(--coal);line-height:1.65}
+.press h1,.press h2,.press h3{font-family:Cinzel,serif;font-weight:400;margin:0}
+.press .eyebrow{letter-spacing:.12em;text-transform:uppercase;font-size:.8rem;color:var(--ash);margin-bottom:.6rem}
+
+/* Hero */
+.press-hero{
+  position:relative; color:var(--paper); text-align:center;
+  background:#0e0f12 url('https://lunvyr.com/wp-content/uploads/2025/08/f07dabad-5599-4f19-bb21-0e2537614e98.png') center/cover no-repeat;
+  padding:clamp(100px,15vh,160px) 10%; min-height:70vh; display:flex; align-items:center; justify-content:center;
+}
+.press-hero::before{
+  content:""; position:absolute; top:0; left:0; right:0; height:1px;
+  background:linear-gradient(90deg, transparent, var(--brass), transparent);
+}
+.press-hero::after{
+  content:""; position:absolute; inset:0; 
+  background:radial-gradient(110% 110% at 70% 30%, rgba(0,0,0,0) 0%, rgba(0,0,0,.7) 70%);
+}
+.press-hero .inner{position:relative; z-index:2; max-width:900px; margin:0 auto}
+.press-hero h1{
+  font-size:clamp(2.6rem,5.2vw,3.8rem); color:var(--paper); margin-bottom:16px;
+  font-family:'Cinzel',serif; font-weight:400; line-height:1.15;
+}
+.press-hero p{color:#d6d3ce; margin:0 auto; max-width:760px; font-size:1.1rem; line-height:1.6}
+
+/* Quick Access */
+.quick-access{
+  padding:clamp(84px,12vh,140px) 10%; 
+  background:linear-gradient(135deg, var(--paper) 0%, #f8f6f0 100%);
+  position:relative;
+}
+.quick-access::before{
+  content:""; position:absolute; top:0; left:0; right:0; height:1px;
+  background:linear-gradient(90deg, transparent, var(--brass), transparent);
+}
+.access-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:24px; max-width:1200px; margin:0 auto}
+.access-card{
+  background:var(--white); border:1px solid rgba(17,17,17,.06); 
+  border-radius:16px; padding:28px 24px; box-shadow:var(--shadow);
+  text-align:center; transition:all .4s ease; position:relative; overflow:hidden;
+}
+.access-card::before{
+  content:""; position:absolute; top:0; left:0; right:0; height:3px;
+  background:linear-gradient(90deg, var(--brass) 0%, #d4af78 100%);
+}
+.access-card:hover{transform:translateY(-4px); box-shadow:0 16px 40px rgba(0,0,0,.12)}
+.access-icon{
+  width:56px; height:56px; color:var(--brass); margin:0 auto 16px;
+  background:rgba(178,149,109,.1); border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+}
+.access-card h3{color:var(--ink); margin-bottom:12px; font-size:1.2rem}
+.access-card p{color:var(--ash); margin:0 0 20px; font-size:.9rem; line-height:1.6}
+.btn{
+  font-family:Cinzel,serif; padding:10px 20px; border-radius:50px;
+  border:2px solid var(--brass); background:var(--brass); color:var(--ink);
+  text-decoration:none; cursor:pointer; transition:all .4s ease; font-weight:500;
+  display:inline-flex; align-items:center; gap:8px;
+}
+.btn:hover{
+  background:transparent; color:var(--brass); transform:translateY(-2px);
+}
+.btn-secondary{background:transparent; color:var(--brass)}
+.btn-secondary:hover{background:var(--brass); color:var(--ink)}
+
+/* Press Releases */
+.releases{
+  background:#f7f7f7; padding:clamp(64px,10vh,100px) 10%;
+  position:relative;
+}
+.releases::before{
+  content:""; position:absolute; top:0; left:0; right:0; height:1px;
+  background:linear-gradient(90deg, transparent, var(--brass), transparent);
+}
+.releases-list{max-width:800px; margin:0 auto}
+.release-item{
+  background:var(--white); border:1px solid rgba(17,17,17,.08);
+  border-radius:12px; padding:24px; margin-bottom:20px; box-shadow:var(--shadow);
+  transition:all .3s ease;
+}
+.release-item:hover{box-shadow:0 8px 25px rgba(0,0,0,.12)}
+.release-date{
+  color:var(--brass); font-size:.85rem; font-weight:600; margin-bottom:8px;
+  text-transform:uppercase; letter-spacing:.1em;
+}
+.release-title{color:var(--ink); margin-bottom:12px; font-size:1.3rem; line-height:1.3}
+.release-excerpt{color:var(--ash); margin:0 0 16px; line-height:1.6}
+.release-tags{display:flex; gap:8px; flex-wrap:wrap; margin-bottom:16px}
+.tag{
+  background:rgba(178,149,109,.1); color:var(--brass); padding:4px 12px;
+  border-radius:12px; font-size:.8rem; font-weight:500;
+}
+.release-actions{display:flex; gap:12px; align-items:center}
+
+/* Media Kit */
+.media-kit{
+  padding:clamp(64px,10vh,100px) 10%; 
+  background:linear-gradient(135deg, var(--paper) 0%, #f8f6f0 100%);
+  position:relative;
+}
+.media-kit::before{
+  content:""; position:absolute; top:0; left:0; right:0; height:1px;
+  background:linear-gradient(90deg, transparent, var(--brass), transparent);
+}
+.kit-sections{max-width:1000px; margin:0 auto; display:grid; gap:32px}
+.kit-section{
+  background:var(--white); border:1px solid rgba(17,17,17,.08);
+  border-radius:16px; padding:28px 24px; box-shadow:var(--shadow);
+}
+.kit-section h3{color:var(--ink); margin-bottom:16px; font-size:1.3rem; display:flex; align-items:center; gap:12px}
+.kit-section .icon{width:24px; height:24px; color:var(--brass)}
+.assets-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:16px; margin-top:16px}
+.asset-item{
+  background:rgba(178,149,109,.05); border:1px solid rgba(178,149,109,.2);
+  border-radius:8px; padding:16px 12px; text-align:center; transition:all .3s ease;
+}
+.asset-item:hover{background:rgba(178,149,109,.1); transform:translateY(-2px)}
+.asset-icon{
+  width:32px; height:32px; color:var(--brass); margin:0 auto 8px;
+}
+.asset-name{color:var(--ink); font-weight:500; margin-bottom:4px; font-size:.9rem}
+.asset-details{color:var(--ash); font-size:.8rem; margin-bottom:12px}
+.asset-download{
+  background:var(--brass); color:var(--ink); padding:6px 12px; border-radius:20px;
+  text-decoration:none; font-size:.8rem; font-weight:500; transition:all .3s ease;
+}
+.asset-download:hover{background:var(--ink); color:var(--paper)}
+
+/* Brand Guidelines */
+.brand-guidelines{
+  background:var(--ink); color:var(--paper); padding:clamp(64px,10vh,100px) 10%;
+  position:relative;
+}
+.brand-guidelines::before{
+  content:""; position:absolute; top:0; left:0; right:0; height:1px;
+  background:linear-gradient(90deg, transparent, var(--brass), transparent);
+}
+.guidelines-grid{
+  max-width:1000px; margin:0 auto; display:grid; 
+  grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); gap:24px;
+}
+.guideline-card{
+  background:rgba(255,255,255,.05); border:1px solid rgba(242,240,235,.2);
+  border-radius:16px; padding:24px 20px; backdrop-filter:blur(10px);
+  text-align:center; transition:all .4s ease;
+}
+.guideline-card:hover{
+  background:rgba(255,255,255,.1); transform:translateY(-4px);
+}
+.guideline-icon{
+  width:48px; height:48px; color:var(--brass); margin:0 auto 16px;
+}
+.guideline-card h4{color:var(--paper); margin-bottom:8px; font-size:1.1rem}
+.guideline-card p{color:#d6d3ce; margin:0 0 16px; font-size:.9rem; line-height:1.5}
+
+/* Color Palette */
+.color-palette{
+  padding:clamp(64px,10vh,100px) 10%; background:#f7f7f7;
+  position:relative;
+}
+.color-palette::before{
+  content:""; position:absolute; top:0; left:0; right:0; height:1px;
+  background:linear-gradient(90deg, transparent, var(--brass), transparent);
+}
+.palette-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(150px, 1fr)); gap:20px; max-width:800px; margin:0 auto}
+.color-swatch{
+  background:var(--white); border:1px solid rgba(17,17,17,.08);
+  border-radius:12px; overflow:hidden; box-shadow:var(--shadow);
+  transition:all .3s ease;
+}
+.color-swatch:hover{transform:translateY(-4px); box-shadow:0 8px 25px rgba(0,0,0,.15)}
+.swatch-color{height:80px; position:relative}
+.swatch-color.ink{background:var(--ink)}
+.swatch-color.paper{background:var(--paper)}
+.swatch-color.brass{background:var(--brass)}
+.swatch-color.ash{background:var(--ash)}
+.swatch-color.white{background:var(--white); border-bottom:1px solid rgba(17,17,17,.1)}
+.swatch-info{padding:12px}
+.swatch-name{color:var(--ink); font-weight:600; margin-bottom:4px; font-size:.9rem}
+.swatch-hex{color:var(--ash); font-size:.8rem; font-family:monospace}
+
+/* Contact */
+.contact{
+  background:linear-gradient(135deg, var(--paper) 0%, #f8f6f0 100%);
+  text-align:center; padding:clamp(64px,10vh,100px) 10%;
+}
+.contact h2{margin-bottom:16px; color:var(--ink)}
+.contact p{color:var(--ash); margin:0 0 24px; max-width:600px; margin-left:auto; margin-right:auto}
+.contact-info{
+  max-width:600px; margin:0 auto 32px; display:grid; grid-template-columns:1fr 1fr; gap:24px;
+  text-align:left;
+}
+.contact-item{
+  background:var(--white); border:1px solid rgba(17,17,17,.08);
+  border-radius:12px; padding:20px; box-shadow:var(--shadow);
+}
+.contact-item h4{color:var(--ink); margin-bottom:8px; font-size:1rem; display:flex; align-items:center; gap:8px}
+.contact-item .icon{width:20px; height:20px; color:var(--brass)}
+.contact-item p{color:var(--ash); margin:0; font-size:.9rem}
+
+/* Responsive */
+@media (max-width:767px){
+  .press-hero{padding:clamp(80px,12vh,120px) 7%; min-height:60vh}
+  .access-grid{grid-template-columns:1fr}
+  .guidelines-grid{grid-template-columns:1fr}
+  .contact-info{grid-template-columns:1fr}
+  .palette-grid{grid-template-columns:repeat(auto-fit, minmax(120px, 1fr))}
+}
+</style>
+
+<div class="press">
+  <!-- HERO -->
+  <section class="press-hero">
+    <div class="inner">
+      <div class="eyebrow">Media Resources</div>
+      <h1>Press & Media</h1>
+      <p>Professional media resources, brand assets, and press information for journalists, influencers, and media professionals covering LUNVYR.</p>
+    </div>
+  </section>
+
+  <!-- QUICK ACCESS -->
+  <section class="quick-access">
+    <div class="eyebrow">Quick Access</div>
+    <h2 style="text-align:center; margin-bottom:40px; color:var(--ink); font-size:clamp(1.8rem,2.8vw,2.4rem)">Media Resources</h2>
+    
+    <div class="access-grid">
+      <div class="access-card">
+        <svg class="access-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>
+        <h3>Press Kit</h3>
+        <p>Complete media kit with company overview, product information, and executive bios.</p>
+        <a href="#" class="btn" onclick="downloadAsset('press-kit')">Download Kit</a>
+      </div>
+
+      <div class="access-card">
+        <svg class="access-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 16l4.586-4.586a2 2 0 0 1 2.828 0L16 16m-2-2l1.586-1.586a2 2 0 0 1 2.828 0L20 14m-6-6h.01M6 2h12a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/></svg>
+        <h3>High-Res Images</h3>
+        <p>Professional product photography, lifestyle shots, and brand imagery in print quality.</p>
+        <a href="#" class="btn" onclick="downloadAsset('images')">Browse Gallery</a>
+      </div>
+
+      <div class="access-card">
+        <svg class="access-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <h3>Brand Guidelines</h3>
+        <p>Logo usage, color palettes, typography guidelines, and brand standards.</p>
+        <a href="#" class="btn" onclick="downloadAsset('brand-guide')">Download Guide</a>
+      </div>
+
+      <div class="access-card">
+        <svg class="access-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10z"/></svg>
+        <h3>Press Releases</h3>
+        <p>Latest news, product launches, and company announcements ready for publication.</p>
+        <a href="#releases" class="btn-secondary btn">View Releases</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRESS RELEASES -->
+  <section class="releases" id="releases">
+    <div class="eyebrow" style="text-align:center">Latest News</div>
+    <h2 style="text-align:center; margin-bottom:40px; color:var(--ink); font-size:clamp(1.6rem,2.4vw,2rem)">Press Releases</h2>
+    
+    <div class="releases-list">
+      <div class="release-item">
+        <div class="release-date">October 15, 2025</div>
+        <h3 class="release-title">LUNVYR Launches New METALLIC FUSION Collection</h3>
+        <p class="release-excerpt">LUNVYR introduces its most innovative collection yet, featuring cutting-edge metallic finishes and contemporary geometric forms that redefine luxury lighting design.</p>
+        <div class="release-tags">
+          <span class="tag">Product Launch</span>
+          <span class="tag">Design Innovation</span>
+          <span class="tag">Luxury Lighting</span>
+        </div>
+        <div class="release-actions">
+          <a href="#" class="btn" onclick="downloadAsset('release-metallic-fusion')">Download Release</a>
+          <a href="#" class="btn-secondary btn">View Images</a>
+        </div>
+      </div>
+
+      <div class="release-item">
+        <div class="release-date">September 3, 2025</div>
+        <h3 class="release-title">LUNVYR Receives Interior Design Best of Year Award</h3>
+        <p class="release-excerpt">The AUREA collection wins prestigious recognition for excellence in luxury lighting design, cementing LUNVYR's position as industry leader.</p>
+        <div class="release-tags">
+          <span class="tag">Awards</span>
+          <span class="tag">Recognition</span>
+          <span class="tag">Industry News</span>
+        </div>
+        <div class="release-actions">
+          <a href="#" class="btn" onclick="downloadAsset('release-award')">Download Release</a>
+          <a href="#" class="btn-secondary btn">View Images</a>
+        </div>
+      </div>
+
+      <div class="release-item">
+        <div class="release-date">August 20, 2025</div>
+        <h3 class="release-title">LUNVYR Expands Trade Program with New Partnership Benefits</h3>
+        <p class="release-excerpt">Enhanced trade program offers design professionals increased discounts, priority support, and exclusive access to custom finish development.</p>
+        <div class="release-tags">
+          <span class="tag">Trade Program</span>
+          <span class="tag">Partnership</span>
+          <span class="tag">Professional Services</span>
+        </div>
+        <div class="release-actions">
+          <a href="#" class="btn" onclick="downloadAsset('release-trade')">Download Release</a>
+          <a href="#" class="btn-secondary btn">View Images</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MEDIA KIT -->
+  <section class="media-kit">
+    <div class="eyebrow" style="text-align:center">Professional Assets</div>
+    <h2 style="text-align:center; margin-bottom:40px; color:var(--ink); font-size:clamp(1.6rem,2.4vw,2rem)">Media Kit Downloads</h2>
+    
+    <div class="kit-sections">
+      <div class="kit-section">
+        <h3>
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 16l4.586-4.586a2 2 0 0 1 2.828 0L16 16m-2-2l1.586-1.586a2 2 0 0 1 2.828 0L20 14m-6-6h.01M6 2h12a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/></svg>
+          Product Photography
+        </h3>
+        <p style="color:var(--ash); margin-bottom:16px">High-resolution product images suitable for print and digital media.</p>
+        
+        <div class="assets-grid">
+          <div class="asset-item">
+            <svg class="asset-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 16l4.586-4.586a2 2 0 0 1 2.828 0L16 16m-2-2l1.586-1.586a2 2 0 0 1 2.828 0L20 14m-6-6h.01M6 2h12a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/></svg>
+            <div class="asset-name">AUREA Collection</div>
+            <div class="asset-details">25 images • 300 DPI</div>
+            <a href="#" class="asset-download" onclick="downloadAsset('aurea-photos')">Download</a>
+          </div>
+          
+          <div class="asset-item">
+            <svg class="asset-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 16l4.586-4.586a2 2 0 0 1 2.828 0L16 16m-2-2l1.586-1.586a2 2 0 0 1 2.828 0L20 14m-6-6h.01M6 2h12a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/></svg>
+            <div class="asset-name">BLACK LABEL</div>
+            <div class="asset-details">20 images • 300 DPI</div>
+            <a href="#" class="asset-download" onclick="downloadAsset('black-label-photos')">Download</a>
+          </div>
+          
+          <div class="asset-item">
+            <svg class="asset-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 16l4.586-4.586a2 2 0 0 1 2.828 0L16 16m-2-2l1.586-1.586a2 2 0 0 1 2.828 0L20 14m-6-6h.01M6 2h12a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/></svg>
+            <div class="asset-name">Lifestyle Images</div>
+            <div class="asset-details">30 images • 300 DPI</div>
+            <a href="#" class="asset-download" onclick="downloadAsset('lifestyle-photos')">Download</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="kit-section">
+        <h3>
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          Brand Assets
+        </h3>
+        <p style="color:var(--ash); margin-bottom:16px">Logo files, wordmarks, and brand elements in various formats.</p>
+        
+        <div class="assets-grid">
+          <div class="asset-item">
+            <svg class="asset-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg>
+            <div class="asset-name">Logo Package</div>
+            <div class="asset-details">SVG, PNG, EPS</div>
+            <a href="#" class="asset-download" onclick="downloadAsset('logo-package')">Download</a>
+          </div>
+          
+          <div class="asset-item">
+            <svg class="asset-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg>
+            <div class="asset-name">Brand Guidelines</div>
+            <div class="asset-details">PDF • 24 pages</div>
+            <a href="#" class="asset-download" onclick="downloadAsset('brand-guidelines')">Download</a>
+          </div>
+          
+          <div class="asset-item">
+            <svg class="asset-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg>
+            <div class="asset-name">Color Swatches</div>
+            <div class="asset-details">ASE, ACO files</div>
+            <a href="#" class="asset-download" onclick="downloadAsset('color-swatches')">Download</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="kit-section">
+        <h3>
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>
+          Company Information
+        </h3>
+        <p style="color:var(--ash); margin-bottom:16px">Fact sheets, executive bios, and company background materials.</p>
+        
+        <div class="assets-grid">
+          <div class="asset-item">
+            <svg class="asset-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg>
+            <div class="asset-name">Company Fact Sheet</div>
+            <div class="asset-details">PDF • 2 pages</div>
+            <a href="#" class="asset-download" onclick="downloadAsset('fact-sheet')">Download</a>
+          </div>
+          
+          <div class="asset-item">
+            <svg class="asset-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg>
+            <div class="asset-name">Executive Bios</div>
+            <div class="asset-details">PDF • 4 pages</div>
+            <a href="#" class="asset-download" onclick="downloadAsset('exec-bios')">Download</a>
+          </div>
+          
+          <div class="asset-item">
+            <svg class="asset-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg>
+            <div class="asset-name">Product Specifications</div>
+            <div class="asset-details">PDF • 8 pages</div>
+            <a href="#" class="asset-download" onclick="downloadAsset('specifications')">Download</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BRAND GUIDELINES -->
+  <section class="brand-guidelines">
+    <div class="eyebrow" style="text-align:center">Brand Standards</div>
+    <h2 style="text-align:center; margin-bottom:40px; color:var(--paper); font-size:clamp(1.6rem,2.4vw,2rem)">Usage Guidelines</h2>
+    
+    <div class="guidelines-grid">
+      <div class="guideline-card">
+        <svg class="guideline-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <h4>Logo Usage</h4>
+        <p>Maintain minimum clearspace, use approved color versions, and avoid distortion or modification.</p>
+        <a href="#" class="btn-secondary btn" onclick="downloadAsset('logo-guidelines')">Guidelines</a>
+      </div>
+
+      <div class="guideline-card">
+        <svg class="guideline-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 3l9 4.5v9L12 21l-9-4.5v-9L12 3z"/></svg>
+        <h4>Color Palette</h4>
+        <p>Use official brand colors for consistency. Primary palette includes Ink, Paper, Brass, and Ash.</p>
+        <a href="#colors" class="btn-secondary btn">View Palette</a>
+      </div>
+
+      <div class="guideline-card">
+        <svg class="guideline-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg>
+        <h4>Typography</h4>
+        <p>Primary typeface is Cinzel for headings, Inter for body text. Maintain hierarchy and spacing.</p>
+        <a href="#" class="btn-secondary btn" onclick="downloadAsset('typography-guide')">Guidelines</a>
+      </div>
+
+      <div class="guideline-card">
+        <svg class="guideline-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 16l4.586-4.586a2 2 0 0 1 2.828 0L16 16m-2-2l1.586-1.586a2 2 0 0 1 2.828 0L20 14m-6-6h.01M6 2h12a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2z"/></svg>
+        <h4>Photography</h4>
+        <p>Use high-contrast lighting, minimal staging, and focus on brass details and craftsmanship.</p>
+        <a href="#" class="btn-secondary btn" onclick="downloadAsset('photo-guidelines')">Guidelines</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- COLOR PALETTE -->
+  <section class="color-palette" id="colors">
+    <div class="eyebrow" style="text-align:center">Brand Colors</div>
+    <h2 style="text-align:center; margin-bottom:40px; color:var(--ink); font-size:clamp(1.6rem,2.4vw,2rem)">Official Color Palette</h2>
+    
+    <div class="palette-grid">
+      <div class="color-swatch">
+        <div class="swatch-color ink"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Ink</div>
+          <div class="swatch-hex">#1C222B</div>
+        </div>
+      </div>
+      
+      <div class="color-swatch">
+        <div class="swatch-color paper"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Paper</div>
+          <div class="swatch-hex">#F2F0EB</div>
+        </div>
+      </div>
+      
+      <div class="color-swatch">
+        <div class="swatch-color brass"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Brass</div>
+          <div class="swatch-hex">#B2956D</div>
+        </div>
+      </div>
+      
+      <div class="color-swatch">
+        <div class="swatch-color ash"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Ash</div>
+          <div class="swatch-hex">#666666</div>
+        </div>
+      </div>
+      
+      <div class="color-swatch">
+        <div class="swatch-color white"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">White</div>
+          <div class="swatch-hex">#FFFFFF</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact">
+    <h2>Media Inquiries</h2>
+    <p>For press inquiries, interview requests, or additional media resources, please contact our media relations team.</p>
+    
+    <div class="contact-info">
+      <div class="contact-item">
+        <h4>
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10z"/></svg>
+          Press Inquiries
+        </h4>
+        <p>press@lunvyr.com<br>Response within 24 hours</p>
+      </div>
+      
+      <div class="contact-item">
+        <h4>
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Media Hotline
+        </h4>
+        <p>+1 (555) 123-4567<br>Monday-Friday 9AM-6PM EST</p>
+      </div>
+    </div>
+    
+    <a href="/contact" class="btn">Contact Media Team</a>
+  </section>
+</div>
+
+<script>
+function downloadAsset(assetId) {
+  // Simulate asset download
+  const assets = {
+    'press-kit': 'LUNVYR_Press_Kit_2025.zip',
+    'images': 'LUNVYR_Image_Gallery.zip',
+    'brand-guide': 'LUNVYR_Brand_Guidelines.pdf',
+    'release-metallic-fusion': 'LUNVYR_Metallic_Fusion_Launch.pdf',
+    'release-award': 'LUNVYR_Award_Announcement.pdf',
+    'release-trade': 'LUNVYR_Trade_Program_Expansion.pdf',
+    'aurea-photos': 'AUREA_Collection_Photos.zip',
+    'black-label-photos': 'BLACK_LABEL_Collection_Photos.zip',
+    'lifestyle-photos': 'LUNVYR_Lifestyle_Images.zip',
+    'logo-package': 'LUNVYR_Logo_Package.zip',
+    'brand-guidelines': 'LUNVYR_Brand_Guidelines.pdf',
+    'color-swatches': 'LUNVYR_Color_Swatches.zip',
+    'fact-sheet': 'LUNVYR_Company_Fact_Sheet.pdf',
+    'exec-bios': 'LUNVYR_Executive_Bios.pdf',
+    'specifications': 'LUNVYR_Product_Specifications.pdf'
+  };
+  
+  const filename = assets[assetId] || 'LUNVYR_Media_Asset.zip';
+  alert(`Downloading: ${filename}\n\nThis would normally trigger a file download in a real implementation.`);
+}
+
+// Reveal animations
+document.addEventListener('DOMContentLoaded', function(){
+  const cards = document.querySelectorAll('.access-card, .release-item, .kit-section, .guideline-card, .color-swatch');
+  if('IntersectionObserver' in window){
+    const observer = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, {threshold: 0.1});
+    
+    cards.forEach(card=>{
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(20px)';
+      card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      observer.observe(card);
+    });
+  }
+});
+</script>

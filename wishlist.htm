@@ -1,0 +1,648 @@
+<!-- LUNVYR — Wishlist -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Inter:wght@300;400;500&display=swap');
+
+:root{
+  --ink: #1c222b; --paper: #f2f0eb; --coal: #111; --ash: #666; 
+  --brass: #b2956d; --white: #fff; --surface: #ffffff;
+  --radius: 12px; --shadow: 0 4px 20px rgba(0,0,0,.08);
+  --success: #10b981; --danger: #ef4444;
+}
+
+.wishlist-page{
+  font-family: 'Inter', sans-serif; color: var(--coal); line-height: 1.7;
+  background: var(--paper); min-height: 100vh;
+}
+
+/* Header */
+.wishlist-header{
+  background: linear-gradient(135deg, var(--ink) 0%, #0f141a 100%);
+  color: var(--paper); padding: 80px 10% 60px; text-align: center;
+}
+.wishlist-header h1{
+  font-family: 'Cinzel', serif; font-size: clamp(2.5rem, 4vw, 3.5rem);
+  margin: 0 0 16px; font-weight: 500;
+}
+.wishlist-header .subtitle{
+  font-size: 1.1rem; opacity: 0.9; max-width: 600px; margin: 0 auto;
+}
+
+/* Toolbar */
+.wishlist-toolbar{
+  background: var(--white); padding: 24px 10%; border-bottom: 1px solid #eee;
+  position: sticky; top: 0; z-index: 10; backdrop-filter: blur(10px);
+}
+.toolbar-content{
+  max-width: 1200px; margin: 0 auto; display: flex;
+  justify-content: space-between; align-items: center; gap: 20px;
+}
+.wishlist-stats{
+  display: flex; gap: 24px; align-items: center;
+}
+.stat-item{
+  text-align: center;
+}
+.stat-number{
+  font-family: 'Cinzel', serif; font-size: 1.5rem; color: var(--brass);
+  font-weight: 600; display: block;
+}
+.stat-label{
+  font-size: 0.85rem; color: var(--ash); text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.wishlist-actions{
+  display: flex; gap: 12px; align-items: center;
+}
+.action-btn{
+  padding: 8px 16px; border-radius: 6px; font-size: 0.85rem;
+  font-weight: 500; transition: all 0.3s ease; cursor: pointer;
+  display: inline-flex; align-items: center; gap: 6px;
+}
+.btn-clear{
+  background: var(--danger); color: var(--white); border: none;
+}
+.btn-clear:hover{
+  background: #dc2626; transform: translateY(-1px);
+}
+.btn-share{
+  background: var(--brass); color: var(--white); border: none;
+}
+.btn-share:hover{
+  background: #9d8354; transform: translateY(-1px);
+}
+
+/* Content */
+.wishlist-content{
+  max-width: 1200px; margin: 0 auto; padding: 40px 10%;
+}
+
+/* Empty State */
+.empty-wishlist{
+  text-align: center; padding: 80px 20px; background: var(--white);
+  border-radius: var(--radius); box-shadow: var(--shadow);
+}
+.empty-icon{
+  font-size: 4rem; margin-bottom: 24px; opacity: 0.3;
+}
+.empty-wishlist h2{
+  font-family: 'Cinzel', serif; color: var(--coal); margin: 0 0 16px;
+  font-size: 1.8rem;
+}
+.empty-wishlist p{
+  color: var(--ash); margin: 0 0 32px; max-width: 400px; margin-left: auto;
+  margin-right: auto;
+}
+.start-shopping{
+  background: linear-gradient(135deg, var(--ink) 0%, #0f141a 100%);
+  color: var(--white); padding: 12px 32px; border-radius: 50px;
+  text-decoration: none; font-weight: 500; transition: all 0.3s ease;
+  display: inline-flex; align-items: center; gap: 8px;
+}
+.start-shopping:hover{
+  transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+/* Wishlist Grid */
+.wishlist-grid{
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px; margin-bottom: 40px;
+}
+
+.wishlist-item{
+  background: var(--white); border-radius: var(--radius);
+  box-shadow: var(--shadow); overflow: hidden; transition: all 0.3s ease;
+  position: relative;
+}
+.wishlist-item:hover{
+  transform: translateY(-4px); box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+}
+
+.item-image{
+  aspect-ratio: 1; background: #f8f9fa; overflow: hidden;
+  position: relative;
+}
+.item-image img{
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform 0.3s ease;
+}
+.wishlist-item:hover .item-image img{
+  transform: scale(1.05);
+}
+
+.item-actions{
+  position: absolute; top: 12px; right: 12px; display: flex;
+  gap: 8px; opacity: 0; transition: opacity 0.3s ease;
+}
+.wishlist-item:hover .item-actions{
+  opacity: 1;
+}
+.action-icon{
+  width: 36px; height: 36px; border-radius: 50%; display: flex;
+  align-items: center; justify-content: center; cursor: pointer;
+  transition: all 0.3s ease; backdrop-filter: blur(10px);
+}
+.remove-btn{
+  background: rgba(239,68,68,0.9); color: var(--white);
+}
+.remove-btn:hover{
+  background: var(--danger); transform: scale(1.1);
+}
+.share-btn{
+  background: rgba(178,149,109,0.9); color: var(--white);
+}
+.share-btn:hover{
+  background: var(--brass); transform: scale(1.1);
+}
+
+.item-content{
+  padding: 20px;
+}
+.item-title{
+  font-family: 'Cinzel', serif; font-size: 1.1rem; color: var(--coal);
+  margin: 0 0 8px; line-height: 1.3;
+}
+.item-collection{
+  color: var(--brass); font-size: 0.85rem; font-weight: 500;
+  text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px;
+}
+.item-price{
+  font-size: 1.2rem; font-weight: 600; color: var(--coal); margin: 0 0 16px;
+}
+.item-meta{
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 16px;
+}
+.date-added{
+  font-size: 0.8rem; color: var(--ash);
+}
+.stock-status{
+  font-size: 0.8rem; font-weight: 500; padding: 4px 8px;
+  border-radius: 4px;
+}
+.in-stock{
+  background: rgba(16,185,129,0.1); color: var(--success);
+}
+.out-of-stock{
+  background: rgba(239,68,68,0.1); color: var(--danger);
+}
+
+.item-actions-bottom{
+  display: flex; gap: 8px;
+}
+.btn-cart{
+  flex: 1; background: var(--brass); color: var(--white);
+  border: none; padding: 10px; border-radius: 6px; font-weight: 500;
+  cursor: pointer; transition: all 0.3s ease;
+}
+.btn-cart:hover{
+  background: #9d8354; transform: translateY(-1px);
+}
+.btn-cart:disabled{
+  background: #ccc; cursor: not-allowed; transform: none;
+}
+.btn-view{
+  background: var(--paper); color: var(--coal); border: 1px solid #ddd;
+  padding: 10px 16px; border-radius: 6px; text-decoration: none;
+  font-weight: 500; transition: all 0.3s ease;
+}
+.btn-view:hover{
+  background: var(--white); border-color: var(--brass);
+}
+
+/* Collections Filter */
+.filter-section{
+  background: var(--white); padding: 24px; border-radius: var(--radius);
+  box-shadow: var(--shadow); margin-bottom: 32px;
+}
+.filter-header{
+  display: flex; justify-content: between; align-items: center; margin-bottom: 16px;
+}
+.filter-header h3{
+  font-family: 'Cinzel', serif; margin: 0; color: var(--coal);
+}
+.filter-tags{
+  display: flex; gap: 8px; flex-wrap: wrap;
+}
+.filter-tag{
+  padding: 6px 12px; border-radius: 20px; font-size: 0.85rem;
+  cursor: pointer; transition: all 0.3s ease; border: 1px solid #ddd;
+  background: var(--white);
+}
+.filter-tag.active{
+  background: var(--brass); color: var(--white); border-color: var(--brass);
+}
+.filter-tag:hover{
+  border-color: var(--brass);
+}
+
+/* Share Modal */
+.share-modal{
+  display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5);
+  z-index: 1000; justify-content: center; align-items: center;
+}
+.share-content{
+  background: var(--white); padding: 32px; border-radius: var(--radius);
+  max-width: 400px; width: 90%; margin: 20px;
+}
+.share-content h3{
+  font-family: 'Cinzel', serif; margin: 0 0 16px; color: var(--coal);
+}
+.share-options{
+  display: grid; gap: 12px;
+}
+.share-option{
+  display: flex; align-items: center; gap: 12px; padding: 12px;
+  border: 1px solid #ddd; border-radius: 8px; cursor: pointer;
+  transition: all 0.3s ease;
+}
+.share-option:hover{
+  border-color: var(--brass); background: rgba(178,149,109,0.05);
+}
+.share-icon{
+  width: 24px; height: 24px; font-size: 1.2rem;
+}
+
+/* Responsive */
+@media (max-width: 768px){
+  .wishlist-header{ padding: 60px 6% 40px; }
+  .wishlist-toolbar{ padding: 16px 6%; }
+  .toolbar-content{ flex-direction: column; align-items: stretch; gap: 16px; }
+  .wishlist-content{ padding: 24px 6%; }
+  .wishlist-grid{ grid-template-columns: 1fr; gap: 16px; }
+  .wishlist-stats{ justify-content: center; }
+  .filter-tags{ justify-content: center; }
+}
+</style>
+
+<div class="wishlist-page" id="wishlistApp">
+  <!-- Header -->
+  <header class="wishlist-header">
+    <h1>My Wishlist</h1>
+    <p class="subtitle">Curated lighting pieces you love, saved for future inspiration and purchase.</p>
+  </header>
+
+  <!-- Toolbar -->
+  <section class="wishlist-toolbar">
+    <div class="toolbar-content">
+      <div class="wishlist-stats">
+        <div class="stat-item">
+          <span class="stat-number" id="totalItems">0</span>
+          <span class="stat-label">Items</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" id="totalValue">$0</span>
+          <span class="stat-label">Total Value</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number" id="collections">0</span>
+          <span class="stat-label">Collections</span>
+        </div>
+      </div>
+      <div class="wishlist-actions">
+        <button class="action-btn btn-share" onclick="shareWishlist()">
+          <span>📤</span> Share Wishlist
+        </button>
+        <button class="action-btn btn-clear" onclick="clearWishlist()">
+          <span>🗑️</span> Clear All
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Content -->
+  <main class="wishlist-content">
+
+    <!-- Filter Section -->
+    <section class="filter-section" id="filterSection" style="display: none;">
+      <div class="filter-header">
+        <h3>Filter by Collection</h3>
+      </div>
+      <div class="filter-tags" id="filterTags">
+        <span class="filter-tag active" data-collection="all">All Items</span>
+      </div>
+    </section>
+
+    <!-- Empty State -->
+    <section class="empty-wishlist" id="emptyState">
+      <div class="empty-icon">💡</div>
+      <h2>Your Wishlist is Empty</h2>
+      <p>Start building your dream lighting collection by adding pieces that inspire you.</p>
+      <a href="/shop.htm" class="start-shopping">
+        <span>Explore Collection</span>
+        <span>→</span>
+      </a>
+    </section>
+
+    <!-- Wishlist Items -->
+    <section class="wishlist-grid" id="wishlistGrid" style="display: none;"></section>
+
+  </main>
+
+  <!-- Share Modal -->
+  <div class="share-modal" id="shareModal">
+    <div class="share-content">
+      <h3>Share Your Wishlist</h3>
+      <div class="share-options">
+        <div class="share-option" onclick="shareVia('email')">
+          <span class="share-icon">📧</span>
+          <span>Share via Email</span>
+        </div>
+        <div class="share-option" onclick="shareVia('copy')">
+          <span class="share-icon">🔗</span>
+          <span>Copy Link</span>
+        </div>
+        <div class="share-option" onclick="shareVia('whatsapp')">
+          <span class="share-icon">💬</span>
+          <span>Share on WhatsApp</span>
+        </div>
+        <div class="share-option" onclick="closeShareModal()">
+          <span class="share-icon">❌</span>
+          <span>Cancel</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+class WishlistManager {
+  constructor() {
+    this.wishlist = this.loadWishlist();
+    this.currentFilter = 'all';
+    this.init();
+  }
+
+  init() {
+    this.updateStats();
+    this.renderWishlist();
+    this.setupFilters();
+    
+    // Listen for wishlist updates from other pages
+    window.addEventListener('storage', (e) => {
+      if (e.key === 'lunvyr_wishlist') {
+        this.wishlist = this.loadWishlist();
+        this.updateStats();
+        this.renderWishlist();
+      }
+    });
+  }
+
+  loadWishlist() {
+    try {
+      return JSON.parse(localStorage.getItem('lunvyr_wishlist') || '[]');
+    } catch {
+      return [];
+    }
+  }
+
+  saveWishlist() {
+    localStorage.setItem('lunvyr_wishlist', JSON.stringify(this.wishlist));
+    window.dispatchEvent(new Event('storage'));
+  }
+
+  updateStats() {
+    const totalItems = this.wishlist.length;
+    const totalValue = this.wishlist.reduce((sum, item) => sum + (item.price || 0), 0);
+    const collections = [...new Set(this.wishlist.map(item => item.collection))].length;
+
+    document.getElementById('totalItems').textContent = totalItems;
+    document.getElementById('totalValue').textContent = `$${totalValue.toLocaleString()}`;
+    document.getElementById('collections').textContent = collections;
+  }
+
+  setupFilters() {
+    if (this.wishlist.length === 0) return;
+
+    const collections = [...new Set(this.wishlist.map(item => item.collection))];
+    const filterTags = document.getElementById('filterTags');
+    const filterSection = document.getElementById('filterSection');
+
+    if (collections.length > 1) {
+      filterSection.style.display = 'block';
+      
+      collections.forEach(collection => {
+        const tag = document.createElement('span');
+        tag.className = 'filter-tag';
+        tag.dataset.collection = collection.toLowerCase();
+        tag.textContent = collection;
+        tag.onclick = () => this.filterByCollection(collection.toLowerCase());
+        filterTags.appendChild(tag);
+      });
+    }
+  }
+
+  filterByCollection(collection) {
+    this.currentFilter = collection;
+    
+    // Update active filter tag
+    document.querySelectorAll('.filter-tag').forEach(tag => {
+      tag.classList.toggle('active', tag.dataset.collection === collection);
+    });
+
+    this.renderWishlist();
+  }
+
+  renderWishlist() {
+    const emptyState = document.getElementById('emptyState');
+    const wishlistGrid = document.getElementById('wishlistGrid');
+
+    if (this.wishlist.length === 0) {
+      emptyState.style.display = 'block';
+      wishlistGrid.style.display = 'none';
+      return;
+    }
+
+    emptyState.style.display = 'none';
+    wishlistGrid.style.display = 'grid';
+
+    // Filter items
+    const filteredItems = this.currentFilter === 'all' 
+      ? this.wishlist 
+      : this.wishlist.filter(item => item.collection.toLowerCase() === this.currentFilter);
+
+    wishlistGrid.innerHTML = filteredItems.map(item => this.renderWishlistItem(item)).join('');
+  }
+
+  renderWishlistItem(item) {
+    const isInStock = Math.random() > 0.3; // Simulate stock status
+    const dateAdded = new Date(item.dateAdded || Date.now()).toLocaleDateString();
+
+    return `
+      <div class="wishlist-item" data-id="${item.id}">
+        <div class="item-image">
+          <img src="${item.image || 'https://via.placeholder.com/300x300?text=LUNVYR'}" 
+               alt="${item.name}" loading="lazy">
+          <div class="item-actions">
+            <button class="action-icon share-btn" onclick="shareItem('${item.id}')" title="Share item">
+              📤
+            </button>
+            <button class="action-icon remove-btn" onclick="wishlistManager.removeItem('${item.id}')" title="Remove from wishlist">
+              ❌
+            </button>
+          </div>
+        </div>
+        <div class="item-content">
+          <h3 class="item-title">${item.name}</h3>
+          <div class="item-collection">${item.collection}</div>
+          <div class="item-price">$${item.price?.toLocaleString() || 'Price on request'}</div>
+          <div class="item-meta">
+            <span class="date-added">Added ${dateAdded}</span>
+            <span class="stock-status ${isInStock ? 'in-stock' : 'out-of-stock'}">
+              ${isInStock ? '✓ In Stock' : '⚠ Out of Stock'}
+            </span>
+          </div>
+          <div class="item-actions-bottom">
+            <button class="btn-cart" ${!isInStock ? 'disabled' : ''} 
+                    onclick="addToCart('${item.id}')">
+              ${isInStock ? 'Add to Cart' : 'Notify When Available'}
+            </button>
+            <a href="${item.url || '/product.htm'}" class="btn-view">View</a>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  removeItem(itemId) {
+    if (confirm('Remove this item from your wishlist?')) {
+      this.wishlist = this.wishlist.filter(item => item.id !== itemId);
+      this.saveWishlist();
+      this.updateStats();
+      this.renderWishlist();
+      this.setupFilters();
+      
+      // Show notification
+      this.showNotification('Item removed from wishlist', 'success');
+    }
+  }
+
+  showNotification(message, type = 'success') {
+    const notification = document.createElement('div');
+    notification.style.cssText = `
+      position: fixed; top: 20px; right: 20px; z-index: 1001;
+      background: ${type === 'success' ? 'var(--success)' : 'var(--danger)'};
+      color: white; padding: 12px 20px; border-radius: 8px;
+      font-weight: 500; box-shadow: var(--shadow);
+      transform: translateX(400px); transition: transform 0.3s ease;
+    `;
+    notification.textContent = message;
+    document.body.appendChild(notification);
+
+    setTimeout(() => notification.style.transform = 'translateX(0)', 100);
+    setTimeout(() => {
+      notification.style.transform = 'translateX(400px)';
+      setTimeout(() => notification.remove(), 300);
+    }, 3000);
+  }
+}
+
+// Initialize wishlist manager
+const wishlistManager = new WishlistManager();
+
+// Demo data for empty wishlist
+if (wishlistManager.wishlist.length === 0) {
+  // Add some demo items for demonstration
+  const demoItems = [
+    {
+      id: 'demo-1',
+      name: 'Aurea Pendant Light',
+      collection: 'AUREA',
+      price: 1250,
+      image: 'https://lunvyr.com/wp-content/uploads/2025/08/c9ea6458-53bb-4486-a4b5-04f51cf932f3.png',
+      url: '/collection-aurea.htm',
+      dateAdded: Date.now() - 86400000 * 3 // 3 days ago
+    },
+    {
+      id: 'demo-2',
+      name: 'Industrial Wall Sconce',
+      collection: 'INDUSTRIAL',
+      price: 890,
+      image: 'https://lunvyr.com/wp-content/uploads/2025/08/image-2-1.png',
+      url: '/collection-industrial.htm',
+      dateAdded: Date.now() - 86400000 * 7 // 7 days ago
+    },
+    {
+      id: 'demo-3',
+      name: 'Orbit Ceiling Light',
+      collection: 'ORBIT',
+      price: 2100,
+      image: 'https://lunvyr.com/wp-content/uploads/2025/08/451aa3d9-d27b-419d-901c-ab1b2e01fcc8.png',
+      url: '/collection-orbit.htm',
+      dateAdded: Date.now() - 86400000 * 1 // 1 day ago
+    }
+  ];
+
+  // Uncomment to add demo items:
+  // wishlistManager.wishlist = demoItems;
+  // wishlistManager.saveWishlist();
+  // wishlistManager.updateStats();
+  // wishlistManager.renderWishlist();
+  // wishlistManager.setupFilters();
+}
+
+// Global functions
+function clearWishlist() {
+  if (confirm('Are you sure you want to clear your entire wishlist? This action cannot be undone.')) {
+    wishlistManager.wishlist = [];
+    wishlistManager.saveWishlist();
+    wishlistManager.updateStats();
+    wishlistManager.renderWishlist();
+    document.getElementById('filterSection').style.display = 'none';
+    wishlistManager.showNotification('Wishlist cleared');
+  }
+}
+
+function shareWishlist() {
+  document.getElementById('shareModal').style.display = 'flex';
+}
+
+function closeShareModal() {
+  document.getElementById('shareModal').style.display = 'none';
+}
+
+function shareVia(method) {
+  const wishlistUrl = `${window.location.origin}/wishlist.htm`;
+  const text = `Check out my LUNVYR lighting wishlist with ${wishlistManager.wishlist.length} curated pieces!`;
+
+  switch (method) {
+    case 'email':
+      window.location.href = `mailto:?subject=My LUNVYR Wishlist&body=${encodeURIComponent(text + '\n\n' + wishlistUrl)}`;
+      break;
+    case 'copy':
+      navigator.clipboard.writeText(wishlistUrl).then(() => {
+        wishlistManager.showNotification('Wishlist link copied!');
+      });
+      break;
+    case 'whatsapp':
+      window.open(`https://wa.me/?text=${encodeURIComponent(text + ' ' + wishlistUrl)}`);
+      break;
+  }
+  closeShareModal();
+}
+
+function shareItem(itemId) {
+  const item = wishlistManager.wishlist.find(i => i.id === itemId);
+  if (item) {
+    const text = `Check out this ${item.name} from LUNVYR's ${item.collection} collection!`;
+    const url = `${window.location.origin}${item.url}`;
+    navigator.clipboard.writeText(`${text} ${url}`).then(() => {
+      wishlistManager.showNotification('Item link copied!');
+    });
+  }
+}
+
+function addToCart(itemId) {
+  const item = wishlistManager.wishlist.find(i => i.id === itemId);
+  if (item) {
+    // Add to cart logic here
+    wishlistManager.showNotification(`${item.name} added to cart!`);
+  }
+}
+
+// Close modal when clicking outside
+document.getElementById('shareModal').addEventListener('click', (e) => {
+  if (e.target === e.currentTarget) {
+    closeShareModal();
+  }
+});
+</script>

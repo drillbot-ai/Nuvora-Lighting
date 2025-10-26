@@ -1,0 +1,649 @@
+<!-- LUNVYR — Design Inspiration (Style Guides, Room Examples, Design Trends) -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Inter:wght@300;400;500&display=swap');
+
+:root{
+  --ink:#1c222b; --paper:#f2f0eb; --coal:#111; --ash:#666; --brass:#b2956d; --white:#fff;
+  --radius:14px; --shadow:0 12px 32px rgba(0,0,0,.08);
+}
+
+.inspiration{font-family:Inter,system-ui,sans-serif;color:var(--coal);line-height:1.65}
+.inspiration h1,.inspiration h2,.inspiration h3{font-family:Cinzel,serif;font-weight:400;margin:0}
+.inspiration .eyebrow{letter-spacing:.12em;text-transform:uppercase;font-size:.8rem;color:var(--ash);margin-bottom:.6rem}
+
+/* Hero */
+.inspiration-hero{
+  position:relative; color:var(--paper); text-align:center;
+  background:#0e0f12 url('https://lunvyr.com/wp-content/uploads/2025/08/f07dabad-5599-4f19-bb21-0e2537614e98.png') center/cover no-repeat;
+  padding:clamp(100px,15vh,160px) 10%; min-height:70vh; display:flex; align-items:center; justify-content:center;
+}
+.inspiration-hero::before{
+  content:""; position:absolute; top:0; left:0; right:0; height:1px;
+  background:linear-gradient(90deg, transparent, var(--brass), transparent);
+}
+.inspiration-hero::after{
+  content:""; position:absolute; inset:0; 
+  background:radial-gradient(110% 110% at 70% 30%, rgba(0,0,0,0) 0%, rgba(0,0,0,.7) 70%);
+}
+.inspiration-hero .inner{position:relative; z-index:2; max-width:900px; margin:0 auto}
+.inspiration-hero h1{
+  font-size:clamp(2.6rem,5.2vw,3.8rem); color:var(--paper); margin-bottom:16px;
+  font-family:'Cinzel',serif; font-weight:400; line-height:1.15;
+}
+.inspiration-hero p{color:#d6d3ce; margin:0 auto; max-width:760px; font-size:1.1rem; line-height:1.6}
+
+/* Style Filter */
+.style-filter{
+  padding:clamp(84px,12vh,140px) 10% 60px; 
+  background:linear-gradient(135deg, var(--paper) 0%, #f8f6f0 100%);
+  position:relative;
+}
+.style-filter::before{
+  content:""; position:absolute; top:0; left:0; right:0; height:1px;
+  background:linear-gradient(90deg, transparent, var(--brass), transparent);
+}
+.filter-tabs{
+  display:flex; justify-content:center; gap:12px; margin-bottom:40px;
+  flex-wrap:wrap; max-width:800px; margin-left:auto; margin-right:auto;
+}
+.filter-btn{
+  padding:12px 24px; background:var(--white); border:2px solid rgba(17,17,17,.12);
+  border-radius:50px; color:var(--coal); cursor:pointer; transition:all .3s ease;
+  font-family:inherit; font-size:.9rem; font-weight:500;
+}
+.filter-btn.active{
+  background:var(--brass); color:var(--ink); border-color:var(--brass);
+}
+.filter-btn:hover:not(.active){
+  border-color:var(--brass); background:rgba(178,149,109,.1);
+}
+
+/* Gallery Grid */
+.gallery-grid{
+  display:grid; grid-template-columns:repeat(auto-fit, minmax(350px, 1fr)); 
+  gap:28px; max-width:1400px; margin:0 auto;
+}
+.gallery-item{
+  background:var(--white); border:1px solid rgba(17,17,17,.06); 
+  border-radius:20px; overflow:hidden; box-shadow:var(--shadow);
+  transition:all .4s ease; position:relative;
+}
+.gallery-item:hover{
+  transform:translateY(-8px); box-shadow:0 20px 50px rgba(0,0,0,.15);
+}
+.gallery-image{
+  height:280px; background-size:cover; background-position:center;
+  position:relative; overflow:hidden;
+}
+.gallery-image::after{
+  content:""; position:absolute; inset:0;
+  background:linear-gradient(180deg, transparent 0%, rgba(0,0,0,.3) 100%);
+  opacity:0; transition:opacity .3s ease;
+}
+.gallery-item:hover .gallery-image::after{opacity:1}
+.gallery-overlay{
+  position:absolute; bottom:20px; left:20px; right:20px; color:var(--white);
+  opacity:0; transform:translateY(20px); transition:all .3s ease;
+}
+.gallery-item:hover .gallery-overlay{opacity:1; transform:translateY(0)}
+.gallery-content{padding:24px 20px}
+.gallery-style{
+  color:var(--brass); font-size:.85rem; font-weight:600; margin-bottom:8px;
+  text-transform:uppercase; letter-spacing:.1em;
+}
+.gallery-title{color:var(--ink); margin-bottom:8px; font-size:1.2rem; line-height:1.3}
+.gallery-description{color:var(--ash); margin:0 0 16px; font-size:.9rem; line-height:1.5}
+.gallery-tags{display:flex; gap:6px; flex-wrap:wrap}
+.tag{
+  background:rgba(178,149,109,.1); color:var(--brass); padding:3px 8px;
+  border-radius:10px; font-size:.75rem; font-weight:500;
+}
+
+/* Room Types */
+.room-types{
+  background:#f7f7f7; padding:clamp(64px,10vh,100px) 10%;
+  position:relative;
+}
+.room-types::before{
+  content:""; position:absolute; top:0; left:0; right:0; height:1px;
+  background:linear-gradient(90deg, transparent, var(--brass), transparent);
+}
+.rooms-grid{
+  display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); 
+  gap:24px; max-width:1200px; margin:0 auto;
+}
+.room-card{
+  background:var(--white); border:1px solid rgba(17,17,17,.08);
+  border-radius:16px; overflow:hidden; box-shadow:var(--shadow);
+  transition:all .3s ease; position:relative;
+}
+.room-card:hover{transform:translateY(-4px); box-shadow:0 12px 35px rgba(0,0,0,.12)}
+.room-image{
+  height:200px; background-size:cover; background-position:center;
+  position:relative;
+}
+.room-image::before{
+  content:""; position:absolute; inset:0;
+  background:linear-gradient(135deg, rgba(0,0,0,.4) 0%, transparent 70%);
+}
+.room-label{
+  position:absolute; top:16px; left:16px; background:rgba(178,149,109,.9);
+  color:var(--ink); padding:6px 12px; border-radius:16px; font-size:.8rem;
+  font-weight:600; backdrop-filter:blur(10px);
+}
+.room-content{padding:20px}
+.room-card h3{color:var(--ink); margin-bottom:8px; font-size:1.1rem}
+.room-card p{color:var(--ash); margin:0 0 12px; font-size:.85rem; line-height:1.5}
+.room-features{list-style:none; padding:0; margin:0}
+.room-features li{
+  color:var(--ash); margin-bottom:4px; font-size:.8rem; padding-left:16px; position:relative;
+}
+.room-features li::before{
+  content:"•"; color:var(--brass); position:absolute; left:0; font-weight:bold;
+}
+
+/* Trends */
+.trends{
+  padding:clamp(64px,10vh,100px) 10%; 
+  background:linear-gradient(135deg, var(--paper) 0%, #f8f6f0 100%);
+  position:relative;
+}
+.trends::before{
+  content:""; position:absolute; top:0; left:0; right:0; height:1px;
+  background:linear-gradient(90deg, transparent, var(--brass), transparent);
+}
+.trends-grid{
+  display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); 
+  gap:28px; max-width:1000px; margin:0 auto;
+}
+.trend-card{
+  background:var(--white); border:1px solid rgba(17,17,17,.08);
+  border-radius:20px; padding:28px 24px; box-shadow:var(--shadow);
+  text-align:center; position:relative; overflow:hidden;
+}
+.trend-card::before{
+  content:""; position:absolute; top:0; left:0; right:0; height:3px;
+  background:linear-gradient(90deg, var(--brass) 0%, #d4af78 100%);
+}
+.trend-icon{
+  width:60px; height:60px; color:var(--brass); margin:0 auto 20px;
+  background:rgba(178,149,109,.1); border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+}
+.trend-card h3{color:var(--ink); margin-bottom:12px; font-size:1.3rem}
+.trend-card p{color:var(--ash); margin:0 0 20px; line-height:1.6}
+.trend-examples{display:flex; gap:8px; justify-content:center; flex-wrap:wrap}
+.example-dot{
+  width:12px; height:12px; border-radius:50%; border:2px solid var(--brass);
+  position:relative; cursor:pointer; transition:all .3s ease;
+}
+.example-dot:hover{transform:scale(1.3)}
+.example-dot.brass{background:var(--brass)}
+.example-dot.dark{background:var(--ink)}
+.example-dot.aged{background:linear-gradient(45deg, #8b6914, #b8860b)}
+
+/* Tips */
+.tips{
+  background:var(--ink); color:var(--paper); padding:clamp(64px,10vh,100px) 10%;
+  position:relative;
+}
+.tips::before{
+  content:""; position:absolute; top:0; left:0; right:0; height:1px;
+  background:linear-gradient(90deg, transparent, var(--brass), transparent);
+}
+.tips-grid{
+  max-width:1000px; margin:0 auto; display:grid; 
+  grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); gap:24px;
+}
+.tip-card{
+  background:rgba(255,255,255,.05); border:1px solid rgba(242,240,235,.2);
+  border-radius:16px; padding:24px 20px; backdrop-filter:blur(10px);
+  transition:all .4s ease;
+}
+.tip-card:hover{
+  background:rgba(255,255,255,.1); transform:translateY(-4px);
+}
+.tip-number{
+  width:40px; height:40px; background:var(--brass); color:var(--ink);
+  border-radius:50%; display:flex; align-items:center; justify-content:center;
+  font-family:Cinzel,serif; font-size:1.1rem; font-weight:600; margin-bottom:16px;
+}
+.tip-card h4{color:var(--paper); margin-bottom:8px; font-size:1.1rem}
+.tip-card p{color:#d6d3ce; margin:0; font-size:.9rem; line-height:1.5}
+
+/* CTA */
+.cta{
+  background:linear-gradient(135deg, var(--paper) 0%, #f8f6f0 100%);
+  text-align:center; padding:clamp(64px,10vh,100px) 10%;
+}
+.cta h2{margin-bottom:16px; color:var(--ink)}
+.cta p{color:var(--ash); margin:0 0 24px; max-width:600px; margin-left:auto; margin-right:auto}
+.cta .btn{
+  font-family:Cinzel,serif; padding:1rem 2rem; border-radius:50px;
+  border:2px solid var(--ink); background:var(--ink); color:var(--paper);
+  text-decoration:none; display:inline-flex; align-items:center; gap:.7rem;
+  transition:all .4s ease; font-weight:500; margin:0 8px;
+}
+.cta .btn:hover{
+  background:transparent; color:var(--ink); transform:translateY(-2px);
+  box-shadow:0 8px 25px rgba(28,34,43,.2);
+}
+.cta .btn-secondary{
+  background:transparent; color:var(--ink); border-color:var(--brass);
+}
+.cta .btn-secondary:hover{
+  background:var(--brass); color:var(--ink);
+}
+
+/* Responsive */
+@media (max-width:767px){
+  .inspiration-hero{padding:clamp(80px,12vh,120px) 7%; min-height:60vh}
+  .gallery-grid{grid-template-columns:1fr; gap:20px}
+  .rooms-grid{grid-template-columns:1fr}
+  .trends-grid{grid-template-columns:1fr}
+  .tips-grid{grid-template-columns:1fr}
+  .filter-tabs{gap:8px}
+  .filter-btn{padding:10px 16px; font-size:.85rem}
+}
+</style>
+
+<div class="inspiration">
+  <!-- HERO -->
+  <section class="inspiration-hero">
+    <div class="inner">
+      <div class="eyebrow">Creative Guidance</div>
+      <h1>Design Inspiration</h1>
+      <p>Discover how LUNVYR fixtures transform spaces with sophisticated lighting design. Explore style guides, room examples, and current trends.</p>
+    </div>
+  </section>
+
+  <!-- STYLE FILTER & GALLERY -->
+  <section class="style-filter">
+    <div class="eyebrow" style="text-align:center">Style Gallery</div>
+    <h2 style="text-align:center; margin-bottom:40px; color:var(--ink); font-size:clamp(1.8rem,2.8vw,2.4rem)">Design Inspiration Gallery</h2>
+    
+    <div class="filter-tabs">
+      <button class="filter-btn active" onclick="filterGallery('all')">All Styles</button>
+      <button class="filter-btn" onclick="filterGallery('modern')">Modern</button>
+      <button class="filter-btn" onclick="filterGallery('traditional')">Traditional</button>
+      <button class="filter-btn" onclick="filterGallery('industrial')">Industrial</button>
+      <button class="filter-btn" onclick="filterGallery('minimalist')">Minimalist</button>
+      <button class="filter-btn" onclick="filterGallery('eclectic')">Eclectic</button>
+    </div>
+    
+    <div class="gallery-grid">
+      <div class="gallery-item" data-style="modern">
+        <div class="gallery-image" style="background-image:url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+          <div class="gallery-overlay">
+            <div class="gallery-style">Modern</div>
+            <div class="gallery-title">Sleek Sophistication</div>
+          </div>
+        </div>
+        <div class="gallery-content">
+          <div class="gallery-style">Modern</div>
+          <h3 class="gallery-title">Sleek Sophistication</h3>
+          <p class="gallery-description">Clean lines and polished brass create a contemporary statement in this modern dining room.</p>
+          <div class="gallery-tags">
+            <span class="tag">AUREA</span>
+            <span class="tag">Brass</span>
+            <span class="tag">Dining</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-style="traditional">
+        <div class="gallery-image" style="background-image:url('https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+          <div class="gallery-overlay">
+            <div class="gallery-style">Traditional</div>
+            <div class="gallery-title">Timeless Elegance</div>
+          </div>
+        </div>
+        <div class="gallery-content">
+          <div class="gallery-style">Traditional</div>
+          <h3 class="gallery-title">Timeless Elegance</h3>
+          <p class="gallery-description">Aged brass fixtures complement classic furnishings for a warm, inviting atmosphere.</p>
+          <div class="gallery-tags">
+            <span class="tag">DECO STRATA</span>
+            <span class="tag">Aged Brass</span>
+            <span class="tag">Living Room</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-style="industrial">
+        <div class="gallery-image" style="background-image:url('https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+          <div class="gallery-overlay">
+            <div class="gallery-style">Industrial</div>
+            <div class="gallery-title">Urban Edge</div>
+          </div>
+        </div>
+        <div class="gallery-content">
+          <div class="gallery-style">Industrial</div>
+          <h3 class="gallery-title">Urban Edge</h3>
+          <p class="gallery-description">Blackened steel finishes bring raw sophistication to industrial-inspired spaces.</p>
+          <div class="gallery-tags">
+            <span class="tag">BLACK LABEL</span>
+            <span class="tag">Blackened Steel</span>
+            <span class="tag">Kitchen</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-style="minimalist">
+        <div class="gallery-image" style="background-image:url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+          <div class="gallery-overlay">
+            <div class="gallery-style">Minimalist</div>
+            <div class="gallery-title">Pure Form</div>
+          </div>
+        </div>
+        <div class="gallery-content">
+          <div class="gallery-style">Minimalist</div>
+          <h3 class="gallery-title">Pure Form</h3>
+          <p class="gallery-description">Simple geometric shapes in polished brass create sculptural lighting statements.</p>
+          <div class="gallery-tags">
+            <span class="tag">ORBIT</span>
+            <span class="tag">Polished Brass</span>
+            <span class="tag">Bedroom</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-style="eclectic">
+        <div class="gallery-image" style="background-image:url('https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+          <div class="gallery-overlay">
+            <div class="gallery-style">Eclectic</div>
+            <div class="gallery-title">Mixed Metals</div>
+          </div>
+        </div>
+        <div class="gallery-content">
+          <div class="gallery-style">Eclectic</div>
+          <h3 class="gallery-title">Mixed Metals</h3>
+          <p class="gallery-description">Combining different finishes creates dynamic visual interest and personality.</p>
+          <div class="gallery-tags">
+            <span class="tag">METALLIC FUSION</span>
+            <span class="tag">Mixed Finishes</span>
+            <span class="tag">Entryway</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery-item" data-style="modern">
+        <div class="gallery-image" style="background-image:url('https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80')">
+          <div class="gallery-overlay">
+            <div class="gallery-style">Modern</div>
+            <div class="gallery-title">Architectural Drama</div>
+          </div>
+        </div>
+        <div class="gallery-content">
+          <div class="gallery-style">Modern</div>
+          <h3 class="gallery-title">Architectural Drama</h3>
+          <p class="gallery-description">Bold geometric fixtures become the focal point in contemporary settings.</p>
+          <div class="gallery-tags">
+            <span class="tag">INDUSTRIAL</span>
+            <span class="tag">Natural Brass</span>
+            <span class="tag">Bathroom</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROOM TYPES -->
+  <section class="room-types">
+    <div class="eyebrow" style="text-align:center">Room by Room</div>
+    <h2 style="text-align:center; margin-bottom:40px; color:var(--ink); font-size:clamp(1.6rem,2.4vw,2rem)">Lighting by Space</h2>
+    
+    <div class="rooms-grid">
+      <div class="room-card">
+        <div class="room-image" style="background-image:url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')">
+          <div class="room-label">Dining Room</div>
+        </div>
+        <div class="room-content">
+          <h3>Dining Rooms</h3>
+          <p>Create intimate dining experiences with statement chandeliers and pendant lights.</p>
+          <ul class="room-features">
+            <li>Central chandelier as focal point</li>
+            <li>Adjustable pendant heights</li>
+            <li>Warm brass tones for ambiance</li>
+            <li>Dimmable for mood lighting</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="room-card">
+        <div class="room-image" style="background-image:url('https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')">
+          <div class="room-label">Living Room</div>
+        </div>
+        <div class="room-content">
+          <h3>Living Rooms</h3>
+          <p>Layer lighting with ceiling fixtures, floor lamps, and accent pieces for versatility.</p>
+          <ul class="room-features">
+            <li>Multiple light sources</li>
+            <li>Ambient and task lighting</li>
+            <li>Accent wall sconces</li>
+            <li>Coordinated finish families</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="room-card">
+        <div class="room-image" style="background-image:url('https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')">
+          <div class="room-label">Kitchen</div>
+        </div>
+        <div class="room-content">
+          <h3>Kitchens</h3>
+          <p>Combine functional task lighting with decorative elements for style and utility.</p>
+          <ul class="room-features">
+            <li>Island pendant clusters</li>
+            <li>Under-cabinet task lighting</li>
+            <li>Statement range hood lights</li>
+            <li>Easy-clean finishes</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="room-card">
+        <div class="room-image" style="background-image:url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')">
+          <div class="room-label">Bedroom</div>
+        </div>
+        <div class="room-content">
+          <h3>Bedrooms</h3>
+          <p>Soft, romantic lighting creates peaceful retreats with brass warmth.</p>
+          <ul class="room-features">
+            <li>Bedside pendant pairs</li>
+            <li>Soft ambient lighting</li>
+            <li>Reading task lighting</li>
+            <li>Calming brass tones</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="room-card">
+        <div class="room-image" style="background-image:url('https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')">
+          <div class="room-label">Bathroom</div>
+        </div>
+        <div class="room-content">
+          <h3>Bathrooms</h3>
+          <p>Moisture-resistant finishes provide spa-like luxury with practical functionality.</p>
+          <ul class="room-features">
+            <li>Vanity mirror lighting</li>
+            <li>Moisture-resistant finishes</li>
+            <li>Even light distribution</li>
+            <li>Easy maintenance</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="room-card">
+        <div class="room-image" style="background-image:url('https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')">
+          <div class="room-label">Entryway</div>
+        </div>
+        <div class="room-content">
+          <h3>Entryways</h3>
+          <p>Make striking first impressions with dramatic fixtures and welcoming light.</p>
+          <ul class="room-features">
+            <li>Statement entry chandeliers</li>
+            <li>Welcoming warm light</li>
+            <li>Scale to ceiling height</li>
+            <li>Dramatic visual impact</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRENDS -->
+  <section class="trends">
+    <div class="eyebrow" style="text-align:center">Current Trends</div>
+    <h2 style="text-align:center; margin-bottom:40px; color:var(--ink); font-size:clamp(1.6rem,2.4vw,2rem)">2025 Design Trends</h2>
+    
+    <div class="trends-grid">
+      <div class="trend-card">
+        <svg class="trend-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        <h3>Warm Metallics</h3>
+        <p>Brass and bronze finishes bring warmth and luxury back to contemporary spaces, moving away from cool chrome and steel.</p>
+        <div class="trend-examples">
+          <div class="example-dot brass" title="Natural Brass"></div>
+          <div class="example-dot aged" title="Aged Brass"></div>
+          <div class="example-dot" style="background:#cd7f32" title="Bronze"></div>
+        </div>
+      </div>
+
+      <div class="trend-card">
+        <svg class="trend-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 3l9 4.5v9L12 21l-9-4.5v-9L12 3z"/></svg>
+        <h3>Geometric Forms</h3>
+        <p>Bold geometric shapes and architectural lines create sculptural lighting that serves as functional art in modern interiors.</p>
+        <div class="trend-examples">
+          <div class="example-dot" style="background:linear-gradient(45deg, var(--brass), #d4af78)" title="Geometric"></div>
+          <div class="example-dot" style="background:var(--ink)" title="Angular"></div>
+          <div class="example-dot" style="background:var(--ash)" title="Linear"></div>
+        </div>
+      </div>
+
+      <div class="trend-card">
+        <svg class="trend-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        <h3>Mixed Materials</h3>
+        <p>Combining metals with glass, wood, and stone creates rich textural contrast and adds visual depth to lighting design.</p>
+        <div class="trend-examples">
+          <div class="example-dot" style="background:linear-gradient(45deg, var(--brass), rgba(255,255,255,.5))" title="Metal + Glass"></div>
+          <div class="example-dot" style="background:linear-gradient(45deg, var(--ink), #8b4513)" title="Metal + Wood"></div>
+          <div class="example-dot" style="background:linear-gradient(45deg, var(--ash), #696969)" title="Mixed Metals"></div>
+        </div>
+      </div>
+
+      <div class="trend-card">
+        <svg class="trend-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M9 11l3 3 7-7"/></svg>
+        <h3>Statement Scale</h3>
+        <p>Oversized fixtures make bold statements, while clustered smaller pieces create dramatic impact through repetition and grouping.</p>
+        <div class="trend-examples">
+          <div class="example-dot" style="background:var(--brass); width:16px; height:16px" title="Oversized"></div>
+          <div class="example-dot" style="background:var(--brass); width:10px; height:10px" title="Clustered"></div>
+          <div class="example-dot" style="background:var(--brass); width:8px; height:8px" title="Multiple"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DESIGN TIPS -->
+  <section class="tips">
+    <div class="eyebrow" style="text-align:center">Expert Advice</div>
+    <h2 style="text-align:center; margin-bottom:40px; color:var(--paper); font-size:clamp(1.6rem,2.4vw,2rem)">Design Tips</h2>
+    
+    <div class="tips-grid">
+      <div class="tip-card">
+        <div class="tip-number">1</div>
+        <h4>Layer Your Lighting</h4>
+        <p>Combine ambient, task, and accent lighting for functional versatility and visual interest throughout the day.</p>
+      </div>
+
+      <div class="tip-card">
+        <div class="tip-number">2</div>
+        <h4>Scale Appropriately</h4>
+        <p>Choose fixture sizes that complement room proportions - larger spaces need substantial pieces for proper visual weight.</p>
+      </div>
+
+      <div class="tip-card">
+        <div class="tip-number">3</div>
+        <h4>Consider Finish Cohesion</h4>
+        <p>Coordinate metal finishes throughout connected spaces while allowing for intentional contrast in feature areas.</p>
+      </div>
+
+      <div class="tip-card">
+        <div class="tip-number">4</div>
+        <h4>Mind the Height</h4>
+        <p>Hang dining fixtures 30-36 inches above table surfaces, and ensure adequate clearance in walkways.</p>
+      </div>
+
+      <div class="tip-card">
+        <div class="tip-number">5</div>
+        <h4>Plan for Dimming</h4>
+        <p>Install compatible dimmer switches to control ambiance and adapt lighting for different activities and times.</p>
+      </div>
+
+      <div class="tip-card">
+        <div class="tip-number">6</div>
+        <h4>Embrace Patina</h4>
+        <p>Natural brass develops beautiful patina over time - consider this living finish as part of your design evolution.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <h2>Ready to Design with LUNVYR?</h2>
+    <p>Explore our complete collections and find the perfect fixtures to bring your design vision to life.</p>
+    <a href="/shop" class="btn">Shop Collections</a>
+    <a href="/design-quiz" class="btn-secondary btn">Take Design Quiz</a>
+  </section>
+</div>
+
+<script>
+function filterGallery(style) {
+  // Remove active class from all buttons
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.classList.remove('active');
+  });
+  
+  // Add active class to clicked button
+  event.target.classList.add('active');
+  
+  // Show/hide gallery items
+  document.querySelectorAll('.gallery-item').forEach(item => {
+    if (style === 'all' || item.dataset.style === style) {
+      item.style.display = 'block';
+      setTimeout(() => {
+        item.style.opacity = '1';
+        item.style.transform = 'translateY(0)';
+      }, 50);
+    } else {
+      item.style.opacity = '0';
+      item.style.transform = 'translateY(20px)';
+      setTimeout(() => {
+        item.style.display = 'none';
+      }, 300);
+    }
+  });
+}
+
+// Reveal animations
+document.addEventListener('DOMContentLoaded', function(){
+  const cards = document.querySelectorAll('.gallery-item, .room-card, .trend-card, .tip-card');
+  if('IntersectionObserver' in window){
+    const observer = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, {threshold: 0.1});
+    
+    cards.forEach(card=>{
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(20px)';
+      card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      observer.observe(card);
+    });
+  }
+});
+</script>

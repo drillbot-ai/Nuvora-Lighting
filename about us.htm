@@ -89,8 +89,10 @@
 .ethos h2{font-size:clamp(1.8rem,3vw,2.2rem); color:var(--ink)}
 .ethos p.sub{color:var(--ash)}
 .ethos .grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px}
-.ethos .card{background:var(--white); border:1px solid rgba(17,17,17,.08); border-radius:16px; padding:22px; box-shadow:var(--shadow)}
-.ethos .card h3{font-size:1.2rem; color:var(--ink); margin-bottom:.4rem}
+.ethos .card{background:var(--white); border:1px solid rgba(17,17,17,.08); border-radius:16px; padding:28px; box-shadow:var(--shadow); transition:all 0.3s ease}
+.ethos .card:hover{transform:translateY(-4px); box-shadow:0 16px 40px rgba(0,0,0,.1)}
+.ethos .card h3{font-size:1.2rem; color:var(--ink); margin-bottom:12px}
+.ethos .card p{color:var(--ash); line-height:1.6; margin:0}
 
 /* Process timeline mejorado */
 .timeline{
@@ -126,6 +128,7 @@
 .timeline .step:nth-child(2){animation-delay:.2s}
 .timeline .step:nth-child(3){animation-delay:.3s}
 .timeline .step:nth-child(4){animation-delay:.4s}
+.timeline .step:nth-child(5){animation-delay:.5s}
 .timeline .dot{
   position:absolute; left:20px; top:8px; width:24px; height:24px; 
   border-radius:50%; border:3px solid var(--brass); background:var(--white);
@@ -301,6 +304,7 @@
 @media (max-width:899px){
   .about-split{grid-template-columns:1fr; text-align:center; gap:40px}
   .about-split .media{margin:0 auto; max-width:400px; transform:rotate(0deg)}
+  .ethos .grid{grid-template-columns:1fr}
   .timeline .steps::before{left:15px}
   .timeline .dot{left:7px}
   .timeline .step{padding-left:50px}
@@ -343,9 +347,9 @@
   <!-- HERO -->
   <section class="about-hero" data-parallax>
     <div class="hero-inner reveal">
-      <div class="eyebrow">Studio & Ethos</div>
-      <h1>Lighting as Sculptural Poetry</h1>
-      <p>We craft timeless lighting in New York—handcrafted metal fixtures with brass and premium finishes—guided by geometric precision and architectural clarity.</p>
+      <div class="eyebrow">Luxury Lighting Atelier</div>
+      <h1>Handcrafted Architectural Lighting</h1>
+      <p>From our New York atelier, we create bespoke lighting fixtures that transform spaces into experiences. Each piece combines artisanal craftsmanship with architectural precision, bringing warmth and sophistication to the world's finest interiors.</p>
     </div>
   </section>
 
@@ -353,44 +357,62 @@
   <section class="about-split">
     <div class="copy reveal">
       <div class="eyebrow">Our Story</div>
-      <h2>From sketch to quiet drama</h2>
-      <p>LUNVYR began with an obsession for the dialogue between light and material. Each piece starts as a graphite study, moves into scale models, and is refined through countless iterations until the form feels inevitable.</p>
-      <p>We work slowly: metal carefully shaped and finished, brass detailed and patinated, optics tuned to achieve a calm, architectural glow. The result is lighting that feels collected rather than manufactured.</p>
-      <p>Our studio collaborates with architects and interior designers to tailor proportion, finish and mounting—delivering fixtures that integrate seamlessly into the built environment.</p>
+      <h2>Where Light Meets Art</h2>
+      <p>LUNVYR was born from a passion for transforming spaces through exceptional lighting. Founded in New York, our atelier combines traditional metalworking techniques with contemporary design sensibilities to create fixtures that are both functional art and architectural elements.</p>
+      
+      <div class="highlight">
+        "Every piece tells a story of meticulous craftsmanship, where each curve, finish, and light distribution is carefully considered to create an experience, not just illumination."
+      </div>
+      
+      <p>Our collections—from the geometric elegance of AUREA to the industrial strength of BLACK LABEL—reflect our commitment to diverse aesthetic languages while maintaining our signature attention to detail and quality.</p>
+      
+      <p>Working closely with architects, interior designers, and discerning homeowners, we create lighting solutions that enhance rather than compete with their environments, becoming integral parts of the architectural narrative.</p>
     </div>
     <figure class="media reveal">
-      <img src="https://lunvyr.com/wp-content/uploads/2025/08/001.jpg" alt="LUNVYR studio—workbench with metal forms">
+      <img src="https://lunvyr.com/wp-content/uploads/2025/10/005.png" alt="LUNVYR studio—workbench with metal forms">
     </figure>
   </section>
 
   <!-- STATS -->
   <section class="stats">
     <div class="grid">
-      <div class="card reveal"><div class="num">100%<br>Handcrafted</div><div class="label">Made in New York</div></div>
-      <div class="card reveal"><div class="num">UL</div><div class="label">Listed & Code Compliant</div></div>
-      <div class="card reveal"><div class="num">Premium</div><div class="label">Materials & Finishes</div></div>
-      <div class="card reveal"><div class="num">Lead&nbsp;Time</div><div class="label">Typically 4–6 weeks</div></div>
+      <div class="card reveal"><div class="num">6<br>Collections</div><div class="label">Curated Design Lines</div></div>
+      <div class="card reveal"><div class="num">500+<br>Projects</div><div class="label">Worldwide Installations</div></div>
+      <div class="card reveal"><div class="num">15+<br>Finishes</div><div class="label">Premium Material Options</div></div>
+      <div class="card reveal"><div class="num">2-Year<br>Warranty</div><div class="label">Quality Guarantee</div></div>
     </div>
   </section>
 
   <!-- ETHOS -->
   <section class="ethos">
     <header class="reveal">
-      <h2>Ethos</h2>
-      <p class="sub">Material honesty, proportion, and longevity.</p>
+      <h2>Our Philosophy</h2>
+      <p class="sub">The principles that guide every design decision and craftsmanship detail.</p>
     </header>
     <div class="grid">
       <article class="card reveal">
+        <h3>Timeless Design</h3>
+        <p>We create fixtures that transcend trends, focusing on proportions and forms that will remain elegant for decades. Each design is refined until it achieves that rare quality of feeling both contemporary and eternal.</p>
+      </article>
+      <article class="card reveal">
+        <h3>Artisanal Excellence</h3>
+        <p>Every piece is handcrafted in our New York atelier using traditional metalworking techniques combined with modern precision. Our artisans bring decades of experience to each fixture, ensuring uncompromising quality.</p>
+      </article>
+      <article class="card reveal">
+        <h3>Architectural Integration</h3>
+        <p>Lighting should enhance, not dominate. Our fixtures are designed to complement architectural spaces, creating atmosphere and highlighting the beauty of the environments they illuminate.</p>
+      </article>
+      <article class="card reveal">
+        <h3>Sustainable Craft</h3>
+        <p>We believe in creating pieces built to last generations. Using premium materials, repairable construction, and timeless design, our fixtures represent an investment in sustainable luxury.</p>
+      </article>
+      <article class="card reveal">
+        <h3>Custom Solutions</h3>
+        <p>No two spaces are identical. We work closely with clients to adapt our designs or create entirely bespoke pieces that perfectly complement their architectural vision and functional requirements.</p>
+      </article>
+      <article class="card reveal">
         <h3>Material Honesty</h3>
-        <p>We let metal read as metal and brass as brass—embracing the industrial strength and refined finish of each medium.</p>
-      </article>
-      <article class="card reveal">
-        <h3>Architectural Calm</h3>
-        <p>Quiet silhouettes that support spatial composition rather than compete with it.</p>
-      </article>
-      <article class="card reveal">
-        <h3>Built to Last</h3>
-        <p>Repairable construction, replaceable components and finishes that age with grace.</p>
+        <p>We celebrate the inherent beauty of our materials—brass develops its natural patina, metals age gracefully, and finishes are applied to enhance rather than disguise the underlying material qualities.</p>
       </article>
     </div>
   </section>
@@ -403,23 +425,28 @@
     <div class="steps">
       <div class="step reveal">
         <span class="dot" aria-hidden="true"></span>
-        <h3>01 — Research & Sketch</h3>
-        <p>Architectural references, proportion studies and early light tests.</p>
+        <h3>01 — Concept & Design</h3>
+        <p>Every piece begins with extensive research into architectural trends, material properties, and lighting physics. Our designers create detailed sketches and digital models to perfect proportions and form.</p>
       </div>
       <div class="step reveal">
         <span class="dot" aria-hidden="true"></span>
-        <h3>02 — Material & Form</h3>
-        <p>Precision metalwork, structural design, and quality checks.</p>
+        <h3>02 — Prototyping & Testing</h3>
+        <p>We create physical prototypes to test light distribution, material behavior, and structural integrity. Each prototype undergoes rigorous testing to ensure it meets our exacting standards.</p>
       </div>
       <div class="step reveal">
         <span class="dot" aria-hidden="true"></span>
-        <h3>03 — Finish & Patina</h3>
-        <p>Layered textures and controlled aging for depth and warmth.</p>
+        <h3>03 — Artisanal Crafting</h3>
+        <p>Master craftsmen shape, weld, and finish each component by hand in our New York atelier. Traditional metalworking techniques are combined with modern precision tools for exceptional quality.</p>
       </div>
       <div class="step reveal">
         <span class="dot" aria-hidden="true"></span>
-        <h3>04 — Wiring & UL</h3>
-        <p>Assembly, testing and compliance for safe installation.</p>
+        <h3>04 — Finishing & Assembly</h3>
+        <p>Surfaces are meticulously prepared and finished with our signature patinas and protective coatings. Electrical components are installed and tested to UL standards before final quality inspection.</p>
+      </div>
+      <div class="step reveal">
+        <span class="dot" aria-hidden="true"></span>
+        <h3>05 — Quality Assurance</h3>
+        <p>Each finished piece undergoes comprehensive testing including electrical safety, structural integrity, and finish quality. Only fixtures that meet our exacting standards bear the LUNVYR name.</p>
       </div>
     </div>
   </section>
@@ -427,10 +454,10 @@
   <!-- GALLERY STRIP -->
   <section class="gallery">
     <div class="track" aria-label="Studio & material gallery">
-      <div class="ph reveal"><img src="https://lunvyr.com/wp-content/uploads/2025/08/image-2.png" alt="Metal surface detail"></div>
-      <div class="ph reveal"><img src="https://lunvyr.com/wp-content/uploads/2025/08/image6.png" alt="Brass patina detail"></div>
-      <div class="ph reveal"><img src="https://lunvyr.com/wp-content/uploads/2025/08/Imagen-de-WhatsApp-2023-12-05-a-las-07.02.44_842f7e4b.jpg" alt="Marine collection mood"></div>
-      <div class="ph reveal"><img src="https://lunvyr.com/wp-content/uploads/2025/08/001.jpg" alt="Workshop scene"></div>
+      <div class="ph reveal"><img src="https://lunvyr.com/wp-content/uploads/2025/08/IMG-5-2-scaled.jpg" alt="Metal surface detail"></div>
+      <div class="ph reveal"><img src="https://lunvyr.com/wp-content/uploads/2025/08/image-57.png" alt="Brass patina detail"></div>
+      <div class="ph reveal"><img src="https://lunvyr.com/wp-content/uploads/2025/08/image-67.png" alt="Marine collection mood"></div>
+      <div class="ph reveal"><img src="https://lunvyr.com/wp-content/uploads/2025/08/image-66.png" alt="Workshop scene"></div>
     </div>
   </section>
 
@@ -443,31 +470,45 @@
     <div class="items">
       <div class="item reveal" data-open="false">
         <button class="q" aria-expanded="false">
-          <h3>What sizes and finishes are available?</h3>
+          <h3>What makes LUNVYR lighting fixtures unique?</h3>
           <span class="icon">+</span>
         </button>
-        <div class="a"><div class="a-inner">Our collections offer multiple standard sizes and premium finishes. Each product page shows available options and dimensions. All fixtures come with detailed specification sheets including mounting requirements.</div></div>
+        <div class="a"><div class="a-inner">Each LUNVYR fixture is handcrafted in our New York atelier using traditional metalworking techniques combined with contemporary design sensibilities. We focus on timeless elegance, premium materials, and architectural integration that sets our pieces apart from mass-produced lighting.</div></div>
       </div>
       <div class="item reveal" data-open="false">
         <button class="q" aria-expanded="false">
-          <h3>What are your lead times and shipping options?</h3>
+          <h3>What are your typical lead times and delivery options?</h3>
           <span class="icon">+</span>
         </button>
-        <div class="a"><div class="a-inner">Typical lead time is 4–6 weeks depending on collection and finish. We offer standard shipping across the continental US, with white-glove delivery available for larger orders. Rush options may be available for select items.</div></div>
+        <div class="a"><div class="a-inner">Standard collection pieces typically require 6-8 weeks for production and shipping. Custom pieces may take 8-12 weeks depending on complexity. We ship via insured freight carriers to most locations worldwide. All fixtures include mounting hardware and detailed installation instructions.</div></div>
       </div>
       <div class="item reveal" data-open="false">
         <button class="q" aria-expanded="false">
-          <h3>Are your fixtures UL listed and safe for installation?</h3>
+          <h3>Do you offer custom lighting solutions?</h3>
           <span class="icon">+</span>
         </button>
-        <div class="a"><div class="a-inner">All fixtures are wired to UL standards and ship with complete mounting hardware and installation instructions. We recommend installation by a licensed electrician to ensure safety and warranty coverage.</div></div>
+        <div class="a"><div class="a-inner">Absolutely. We work closely with architects, interior designers, and homeowners to create bespoke lighting solutions. Our team can modify existing designs or create entirely new pieces to meet specific dimensional, aesthetic, or functional requirements.</div></div>
       </div>
       <div class="item reveal" data-open="false">
         <button class="q" aria-expanded="false">
-          <h3>Do you offer trade pricing for professionals?</h3>
+          <h3>Are your fixtures compatible with smart home systems?</h3>
           <span class="icon">+</span>
         </button>
-        <div class="a"><div class="a-inner">Yes, we work with architects, interior designers, and contractors. Trade pricing is available with approved credentials. Contact us at info@lunvyr.com for application details and project support.</div></div>
+        <div class="a"><div class="a-inner">Yes, our fixtures can be equipped with dimmable LED systems and are compatible with most smart home automation systems. All fixtures come with detailed installation instructions and mounting hardware. We recommend hiring a qualified electrician for safe installation.</div></div>
+      </div>
+      <div class="item reveal" data-open="false">
+        <button class="q" aria-expanded="false">
+          <h3>What warranty and support do you provide?</h3>
+          <span class="icon">+</span>
+        </button>
+        <div class="a"><div class="a-inner">We offer a comprehensive 2-year warranty covering materials and workmanship. Our fixtures are built for longevity with replaceable components and repairable construction. Our customer service team provides ongoing support for installation, maintenance, and any questions you may have.</div></div>
+      </div>
+      <div class="item reveal" data-open="false">
+        <button class="q" aria-expanded="false">
+          <h3>Do you work with trade professionals?</h3>
+          <span class="icon">+</span>
+        </button>
+        <div class="a"><div class="a-inner">Yes, we have extensive experience working with architects, interior designers, and contractors. We offer trade pricing, project support, specification assistance, and dedicated account management for professional projects. Contact us at info@lunvyr.com for trade program details.</div></div>
       </div>
     </div>
   </section>
@@ -483,11 +524,11 @@
   <!-- CTA FINAL -->
   <section class="cta-final">
     <div class="wrap">
-      <h2>Discover Our Collections</h2>
-      <p>Premium lighting fixtures in refined finishes, ready to elevate your architectural vision.</p>
+      <h2>Ready to Transform Your Space?</h2>
+      <p>Discover how LUNVYR's handcrafted lighting can elevate your next project. From intimate residential spaces to grand commercial installations, we create lighting that makes every environment extraordinary.</p>
       <div class="actions">
-        <a class="btn" href="/contact" aria-label="Get in touch">Get in Touch</a>
-        <a class="btn" href="/shop" aria-label="Explore the collection">Explore the Collection</a>
+        <a class="btn" href="/contact.htm" aria-label="Start your project">Start Your Project</a>
+        <a class="btn" href="/shop.htm" aria-label="Browse collections">Browse Collections</a>
       </div>
     </div>
   </section>

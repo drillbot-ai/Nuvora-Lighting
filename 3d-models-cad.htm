@@ -1,0 +1,1032 @@
+<!-- LUNVYR — 3D Models & CAD Files (Digital Assets, Design Tools, Professional Resources) -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Inter:wght@300;400;500&display=swap');
+
+:root{
+  --ink:#1c222b; --paper:#f2f0eb; --coal:#111; --ash:#666; --brass:#b2956d; --white:#fff;
+  --purple:#8b5cf6; --pink:#ec4899; --cyan:#06b6d4; --lime:#84cc16;
+  --radius:14px; --shadow:0 12px 32px rgba(0,0,0,.08); --ring: 0 0 0 3px rgba(178,149,109,.25);
+}
+
+.cad-models{font-family:Inter,system-ui,sans-serif;color:var(--coal);line-height:1.65}
+.cad-models h1,.cad-models h2,.cad-models h3{font-family:Cinzel,serif;font-weight:400;margin:0}
+.cad-models .eyebrow{letter-spacing:.12em;text-transform:uppercase;font-size:.8rem;color:var(--ash);margin-bottom:.6rem}
+
+/* Hero */
+.cad-hero{
+  position:relative; color:var(--paper); text-align:center;
+  background:#1e1b3a url('https://lunvyr.com/wp-content/uploads/2025/08/f07dabad-5599-4f19-bb21-0e2537614e98.png') center/cover no-repeat;
+  padding:clamp(100px,15vh,160px) 10%; min-height:70vh; display:flex; align-items:center; justify-content:center;
+}
+.cad-hero::before{
+  content:""; position:absolute; top:0; left:0; right:0; height:1px;
+  background:linear-gradient(90deg, transparent, var(--purple), transparent);
+}
+.cad-hero::after{
+  content:""; position:absolute; inset:0; 
+  background:radial-gradient(110% 110% at 50% 50%, rgba(139,92,246,0) 0%, rgba(139,92,246,.8) 70%);
+}
+.cad-hero .inner{position:relative; z-index:2; max-width:900px; margin:0 auto}
+.cad-hero h1{
+  font-size:clamp(2.6rem,5.2vw,3.8rem); color:var(--paper); margin-bottom:16px;
+  font-family:'Cinzel',serif; font-weight:400; line-height:1.15;
+}
+.cad-hero p{color:#e5d4ff; margin:0 auto; max-width:760px; font-size:1.1rem; line-height:1.6}
+
+/* Quick Access */
+.quick-access{
+  padding:clamp(64px,10vh,80px) 10%; 
+  background:linear-gradient(135deg, var(--paper) 0%, #f8f6f0 100%);
+  position:relative; text-align:center;
+}
+.quick-access::before{
+  content:""; position:absolute; top:0; left:0; right:0; height:1px;
+  background:linear-gradient(90deg, transparent, var(--purple), transparent);
+}
+.access-grid{
+  display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
+  gap:20px; max-width:800px; margin:0 auto;
+}
+.access-card{
+  background:var(--white); border:2px solid rgba(139,92,246,.2);
+  border-radius:16px; padding:24px 20px; text-align:center;
+  transition:all .3s ease; cursor:pointer; position:relative; overflow:hidden;
+}
+.access-card::before{
+  content:""; position:absolute; inset:0;
+  background:linear-gradient(135deg, transparent 0%, rgba(139,92,246,.05) 50%, transparent 100%);
+  opacity:0; transition:opacity .3s ease;
+}
+.access-card:hover::before{opacity:1}
+.access-card:hover{
+  border-color:var(--purple); transform:translateY(-4px);
+  box-shadow:0 12px 30px rgba(139,92,246,.15);
+}
+.access-card .icon{
+  width:48px; height:48px; margin:0 auto 12px;
+  background:linear-gradient(135deg, var(--purple), var(--pink));
+  border-radius:50%; display:flex; align-items:center; justify-content:center;
+  color:var(--white); font-size:1.2rem;
+}
+.access-card h4{color:var(--ink); margin-bottom:8px; font-size:1rem}
+.access-card p{color:var(--ash); margin:0; font-size:.85rem; line-height:1.4}
+
+/* File Browser */
+.file-browser{
+  padding:clamp(64px,10vh,100px) 10%; 
+  background:#f7f7f7; position:relative;
+}
+.file-browser::before{
+  content:""; position:absolute; top:0; left:0; right:0; height:1px;
+  background:linear-gradient(90deg, transparent, var(--purple), transparent);
+}
+.browser-container{
+  max-width:1200px; margin:0 auto;
+}
+.browser-header{
+  display:flex; justify-content:space-between; align-items:center;
+  margin-bottom:32px; flex-wrap:wrap; gap:16px;
+}
+.search-filters{
+  display:flex; gap:12px; flex-wrap:wrap;
+}
+.filter-select{
+  padding:8px 16px; border:2px solid rgba(139,92,246,.2); border-radius:25px;
+  background:var(--white); color:var(--coal); font-size:.9rem;
+  cursor:pointer; transition:all .3s ease;
+}
+.filter-select:hover{border-color:var(--purple)}
+.search-input{
+  padding:8px 16px; border:2px solid rgba(139,92,246,.2); border-radius:25px;
+  background:var(--white); color:var(--coal); font-size:.9rem;
+  min-width:200px;
+}
+.search-input:focus{outline:none; border-color:var(--purple)}
+
+/* File Grid */
+.file-grid{
+  display:grid; grid-template-columns:repeat(auto-fill, minmax(280px, 1fr));
+  gap:24px;
+}
+.file-card{
+  background:var(--white); border:1px solid rgba(139,92,246,.1);
+  border-radius:16px; padding:20px 16px; transition:all .3s ease;
+  cursor:pointer; position:relative; overflow:hidden;
+}
+.file-card:hover{
+  border-color:var(--purple); transform:translateY(-4px);
+  box-shadow:0 12px 30px rgba(139,92,246,.1);
+}
+.file-preview{
+  width:100%; height:160px; background:#f8fafc; border-radius:8px;
+  margin-bottom:16px; display:flex; align-items:center; justify-content:center;
+  position:relative; overflow:hidden; border:1px solid rgba(139,92,246,.1);
+}
+.file-preview .preview-icon{
+  font-size:2.5rem; color:var(--purple); opacity:.6;
+}
+.file-info h4{
+  color:var(--ink); margin-bottom:6px; font-size:1rem; line-height:1.3;
+}
+.file-meta{
+  display:flex; justify-content:space-between; align-items:center;
+  margin-bottom:12px; font-size:.8rem; color:var(--ash);
+}
+.file-tags{
+  display:flex; gap:6px; flex-wrap:wrap; margin-bottom:12px;
+}
+.file-tag{
+  background:rgba(139,92,246,.1); color:var(--purple);
+  padding:3px 8px; border-radius:8px; font-size:.7rem; font-weight:500;
+}
+.file-actions{
+  display:flex; gap:8px;
+}
+.action-btn{
+  flex:1; padding:8px 12px; border:1px solid rgba(139,92,246,.3);
+  border-radius:8px; background:var(--white); color:var(--purple);
+  font-size:.8rem; cursor:pointer; transition:all .3s ease;
+  display:flex; align-items:center; justify-content:center; gap:4px;
+}
+.action-btn:hover{
+  background:var(--purple); color:var(--white);
+}
+.action-btn.primary{
+  background:var(--purple); color:var(--white);
+}
+.action-btn.primary:hover{
+  background:var(--pink);
+}
+
+/* Software Integration */
+.software-section{
+  padding:clamp(64px,10vh,100px) 10%; 
+  background:var(--ink); color:var(--paper); position:relative;
+}
+.software-section::before{
+  content:""; position:absolute; top:0; left:0; right:0; height:1px;
+  background:linear-gradient(90deg, transparent, var(--purple), transparent);
+}
+.software-grid{
+  display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
+  gap:24px; max-width:1000px; margin:0 auto;
+}
+.software-card{
+  background:rgba(255,255,255,.05); border:1px solid rgba(139,92,246,.2);
+  border-radius:16px; padding:24px 20px; text-align:center;
+  transition:all .3s ease;
+}
+.software-card:hover{
+  background:rgba(255,255,255,.08); border-color:var(--purple);
+  transform:translateY(-4px);
+}
+.software-logo{
+  width:64px; height:64px; margin:0 auto 16px;
+  background:rgba(139,92,246,.2); border-radius:12px;
+  display:flex; align-items:center; justify-content:center;
+  color:var(--purple); font-size:1.5rem; font-weight:600;
+}
+.software-card h4{
+  color:var(--paper); margin-bottom:8px; font-size:1rem;
+}
+.software-card p{
+  color:#e5d4ff; margin:0 0 12px; font-size:.85rem; line-height:1.4;
+}
+.compatibility{
+  display:flex; gap:4px; justify-content:center; flex-wrap:wrap;
+}
+.compat-badge{
+  background:rgba(139,92,246,.2); color:var(--purple);
+  padding:2px 6px; border-radius:4px; font-size:.7rem;
+}
+
+/* Usage Guide */
+.usage-guide{
+  padding:clamp(64px,10vh,100px) 10%; 
+  background:linear-gradient(135deg, var(--paper) 0%, #f8f6f0 100%);
+  position:relative;
+}
+.usage-guide::before{
+  content:""; position:absolute; top:0; left:0; right:0; height:1px;
+  background:linear-gradient(90deg, transparent, var(--purple), transparent);
+}
+.guide-tabs{
+  max-width:1000px; margin:0 auto;
+}
+.tab-nav{
+  display:flex; justify-content:center; gap:8px; margin-bottom:32px; flex-wrap:wrap;
+}
+.tab-btn{
+  padding:12px 24px; background:var(--white); border:2px solid rgba(139,92,246,.2);
+  border-radius:50px; color:var(--coal); cursor:pointer; transition:all .3s ease;
+  font-family:inherit; font-size:.9rem; font-weight:500;
+}
+.tab-btn.active{
+  background:var(--purple); color:var(--white); border-color:var(--purple);
+}
+.tab-btn:hover:not(.active){
+  border-color:var(--purple); background:rgba(139,92,246,.1);
+}
+.tab-content{
+  background:var(--white); border:1px solid rgba(139,92,246,.1);
+  border-radius:16px; padding:32px 28px; box-shadow:var(--shadow);
+  display:none;
+}
+.tab-content.active{display:block}
+.tab-content h3{color:var(--ink); margin-bottom:20px; font-size:1.3rem}
+.step-list{list-style:none; padding:0; margin:0}
+.step-item{
+  display:flex; gap:16px; margin-bottom:20px; padding-bottom:20px;
+  border-bottom:1px solid rgba(139,92,246,.1);
+}
+.step-item:last-child{border-bottom:none}
+.step-number{
+  width:32px; height:32px; background:var(--purple); color:var(--white);
+  border-radius:50%; display:flex; align-items:center; justify-content:center;
+  font-weight:600; font-size:.9rem; flex-shrink:0;
+}
+.step-content h5{
+  color:var(--ink); margin-bottom:6px; font-size:1rem;
+}
+.step-content p{
+  color:var(--ash); margin:0; font-size:.9rem; line-height:1.5;
+}
+
+/* Requirements */
+.requirements{
+  background:#f7f7f7; padding:clamp(64px,10vh,100px) 10%;
+  position:relative;
+}
+.requirements::before{
+  content:""; position:absolute; top:0; left:0; right:0; height:1px;
+  background:linear-gradient(90deg, transparent, var(--purple), transparent);
+}
+.req-grid{
+  display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+  gap:24px; max-width:1000px; margin:0 auto;
+}
+.req-card{
+  background:var(--white); border:1px solid rgba(139,92,246,.1);
+  border-radius:12px; padding:20px 16px;
+}
+.req-card h4{
+  color:var(--purple); margin-bottom:12px; font-size:1rem;
+  display:flex; align-items:center; gap:8px;
+}
+.req-card .icon{width:16px; height:16px; color:var(--purple)}
+.req-list{list-style:none; padding:0; margin:0}
+.req-list li{
+  color:var(--ash); margin-bottom:6px; padding-left:16px;
+  position:relative; font-size:.9rem; line-height:1.4;
+}
+.req-list li::before{
+  content:"•"; color:var(--purple); position:absolute; left:0;
+}
+
+/* CTA */
+.cta{
+  background:linear-gradient(135deg, var(--purple) 0%, var(--pink) 100%);
+  text-align:center; padding:clamp(64px,10vh,100px) 10%; color:var(--white);
+  position:relative;
+}
+.cta::before{
+  content:""; position:absolute; top:0; left:0; right:0; height:1px;
+  background:linear-gradient(90deg, transparent, rgba(255,255,255,.3), transparent);
+}
+.cta h2{margin-bottom:16px; color:var(--white)}
+.cta p{color:#e5d4ff; margin:0 0 24px; max-width:600px; margin-left:auto; margin-right:auto}
+.cta .btn{
+  font-family:Cinzel,serif; padding:1rem 2rem; border-radius:50px;
+  border:2px solid var(--white); background:var(--white); color:var(--purple);
+  text-decoration:none; display:inline-flex; align-items:center; gap:.7rem;
+  transition:all .4s ease; font-weight:500; margin:0 8px;
+}
+.cta .btn:hover{
+  background:transparent; color:var(--white); transform:translateY(-2px);
+  box-shadow:0 8px 25px rgba(0,0,0,.2);
+}
+.cta .btn-secondary{
+  background:transparent; color:var(--white); border-color:var(--white);
+}
+.cta .btn-secondary:hover{
+  background:var(--white); color:var(--purple);
+}
+
+/* Responsive */
+@media (max-width:767px){
+  .cad-hero{padding:clamp(80px,12vh,120px) 7%; min-height:60vh}
+  .cad-hero h1{font-size:clamp(2.2rem,7vw,3.2rem)}
+  .quick-access{padding:clamp(48px,8vh,60px) 7%}
+  .access-grid{grid-template-columns:repeat(2, 1fr); gap:16px}
+  .file-browser{padding:clamp(48px,8vh,60px) 7%}
+  .browser-header{flex-direction:column; align-items:stretch}
+  .search-filters{justify-content:center}
+  .file-grid{grid-template-columns:1fr; gap:16px}
+  .software-grid{grid-template-columns:repeat(2, 1fr)}
+  .tab-nav{justify-content:stretch}
+  .tab-btn{flex:1; text-align:center}
+}
+
+@media (max-width:599px){
+  .cad-hero{padding:clamp(60px,10vh,80px) 6%}
+  .access-grid{grid-template-columns:1fr}
+  .software-grid{grid-template-columns:1fr}
+  .req-grid{grid-template-columns:1fr}
+}
+</style>
+
+<div class="cad-models">
+
+  <!-- HERO -->
+  <section class="cad-hero">
+    <div class="inner">
+      <div class="eyebrow">Digital Design Resources</div>
+      <h1>3D Models & CAD Files</h1>
+      <p>Professional-grade digital assets for architects, designers, and engineers. Download accurate 3D models, technical drawings, and specifications for seamless project integration.</p>
+    </div>
+  </section>
+
+  <!-- QUICK ACCESS -->
+  <section class="quick-access">
+    <div class="eyebrow">Quick Access</div>
+    <h2 style="margin-bottom:32px; color:var(--ink); font-size:clamp(1.4rem,2.2vw,1.8rem)">Popular Downloads</h2>
+    
+    <div class="access-grid">
+      <div class="access-card" onclick="quickDownload('complete-library')">
+        <div class="icon">📦</div>
+        <h4>Complete Library</h4>
+        <p>All fixtures in multiple formats</p>
+      </div>
+      
+      <div class="access-card" onclick="quickDownload('latest-releases')">
+        <div class="icon">🆕</div>
+        <h4>Latest Releases</h4>
+        <p>Newest models and updates</p>
+      </div>
+      
+      <div class="access-card" onclick="quickDownload('revit-families')">
+        <div class="icon">🏗️</div>
+        <h4>Revit Families</h4>
+        <p>BIM-ready family files</p>
+      </div>
+      
+      <div class="access-card" onclick="quickDownload('sketchup-models')">
+        <div class="icon">📐</div>
+        <h4>SketchUp Models</h4>
+        <p>3D warehouse compatible</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FILE BROWSER -->
+  <section class="file-browser">
+    <div class="browser-container">
+      <div class="eyebrow">Digital Asset Library</div>
+      <h2 style="margin-bottom:32px; color:var(--ink); font-size:clamp(1.6rem,2.4vw,2rem)">Browse Files</h2>
+      
+      <div class="browser-header">
+        <div class="search-filters">
+          <select class="filter-select" onchange="filterFiles('category', this.value)">
+            <option value="all">All Categories</option>
+            <option value="pendant">Pendants</option>
+            <option value="chandelier">Chandeliers</option>
+            <option value="sconce">Sconces</option>
+            <option value="linear">Linear</option>
+            <option value="track">Track</option>
+          </select>
+          
+          <select class="filter-select" onchange="filterFiles('format', this.value)">
+            <option value="all">All Formats</option>
+            <option value="dwg">DWG</option>
+            <option value="rvt">RVT</option>
+            <option value="skp">SKP</option>
+            <option value="3ds">3DS</option>
+            <option value="obj">OBJ</option>
+          </select>
+        </div>
+        
+        <input type="text" class="search-input" placeholder="Search models..." onkeyup="searchFiles(this.value)">
+      </div>
+      
+      <div class="file-grid" id="file-grid">
+        
+        <!-- Meridian Pendant -->
+        <div class="file-card" data-category="pendant" data-format="rvt">
+          <div class="file-preview">
+            <div class="preview-icon">💎</div>
+          </div>
+          <div class="file-info">
+            <h4>Meridian Pendant - Revit Family</h4>
+            <div class="file-meta">
+              <span>RVT Format</span>
+              <span>2.4 MB</span>
+            </div>
+            <div class="file-tags">
+              <span class="file-tag">Pendant</span>
+              <span class="file-tag">BIM</span>
+              <span class="file-tag">Parametric</span>
+            </div>
+            <div class="file-actions">
+              <button class="action-btn" onclick="previewFile('meridian-pendant-rvt')">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                  <circle cx="12" cy="12" r="3"/>
+                </svg>
+                Preview
+              </button>
+              <button class="action-btn primary" onclick="downloadFile('meridian-pendant-rvt')">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4m4-5l5 5 5-5m-5 5V3"/>
+                </svg>
+                Download
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Apex Chandelier -->
+        <div class="file-card" data-category="chandelier" data-format="dwg">
+          <div class="file-preview">
+            <div class="preview-icon">✨</div>
+          </div>
+          <div class="file-info">
+            <h4>Apex Chandelier - AutoCAD Drawing</h4>
+            <div class="file-meta">
+              <span>DWG Format</span>
+              <span>1.8 MB</span>
+            </div>
+            <div class="file-tags">
+              <span class="file-tag">Chandelier</span>
+              <span class="file-tag">2D Plans</span>
+              <span class="file-tag">Elevations</span>
+            </div>
+            <div class="file-actions">
+              <button class="action-btn" onclick="previewFile('apex-chandelier-dwg')">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                  <circle cx="12" cy="12" r="3"/>
+                </svg>
+                Preview
+              </button>
+              <button class="action-btn primary" onclick="downloadFile('apex-chandelier-dwg')">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4m4-5l5 5 5-5m-5 5V3"/>
+                </svg>
+                Download
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Linear System -->
+        <div class="file-card" data-category="linear" data-format="skp">
+          <div class="file-preview">
+            <div class="preview-icon">📏</div>
+          </div>
+          <div class="file-info">
+            <h4>Linear Collection - SketchUp Model</h4>
+            <div class="file-meta">
+              <span>SKP Format</span>
+              <span>3.2 MB</span>
+            </div>
+            <div class="file-tags">
+              <span class="file-tag">Linear</span>
+              <span class="file-tag">3D Model</span>
+              <span class="file-tag">Materials</span>
+            </div>
+            <div class="file-actions">
+              <button class="action-btn" onclick="previewFile('linear-collection-skp')">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                  <circle cx="12" cy="12" r="3"/>
+                </svg>
+                Preview
+              </button>
+              <button class="action-btn primary" onclick="downloadFile('linear-collection-skp')">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4m4-5l5 5 5-5m-5 5V3"/>
+                </svg>
+                Download
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Wall Sconce -->
+        <div class="file-card" data-category="sconce" data-format="3ds">
+          <div class="file-preview">
+            <div class="preview-icon">🏮</div>
+          </div>
+          <div class="file-info">
+            <h4>Vista Wall Sconce - 3ds Max Model</h4>
+            <div class="file-meta">
+              <span>3DS Format</span>
+              <span>4.1 MB</span>
+            </div>
+            <div class="file-tags">
+              <span class="file-tag">Sconce</span>
+              <span class="file-tag">Rendering</span>
+              <span class="file-tag">High-Poly</span>
+            </div>
+            <div class="file-actions">
+              <button class="action-btn" onclick="previewFile('vista-sconce-3ds')">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                  <circle cx="12" cy="12" r="3"/>
+                </svg>
+                Preview
+              </button>
+              <button class="action-btn primary" onclick="downloadFile('vista-sconce-3ds')">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4m4-5l5 5 5-5m-5 5V3"/>
+                </svg>
+                Download
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Track System -->
+        <div class="file-card" data-category="track" data-format="obj">
+          <div class="file-preview">
+            <div class="preview-icon">🛤️</div>
+          </div>
+          <div class="file-info">
+            <h4>Flux Track System - OBJ Model</h4>
+            <div class="file-meta">
+              <span>OBJ Format</span>
+              <span>1.6 MB</span>
+            </div>
+            <div class="file-tags">
+              <span class="file-tag">Track</span>
+              <span class="file-tag">Universal</span>
+              <span class="file-tag">Clean Geo</span>
+            </div>
+            <div class="file-actions">
+              <button class="action-btn" onclick="previewFile('flux-track-obj')">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                  <circle cx="12" cy="12" r="3"/>
+                </svg>
+                Preview
+              </button>
+              <button class="action-btn primary" onclick="downloadFile('flux-track-obj')">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4m4-5l5 5 5-5m-5 5V3"/>
+                </svg>
+                Download
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Complete Collection -->
+        <div class="file-card" data-category="collection" data-format="zip">
+          <div class="file-preview">
+            <div class="preview-icon">📁</div>
+          </div>
+          <div class="file-info">
+            <h4>Complete LUNVYR Collection</h4>
+            <div class="file-meta">
+              <span>ZIP Archive</span>
+              <span>45.8 MB</span>
+            </div>
+            <div class="file-tags">
+              <span class="file-tag">Complete</span>
+              <span class="file-tag">All Formats</span>
+              <span class="file-tag">Updated</span>
+            </div>
+            <div class="file-actions">
+              <button class="action-btn" onclick="showDetails('complete-collection')">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"/>
+                  <path d="M12 6v6l4 2"/>
+                </svg>
+                Details
+              </button>
+              <button class="action-btn primary" onclick="downloadFile('complete-collection')">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4m4-5l5 5 5-5m-5 5V3"/>
+                </svg>
+                Download
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SOFTWARE INTEGRATION -->
+  <section class="software-section">
+    <div class="eyebrow" style="text-align:center; color:var(--purple)">Software Integration</div>
+    <h2 style="text-align:center; margin-bottom:40px; color:var(--paper); font-size:clamp(1.6rem,2.4vw,2rem)">Compatible Platforms</h2>
+    
+    <div class="software-grid">
+      <div class="software-card">
+        <div class="software-logo">RV</div>
+        <h4>Autodesk Revit</h4>
+        <p>Parametric BIM families with accurate specifications</p>
+        <div class="compatibility">
+          <span class="compat-badge">2020+</span>
+          <span class="compat-badge">Families</span>
+        </div>
+      </div>
+      
+      <div class="software-card">
+        <div class="software-logo">AC</div>
+        <h4>AutoCAD</h4>
+        <p>2D plans, elevations, and detail drawings</p>
+        <div class="compatibility">
+          <span class="compat-badge">DWG</span>
+          <span class="compat-badge">Blocks</span>
+        </div>
+      </div>
+      
+      <div class="software-card">
+        <div class="software-logo">SU</div>
+        <h4>SketchUp</h4>
+        <p>3D models optimized for design visualization</p>
+        <div class="compatibility">
+          <span class="compat-badge">2018+</span>
+          <span class="compat-badge">3D WH</span>
+        </div>
+      </div>
+      
+      <div class="software-card">
+        <div class="software-logo">3D</div>
+        <h4>3ds Max</h4>
+        <p>High-detail models for photorealistic rendering</p>
+        <div class="compatibility">
+          <span class="compat-badge">2019+</span>
+          <span class="compat-badge">V-Ray</span>
+        </div>
+      </div>
+      
+      <div class="software-card">
+        <div class="software-logo">RH</div>
+        <h4>Rhino</h4>
+        <p>NURBS models for precision design work</p>
+        <div class="compatibility">
+          <span class="compat-badge">3DM</span>
+          <span class="compat-badge">NURBS</span>
+        </div>
+      </div>
+      
+      <div class="software-card">
+        <div class="software-logo">BL</div>
+        <h4>Blender</h4>
+        <p>Open-source compatible models and materials</p>
+        <div class="compatibility">
+          <span class="compat-badge">2.8+</span>
+          <span class="compat-badge">Cycles</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- USAGE GUIDE -->
+  <section class="usage-guide">
+    <div class="eyebrow" style="text-align:center">Implementation Guide</div>
+    <h2 style="text-align:center; margin-bottom:40px; color:var(--ink); font-size:clamp(1.6rem,2.4vw,2rem)">How to Use Our Models</h2>
+    
+    <div class="guide-tabs">
+      <div class="tab-nav">
+        <button class="tab-btn active" onclick="showGuideTab('revit')">Revit Integration</button>
+        <button class="tab-btn" onclick="showGuideTab('cad')">CAD Workflow</button>
+        <button class="tab-btn" onclick="showGuideTab('rendering')">Rendering Setup</button>
+        <button class="tab-btn" onclick="showGuideTab('troubleshooting')">Troubleshooting</button>
+      </div>
+
+      <!-- Revit Tab -->
+      <div class="tab-content active" id="revit-tab">
+        <h3>Revit Family Integration</h3>
+        <p style="color:var(--ash); margin-bottom:24px">Step-by-step guide for loading and using LUNVYR families in your Revit projects.</p>
+        
+        <ol class="step-list">
+          <li class="step-item">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <h5>Download Family Files</h5>
+              <p>Download the .rfa files for your selected fixtures from our library. Each family includes multiple size and finish configurations.</p>
+            </div>
+          </li>
+          
+          <li class="step-item">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <h5>Load into Project</h5>
+              <p>In Revit, go to Insert > Load Family and select the downloaded .rfa file. The family will appear in your project browser under Lighting Fixtures.</p>
+            </div>
+          </li>
+          
+          <li class="step-item">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <h5>Configure Parameters</h5>
+              <p>Select the fixture and modify type parameters for size, finish, and mounting details. All dimensions update automatically.</p>
+            </div>
+          </li>
+          
+          <li class="step-item">
+            <div class="step-number">4</div>
+            <div class="step-content">
+              <h5>Generate Schedules</h5>
+              <p>Create lighting schedules that automatically pull fixture specifications, quantities, and custom parameters for documentation.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+
+      <!-- CAD Tab -->
+      <div class="tab-content" id="cad-tab">
+        <h3>AutoCAD Integration</h3>
+        <p style="color:var(--ash); margin-bottom:24px">Import and use LUNVYR fixtures in your CAD drawings and construction documents.</p>
+        
+        <ol class="step-list">
+          <li class="step-item">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <h5>Import DWG Files</h5>
+              <p>Use INSERT > Block to add fixture blocks to your current drawing. All views are organized on separate layers.</p>
+            </div>
+          </li>
+          
+          <li class="step-item">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <h5>Scale and Position</h5>
+              <p>Scale blocks as needed and position in your floor plans. Each block includes plan, elevation, and detail views.</p>
+            </div>
+          </li>
+          
+          <li class="step-item">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <h5>Layer Management</h5>
+              <p>Organize fixtures on dedicated layers for easy visibility control. Use standard AIA layer naming conventions.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+
+      <!-- Rendering Tab -->
+      <div class="tab-content" id="rendering-tab">
+        <h3>Rendering and Visualization</h3>
+        <p style="color:var(--ash); margin-bottom:24px">Set up realistic materials and lighting for photorealistic renderings.</p>
+        
+        <ol class="step-list">
+          <li class="step-item">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <h5>Material Setup</h5>
+              <p>Apply provided material libraries for accurate brass finishes, patinas, and surface properties in your renderer.</p>
+            </div>
+          </li>
+          
+          <li class="step-item">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <h5>Lighting Configuration</h5>
+              <p>Configure emissive properties and IES light distribution files for realistic light output and beam patterns.</p>
+            </div>
+          </li>
+          
+          <li class="step-item">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <h5>Render Settings</h5>
+              <p>Use recommended render settings for optimal quality and reasonable render times with our high-detail models.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+
+      <!-- Troubleshooting Tab -->
+      <div class="tab-content" id="troubleshooting-tab">
+        <h3>Common Issues & Solutions</h3>
+        <p style="color:var(--ash); margin-bottom:24px">Solutions for frequently encountered issues when working with our models.</p>
+        
+        <ol class="step-list">
+          <li class="step-item">
+            <div class="step-number">⚠</div>
+            <div class="step-content">
+              <h5>File Won't Load</h5>
+              <p>Ensure you're using a compatible software version. Check file integrity and try re-downloading if corrupted.</p>
+            </div>
+          </li>
+          
+          <li class="step-item">
+            <div class="step-number">⚠</div>
+            <div class="step-content">
+              <h5>Missing Materials</h5>
+              <p>Material files are included separately. Load the provided material library or reassign materials as needed.</p>
+            </div>
+          </li>
+          
+          <li class="step-item">
+            <div class="step-number">⚠</div>
+            <div class="step-content">
+              <h5>Performance Issues</h5>
+              <p>Use LOD (Level of Detail) versions for large projects. Switch to simplified geometry for working views.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- REQUIREMENTS -->
+  <section class="requirements">
+    <div class="eyebrow" style="text-align:center">System Requirements</div>
+    <h2 style="text-align:center; margin-bottom:40px; color:var(--ink); font-size:clamp(1.6rem,2.4vw,2rem)">Technical Requirements</h2>
+    
+    <div class="req-grid">
+      <div class="req-card">
+        <h4>
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+            <line x1="8" y1="21" x2="16" y2="21"/>
+            <line x1="12" y1="17" x2="12" y2="21"/>
+          </svg>
+          Hardware
+        </h4>
+        <ul class="req-list">
+          <li>8GB RAM minimum (16GB recommended)</li>
+          <li>Dedicated graphics card with 2GB VRAM</li>
+          <li>5GB available storage space</li>
+          <li>OpenGL 3.3 support or higher</li>
+        </ul>
+      </div>
+      
+      <div class="req-card">
+        <h4>
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="3"/>
+            <path d="M12 1v6m6 5h6m-6 5v6m-6-5H1"/>
+          </svg>
+          Software
+        </h4>
+        <ul class="req-list">
+          <li>Revit 2020 or later for BIM families</li>
+          <li>AutoCAD 2018 or later for DWG files</li>
+          <li>SketchUp Pro 2018 or later</li>
+          <li>3ds Max 2019 or later for rendering</li>
+        </ul>
+      </div>
+      
+      <div class="req-card">
+        <h4>
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4m4-5l5 5 5-5m-5 5V3"/>
+          </svg>
+          Downloads
+        </h4>
+        <ul class="req-list">
+          <li>Stable internet connection required</li>
+          <li>Download manager recommended for large files</li>
+          <li>Files available 24/7 with backup mirrors</li>
+          <li>Free registration required for access</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <h2>Start Your Next Project</h2>
+    <p>Access our complete library of professional-grade digital assets and bring LUNVYR lighting into your designs.</p>
+    <a href="/trade-program" class="btn-secondary btn">Trade Program</a>
+    <a href="/contact" class="btn">Request Access</a>
+  </section>
+
+</div>
+
+<script>
+// File filtering and search
+function filterFiles(type, value) {
+  const cards = document.querySelectorAll('.file-card');
+  
+  cards.forEach(card => {
+    const category = card.dataset.category;
+    const format = card.dataset.format;
+    let show = true;
+    
+    // Apply category filter
+    const categoryFilter = document.querySelector('.filter-select').value;
+    if (categoryFilter !== 'all' && category !== categoryFilter) {
+      show = false;
+    }
+    
+    // Apply format filter
+    const formatFilter = document.querySelectorAll('.filter-select')[1].value;
+    if (formatFilter !== 'all' && format !== formatFilter) {
+      show = false;
+    }
+    
+    card.style.display = show ? 'block' : 'none';
+  });
+}
+
+function searchFiles(query) {
+  const cards = document.querySelectorAll('.file-card');
+  const searchTerm = query.toLowerCase();
+  
+  cards.forEach(card => {
+    const title = card.querySelector('h4').textContent.toLowerCase();
+    const tags = Array.from(card.querySelectorAll('.file-tag')).map(tag => tag.textContent.toLowerCase());
+    
+    const matches = title.includes(searchTerm) || tags.some(tag => tag.includes(searchTerm));
+    card.style.display = matches ? 'block' : 'none';
+  });
+}
+
+// Quick downloads
+function quickDownload(type) {
+  const downloads = {
+    'complete-library': 'LUNVYR_Complete_Library.zip',
+    'latest-releases': 'LUNVYR_Latest_Models.zip',
+    'revit-families': 'LUNVYR_Revit_Families.zip',
+    'sketchup-models': 'LUNVYR_SketchUp_Models.zip'
+  };
+  
+  const fileName = downloads[type];
+  if (fileName) {
+    console.log(`Quick downloading: ${fileName}`);
+    // Simulate download progress
+    showDownloadFeedback(event.currentTarget, fileName);
+  }
+}
+
+// File actions
+function downloadFile(fileId) {
+  console.log(`Downloading file: ${fileId}`);
+  showDownloadFeedback(event.currentTarget, fileId);
+}
+
+function previewFile(fileId) {
+  console.log(`Previewing file: ${fileId}`);
+  // In production, this would open a preview modal
+  alert(`Preview functionality for ${fileId} would open here.`);
+}
+
+function showDetails(fileId) {
+  console.log(`Showing details for: ${fileId}`);
+  // In production, this would show detailed file information
+  alert(`Detailed information for ${fileId} would show here.`);
+}
+
+function showDownloadFeedback(button, fileName) {
+  const originalText = button.textContent;
+  button.textContent = 'Downloading...';
+  button.disabled = true;
+  
+  setTimeout(() => {
+    button.textContent = 'Downloaded ✓';
+    setTimeout(() => {
+      button.textContent = originalText;
+      button.disabled = false;
+    }, 2000);
+  }, 1500);
+}
+
+// Tab functionality
+function showGuideTab(tabName) {
+  // Hide all tab contents
+  document.querySelectorAll('.tab-content').forEach(tab => {
+    tab.classList.remove('active');
+  });
+  
+  // Remove active class from all buttons
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.classList.remove('active');
+  });
+  
+  // Show selected tab and activate button
+  document.getElementById(tabName + '-tab').classList.add('active');
+  event.target.classList.add('active');
+}
+
+// Reveal animations
+document.addEventListener('DOMContentLoaded', function(){
+  const cards = document.querySelectorAll('.access-card, .file-card, .software-card, .req-card');
+  if('IntersectionObserver' in window){
+    const observer = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, {threshold: 0.1});
+    
+    cards.forEach((card, index)=>{
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(20px)';
+      card.style.transition = `opacity 0.6s ease ${index * 0.05}s, transform 0.6s ease ${index * 0.05}s`;
+      observer.observe(card);
+    });
+  }
+});
+</script>

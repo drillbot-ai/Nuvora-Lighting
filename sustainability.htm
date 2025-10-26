@@ -1,0 +1,751 @@
+<!-- LUNVYR — Sustainability (Environmental Commitment, Eco-Friendly Practices, Material Sourcing) -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Inter:wght@300;400;500&display=swap');
+
+:root{
+  --ink:#1c222b; --paper:#f2f0eb; --coal:#111; --ash:#666; --brass:#b2956d; --white:#fff;
+  --green:#16a34a; --light-green:#22c55e; --earth:#8b5a3c; --sky:#3b82f6;
+  --radius:14px; --shadow:0 12px 32px rgba(0,0,0,.08); --ring: 0 0 0 3px rgba(178,149,109,.25);
+}
+
+.sustainability{font-family:Inter,system-ui,sans-serif;color:var(--coal);line-height:1.65}
+.sustainability h1,.sustainability h2,.sustainability h3{font-family:Cinzel,serif;font-weight:400;margin:0}
+.sustainability .eyebrow{letter-spacing:.12em;text-transform:uppercase;font-size:.8rem;color:var(--ash);margin-bottom:.6rem}
+
+/* Hero */
+.sustain-hero{
+  position:relative; color:var(--paper); text-align:center;
+  background:#0a1b0d url('https://lunvyr.com/wp-content/uploads/2025/08/f07dabad-5599-4f19-bb21-0e2537614e98.png') center/cover no-repeat;
+  padding:clamp(100px,15vh,160px) 10%; min-height:70vh; display:flex; align-items:center; justify-content:center;
+}
+.sustain-hero::before{
+  content:""; position:absolute; top:0; left:0; right:0; height:1px;
+  background:linear-gradient(90deg, transparent, var(--green), transparent);
+}
+.sustain-hero::after{
+  content:""; position:absolute; inset:0; 
+  background:radial-gradient(110% 110% at 30% 70%, rgba(22,163,74,0) 0%, rgba(22,163,74,.8) 70%);
+}
+.sustain-hero .inner{position:relative; z-index:2; max-width:900px; margin:0 auto}
+.sustain-hero h1{
+  font-size:clamp(2.6rem,5.2vw,3.8rem); color:var(--paper); margin-bottom:16px;
+  font-family:'Cinzel',serif; font-weight:400; line-height:1.15;
+}
+.sustain-hero p{color:#d6f3dc; margin:0 auto; max-width:760px; font-size:1.1rem; line-height:1.6}
+
+/* Section */
+.section{
+  padding:clamp(84px,12vh,140px) 10%; 
+  background:linear-gradient(135deg, var(--paper) 0%, #f8f6f0 100%);
+  position:relative;
+}
+.section::before{
+  content:""; position:absolute; top:0; left:0; right:0; height:1px;
+  background:linear-gradient(90deg, transparent, var(--green), transparent);
+}
+
+/* Commitment Cards */
+.commitment-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:28px; max-width:1200px; margin:0 auto}
+.commitment-card{
+  background:var(--white); border:1px solid rgba(22,163,74,.12); 
+  border-radius:20px; padding:28px 24px; box-shadow:0 8px 30px rgba(0,0,0,.06);
+  transition:all .4s ease; position:relative; overflow:hidden; text-align:center;
+}
+.commitment-card::before{
+  content:""; position:absolute; top:0; left:0; right:0; height:3px;
+  background:linear-gradient(90deg, var(--green) 0%, var(--light-green) 100%);
+  transform:scaleX(0); transition:transform .4s ease;
+}
+.commitment-card:hover::before{transform:scaleX(1)}
+.commitment-card:hover{
+  transform:translateY(-6px); 
+  box-shadow:0 16px 45px rgba(22,163,74,.15);
+}
+.commitment-card .icon{
+  width:60px; height:60px; border-radius:50%; margin:0 auto 16px;
+  background:linear-gradient(135deg, var(--green) 0%, var(--light-green) 100%);
+  display:flex; align-items:center; justify-content:center; color:var(--white);
+}
+.commitment-card h3{font-size:1.3rem; color:var(--ink); margin-bottom:12px; font-weight:500}
+.commitment-card p{color:var(--ash); margin:0; font-size:.95rem; line-height:1.5}
+
+/* Metrics */
+.metrics{
+  background:var(--green); color:var(--paper); padding:clamp(64px,10vh,100px) 10%;
+  position:relative;
+}
+.metrics::before{
+  content:""; position:absolute; top:0; left:0; right:0; height:1px;
+  background:linear-gradient(90deg, transparent, var(--light-green), transparent);
+}
+.metrics-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:32px; max-width:1000px; margin:0 auto}
+.metric-item{
+  text-align:center; padding:24px 16px; background:rgba(255,255,255,.1);
+  border-radius:16px; border:1px solid rgba(255,255,255,.2);
+  backdrop-filter:blur(10px); transition:all .3s ease;
+}
+.metric-item:hover{
+  background:rgba(255,255,255,.15); transform:translateY(-4px);
+}
+.metric-number{
+  font-size:clamp(2.2rem,3.5vw,3rem); font-weight:600; color:var(--light-green);
+  display:block; font-family:Cinzel,serif; margin-bottom:8px;
+}
+.metric-label{
+  color:#d6f3dc; font-size:.9rem; text-transform:uppercase; letter-spacing:.08em;
+  margin-bottom:6px;
+}
+.metric-desc{color:#a7f3b1; font-size:.85rem; line-height:1.4}
+
+/* Practices */
+.practices{
+  padding:clamp(64px,10vh,100px) 10%; 
+  background:#f7f7f7; position:relative;
+}
+.practices::before{
+  content:""; position:absolute; top:0; left:0; right:0; height:1px;
+  background:linear-gradient(90deg, transparent, var(--green), transparent);
+}
+.practice-tabs{
+  max-width:1000px; margin:0 auto;
+}
+.tab-nav{
+  display:flex; justify-content:center; gap:8px; margin-bottom:32px;
+  flex-wrap:wrap;
+}
+.tab-btn{
+  padding:12px 24px; background:var(--white); border:2px solid rgba(22,163,74,.2);
+  border-radius:50px; color:var(--coal); cursor:pointer; transition:all .3s ease;
+  font-family:inherit; font-size:.9rem; font-weight:500;
+}
+.tab-btn.active{
+  background:var(--green); color:var(--white); border-color:var(--green);
+}
+.tab-btn:hover:not(.active){
+  border-color:var(--green); background:rgba(22,163,74,.1);
+}
+.tab-content{
+  background:var(--white); border:1px solid rgba(22,163,74,.12);
+  border-radius:16px; padding:32px 28px; box-shadow:var(--shadow);
+  display:none;
+}
+.tab-content.active{display:block}
+.tab-content h3{color:var(--ink); margin-bottom:20px; font-size:1.3rem}
+.practice-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:24px; margin-top:24px}
+.practice-item{
+  background:rgba(22,163,74,.05); border:1px solid rgba(22,163,74,.2);
+  border-radius:12px; padding:20px 16px; text-align:center;
+}
+.practice-item .icon{
+  width:32px; height:32px; color:var(--green); margin:0 auto 12px;
+  background:rgba(22,163,74,.1); border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+}
+.practice-item h4{color:var(--ink); margin-bottom:6px; font-size:1rem}
+.practice-item p{color:var(--ash); margin:0; font-size:.85rem; line-height:1.4}
+
+/* Materials */
+.materials{
+  background:var(--ink); color:var(--paper); padding:clamp(64px,10vh,100px) 10%;
+  position:relative;
+}
+.materials::before{
+  content:""; position:absolute; top:0; left:0; right:0; height:1px;
+  background:linear-gradient(90deg, transparent, var(--green), transparent);
+}
+.material-flow{
+  max-width:1000px; margin:0 auto; position:relative;
+}
+.flow-step{
+  display:flex; align-items:center; margin-bottom:40px; position:relative;
+}
+.flow-step:nth-child(even){flex-direction:row-reverse}
+.flow-step:nth-child(even) .step-content{text-align:right}
+.step-number{
+  width:60px; height:60px; border-radius:50%; 
+  background:linear-gradient(135deg, var(--green) 0%, var(--light-green) 100%);
+  display:flex; align-items:center; justify-content:center;
+  font-weight:600; font-size:1.2rem; color:var(--white);
+  flex-shrink:0; margin:0 24px;
+}
+.step-content{flex:1; padding:0 20px}
+.step-content h4{color:var(--green); margin-bottom:8px; font-size:1.1rem}
+.step-content p{color:#d6d3ce; margin:0; line-height:1.5}
+
+/* Certifications */
+.certifications{
+  padding:clamp(64px,10vh,100px) 10%; 
+  background:linear-gradient(135deg, var(--paper) 0%, #f8f6f0 100%);
+  position:relative;
+}
+.certifications::before{
+  content:""; position:absolute; top:0; left:0; right:0; height:1px;
+  background:linear-gradient(90deg, transparent, var(--green), transparent);
+}
+.cert-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:24px; max-width:800px; margin:0 auto}
+.cert-badge{
+  background:var(--white); border:2px solid rgba(22,163,74,.2);
+  border-radius:16px; padding:24px 20px; text-align:center;
+  transition:all .3s ease; position:relative; overflow:hidden;
+}
+.cert-badge::before{
+  content:""; position:absolute; inset:0; 
+  background:linear-gradient(135deg, transparent 0%, rgba(22,163,74,.05) 50%, transparent 100%);
+  opacity:0; transition:opacity .3s ease;
+}
+.cert-badge:hover::before{opacity:1}
+.cert-badge:hover{
+  border-color:var(--green); transform:translateY(-4px);
+  box-shadow:0 12px 30px rgba(22,163,74,.15);
+}
+.cert-logo{
+  width:64px; height:64px; margin:0 auto 12px;
+  background:var(--green); border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  color:var(--white); font-weight:600; font-size:1.5rem;
+}
+.cert-badge h4{color:var(--ink); margin-bottom:6px; font-size:1rem}
+.cert-badge p{color:var(--ash); margin:0; font-size:.85rem; line-height:1.4}
+
+/* Future Goals */
+.goals{
+  background:#f7f7f7; padding:clamp(64px,10vh,100px) 10%;
+  position:relative;
+}
+.goals::before{
+  content:""; position:absolute; top:0; left:0; right:0; height:1px;
+  background:linear-gradient(90deg, transparent, var(--green), transparent);
+}
+.timeline{max-width:800px; margin:0 auto; position:relative}
+.timeline::before{
+  content:""; position:absolute; left:30px; top:0; bottom:0; width:2px;
+  background:linear-gradient(to bottom, var(--green), var(--light-green));
+}
+.goal-item{
+  position:relative; padding:0 0 40px 80px; margin-bottom:32px;
+}
+.goal-year{
+  position:absolute; left:0; top:0; width:60px; height:60px;
+  background:var(--green); color:var(--white); border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  font-weight:600; font-size:1rem;
+}
+.goal-content{
+  background:var(--white); border:1px solid rgba(22,163,74,.12);
+  border-radius:12px; padding:20px 24px; box-shadow:0 4px 20px rgba(0,0,0,.06);
+}
+.goal-content h4{color:var(--ink); margin-bottom:8px; font-size:1.1rem}
+.goal-content p{color:var(--ash); margin:0; line-height:1.5}
+
+/* CTA */
+.cta{
+  background:linear-gradient(135deg, var(--green) 0%, var(--light-green) 100%);
+  text-align:center; padding:clamp(64px,10vh,100px) 10%; color:var(--white);
+  position:relative;
+}
+.cta::before{
+  content:""; position:absolute; top:0; left:0; right:0; height:1px;
+  background:linear-gradient(90deg, transparent, rgba(255,255,255,.3), transparent);
+}
+.cta h2{margin-bottom:16px; color:var(--white)}
+.cta p{color:#d6f3dc; margin:0 0 24px; max-width:600px; margin-left:auto; margin-right:auto}
+.cta .btn{
+  font-family:Cinzel,serif; padding:1rem 2rem; border-radius:50px;
+  border:2px solid var(--white); background:var(--white); color:var(--green);
+  text-decoration:none; display:inline-flex; align-items:center; gap:.7rem;
+  transition:all .4s ease; font-weight:500; margin:0 8px;
+}
+.cta .btn:hover{
+  background:transparent; color:var(--white); transform:translateY(-2px);
+  box-shadow:0 8px 25px rgba(0,0,0,.2);
+}
+.cta .btn-secondary{
+  background:transparent; color:var(--white); border-color:var(--white);
+}
+.cta .btn-secondary:hover{
+  background:var(--white); color:var(--green);
+}
+
+/* Responsive */
+@media (max-width:767px){
+  .sustain-hero{padding:clamp(80px,12vh,120px) 7%; min-height:60vh}
+  .sustain-hero h1{font-size:clamp(2.2rem,7vw,3.2rem)}
+  .section{padding:clamp(64px,10vh,100px) 7%}
+  .commitment-grid{grid-template-columns:1fr; gap:20px}
+  .tab-nav{justify-content:stretch}
+  .tab-btn{flex:1; text-align:center}
+  .flow-step{flex-direction:column !important; text-align:center}
+  .flow-step .step-content{text-align:center !important}
+  .step-number{margin:0 0 16px 0}
+  .timeline::before{left:20px}
+  .goal-item{padding-left:60px}
+}
+
+@media (max-width:599px){
+  .sustain-hero{padding:clamp(60px,10vh,80px) 6%}
+  .commitment-card{padding:24px 20px}
+  .tab-content{padding:24px 20px}
+  .cert-grid{grid-template-columns:1fr 1fr; gap:16px}
+}
+</style>
+
+<div class="sustainability">
+
+  <!-- HERO -->
+  <section class="sustain-hero">
+    <div class="inner">
+      <div class="eyebrow">Environmental Responsibility</div>
+      <h1>Sustainability</h1>
+      <p>LUNVYR is committed to creating beautiful lighting while protecting our planet. Every design decision considers environmental impact, from material sourcing to energy efficiency.</p>
+    </div>
+  </section>
+
+  <!-- COMMITMENT -->
+  <section class="section">
+    <div class="eyebrow">Our Promise</div>
+    <h2 style="text-align:center; margin-bottom:40px; color:var(--ink); font-size:clamp(1.8rem,2.8vw,2.4rem)">Environmental Commitment</h2>
+    
+    <div class="commitment-grid">
+      <!-- Carbon Neutral -->
+      <div class="commitment-card">
+        <div class="icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 12h18m-9-9v18m-9-9l9-9 9 9"/>
+          </svg>
+        </div>
+        <h3>Carbon Neutral Operations</h3>
+        <p>We offset 100% of our manufacturing emissions through verified carbon reduction projects and sustainable energy initiatives.</p>
+      </div>
+
+      <!-- Renewable Energy -->
+      <div class="commitment-card">
+        <div class="icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"/>
+            <path d="M12 1v6m6 5h6m-6 5v6m-6-5H1"/>
+          </svg>
+        </div>
+        <h3>Renewable Energy</h3>
+        <p>Our workshop operates on 100% renewable energy, with solar panels and wind power supporting our entire production process.</p>
+      </div>
+
+      <!-- Sustainable Materials -->
+      <div class="commitment-card">
+        <div class="icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2l9 4.5v9L12 21l-9-4.5v-9L12 3z"/>
+          </svg>
+        </div>
+        <h3>Sustainable Materials</h3>
+        <p>We source responsibly mined brass and recycled metals, ensuring minimal environmental impact throughout our supply chain.</p>
+      </div>
+
+      <!-- Waste Reduction -->
+      <div class="commitment-card">
+        <div class="icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 6h18l-2 13H5L3 6zm0 0V4a2 2 0 012-2h4l2 2h4a2 2 0 012 2v2"/>
+            <path d="M10 11v6m4-6v6"/>
+          </svg>
+        </div>
+        <h3>Zero Waste Goal</h3>
+        <p>We're committed to achieving zero waste to landfill by 2027, with comprehensive recycling and material recovery programs.</p>
+      </div>
+
+      <!-- Energy Efficiency -->
+      <div class="commitment-card">
+        <div class="icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+          </svg>
+        </div>
+        <h3>LED Technology</h3>
+        <p>All LUNVYR fixtures use high-efficiency LED technology, reducing energy consumption by up to 80% compared to traditional lighting.</p>
+      </div>
+
+      <!-- Local Sourcing -->
+      <div class="commitment-card">
+        <div class="icon">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="10" r="3"/>
+            <path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 1 0-16 0c0 3 2.7 7 8 11.7z"/>
+          </svg>
+        </div>
+        <h3>Local Sourcing</h3>
+        <p>We prioritize suppliers within 500 miles of our workshop, reducing transportation emissions and supporting local communities.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- METRICS -->
+  <section class="metrics">
+    <div class="eyebrow" style="text-align:center">Impact Numbers</div>
+    <h2 style="text-align:center; margin-bottom:40px; color:var(--paper); font-size:clamp(1.6rem,2.4vw,2rem)">2024 Sustainability Metrics</h2>
+    
+    <div class="metrics-grid">
+      <div class="metric-item">
+        <span class="metric-number">100%</span>
+        <div class="metric-label">Renewable Energy</div>
+        <div class="metric-desc">Solar & wind powered operations</div>
+      </div>
+      
+      <div class="metric-item">
+        <span class="metric-number">85%</span>
+        <div class="metric-label">Recycled Content</div>
+        <div class="metric-desc">Average recycled material in products</div>
+      </div>
+      
+      <div class="metric-item">
+        <span class="metric-number">92%</span>
+        <div class="metric-label">Waste Diverted</div>
+        <div class="metric-desc">Diverted from landfills</div>
+      </div>
+      
+      <div class="metric-item">
+        <span class="metric-number">-47%</span>
+        <div class="metric-label">Carbon Reduction</div>
+        <div class="metric-desc">Compared to 2020 baseline</div>
+      </div>
+      
+      <div class="metric-item">
+        <span class="metric-number">15</span>
+        <div class="metric-label">Year Warranty</div>
+        <div class="metric-desc">Reducing replacement needs</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRACTICES -->
+  <section class="practices">
+    <div class="eyebrow" style="text-align:center">Green Operations</div>
+    <h2 style="text-align:center; margin-bottom:40px; color:var(--ink); font-size:clamp(1.6rem,2.4vw,2rem)">Sustainable Practices</h2>
+    
+    <div class="practice-tabs">
+      <div class="tab-nav">
+        <button class="tab-btn active" onclick="showTab('manufacturing')">Manufacturing</button>
+        <button class="tab-btn" onclick="showTab('materials')">Materials</button>
+        <button class="tab-btn" onclick="showTab('packaging')">Packaging</button>
+        <button class="tab-btn" onclick="showTab('transport')">Transport</button>
+      </div>
+
+      <!-- Manufacturing Tab -->
+      <div class="tab-content active" id="manufacturing-tab">
+        <h3>Sustainable Manufacturing</h3>
+        <p style="color:var(--ash); margin-bottom:24px">Our production processes minimize environmental impact while maintaining exceptional quality.</p>
+        
+        <div class="practice-grid">
+          <div class="practice-item">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="5"/><path d="M12 1v6m6 5h6m-6 5v6m-6-5H1"/></svg>
+            <h4>Solar-Powered Workshop</h4>
+            <p>100% renewable energy powers all manufacturing equipment and facility operations.</p>
+          </div>
+          
+          <div class="practice-item">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 6h18l-2 13H5L3 6zm0 0V4a2 2 0 012-2h4l2 2h4a2 2 0 012 2v2"/></svg>
+            <h4>Closed-Loop Production</h4>
+            <p>Metal scraps and offcuts are recycled back into new products.</p>
+          </div>
+          
+          <div class="practice-item">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2l9 4.5v9L12 21l-9-4.5v-9L12 3z"/></svg>
+            <h4>Water Conservation</h4>
+            <p>Closed-loop water systems for cleaning and cooling processes.</p>
+          </div>
+          
+          <div class="practice-item">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M9 11l3 3 7-7"/></svg>
+            <h4>Lean Manufacturing</h4>
+            <p>Optimized processes reduce waste and energy consumption.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Materials Tab -->
+      <div class="tab-content" id="materials-tab">
+        <h3>Responsible Material Sourcing</h3>
+        <p style="color:var(--ash); margin-bottom:24px">We carefully select materials based on environmental impact and social responsibility.</p>
+        
+        <div class="practice-grid">
+          <div class="practice-item">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2l9 4.5v9L12 21l-9-4.5v-9L12 3z"/></svg>
+            <h4>Recycled Brass</h4>
+            <p>85% of our brass comes from post-consumer and post-industrial sources.</p>
+          </div>
+          
+          <div class="practice-item">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="10" r="3"/><path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 1 0-16 0c0 3 2.7 7 8 11.7z"/></svg>
+            <h4>Local Suppliers</h4>
+            <p>80% of materials sourced within 500 miles of our workshop.</p>
+          </div>
+          
+          <div class="practice-item">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M9 11l3 3 7-7"/></svg>
+            <h4>Ethical Mining</h4>
+            <p>All new metals from certified responsible mining operations.</p>
+          </div>
+          
+          <div class="practice-item">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            <h4>Conflict-Free</h4>
+            <p>Zero conflict minerals in our supply chain.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Packaging Tab -->
+      <div class="tab-content" id="packaging-tab">
+        <h3>Eco-Friendly Packaging</h3>
+        <p style="color:var(--ash); margin-bottom:24px">Minimal, recyclable packaging protects products while reducing environmental impact.</p>
+        
+        <div class="practice-grid">
+          <div class="practice-item">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2 2z"/></svg>
+            <h4>Recycled Cardboard</h4>
+            <p>100% recycled content in all shipping boxes and protective inserts.</p>
+          </div>
+          
+          <div class="practice-item">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2l9 4.5v9L12 21l-9-4.5v-9L12 3z"/></svg>
+            <h4>Biodegradable Protection</h4>
+            <p>Plant-based protective materials replace plastic foam.</p>
+          </div>
+          
+          <div class="practice-item">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+            <h4>Minimal Design</h4>
+            <p>Right-sized packaging reduces material use and shipping volume.</p>
+          </div>
+          
+          <div class="practice-item">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M9 11l3 3 7-7"/></svg>
+            <h4>Reusable Elements</h4>
+            <p>Packaging designed for customer reuse or easy recycling.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Transport Tab -->
+      <div class="tab-content" id="transport-tab">
+        <h3>Carbon-Conscious Shipping</h3>
+        <p style="color:var(--ash); margin-bottom:24px">Efficient logistics minimize transportation emissions throughout our supply chain.</p>
+        
+        <div class="practice-grid">
+          <div class="practice-item">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M7 17h10l4-12H5.4L7 17z"/></svg>
+            <h4>Consolidated Shipping</h4>
+            <p>Optimized routes and full truck loads reduce per-unit emissions.</p>
+          </div>
+          
+          <div class="practice-item">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="10" r="3"/><path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 1 0-16 0c0 3 2.7 7 8 11.7z"/></svg>
+            <h4>Regional Distribution</h4>
+            <p>Strategic warehouse locations minimize shipping distances.</p>
+          </div>
+          
+          <div class="practice-item">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            <h4>Carbon Offsetting</h4>
+            <p>All shipping emissions offset through verified carbon credits.</p>
+          </div>
+          
+          <div class="practice-item">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M9 11l3 3 7-7"/></svg>
+            <h4>Green Carriers</h4>
+            <p>Partnership with carbon-neutral shipping providers.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MATERIAL FLOW -->
+  <section class="materials">
+    <div class="eyebrow" style="text-align:center">Circular Economy</div>
+    <h2 style="text-align:center; margin-bottom:40px; color:var(--paper); font-size:clamp(1.6rem,2.4vw,2rem)">Material Lifecycle</h2>
+    
+    <div class="material-flow">
+      <div class="flow-step">
+        <div class="step-number">1</div>
+        <div class="step-content">
+          <h4>Responsible Sourcing</h4>
+          <p>Recycled brass and ethically-mined metals sourced from certified suppliers within our regional network.</p>
+        </div>
+      </div>
+      
+      <div class="flow-step">
+        <div class="step-number">2</div>
+        <div class="step-content">
+          <h4>Efficient Manufacturing</h4>
+          <p>Solar-powered production with closed-loop water systems and comprehensive waste recovery programs.</p>
+        </div>
+      </div>
+      
+      <div class="flow-step">
+        <div class="step-number">3</div>
+        <div class="step-content">
+          <h4>Long-Life Products</h4>
+          <p>Durable construction and timeless design ensure fixtures last decades, reducing replacement needs.</p>
+        </div>
+      </div>
+      
+      <div class="flow-step">
+        <div class="step-number">4</div>
+        <div class="step-content">
+          <h4>End-of-Life Recovery</h4>
+          <p>Take-back program recycles fixtures into new products, completing the circular material loop.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTIFICATIONS -->
+  <section class="certifications">
+    <div class="eyebrow" style="text-align:center">Third-Party Verification</div>
+    <h2 style="text-align:center; margin-bottom:40px; color:var(--ink); font-size:clamp(1.6rem,2.4vw,2rem)">Certifications & Standards</h2>
+    
+    <div class="cert-grid">
+      <div class="cert-badge">
+        <div class="cert-logo">B</div>
+        <h4>B Corporation</h4>
+        <p>Certified for social and environmental performance</p>
+      </div>
+      
+      <div class="cert-badge">
+        <div class="cert-logo">★</div>
+        <h4>Energy Star</h4>
+        <p>LED efficiency certification for all products</p>
+      </div>
+      
+      <div class="cert-badge">
+        <div class="cert-logo">♻</div>
+        <h4>Cradle to Cradle</h4>
+        <p>Material health and circular economy certified</p>
+      </div>
+      
+      <div class="cert-badge">
+        <div class="cert-logo">🌿</div>
+        <h4>Carbon Neutral</h4>
+        <p>Verified net-zero emissions across operations</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FUTURE GOALS -->
+  <section class="goals">
+    <div class="eyebrow" style="text-align:center">Roadmap</div>
+    <h2 style="text-align:center; margin-bottom:40px; color:var(--ink); font-size:clamp(1.6rem,2.4vw,2rem)">Sustainability Roadmap</h2>
+    
+    <div class="timeline">
+      <div class="goal-item">
+        <div class="goal-year">2025</div>
+        <div class="goal-content">
+          <h4>Carbon Negative Operations</h4>
+          <p>Achieve net-negative carbon emissions through expanded renewable energy and carbon capture investments.</p>
+        </div>
+      </div>
+      
+      <div class="goal-item">
+        <div class="goal-year">2026</div>
+        <div class="goal-content">
+          <h4>100% Circular Materials</h4>
+          <p>Transition to fully circular material flows with zero virgin material inputs and complete recycling programs.</p>
+        </div>
+      </div>
+      
+      <div class="goal-item">
+        <div class="goal-year">2027</div>
+        <div class="goal-content">
+          <h4>Zero Waste to Landfill</h4>
+          <p>Eliminate all waste streams to landfills through comprehensive recovery, recycling, and composting programs.</p>
+        </div>
+      </div>
+      
+      <div class="goal-item">
+        <div class="goal-year">2030</div>
+        <div class="goal-content">
+          <h4>Regenerative Impact</h4>
+          <p>Move beyond sustainability to actively restore ecosystems and communities through our business operations.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <h2>Join Our Sustainability Journey</h2>
+    <p>Learn more about our environmental initiatives and how your lighting choices can make a positive impact.</p>
+    <a href="/material-guide" class="btn-secondary btn">Material Guide</a>
+    <a href="/contact" class="btn">Ask Questions</a>
+  </section>
+
+</div>
+
+<script>
+// Tab functionality
+function showTab(tabName) {
+  // Hide all tab contents
+  document.querySelectorAll('.tab-content').forEach(tab => {
+    tab.classList.remove('active');
+  });
+  
+  // Remove active class from all buttons
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.classList.remove('active');
+  });
+  
+  // Show selected tab and activate button
+  document.getElementById(tabName + '-tab').classList.add('active');
+  event.target.classList.add('active');
+}
+
+// Reveal animations
+document.addEventListener('DOMContentLoaded', function(){
+  const cards = document.querySelectorAll('.commitment-card, .metric-item, .practice-item, .cert-badge, .goal-item');
+  if('IntersectionObserver' in window){
+    const observer = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, {threshold: 0.1});
+    
+    cards.forEach((card, index)=>{
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(20px)';
+      card.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+      observer.observe(card);
+    });
+  }
+  
+  // Animate metrics counter
+  const metrics = document.querySelectorAll('.metric-number');
+  const animateMetrics = (entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting) {
+        const target = entry.target;
+        const text = target.textContent;
+        if(text.includes('%') || text.includes('-')) {
+          // Animate percentage or negative numbers
+          const number = parseFloat(text.replace(/[^\d.-]/g, ''));
+          const suffix = text.replace(/[\d.-]/g, '');
+          let current = 0;
+          const increment = number / 30;
+          const timer = setInterval(() => {
+            current += increment;
+            if((number > 0 && current >= number) || (number < 0 && current <= number)) {
+              current = number;
+              clearInterval(timer);
+            }
+            target.textContent = Math.round(current) + suffix;
+          }, 50);
+        }
+      }
+    });
+  };
+  
+  const metricObserver = new IntersectionObserver(animateMetrics, {threshold: 0.5});
+  metrics.forEach(metric => metricObserver.observe(metric));
+});
+</script>
