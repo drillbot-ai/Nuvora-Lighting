@@ -1,7 +1,7 @@
 <!-- LUNVYR — METALLIC FUSION COLLECTION -->
 <style>
 :root{
-  --primary: #cd7f32; --primary-dark: #b5691f; --primary-light: #fdf6f0;
+  --primary: #b2956d; --primary-dark: #8b7355; --primary-light: #f4f0e8;
   --surface: #ffffff; --surface-dim: #f8fafc; --surface-border: #e2e8f0;
   --text: #1e293b; --text-muted: #64748b; --text-light: #94a3b8;
   --success: #10b981; --danger: #ef4444; --warning: #f59e0b;
@@ -9,7 +9,7 @@
   --shadow-lg: 0 10px 25px rgba(0,0,0,.1); --transition: all 0.2s ease;
   --site-max: 1280px; --site-pad: clamp(16px,4vw,32px);
   --brass: #b2956d; --paper: #f2f0eb; --ink: #111111; --ash: #666666;
-  --copper: #cd7f32; --steel: #71797e; --fusion-bronze: #a0522d;
+  --dark-brass: #8b7355; --charcoal: #2c2c2c; --fusion-black: #1a1a1a;
 }
 
 .metallic-fusion-collection{ 
@@ -20,7 +20,7 @@
 
 /* Hero Section - Multi-Metal Fusion Style */
 .collection-hero{
-  background: linear-gradient(135deg, #8b4513 0%, #cd7f32 35%, #b2956d 65%, #71797e 100%);
+  background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 25%, #b2956d 75%, #8b7355 100%);
   padding: 80px var(--site-pad) 60px;
   position: relative;
   overflow: hidden;
@@ -29,14 +29,14 @@
 .collection-hero::before{
   content: ""; position: absolute; top: 15%; right: 25%; 
   width: 100px; height: 100px; 
-  background: linear-gradient(45deg, rgba(205,127,50,0.2) 0%, rgba(113,121,126,0.2) 100%);
+  background: linear-gradient(45deg, rgba(178,149,109,0.3) 0%, rgba(42,42,42,0.2) 100%);
   border-radius: 20% 80% 60% 40%; z-index: 1;
   animation: metalShift 12s ease-in-out infinite;
 }
 .collection-hero::after{
   content: ""; position: absolute; bottom: 25%; left: 20%; 
   width: 80px; height: 80px; 
-  background: linear-gradient(135deg, rgba(178,149,109,0.3) 0%, rgba(160,82,45,0.2) 100%);
+  background: linear-gradient(135deg, rgba(139,115,85,0.3) 0%, rgba(26,26,26,0.2) 100%);
   border-radius: 40% 60% 80% 20%; z-index: 1;
   animation: metalShift 15s ease-in-out infinite reverse;
 }
@@ -58,7 +58,7 @@
   font-family: 'Cinzel', serif; font-size: clamp(2.5rem, 5vw, 4rem);
   color: white; margin: 0 0 24px; font-weight: 700; text-shadow: 0 2px 8px rgba(0,0,0,.3);
   letter-spacing: 1px;
-  background: linear-gradient(135deg, #ffffff 0%, #f4e4d6 50%, #e8d5c4 100%);
+  background: linear-gradient(135deg, #ffffff 0%, #b2956d 50%, #f4e4d6 100%);
   -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
 }
 .collection-hero .subtitle{
@@ -140,12 +140,12 @@
 }
 .card::before{
   content: ""; position: absolute; top: 0; left: 0; right: 0; height: 3px;
-  background: linear-gradient(90deg, var(--copper) 0%, var(--brass) 50%, var(--steel) 100%);
+  background: linear-gradient(90deg, var(--fusion-black) 0%, var(--brass) 50%, var(--dark-brass) 100%);
   transform: scaleX(0); transition: transform 0.3s ease; z-index: 1;
 }
 .card:hover::before{ transform: scaleX(1); }
 .card:hover{ 
-  transform: translateY(-4px); box-shadow: 0 20px 40px rgba(205,127,50,0.15); 
+  transform: translateY(-4px); box-shadow: 0 20px 40px rgba(178,149,109,0.15); 
   border-color: var(--primary);
 }
 .card .thumb{ 
@@ -162,13 +162,13 @@
 .quick-eye{
   position: absolute; right: 12px; top: 12px; width: 36px; height: 36px; 
   display: inline-flex; align-items: center; justify-content: center;
-  background: linear-gradient(135deg, var(--copper) 0%, var(--brass) 100%); color: white; 
+  background: linear-gradient(135deg, var(--fusion-black) 0%, var(--brass) 100%); color: white; 
   border-radius: 50%; opacity: 0; transition: var(--transition); 
   cursor: pointer; box-shadow: var(--shadow); backdrop-filter: blur(8px);
 }
 .card:hover .quick-eye{ opacity: 1; transform: scale(1.05) }
 .quick-eye:hover{ 
-  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--fusion-bronze) 100%);
+  background: linear-gradient(135deg, var(--charcoal) 0%, var(--dark-brass) 100%);
   transform: scale(1.1);
 }
 .quick-eye svg{ width: 18px; height: 18px; fill: currentColor }
@@ -205,11 +205,11 @@
   padding: 6px 12px; border-radius: 20px; font-size: 0.75rem; 
   font-weight: 500; text-decoration: none; transition: var(--transition); 
   cursor: pointer; display: inline-flex; align-items: center; gap: 4px;
-  background: linear-gradient(135deg, var(--copper) 0%, var(--brass) 100%); 
+  background: linear-gradient(135deg, var(--fusion-black) 0%, var(--brass) 100%); 
   color: white; border: 1px solid var(--primary);
 }
 .btn-view:hover{
-  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--fusion-bronze) 100%);
+  background: linear-gradient(135deg, var(--charcoal) 0%, var(--dark-brass) 100%);
   border-color: var(--primary-dark);
   transform: translateY(-1px) scale(1.05);
 }
@@ -246,7 +246,7 @@
 }
 .pager button[disabled]{ opacity: 0.5; cursor: not-allowed }
 .pager .is-active{ 
-  background: linear-gradient(135deg, var(--copper) 0%, var(--brass) 100%); 
+  background: linear-gradient(135deg, var(--fusion-black) 0%, var(--brass) 100%); 
   color: white; border-color: var(--primary);
 }
 
@@ -270,21 +270,21 @@
 
 /* Features Section - Metallic Fusion Style */
 .collection-features{
-  background: linear-gradient(135deg, #8b4513 0%, #cd7f32 35%, #b2956d 65%, #71797e 100%);
+  background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 25%, #b2956d 75%, #8b7355 100%);
   color: white; padding: 40px var(--site-pad);
   position: relative; overflow: hidden;
 }
 .collection-features::before{
   content: ""; position: absolute; top: 20%; left: 15%; 
   width: 120px; height: 120px; 
-  background: linear-gradient(45deg, rgba(205,127,50,0.2) 0%, rgba(113,121,126,0.2) 100%);
+  background: linear-gradient(45deg, rgba(178,149,109,0.3) 0%, rgba(42,42,42,0.2) 100%);
   border-radius: 30% 70% 50% 50%; z-index: 1;
   animation: metalShift 18s ease-in-out infinite;
 }
 .collection-features::after{
   content: ""; position: absolute; bottom: 20%; right: 20%; 
   width: 90px; height: 90px; 
-  background: linear-gradient(135deg, rgba(178,149,109,0.25) 0%, rgba(160,82,45,0.2) 100%);
+  background: linear-gradient(135deg, rgba(139,115,85,0.25) 0%, rgba(26,26,26,0.2) 100%);
   border-radius: 60% 40% 70% 30%; z-index: 1;
   animation: metalShift 22s ease-in-out infinite reverse;
 }
@@ -300,9 +300,9 @@
 }
 .feature-item .icon{
   width: 48px; height: 48px; margin: 0 auto 16px;
-  background: linear-gradient(135deg, rgba(205,127,50,0.3) 0%, rgba(178,149,109,0.3) 100%); 
+  background: linear-gradient(135deg, rgba(178,149,109,0.3) 0%, rgba(42,42,42,0.3) 100%); 
   border-radius: 50%; display: flex; align-items: center; justify-content: center;
-  color: white; border: 1px solid rgba(255,255,255,0.3);
+  color: white; border: 1px solid rgba(178,149,109,0.3);
 }
 .feature-item h4{
   font-weight: 600; color: white; margin: 0 0 8px;
