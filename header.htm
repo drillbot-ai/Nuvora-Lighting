@@ -54,6 +54,25 @@
   }
   nav.lunvyr-nav a:hover{ color:var(--brass) }
 
+  /* Dropdowns (desktop) */
+  nav.lunvyr-nav li.has-dropdown{ position:relative }
+  nav.lunvyr-nav details{ position:relative }
+  nav.lunvyr-nav summary{
+    list-style:none; cursor:pointer; color:var(--paper); font-size:.95rem; letter-spacing:.6px;
+    display:inline-flex; align-items:center; gap:6px
+  }
+  nav.lunvyr-nav summary::-webkit-details-marker{ display:none }
+  nav.lunvyr-nav .caret{ width:10px; height:10px; display:inline-block; border:solid var(--paper); border-width:0 1px 1px 0; transform:rotate(45deg); transition:transform .15s }
+  nav.lunvyr-nav details[open] .caret{ transform:rotate(-135deg) }
+  nav.lunvyr-nav ul.submenu{
+    position:absolute; left:0; top:calc(100% + 12px);
+    background:#1c222b; border:1px solid rgba(255,255,255,.12); border-radius:10px;
+    padding:10px; min-width:220px; display:none; box-shadow:0 10px 24px rgba(0,0,0,.25)
+  }
+  nav.lunvyr-nav details[open] > ul.submenu{ display:block }
+  nav.lunvyr-nav ul.submenu li{ margin:0 }
+  nav.lunvyr-nav ul.submenu a{ display:block; padding:8px 10px; font-size:.95rem }
+
   /* Overlay + panel móvil */
   .nav-overlay{
     position:fixed; inset:0; background:rgba(0,0,0,.45);
@@ -72,6 +91,15 @@
     color:var(--paper); text-decoration:none; font-size:1.1rem; padding:14px 0; display:block;
     border-bottom:1px solid rgba(255,255,255,.08);
   }
+  /* Mobile dropdowns as accordions */
+  .nav-panel details{ border-bottom:1px solid rgba(255,255,255,.08) }
+  .nav-panel summary{
+    list-style:none; cursor:pointer; padding:14px 0; display:flex; align-items:center; justify-content:space-between; color:var(--paper);
+    font-size:1.1rem
+  }
+  .nav-panel summary::-webkit-details-marker{ display:none }
+  .nav-panel .submenu{ padding:0 0 8px 12px }
+  .nav-panel .submenu a{ border:0; padding:10px 0; font-size:1rem }
   .nav-panel .cta{
     margin-top:12px; display:flex; gap:10px; flex-wrap:wrap;
   }
@@ -127,12 +155,27 @@
     <ul>
       <li><a href="/">Home</a></li>
       <li><a href="/shop">Shop</a></li>
-      <li><a href="/about">About</a></li>
-      <li><a href="/the-studio">Studio</a></li>
-      <li><a href="/material-guide">Material Guide</a></li>
-      <li><a href="/size-guide">Size Guide</a></li>
-      <li><a href="/care-maintenance">Care &amp; Maintenance</a></li>
-      <li><a href="/warranty">Warranty</a></li>
+      <li class="has-dropdown">
+        <details>
+          <summary>About <span class="caret" aria-hidden="true"></span></summary>
+          <ul class="submenu" role="menu">
+            <li><a href="/about" role="menuitem">About LUNVYR</a></li>
+            <li><a href="/the-studio" role="menuitem">The Studio</a></li>
+          </ul>
+        </details>
+      </li>
+      <li class="has-dropdown">
+        <details>
+          <summary>Resources <span class="caret" aria-hidden="true"></span></summary>
+          <ul class="submenu" role="menu">
+            <li><a href="/material-guide" role="menuitem">Material Guide</a></li>
+            <li><a href="/size-guide" role="menuitem">Size Guide</a></li>
+            <li><a href="/care-maintenance" role="menuitem">Care &amp; Maintenance</a></li>
+            <li><a href="/installation-guide" role="menuitem">Installation Guide</a></li>
+            <li><a href="/warranty" role="menuitem">Warranty</a></li>
+          </ul>
+        </details>
+      </li>
       <li><a href="/contact">Contact</a></li>
     </ul>
   </nav>
