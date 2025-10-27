@@ -1,15 +1,17 @@
 <!-- LUNVYR — Technical Drawing Sheet Template (print-ready, copy base for Fusion 360) -->
 <style>
+  /* Fonts to match site style */
+  @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap');
   /* Print setup: Letter (ANSI A) landscape. Change to 'A4 landscape' if needed. */
   @page { size: Letter landscape; margin: 10mm; }
   html, body { height: 100%; }
-  body { background:#eae8e3; padding:20px; box-sizing:border-box; }
+  body { background:#eceae6; padding:20px; box-sizing:border-box; }
 
   /* Sheet size (Letter landscape: 279.4mm × 215.9mm) */
   .sheet {
     width: 279.4mm; height: 215.9mm; background:#fff; margin:0 auto; position:relative;
     box-shadow: 0 10px 30px rgba(0,0,0,.12);
-    color:#111; font-family: Inter, system-ui, sans-serif;
+  color:#111; font-family: Inter, system-ui, sans-serif;
   }
 
   /* Outer frame inside the print margin */
@@ -22,11 +24,11 @@
   }
   .tb-row { display:grid; grid-auto-flow:column; grid-auto-columns: 1fr; border-top:1px solid #000; }
   .tb-row:first-child { border-top:0; }
-  .cell { border-left:1px solid #000; padding:2mm 3mm; display:flex; align-items:center; justify-content:space-between; gap:6mm; font-size:3.2mm; }
+  .cell { border-left:1px solid #000; padding:2mm 3mm; display:flex; align-items:center; justify-content:space-between; gap:6mm; font-size:3.1mm; }
   .cell:first-child { border-left:0; }
-  .label { color:#333; font-size:3mm; text-transform:uppercase; letter-spacing:.06em; }
-  .value { font-weight:600; font-size:3.2mm; }
-  .title { font-size:5mm; font-weight:600; letter-spacing:.02em; }
+  .label { color:#333; font-size:2.9mm; text-transform:uppercase; letter-spacing:.06em; font-family: Inter, system-ui, sans-serif; }
+  .value { font-weight:600; font-size:3.2mm; font-family: Inter, system-ui, sans-serif; }
+  .title { font-family: 'Cinzel', serif; font-size:5.2mm; font-weight:500; letter-spacing:.02em; }
 
   /* Title block column layout per row */
   .row-title { grid-template-columns: 1fr 35mm; }
@@ -52,8 +54,8 @@
   .notes ol { margin:0; padding-left:5mm; font-size:3.2mm; line-height:1.55; }
 
   /* View placeholders (inside frame) */
-  .view { position:absolute; border:1px solid #000; background: repeating-linear-gradient(45deg, #fafafa, #fafafa 4mm, #f5f5f5 4mm, #f5f5f5 8mm); }
-  .view .caption { position:absolute; left:0; right:0; bottom:-6mm; text-align:center; font-size:3mm; }
+  .view { position:absolute; border:1px solid #000; background:#fff; }
+  .view .caption { position:absolute; left:0; right:0; bottom:-6mm; text-align:center; font-size:3mm; font-family:'Cinzel', serif; }
   .main-view { left: 12mm; top: 14mm; width: 130mm; height: 90mm; }
   .right-view{ left: 150mm; top: 34mm; width: 60mm; height: 60mm; }
   .top-view  { left: 12mm; top: 110mm; width: 80mm; height: 55mm; }
@@ -62,7 +64,7 @@
   /* Company block (optional logo area) */
   .company {
     position:absolute; left:8mm; bottom: calc(8mm + 42mm + 6mm); width: 60mm; height: 16mm; border:1.2px solid #000;
-    display:flex; align-items:center; justify-content:center; font-weight:600; font-size:4mm; letter-spacing:.06em;
+    display:flex; align-items:center; justify-content:center; font-weight:600; font-size:4.2mm; letter-spacing:.06em; font-family:'Cinzel', serif;
   }
 
   /* Print helpers */
