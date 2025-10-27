@@ -1,0 +1,109 @@
+<!-- LUNVYR — Technical Drawing Sheet Template v2 (Alt layout: top header + right sidebar) -->
+<style>
+  /* Typography */
+  @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Inter:wght@300;400;600&display=swap');
+
+  /* Print: Tabloid (ANSI B) landscape */
+  @page { size: Tabloid landscape; margin: 10mm; }
+  html, body { height: 100%; }
+  body { background:#eceae6; padding:20px; box-sizing:border-box; }
+
+  /* Sheet (Tabloid: 431.8 × 279.4 mm) */
+  .sheet { width:431.8mm; height:279.4mm; margin:0 auto; background:#fff; position:relative; box-shadow:0 10px 30px rgba(0,0,0,.12); color:#111; font-family: Inter, system-ui, sans-serif; }
+
+  /* Outer frame */
+  .frame { position:absolute; inset:8mm; border:1.2px solid #000; }
+
+  /* Layout regions */
+  :root { --sidebar: 52mm; --header: 18mm; }
+
+  /* Top header bar (title + sheet) */
+  .header {
+    position:absolute; left:8mm; right:calc(8mm + var(--sidebar)); top:8mm; height:var(--header);
+    border-bottom:1.2px solid #000; display:grid; grid-template-columns: 1fr 32mm; align-items:center; column-gap:6mm; padding:0 4mm;
+  }
+  .hdr-title { font-family:'Cinzel', serif; font-size:6mm; font-weight:600; letter-spacing:.02em; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .hdr-sheet { justify-self:end; font-size:3.2mm; text-transform:uppercase; letter-spacing:.06em; }
+
+  /* Right vertical sidebar (meta, notes, revisions, brand) */
+  .sidebar {
+    position:absolute; top:8mm; right:8mm; bottom:8mm; width:var(--sidebar); border-left:1.2px solid #000; display:flex; flex-direction:column; }
+
+  .brand { height:20mm; display:flex; align-items:center; justify-content:center; border-bottom:1px solid #000; font-family:'Cinzel', serif; font-weight:600; letter-spacing:.08em; font-size:5mm; }
+
+  .meta { padding:3mm 3mm 2mm; border-bottom:1px solid #000; display:grid; grid-template-columns: 1fr; row-gap:2mm; }
+  .field { display:flex; flex-direction:column; gap:0.6mm; }
+  .label { font-size:2.6mm; color:#333; text-transform:uppercase; letter-spacing:.06em; }
+  .line { height:5mm; border-bottom:0.9px solid #000; display:flex; align-items:end; font-size:3mm; font-weight:600; }
+
+  .revisions { border-bottom:1px solid #000; }
+  .rev-head, .rev-row { display:grid; grid-template-columns: 10mm 1fr 16mm 22mm; }
+  .rev-head > div, .rev-row > div { padding:1.6mm 2mm; border-top:1px solid #000; font-size:2.8mm; }
+  .rev-head { font-weight:600; text-transform:uppercase; letter-spacing:.06em; }
+  .rev-row { min-height:7mm; display:grid; align-items:center; }
+
+  .notes { padding:3mm; font-size:3mm; line-height:1.5; }
+  .notes h4 { margin:0 0 2mm; font-size:3.2mm; text-transform:uppercase; letter-spacing:.06em; }
+  .notes ol { margin:0; padding-left:5mm; }
+
+  /* Main drawing area (blank) */
+  .drawing-area {
+    position:absolute; left:8mm; right:calc(8mm + var(--sidebar)); top:calc(8mm + var(--header) + 6mm); bottom:8mm;
+    border:1px solid #000; background:#fff; /* keep empty for CAD placement */
+  }
+
+  @media print { body { background:#fff; padding:0; } .sheet { box-shadow:none; } }
+</style>
+
+<div class="sheet" role="document" aria-label="Technical Drawing Sheet v2 (Tabloid landscape)">
+  <div class="frame" aria-hidden="true"></div>
+
+  <!-- Top header: title + sheet -->
+  <header class="header" aria-label="Header">
+    <div class="hdr-title">______________________________</div>
+    <div class="hdr-sheet">Sheet __ of __</div>
+  </header>
+
+  <!-- Right sidebar: brand, meta, revisions, notes -->
+  <aside class="sidebar" aria-label="Sidebar">
+    <div class="brand">LUNVYR</div>
+
+    <section class="meta" aria-label="Metadata">
+      <div class="field"><div class="label">Project</div><div class="line"></div></div>
+      <div class="field"><div class="label">Part No.</div><div class="line"></div></div>
+      <div class="field"><div class="label">Material</div><div class="line"></div></div>
+      <div class="field"><div class="label">Finish</div><div class="line"></div></div>
+      <div class="field"><div class="label">Drawn By</div><div class="line"></div></div>
+      <div class="field"><div class="label">Checked</div><div class="line"></div></div>
+      <div class="field"><div class="label">Date</div><div class="line"></div></div>
+      <div class="field"><div class="label">Scale</div><div class="line"></div></div>
+      <div class="field"><div class="label">Units</div><div class="line">in / mm</div></div>
+      <div class="field"><div class="label">Weight</div><div class="line"></div></div>
+      <div class="field"><div class="label">Tolerance</div><div class="line">±0.010" (±0.25 mm)</div></div>
+    </section>
+
+    <section class="revisions" aria-label="Revision History">
+      <div class="rev-head">
+        <div>Rev</div><div>Description</div><div>By</div><div>Date</div>
+      </div>
+      <div class="rev-row">
+        <div>—</div><div>Initial release</div><div>—</div><div>—</div>
+      </div>
+      <!-- Add rows as needed -->
+    </section>
+
+    <section class="notes" aria-label="General Notes">
+      <h4>General Notes</h4>
+      <ol>
+        <li>All dimensions in inches unless otherwise specified.</li>
+        <li>Do not scale drawing. Use written dimensions only.</li>
+        <li>Tolerances unless noted: ±0.010" (±0.25 mm).</li>
+      </ol>
+    </section>
+  </aside>
+
+  <!-- Main drawing area kept blank for CAD views -->
+  <main class="drawing-area" aria-label="Drawing Area"></main>
+</div>
+
+<!-- Usage: Alternate presentation sheet. Copy into Fusion 360 or print to PDF. Tabloid landscape sizing preserved. -->
