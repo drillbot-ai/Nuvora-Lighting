@@ -7,6 +7,7 @@ This folder contains theme-ready page templates and CSS to style your WooCommerc
 - `templates/lunvyr-cart.php` — Page Template for Cart (`[woocommerce_cart]`)
 - `templates/lunvyr-account.php` — Page Template for My Account (`[woocommerce_my_account]`)
 - `templates/lunvyr-checkout.php` — Page Template for Checkout (`[woocommerce_checkout]`)
+- `templates/lunvyr-technical-drawings.php` — Page Template for Technical Drawings (filters, units toggle, preview viewer)
 - `assets/css/lunvyr-woocommerce.css` — Styles matching the LUNVYR brand
 
 ## How to install into your (child) theme
@@ -23,7 +24,7 @@ add_action('wp_enqueue_scripts', function(){
   if (!is_page()) return;
   $id  = get_queried_object_id();
   $tpl = get_page_template_slug($id);
-  if (in_array($tpl, ['templates/lunvyr-cart.php','templates/lunvyr-account.php','templates/lunvyr-checkout.php'], true)){
+  if (in_array($tpl, ['templates/lunvyr-cart.php','templates/lunvyr-account.php','templates/lunvyr-checkout.php','templates/lunvyr-technical-drawings.php'], true)){
     wp_enqueue_style(
       'lunvyr-woocommerce',
       get_stylesheet_directory_uri() . '/assets/css/lunvyr-woocommerce.css',
@@ -38,6 +39,7 @@ add_action('wp_enqueue_scripts', function(){
    - Cart → Template: "LUNVYR – Cart"
    - My Account → Template: "LUNVYR – My Account"
    - Checkout → Template: "LUNVYR – Checkout"
+  - Technical Drawings → Template: "LUNVYR – Technical Drawings"
 
 5. In WooCommerce → Settings → Advanced, ensure page assignments point to these pages.
 

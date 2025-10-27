@@ -1,0 +1,265 @@
+<?php
+/**
+ * Template Name: LUNVYR – Technical Drawings
+ * Description: Page template to present technical drawings with filters, units toggle, and preview viewer.
+ */
+if (!defined('ABSPATH')) { exit; }
+get_header();
+?>
+
+<main class="lv-shell">
+  <!-- Inline styles kept inside template for portability; can be extracted to a CSS if preferred -->
+  <style>
+  @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Inter:wght@300;400;500&display=swap');
+  :root{ --ink:#1c222b; --paper:#f2f0eb; --coal:#111; --ash:#666; --brass:#b2956d; --white:#fff; --radius:14px; --shadow:0 12px 32px rgba(0,0,0,.08); --ring: 0 0 0 3px rgba(178,149,109,.25) }
+  .techdraw{font-family:Inter,system-ui,sans-serif;color:var(--coal);line-height:1.65}
+  .techdraw h1,.techdraw h2,.techdraw h3{font-family:Cinzel,serif;font-weight:400;margin:0}
+  .techdraw .eyebrow{letter-spacing:.12em;text-transform:uppercase;font-size:.8rem;color:var(--ash);margin-bottom:.6rem}
+  .td-hero{position:relative;color:var(--paper);text-align:center;background:#0e0f12 url('https://lunvyr.com/wp-content/uploads/2025/08/f07dabad-5599-4f19-bb21-0e2537614e98.png') center/cover no-repeat;padding:clamp(100px,15vh,160px) 10%;min-height:56vh;display:flex;align-items:center;justify-content:center}
+  .td-hero::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg, transparent, var(--brass), transparent)}
+  .td-hero::after{content:"";position:absolute;inset:0;background:radial-gradient(110% 110% at 70% 30%, rgba(0,0,0,0) 0%, rgba(0,0,0,.7) 70%)}
+  .td-hero .inner{position:relative;z-index:2;max-width:900px;margin:0 auto}
+  .td-hero h1{font-size:clamp(2.4rem,4.8vw,3.4rem);color:var(--paper);margin-bottom:14px}
+  .td-hero p{color:#d6d3ce;margin:0 auto;max-width:760px;font-size:1.05rem}
+  .td-tools{padding:clamp(28px,4vw,36px) 10%;background:linear-gradient(135deg, var(--paper) 0%, #f8f6f0 100%);border-top:1px solid rgba(17,17,17,.06)}
+  .td-toolbar{display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:12px;align-items:center;max-width:1100px;margin:0 auto}
+  .td-toolbar .field{display:flex;flex-direction:column;gap:6px}
+  .td-toolbar label{font-size:.85rem;color:var(--ash)}
+  .td-toolbar input[type="search"],.td-toolbar select{width:100%;padding:14px 14px;border:2px solid rgba(17,17,17,.12);border-radius:12px;background:var(--white);font-size:1rem;transition:border-color .25s,box-shadow .25s}
+  .td-toolbar input:focus,.td-toolbar select:focus{outline:none;border-color:var(--brass);box-shadow:var(--ring)}
+  .td-toolbar .units{display:flex;gap:8px;align-items:center;justify-content:flex-end}
+  .td-toolbar .switch{display:inline-flex;align-items:center;gap:8px;padding:10px 12px;border:1px solid rgba(17,17,17,.12);border-radius:999px;background:var(--white)}
+  .td-toolbar .switch button{font-family:Cinzel,serif;font-size:.95rem;padding:.45rem .85rem;border-radius:999px;border:1px solid rgba(17,17,17,.08);background:#faf9f6;cursor:pointer}
+  .td-toolbar .switch button.active{background:var(--brass);color:var(--ink);border-color:var(--brass)}
+  .td-section{padding:clamp(56px,8vh,96px) 10%;background:linear-gradient(135deg, var(--paper) 0%, #f8f6f0 100%);position:relative}
+  .td-section::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg, transparent, var(--brass), transparent)}
+  .drawing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px;max-width:1200px;margin:0 auto}
+  .drawing-card{background:var(--white);border:1px solid rgba(17,17,17,.08);border-radius:16px;overflow:hidden;box-shadow:var(--shadow);transition:transform .25s,box-shadow .25s;display:flex;flex-direction:column}
+  .drawing-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,.12)}
+  .drawing-media{position:relative;aspect-ratio:4/3;background:#f2f0eb}
+  .drawing-media img{width:100%;height:100%;object-fit:cover;display:block}
+  .drawing-body{padding:16px 16px 12px}
+  .drawing-title{font-weight:600;color:var(--ink);margin:0 0 6px;font-size:1.05rem}
+  .drawing-meta{color:var(--ash);font-size:.9rem;display:flex;gap:10px;flex-wrap:wrap}
+  .drawing-actions{display:flex;gap:10px;padding:12px 16px 16px;flex-wrap:wrap}
+  .drawing-actions a{font-family:Cinzel,serif;font-size:.92rem;border-radius:40px;padding:.55rem .95rem;border:1px solid rgba(17,17,17,.14);color:var(--coal);background:var(--white);text-decoration:none}
+  .drawing-actions a:hover{border-color:var(--brass)}
+  .empty{display:none;text-align:center;color:var(--ash);padding:24px;max-width:900px;margin:0 auto}
+  .empty.show{display:block}
+  .viewer{position:fixed;inset:0;background:rgba(0,0,0,.75);display:none;align-items:center;justify-content:center;z-index:9999}
+  .viewer.open{display:flex}
+  .viewer .box{background:#0e0f12;border:1px solid rgba(255,255,255,.12);border-radius:12px;max-width:min(92vw,1100px);max-height:88vh;width:100%;overflow:hidden}
+  .viewer header{display:flex;align-items:center;justify-content:space-between;padding:10px 12px;color:#fff;background:#121418}
+  .viewer header h4{margin:0;font-family:Cinzel,serif;font-weight:500}
+  .viewer .content{background:#0e0f12;display:flex;align-items:center;justify-content:center;padding:10px}
+  .viewer .content img{max-width:100%;max-height:80vh;display:block}
+  .viewer .close{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.2);border-radius:8px;padding:.4rem .7rem;cursor:pointer}
+  @media (max-width:899px){ .td-toolbar{grid-template-columns:1fr 1fr;row-gap:14px} .td-toolbar .units{grid-column:1 / -1;justify-content:flex-start} }
+  @media (max-width:599px){ .td-toolbar{grid-template-columns:1fr} }
+  @media (prefers-reduced-motion: reduce){ .drawing-card{transition:none} }
+  </style>
+
+  <div class="techdraw">
+    <section class="td-hero">
+      <div class="inner">
+        <div class="eyebrow">Product Resources</div>
+        <h1>Technical Drawings</h1>
+        <p>Download dimensional drawings and specifications for LUNVYR fixtures. Filter by collection or product category and preview key dimensions.</p>
+      </div>
+    </section>
+
+    <section class="td-tools" aria-label="Filters">
+      <div class="td-toolbar">
+        <div class="field">
+          <label for="td-search">Search product</label>
+          <input id="td-search" type="search" placeholder="Search by name or SKU" autocomplete="off">
+        </div>
+        <div class="field">
+          <label for="td-collection">Collection</label>
+          <select id="td-collection">
+            <option value="">All collections</option>
+            <option value="aurea">Aurea</option>
+            <option value="black-label">Black Label</option>
+            <option value="deco-strata">Deco Strata</option>
+            <option value="industrial">Industrial</option>
+            <option value="metallic-fusion">Metallic Fusion</option>
+            <option value="orbit">Orbit</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="td-category">Category</label>
+          <select id="td-category">
+            <option value="">All categories</option>
+            <option value="ceiling-lights">Ceiling Lights</option>
+            <option value="chandeliers">Chandeliers</option>
+            <option value="wall-sconces">Wall Sconces</option>
+            <option value="floor-lamps">Floor Lamps</option>
+            <option value="table-lamps">Table Lamps</option>
+          </select>
+        </div>
+        <div class="units" role="group" aria-label="Units">
+          <div class="switch" data-units>
+            <span style="font-size:.85rem;color:var(--ash)">Units</span>
+            <button type="button" data-unit="in" class="active" aria-pressed="true">in</button>
+            <button type="button" data-unit="mm" aria-pressed="false">mm</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="td-section">
+      <div class="drawing-grid" id="td-grid">
+        <!-- TEMPLATE: Duplicate .drawing-card and update data-attrs, text, files -->
+        <article class="drawing-card" data-name="Orbit Sconce" data-sku="ORB-SC-12" data-collection="orbit" data-category="wall-sconces">
+          <div class="drawing-media">
+            <img src="https://lunvyr.com/wp-content/uploads/2025/08/451aa3d9-d27b-419d-901c-ab1b2e01fcc8.png" alt="Orbit Sconce drawing preview">
+          </div>
+          <div class="drawing-body">
+            <h3 class="drawing-title">Orbit Sconce</h3>
+            <div class="drawing-meta">
+              <span>SKU: ORB-SC-12</span>
+              <span>Face Ø <span class="dim" data-in="12&quot;" data-mm="305 mm">12"</span></span>
+              <span>Projection <span class="dim" data-in="4.5&quot;" data-mm="114 mm">4.5"</span></span>
+            </div>
+          </div>
+          <div class="drawing-actions">
+            <a href="#" data-preview="https://lunvyr.com/wp-content/uploads/2025/08/451aa3d9-d27b-419d-901c-ab1b2e01fcc8.png" data-title="Orbit Sconce — Elevation" class="btn-preview">Preview</a>
+            <a href="#" target="_blank" rel="noopener" download>PDF</a>
+            <a href="#" target="_blank" rel="noopener" download>DWG</a>
+            <a href="#" target="_blank" rel="noopener" download>DXF</a>
+          </div>
+        </article>
+
+        <article class="drawing-card" data-name="Aurea Pendant 24" data-sku="AUR-PD-24" data-collection="aurea" data-category="ceiling-lights">
+          <div class="drawing-media">
+            <img src="https://lunvyr.com/wp-content/uploads/2025/08/c9ea6458-53bb-4486-a4b5-04f51cf932f3.png" alt="Aurea Pendant drawing preview">
+          </div>
+          <div class="drawing-body">
+            <h3 class="drawing-title">Aurea Pendant 24"</h3>
+            <div class="drawing-meta">
+              <span>SKU: AUR-PD-24</span>
+              <span>Diameter <span class="dim" data-in="24&quot;" data-mm="610 mm">24"</span></span>
+              <span>Height <span class="dim" data-in="18&quot;" data-mm="457 mm">18"</span></span>
+            </div>
+          </div>
+          <div class="drawing-actions">
+            <a href="#" data-preview="https://lunvyr.com/wp-content/uploads/2025/10/004.png" data-title="Aurea Pendant — Elevation" class="btn-preview">Preview</a>
+            <a href="#" target="_blank" rel="noopener" download>PDF</a>
+            <a href="#" target="_blank" rel="noopener" download>DWG</a>
+            <a href="#" target="_blank" rel="noopener" download>DXF</a>
+          </div>
+        </article>
+
+        <article class="drawing-card" data-name="Black Label Table Lamp" data-sku="BLK-TL-16" data-collection="black-label" data-category="table-lamps">
+          <div class="drawing-media">
+            <img src="https://lunvyr.com/wp-content/uploads/2025/08/image-60.png" alt="Black Label Table Lamp drawing preview">
+          </div>
+          <div class="drawing-body">
+            <h3 class="drawing-title">Black Label Table Lamp</h3>
+            <div class="drawing-meta">
+              <span>SKU: BLK-TL-16</span>
+              <span>Height <span class="dim" data-in="16&quot;" data-mm="406 mm">16"</span></span>
+              <span>Base Ø <span class="dim" data-in="6.5&quot;" data-mm="165 mm">6.5"</span></span>
+            </div>
+          </div>
+          <div class="drawing-actions">
+            <a href="#" data-preview="https://lunvyr.com/wp-content/uploads/2025/08/image-65.png" data-title="Black Label Lamp — Elevation" class="btn-preview">Preview</a>
+            <a href="#" target="_blank" rel="noopener" download>PDF</a>
+            <a href="#" target="_blank" rel="noopener" download>DWG</a>
+            <a href="#" target="_blank" rel="noopener" download>DXF</a>
+          </div>
+        </article>
+
+      </div>
+
+      <p class="empty" id="td-empty">No drawings found. Adjust filters or search terms.</p>
+
+      <!-- How to add new items:
+        1) Duplicate an <article class="drawing-card"> block.
+        2) Update data attributes: data-name, data-sku, data-collection, data-category.
+        3) Replace image src and alt.
+        4) Update <span class="dim" data-in="..." data-mm="...">DEFAULT</span> values.
+        5) Set Preview (data-preview) and file links (PDF/DWG/DXF).
+      -->
+    </section>
+
+    <section class="td-section" style="text-align:center">
+      <div class="eyebrow">Need a custom spec?</div>
+      <h2 style="color:var(--ink); margin-bottom:10px">Custom Sizes and Project Drawings</h2>
+      <p style="color:var(--ash); max-width:720px; margin:0 auto 18px">If you require custom dimensions, multi-fixture layouts, or project-specific drawings, our studio can produce tailored documentation.</p>
+      <a href="/contact" class="btn" style="display:inline-block; font-family:Cinzel,serif; border:2px solid var(--brass); background:var(--brass); color:var(--ink); border-radius:40px; padding:.9rem 1.6rem; text-decoration:none">Contact the Studio</a>
+    </section>
+  </div>
+</main>
+
+<!-- Viewer modal -->
+<div class="viewer" id="td-viewer" aria-hidden="true" role="dialog" aria-modal="true">
+  <div class="box">
+    <header>
+      <h4 id="td-viewer-title">Preview</h4>
+      <button class="close" type="button" data-close>Close</button>
+    </header>
+    <div class="content">
+      <img id="td-viewer-img" alt="Drawing preview">
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  const q = (s, el=document) => el.querySelector(s);
+  const qa = (s, el=document) => Array.from(el.querySelectorAll(s));
+  const search = q('#td-search');
+  const selCol = q('#td-collection');
+  const selCat = q('#td-category');
+  const grid   = q('#td-grid');
+  const empty  = q('#td-empty');
+  function matches(card){
+    const name = (card.dataset.name + ' ' + (card.dataset.sku||'')).toLowerCase();
+    const term = (search.value||'').trim().toLowerCase();
+    const col  = selCol.value; const cat = selCat.value;
+    const okName = !term || name.includes(term);
+    const okCol  = !col || card.dataset.collection === col;
+    const okCat  = !cat || card.dataset.category === cat;
+    return okName && okCol && okCat;
+  }
+  function applyFilters(){
+    const cards = qa('.drawing-card', grid);
+    let visible = 0;
+    cards.forEach(card => {
+      const show = matches(card);
+      card.style.display = show ? '' : 'none';
+      if(show) visible++;
+    });
+    empty.classList.toggle('show', visible === 0);
+  }
+  if (search) ['input','change'].forEach(ev => search.addEventListener(ev, applyFilters));
+  if (selCol) selCol.addEventListener('change', applyFilters);
+  if (selCat) selCat.addEventListener('change', applyFilters);
+  // Units toggle
+  const unitBtns = qa('[data-units] button');
+  function setUnit(u){
+    unitBtns.forEach(b=>{
+      const on = b.dataset.unit === u; b.classList.toggle('active', on); b.setAttribute('aria-pressed', String(on));
+    });
+    qa('.dim').forEach(span=>{ span.textContent = span.getAttribute('data-' + u) || span.textContent; });
+  }
+  unitBtns.forEach(b=> b.addEventListener('click', ()=> setUnit(b.dataset.unit)));
+  // Preview viewer
+  const viewer = q('#td-viewer');
+  const vImg = q('#td-viewer-img');
+  const vTitle = q('#td-viewer-title');
+  function openViewer(src, title){ vImg.src = src; vTitle.textContent = title||'Preview'; viewer.classList.add('open'); viewer.setAttribute('aria-hidden','false'); }
+  function closeViewer(){ viewer.classList.remove('open'); viewer.setAttribute('aria-hidden','true'); vImg.removeAttribute('src'); }
+  qa('.btn-preview').forEach(a=> a.addEventListener('click', (e)=>{ e.preventDefault(); const src=a.dataset.preview; if(src) openViewer(src, a.dataset.title); }));
+  viewer && viewer.addEventListener('click', (e)=>{ if(e.target === viewer) closeViewer(); });
+  const closeBtn = q('[data-close]');
+  closeBtn && closeBtn.addEventListener('click', closeViewer);
+  window.addEventListener('keydown', (e)=>{ if(e.key === 'Escape' && viewer.classList.contains('open')) closeViewer(); });
+  // Initialize
+  setUnit('in');
+  applyFilters();
+})();
+</script>
+
+<?php get_footer(); ?>
