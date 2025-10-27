@@ -46,9 +46,9 @@
 
 /* Commitment Cards */
 .commitment-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:28px; max-width:1200px; margin:0 auto}
-/* Desktop layout for 4 commitment cards - 2x2 grid */
+/* Desktop layout for 6 commitment cards - 2 rows of 3 */
 @media (min-width:1024px){
-  .commitment-grid{grid-template-columns:repeat(2, 1fr); max-width:700px}
+  .commitment-grid{grid-template-columns:repeat(3, 1fr); max-width:1100px}
 }
 .commitment-card{
   background:var(--white); border:1px solid rgba(22,163,74,.12); 
@@ -710,8 +710,16 @@ function showTab(tabName) {
   });
   
   // Show selected tab and activate button
-  document.getElementById(tabName + '-tab').classList.add('active');
+  const activeTab = document.getElementById(tabName + '-tab');
+  activeTab.classList.add('active');
   event.target.classList.add('active');
+
+  // Immediately reveal practice items in the newly active tab (avoid delayed/staggered appearance)
+  activeTab.querySelectorAll('.practice-item').forEach(item => {
+    item.style.opacity = '1';
+    item.style.transform = 'translateY(0)';
+    item.style.transition = 'opacity .3s ease, transform .3s ease';
+  });
 }
 
 // Reveal animations
@@ -730,7 +738,9 @@ document.addEventListener('DOMContentLoaded', function(){
     cards.forEach((card, index)=>{
       card.style.opacity = '0';
       card.style.transform = 'translateY(20px)';
-      card.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+      const isPractice = card.classList.contains('practice-item');
+      const delay = isPractice ? '0s' : `${index * 0.1}s`;
+      card.style.transition = `opacity 0.6s ease ${delay}, transform 0.6s ease ${delay}`;
       observer.observe(card);
     });
   }

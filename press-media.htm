@@ -148,6 +148,10 @@
   max-width:1000px; margin:0 auto; display:grid; 
   grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); gap:24px;
 }
+/* Desktop layout for 4 guideline cards - single row */
+@media (min-width:1024px){
+  .guidelines-grid{grid-template-columns:repeat(4, 1fr); max-width:1400px}
+}
 .guideline-card{
   background:rgba(255,255,255,.05); border:1px solid rgba(242,240,235,.2);
   border-radius:16px; padding:24px 20px; backdrop-filter:blur(10px);
@@ -172,6 +176,10 @@
   background:linear-gradient(90deg, transparent, var(--brass), transparent);
 }
 .palette-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(150px, 1fr)); gap:20px; max-width:800px; margin:0 auto}
+/* Desktop layout for 5 color swatches - single row */
+@media (min-width:1024px){
+  .palette-grid{grid-template-columns:repeat(5, 1fr); max-width:900px}
+}
 .color-swatch{
   background:var(--white); border:1px solid rgba(17,17,17,.08);
   border-radius:12px; overflow:hidden; box-shadow:var(--shadow);

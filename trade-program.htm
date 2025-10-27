@@ -218,6 +218,26 @@
 }
 .faq-content.active{display:block}
 
+/* FAQ visibility enforcement */
+.trade .trade-faq .faq-header,
+.trade .trade-faq .faq-header .faq-title{
+  color:var(--ink) !important;
+  -webkit-text-fill-color:var(--ink);
+}
+.trade .trade-faq .faq-header .faq-title{
+  font-weight:600;
+  font-size:1.05rem !important;
+  line-height:1.4;
+}
+.trade .trade-faq .faq-header:hover .faq-title,
+.trade .trade-faq .faq-header.active .faq-title{
+  color:var(--ink) !important;
+}
+.trade .trade-faq .faq-header:focus-visible{
+  outline:2px solid var(--brass);
+  outline-offset:2px;
+}
+
 /* CTA */
 .cta{
   background:linear-gradient(135deg, var(--paper) 0%, #f8f6f0 100%);
@@ -236,6 +256,21 @@
   .application-content{grid-template-columns:1fr; gap:24px}
   .form-grid{grid-template-columns:1fr}
   .portal-features{grid-template-columns:1fr}
+}
+
+/* Desktop layout overrides */
+@media (min-width:1024px){
+  /* Why Join: 2 rows of 3 */
+  .benefits-grid{grid-template-columns:repeat(3, 1fr)}
+
+  /* Exclusive Trade Features: 1 row of 4 */
+  .portal-features{
+    grid-template-columns:repeat(4, 1fr);
+    max-width:1200px;
+  }
+
+  /* FAQ question visibility */
+  .faq-title{color:var(--ink); font-weight:600}
 }
 </style>
 
@@ -373,7 +408,7 @@
   </section>
 
   <!-- APPLICATION -->
-  <section class="application">
+  <section id="application" class="application">
     <div class="eyebrow" style="text-align:center">Get Started</div>
     <h2 style="text-align:center; margin-bottom:40px; color:var(--ink); font-size:clamp(1.6rem,2.4vw,2rem)">Apply for Trade Membership</h2>
     

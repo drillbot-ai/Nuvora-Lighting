@@ -9,12 +9,12 @@
 
 .materials{font-family:Inter,system-ui,sans-serif;color:var(--coal);line-height:1.65}
 .materials h1,.materials h2,.materials h3{font-family:Cinzel,serif;font-weight:400;margin:0}
-.materials .eyebrow{letter-spacing:.12em;text-transform:uppercase;font-size:.8rem;color:var(--ash);margin-bottom:.6rem}
+.materials .eyebrow{letter-spacing:.12em;text-transform:uppercase;font-size:.8rem;color:var(--paper);margin-bottom:.6rem}
 
 /* Hero */
 .materials-hero{
   position:relative; color:var(--paper); text-align:center;
-  background:#0e0f12 url('https://images.unsplash.com/photo-1565793298595-6a879b1d9492?ixlib=rb-4.0.3') center/cover no-repeat;
+  background:#0e0f12 url('https://lunvyr.com/wp-content/uploads/2025/10/006.png') center/cover no-repeat;
   padding:clamp(100px,15vh,160px) 10%; min-height:70vh; display:flex; align-items:center; justify-content:center;
 }
 .materials-hero::before{
@@ -43,9 +43,9 @@
   background:linear-gradient(90deg, transparent, var(--brass), transparent);
 }
 .types-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:28px; max-width:1200px; margin:0 auto}
-/* Desktop layout for 4 type cards - 2x2 grid */
+/* Desktop layout for 4 type cards - single row */
 @media (min-width:1024px){
-  .types-grid{grid-template-columns:repeat(2, 1fr); max-width:700px}
+  .types-grid{grid-template-columns:repeat(4, 1fr); max-width:1400px}
 }
 .type-card{
   background:var(--white); border:1px solid rgba(17,17,17,.06); 
@@ -138,6 +138,9 @@
   max-width:800px; margin:0 auto; display:none;
 }
 .process-content.active{display:block}
+.process-content h3{
+  color:var(--ink); margin-bottom:16px; font-size:1.4rem;
+}
 .process-steps{display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:24px; margin-top:24px}
 /* Desktop layout for 4 process steps - 2x2 grid */
 @media (min-width:1024px){
@@ -263,7 +266,7 @@
 
   <!-- MATERIAL TYPES -->
   <section class="material-types">
-    <div class="eyebrow">Core Materials</div>
+    <div style="text-align:left; text-transform:uppercase; margin-bottom:.6px; color:var(--ink); font-size:.8rem;">Core Materials</div>
     <h2 style="text-align:center; margin-bottom:40px; color:var(--ink); font-size:clamp(1.8rem,2.8vw,2.4rem)">Material Portfolio</h2>
     
     <div class="types-grid">

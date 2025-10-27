@@ -14,7 +14,7 @@
 /* Hero */
 .studio-hero{
   position:relative; color:var(--paper); text-align:center;
-  background:#0e0f12 url('https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?ixlib=rb-4.0.3') center/cover no-repeat;
+  background:#0e0f12 url('https://lunvyr.com/wp-content/uploads/2025/10/012.png') center/cover no-repeat;
   padding:clamp(100px,15vh,160px) 10%; min-height:80vh; display:flex; align-items:center; justify-content:center;
 }
 .studio-hero::before{
@@ -184,8 +184,7 @@
   background:linear-gradient(90deg, transparent, var(--brass), transparent);
 }
 .team-grid{
-  max-width:800px; margin:0 auto; display:grid; 
-  grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:32px;
+  max-width:800px; margin:0 auto; gap:32px;
 }
 .team-member{
   text-align:center; transition:all .3s ease;
@@ -199,6 +198,18 @@
 .member-name{color:var(--paper); margin-bottom:4px; font-size:1.1rem; font-weight:500}
 .member-role{color:var(--brass); font-size:.9rem; margin-bottom:12px; text-transform:uppercase; letter-spacing:.1em}
 .member-bio{color:#d6d3ce; font-size:.85rem; line-height:1.5; margin:0}
+/* Center single-member layout and bio */
+.team .member-bio{ 
+  text-align:center !important; 
+  max-width:520px; 
+  margin-left:auto !important; 
+  margin-right:auto !important; 
+  display:block;
+}
+/* Center grid items and tighten single-member width */
+.team .team-grid{ justify-items:center }
+/* When there is only one team grid (only Fabio visible), center the card by using a single column */
+.team .team-grid:only-of-type{ grid-template-columns:1fr !important; max-width:420px }
 
 /* CTA */
 .cta{
@@ -219,6 +230,15 @@
 }
 
 /* Responsive */
+/* Desktop layout overrides */
+@media (min-width:1024px){
+  /* Master Craftsmanship: 2x2 grid */
+  .craft-grid{grid-template-columns:repeat(2, 1fr); max-width:1000px}
+  /* Material Selection: single row of 4 */
+  .materials-grid{grid-template-columns:repeat(4, 1fr); max-width:1100px}
+  /* Master Craftsmen (team): single row of 4 */
+  .team-grid{grid-template-columns:repeat(4, 1fr); max-width:1000px}
+}
 @media (max-width:767px){
   .studio-hero{padding:clamp(80px,12vh,120px) 7%; min-height:70vh}
   .process-timeline::before{display:none}
@@ -250,13 +270,13 @@
     <div class="process-timeline">
       <div class="process-step">
         <div class="step-content">
-          <div class="step-image" style="background-image:url('https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')"></div>
+          <div class="step-image" style="background-image:url('https://lunvyr.com/wp-content/uploads/2025/10/013-1.png')"></div>
           <h3>Inspiration</h3>
           <p>Every design begins with inspiration drawn from architecture, nature, and cultural elements. We study light patterns, shadow play, and geometric relationships.</p>
         </div>
         <div class="step-number">1</div>
         <div class="step-content">
-          <div class="step-image" style="background-image:url('https://images.unsplash.com/photo-1565793298595-6a879b1d9492?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')"></div>
+          <div class="step-image" style="background-image:url('https://lunvyr.com/wp-content/uploads/2025/10/014.png')"></div>
           <h3>Conceptualization</h3>
           <p>Ideas transform into sketches and 3D models. We explore proportions, material relationships, and lighting performance through digital prototyping.</p>
         </div>
@@ -264,13 +284,13 @@
 
       <div class="process-step">
         <div class="step-content">
-          <div class="step-image" style="background-image:url('https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')"></div>
+          <div class="step-image" style="background-image:url('https://lunvyr.com/wp-content/uploads/2025/10/017.png')"></div>
           <h3>Prototyping</h3>
           <p>Physical prototypes test form, function, and finish. We refine details, validate electrical performance, and ensure manufacturing feasibility.</p>
         </div>
         <div class="step-number">2</div>
         <div class="step-content">
-          <div class="step-image" style="background-image:url('https://images.unsplash.com/photo-1565793298595-6a879b1d9492?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')"></div>
+          <div class="step-image" style="background-image:url('https://lunvyr.com/wp-content/uploads/2025/10/015.png')"></div>
           <h3>Refinement</h3>
           <p>Iterative testing perfects every detail. We adjust proportions, optimize light distribution, and fine-tune manufacturing processes.</p>
         </div>
@@ -278,13 +298,13 @@
 
       <div class="process-step">
         <div class="step-content">
-          <div class="step-image" style="background-image:url('https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')"></div>
+          <div class="step-image" style="background-image:url('https://lunvyr.com/wp-content/uploads/2025/10/016.png')"></div>
           <h3>Production</h3>
           <p>Master craftsmen bring designs to life using traditional metalworking techniques combined with modern precision tools and quality control.</p>
         </div>
         <div class="step-number">3</div>
         <div class="step-content">
-          <div class="step-image" style="background-image:url('https://images.unsplash.com/photo-1565793298595-6a879b1d9492?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80')"></div>
+          <div class="step-image" style="background-image:url('https://lunvyr.com/wp-content/uploads/2025/10/019.png')"></div>
           <h3>Finishing</h3>
           <p>Each piece receives meticulous finishing. Brass is hand-polished, patinas are carefully applied, and every fixture is individually inspected.</p>
         </div>
@@ -324,7 +344,7 @@
     </div>
   </section>
 
-  <!-- WORKSHOP -->
+  <!-- WORKSHOP (commented out)
   <section class="workshop">
     <div class="eyebrow">Our Space</div>
     <div class="workshop-content">
@@ -355,6 +375,7 @@
       <div class="workshop-image"></div>
     </div>
   </section>
+  -->
 
   <!-- MATERIALS -->
   <section class="materials">
@@ -407,16 +428,19 @@
   <!-- TEAM -->
   <section class="team">
     <div class="eyebrow" style="text-align:center">Our People</div>
-    <h2 style="text-align:center; margin-bottom:40px; color:var(--paper); font-size:clamp(1.6rem,2.4vw,2rem)">Master Craftsmen</h2>
+  <h2 style="text-align:center; margin-bottom:40px; color:var(--paper); font-size:clamp(1.6rem,2.4vw,2rem)">Master Craftsman</h2>
     
     <div class="team-grid">
       <div class="team-member">
-        <div class="member-photo" style="background-image:url('https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80')"></div>
-        <div class="member-name">Marcus Chen</div>
+        <div class="member-photo" style="background-image:url('https://lunvyr.com/wp-content/uploads/2025/10/1698373953614.jpeg')"></div>
+        <div class="member-name">Fabio</div>
         <div class="member-role">Design Director</div>
-        <p class="member-bio">20+ years in lighting design, specializing in architectural integration and sustainable manufacturing processes.</p>
+        <p class="member-bio" style="text-align:center; margin-left:auto; margin-right:auto; max-width:520px;">Specialist in lighting design and manufacturing with a focus on architectural integration and precision fabrication.</p>
       </div>
+    </div>
 
+    <!-- Future team members (second row) — uncomment when ready
+    <div class="team-grid">
       <div class="team-member">
         <div class="member-photo" style="background-image:url('https://images.unsplash.com/photo-1494790108755-2616b612b77c?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80')"></div>
         <div class="member-name">Elena Rodriguez</div>
@@ -438,6 +462,7 @@
         <p class="member-bio">Chemical engineer developing proprietary patina processes and protective coating systems.</p>
       </div>
     </div>
+    -->
   </section>
 
   <!-- CTA -->

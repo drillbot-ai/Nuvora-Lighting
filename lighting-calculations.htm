@@ -47,9 +47,9 @@
   display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
   gap:24px; max-width:1000px; margin:0 auto;
 }
-/* Desktop layout for 4 tools - 2x2 grid */
+/* Desktop layout for 4 tools - single row */
 @media (min-width:1024px){
-  .tools-grid{grid-template-columns:repeat(2, 1fr); max-width:600px}
+  .tools-grid{grid-template-columns:repeat(4, 1fr); max-width:1200px}
 }
 .tool-card{
   background:var(--white); border:2px solid rgba(249,115,22,.2);
@@ -165,9 +165,9 @@
   display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
   gap:24px; max-width:1200px; margin:0 auto;
 }
-/* Desktop layout for 4 guideline cards - 2x2 grid */
+/* Desktop layout for 4 guideline cards - single row */
 @media (min-width:1024px){
-  .guidelines-grid{grid-template-columns:repeat(2, 1fr); max-width:700px}
+  .guidelines-grid{grid-template-columns:repeat(4, 1fr); max-width:1400px}
 }
 .guideline-card{
   background:rgba(255,255,255,.05); border:1px solid rgba(249,115,22,.2);
@@ -230,10 +230,11 @@
 .room-card .icon{
   font-size:2rem; margin-bottom:8px; display:block;
 }
-.room-card h5{margin-bottom:4px; font-size:.9rem}
+.room-card h5{margin-bottom:4px; font-size:.9rem; color:var(--ink)}
 .room-card .requirements{
   font-size:.8rem; color:var(--ash); margin:0;
 }
+.room-card.active h5{color:var(--white)}
 .room-card.active .requirements{color:#fed7aa}
 
 .room-details{
@@ -360,32 +361,32 @@
     <h2 style="margin-bottom:32px; color:var(--ink); font-size:clamp(1.4rem,2.2vw,1.8rem)">Calculation Tools</h2>
     
     <div class="tools-grid">
-      <div class="tool-card" onclick="activateTool('lumen')">
+      <div class="tool-card" onclick="scrollToSection('main-calculator')">
         <div class="tool-icon">💡</div>
         <h4>Lumen Calculator</h4>
         <p>Calculate required lumens based on space size and activity</p>
-        <button class="tool-btn">Launch Tool</button>
+        <button class="tool-btn">Use Calculator</button>
       </div>
       
-      <div class="tool-card" onclick="activateTool('fixture')">
-        <div class="tool-icon">🔢</div>
-        <h4>Fixture Count</h4>
-        <p>Determine optimal number and spacing of fixtures</p>
-        <button class="tool-btn">Launch Tool</button>
-      </div>
-      
-      <div class="tool-card" onclick="activateTool('room')">
+      <div class="tool-card" onclick="scrollToSection('room-calculator')">
         <div class="tool-icon">🏠</div>
         <h4>Room Analyzer</h4>
         <p>Space-specific lighting recommendations and guidelines</p>
-        <button class="tool-btn">Launch Tool</button>
+        <button class="tool-btn">Analyze Room</button>
       </div>
       
-      <div class="tool-card" onclick="activateTool('energy')">
+      <div class="tool-card" onclick="scrollToSection('guidelines')">
+        <div class="tool-icon">📐</div>
+        <h4>Spacing Guide</h4>
+        <p>Professional spacing and mounting guidelines</p>
+        <button class="tool-btn">View Guidelines</button>
+      </div>
+      
+      <div class="tool-card" onclick="window.open('/contact', '_blank')">
         <div class="tool-icon">⚡</div>
-        <h4>Energy Calculator</h4>
-        <p>Estimate power consumption and operating costs</p>
-        <button class="tool-btn">Launch Tool</button>
+        <h4>Professional Help</h4>
+        <p>Get expert assistance for complex projects</p>
+        <button class="tool-btn">Contact Expert</button>
       </div>
     </div>
   </section>
@@ -561,7 +562,7 @@
   </section>
 
   <!-- ROOM CALCULATOR -->
-  <section class="room-calculator">
+  <section class="room-calculator" id="room-calculator">
     <div class="eyebrow" style="text-align:center">Space-Specific Tools</div>
     <h2 style="text-align:center; margin-bottom:32px; color:var(--ink); font-size:clamp(1.6rem,2.4vw,2rem)">Room-by-Room Calculator</h2>
     
@@ -606,7 +607,7 @@
       
       <!-- Living Room Details -->
       <div class="room-details active" id="living-room">
-        <h3>Living Room Lighting</h3>
+        <h3 style="color:var(--ink)">Living Room Lighting</h3>
         <p style="color:var(--ash); margin-bottom:20px">Create a comfortable, layered lighting scheme for relaxation and entertainment.</p>
         
         <div class="fixture-suggestions">
@@ -634,7 +635,7 @@
       
       <!-- Dining Room Details -->
       <div class="room-details" id="dining-room">
-        <h3>Dining Room Lighting</h3>
+        <h3 style="color:var(--ink)">Dining Room Lighting</h3>
         <p style="color:var(--ash); margin-bottom:20px">Focus on creating intimate dining atmosphere with proper task lighting.</p>
         
         <div class="fixture-suggestions">
@@ -657,7 +658,7 @@
       
       <!-- Kitchen Details -->
       <div class="room-details" id="kitchen-room">
-        <h3>Kitchen Lighting</h3>
+        <h3 style="color:var(--ink)">Kitchen Lighting</h3>
         <p style="color:var(--ash); margin-bottom:20px">Layer task, ambient, and accent lighting for both function and style.</p>
         
         <div class="fixture-suggestions">
@@ -678,11 +679,79 @@
         </div>
       </div>
       
-      <!-- Additional room details would continue... -->
+      <!-- Bedroom Details -->
+      <div class="room-details" id="bedroom-room">
+        <h3 style="color:var(--ink)">Bedroom Lighting</h3>
+        <p style="color:var(--ash); margin-bottom:20px">Create a relaxing atmosphere with layered lighting for comfort and functionality.</p>
+        
+        <div class="fixture-suggestions">
+          <div class="fixture-card">
+            <h6>Ceiling Fixture</h6>
+            <p>Central ambient lighting. Consider dimmable chandelier or pendant.</p>
+          </div>
+          
+          <div class="fixture-card">
+            <h6>Bedside Lamps</h6>
+            <p>Task lighting for reading. 24-27" from mattress to shade bottom.</p>
+          </div>
+          
+          <div class="fixture-card">
+            <h6>Accent Lighting</h6>
+            <p>Wall sconces or LED strips for ambient mood lighting.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Bathroom Details -->
+      <div class="room-details" id="bathroom-room">
+        <h3 style="color:var(--ink)">Bathroom Lighting</h3>
+        <p style="color:var(--ash); margin-bottom:20px">Focus on task lighting around mirrors with complementary ambient illumination.</p>
+        
+        <div class="fixture-suggestions">
+          <div class="fixture-card">
+            <h6>Vanity Lighting</h6>
+            <p>Side-mounted sconces or linear fixture above mirror. Even face illumination.</p>
+          </div>
+          
+          <div class="fixture-card">
+            <h6>Shower Lighting</h6>
+            <p>Recessed lights rated for wet locations. Avoid shadows in shower area.</p>
+          </div>
+          
+          <div class="fixture-card">
+            <h6>Ambient Lighting</h6>
+            <p>Central fixture for general illumination. Consider decorative chandelier.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Office Details -->
+      <div class="room-details" id="office-room">
+        <h3 style="color:var(--ink)">Office Lighting</h3>
+        <p style="color:var(--ash); margin-bottom:20px">Optimize for productivity with proper task lighting and minimal glare.</p>
+        
+        <div class="fixture-suggestions">
+          <div class="fixture-card">
+            <h6>Desk Lighting</h6>
+            <p>Adjustable task lighting from side or behind to avoid screen glare.</p>
+          </div>
+          
+          <div class="fixture-card">
+            <h6>Overhead Lighting</h6>
+            <p>Even general illumination. Avoid direct glare on computer screens.</p>
+          </div>
+          
+          <div class="fixture-card">
+            <h6>Accent Lighting</h6>
+            <p>Wall sconces or floor lamps to reduce contrast and eye strain.</p>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- PROFESSIONAL TOOLS -->
+  <!-- PROFESSIONAL TOOLS - Coming Soon -->
+  <!--
   <section class="pro-tools">
     <div class="eyebrow" style="text-align:center">Professional Resources</div>
     <h2 style="text-align:center; margin-bottom:40px; color:var(--ink); font-size:clamp(1.6rem,2.4vw,2rem)">Advanced Tools</h2>
@@ -754,6 +823,7 @@
       </div>
     </div>
   </section>
+  -->
 
   <!-- CTA -->
   <section class="cta">
@@ -861,22 +931,15 @@ function updateRecommendations(roomType, lightingType, area, fixtureCount) {
   recommendations.querySelector('p').textContent = text;
 }
 
-// Tool activation
-function activateTool(toolType) {
-  console.log(`Activating ${toolType} calculator`);
-  // In production, this would switch to different calculator interfaces
-  
-  const toolNames = {
-    lumen: 'Lumen Calculator',
-    fixture: 'Fixture Count Calculator', 
-    room: 'Room Analyzer',
-    energy: 'Energy Calculator'
-  };
-  
-  alert(`${toolNames[toolType]} - This advanced tool would provide specialized calculations for ${toolType} requirements.`);
+// Tool activation - scroll to sections
+function scrollToSection(sectionId) {
+  const element = document.querySelector(`.${sectionId}`) || document.getElementById(sectionId);
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
 }
 
-// Room selector
+// Room selector - fixed to show different content
 function showRoom(roomType) {
   // Update active room card
   document.querySelectorAll('.room-card').forEach(card => {
@@ -889,37 +952,20 @@ function showRoom(roomType) {
     detail.classList.remove('active');
   });
   
-  // Show selected room (simplified for demo)
-  const activeRoom = document.querySelector('.room-details.active') || document.querySelector('.room-details');
-  if (activeRoom) {
-    activeRoom.classList.add('active');
-  }
-}
-
-// Resource downloads
-function downloadResource(resourceType) {
-  const resources = {
-    'ies-files': 'LUNVYR_IES_Photometric_Data.zip',
-    'calc-sheets': 'LUNVYR_Lighting_Calculation_Templates.xlsx',
-    'mobile-app': 'LUNVYR_Lighting_Calculator_App'
+  // Show selected room details
+  const roomMap = {
+    'living': 'living-room',
+    'dining': 'dining-room',
+    'kitchen': 'kitchen-room',
+    'bedroom': 'bedroom-room',
+    'bathroom': 'bathroom-room',
+    'office': 'office-room'
   };
   
-  const fileName = resources[resourceType];
-  console.log(`Downloading: ${fileName}`);
-  
-  // Show download feedback
-  const button = event.currentTarget;
-  const originalText = button.innerHTML;
-  button.innerHTML = '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v10m0 0l-3-3m3 3l3-3"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7"/></svg>Downloading...';
-  button.disabled = true;
-  
-  setTimeout(() => {
-    button.innerHTML = '<svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>Downloaded';
-    setTimeout(() => {
-      button.innerHTML = originalText;
-      button.disabled = false;
-    }, 2000);
-  }, 1500);
+  const targetRoom = document.getElementById(roomMap[roomType]);
+  if (targetRoom) {
+    targetRoom.classList.add('active');
+  }
 }
 
 // Initialize with sample calculation
@@ -933,7 +979,7 @@ document.addEventListener('DOMContentLoaded', function() {
   setTimeout(calculateLighting, 100);
   
   // Reveal animations
-  const cards = document.querySelectorAll('.tool-card, .guideline-card, .pro-card');
+  const cards = document.querySelectorAll('.tool-card, .guideline-card');
   if('IntersectionObserver' in window){
     const observer = new IntersectionObserver((entries)=>{
       entries.forEach(entry=>{
