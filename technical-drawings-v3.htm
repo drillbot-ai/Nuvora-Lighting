@@ -1,0 +1,122 @@
+<!-- LUNVYR — Technical Drawing Sheet Template v3 (Product-focused) -->
+<style>
+  /* Typography */
+  @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Inter:wght@300;400;600&display=swap');
+
+  /* Print: Tabloid (ANSI B) landscape */
+  @page { size: Tabloid landscape; margin: 10mm; }
+  html, body { height: 100%; }
+  body { background:#eceae6; padding:20px; box-sizing:border-box; }
+
+  /* Sheet (Tabloid: 431.8 × 279.4 mm) */
+  .sheet { width:431.8mm; height:279.4mm; margin:0 auto; background:#fff; position:relative; box-shadow:0 10px 30px rgba(0,0,0,.12); color:#111; font-family: Inter, system-ui, sans-serif; }
+
+  /* Frame */
+  .frame { position:absolute; inset:8mm; border:1.2px solid #000; }
+
+  /* Layout variables */
+  :root { --band: 24mm; --rail: 48mm; --specs: 42mm; }
+
+  /* Top product band */
+  .product-band {
+    position:absolute; left:8mm; right:8mm; top:8mm; height:var(--band);
+    border-bottom:1.2px solid #000; display:grid; grid-template-columns: 1fr auto auto; align-items:center; column-gap:10mm; padding:0 6mm;
+  }
+  .product-name { font-family:'Cinzel', serif; font-size:7mm; font-weight:600; letter-spacing:.01em; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .sku { font-size:3.2mm; text-transform:uppercase; letter-spacing:.06em; }
+  .brand { font-family:'Cinzel', serif; font-weight:600; letter-spacing:.08em; font-size:5mm; }
+
+  /* Left info rail */
+  .info-rail {
+    position:absolute; left:8mm; top:calc(8mm + var(--band)); bottom:8mm; width:var(--rail);
+    border-right:1.2px solid #000; display:flex; flex-direction:column; gap:4mm; padding:4mm 3mm;
+  }
+  .qr { width:30mm; height:30mm; margin:0 auto; border:1px solid #000; display:flex; align-items:center; justify-content:center; font-size:2.6mm; }
+  .barcode { height:14mm; border:1px solid #000; display:flex; align-items:center; justify-content:center; font-size:2.6mm; }
+  .caps { font-size:2.6mm; text-transform:uppercase; letter-spacing:.06em; color:#333; }
+  .small { font-size:2.8mm; font-weight:600; border-bottom:0.9px solid #000; height:6mm; display:flex; align-items:end; }
+  .approvals { margin-top:auto; border-top:1px solid #000; padding-top:3mm; display:grid; grid-template-columns:1fr; row-gap:3mm; }
+  .sign { height:10mm; border:1px solid #000; display:flex; align-items:center; justify-content:center; font-size:2.6mm; }
+
+  /* Bottom specifications strip */
+  .specs {
+    position:absolute; left:calc(8mm + var(--rail)); right:8mm; bottom:8mm; height:var(--specs);
+    border-top:1.2px solid #000; padding:3mm 4mm; display:grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows:auto; column-gap:6mm; row-gap:2mm;
+  }
+  .spec { display:flex; flex-direction:column; gap:1mm; }
+  .label { font-size:2.6mm; color:#333; text-transform:uppercase; letter-spacing:.06em; }
+  .value { font-size:3.2mm; font-weight:600; border-bottom:0.9px solid #000; height:6mm; display:flex; align-items:end; }
+
+  /* Mini revision stamp (top-right corner of band) */
+  .rev-stamp { position:absolute; right:12mm; top:12mm; transform:translateY(-100%); width:54mm; height:14mm; border:1px solid #000; display:grid; grid-template-columns: 12mm 1fr 18mm 18mm; }
+  .rev-stamp > div { font-size:2.8mm; border-left:1px solid #000; display:flex; align-items:center; justify-content:center; }
+  .rev-stamp > div:first-child { border-left:0; }
+  .rev-stamp .head { font-weight:600; text-transform:uppercase; letter-spacing:.06em; background:#fff; }
+
+  /* Main drawing area (blank) */
+  .drawing {
+    position:absolute; left:calc(8mm + var(--rail)); right:8mm; top:calc(8mm + var(--band)); bottom:calc(8mm + var(--specs));
+    border:1px solid #000; background:#fff; /* intentionally empty for CAD placement */
+  }
+
+  @media print { body { background:#fff; padding:0; } .sheet { box-shadow:none; } }
+</style>
+
+<div class="sheet" role="document" aria-label="Technical Drawing Sheet v3 (Product)">
+  <div class="frame" aria-hidden="true"></div>
+
+  <!-- Top product band -->
+  <header class="product-band" aria-label="Product Header">
+    <div class="product-name">PRODUCT NAME ______________________</div>
+    <div class="sku">SKU: ____________</div>
+    <div class="brand">LUNVYR</div>
+  </header>
+
+  <!-- Tiny revision stamp positioned above the band at the right -->
+  <section class="rev-stamp" aria-label="Revision">
+    <div class="head">Rev</div>
+    <div class="head">Description</div>
+    <div class="head">By</div>
+    <div class="head">Date</div>
+  </section>
+
+  <!-- Left info rail: codes, QR, barcode, approvals -->
+  <aside class="info-rail" aria-label="Product Info Rail">
+    <div class="caps">Collection</div>
+    <div class="small"></div>
+    <div class="caps">Category</div>
+    <div class="small"></div>
+    <div class="caps">Part No.</div>
+    <div class="small"></div>
+
+    <div class="qr">QR</div>
+    <div class="barcode">BARCODE</div>
+
+    <div class="approvals" aria-label="Approvals">
+      <div class="sign">Approved</div>
+      <div class="sign">QC</div>
+    </div>
+  </aside>
+
+  <!-- Main drawing area -->
+  <main class="drawing" aria-label="Drawing Area"></main>
+
+  <!-- Bottom specifications strip -->
+  <section class="specs" aria-label="Specifications">
+    <div class="spec"><div class="label">Dimensions (W×D×H)</div><div class="value"></div></div>
+    <div class="spec"><div class="label">Weight</div><div class="value"></div></div>
+    <div class="spec"><div class="label">Material</div><div class="value"></div></div>
+    <div class="spec"><div class="label">Finish / Color</div><div class="value"></div></div>
+
+    <div class="spec"><div class="label">Voltage</div><div class="value"></div></div>
+    <div class="spec"><div class="label">IP Rating</div><div class="value"></div></div>
+    <div class="spec"><div class="label">Light Source</div><div class="value">LED / Bulb __________</div></div>
+    <div class="spec"><div class="label">Mounting</div><div class="value"></div></div>
+
+    <div class="spec"><div class="label">Included Hardware</div><div class="value"></div></div>
+    <div class="spec"><div class="label">Warranty</div><div class="value"></div></div>
+    <div class="spec" style="grid-column: span 2"><div class="label">Notes</div><div class="value"></div></div>
+  </section>
+</div>
+
+<!-- Usage: Product-focused technical sheet. Keep drawing area empty. Print to PDF or import into Fusion 360. Tabloid landscape sizing. -->
