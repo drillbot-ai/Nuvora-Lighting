@@ -73,6 +73,17 @@
   nav.lunvyr-nav ul.submenu li{ margin:0 }
   nav.lunvyr-nav ul.submenu a{ display:block; padding:8px 10px; font-size:.95rem }
 
+  /* Mega menu for Shop */
+  nav.lunvyr-nav li.mega{ position:relative }
+  nav.lunvyr-nav .mega-grid{
+    display:grid; grid-template-columns:repeat(2, minmax(220px,1fr)); gap:16px; padding:16px;
+    min-width:520px; max-width:720px;
+  }
+  nav.lunvyr-nav .mega-col h5{ margin:0 0 8px; font-weight:600; font-family:Cinzel,serif; font-size:1rem; color:#fff }
+  nav.lunvyr-nav .mega-col ul{ display:block; gap:0 }
+  nav.lunvyr-nav .mega-col ul li{ margin:0 }
+  nav.lunvyr-nav .mega-col ul a{ padding:8px 6px; opacity:.95 }
+
   /* Overlay + panel móvil */
   .nav-overlay{
     position:fixed; inset:0; background:rgba(0,0,0,.45);
@@ -154,13 +165,45 @@
   <nav class="lunvyr-nav" aria-label="Primary">
     <ul>
       <li><a href="/">Home</a></li>
-      <li><a href="/shop">Shop</a></li>
+      <li class="has-dropdown mega">
+        <details>
+          <summary>Shop <span class="caret" aria-hidden="true"></span></summary>
+          <ul class="submenu mega-grid" role="menu">
+            <li class="mega-col">
+              <h5>Collections</h5>
+              <ul>
+                <li><a href="/collection-aurea" role="menuitem">Aurea</a></li>
+                <li><a href="/collection-black-label" role="menuitem">Black Label</a></li>
+                <li><a href="/collection-deco-strata" role="menuitem">Deco Strata</a></li>
+                <li><a href="/collection-industrial" role="menuitem">Industrial</a></li>
+                <li><a href="/collection-metallic-fusion" role="menuitem">Metallic Fusion</a></li>
+                <li><a href="/collection-orbit" role="menuitem">Orbit</a></li>
+              </ul>
+            </li>
+            <li class="mega-col">
+              <h5>Categories</h5>
+              <ul>
+                <li><a href="/shop?category=pendants" role="menuitem">Pendants</a></li>
+                <li><a href="/shop?category=chandeliers" role="menuitem">Chandeliers</a></li>
+                <li><a href="/shop?category=wall-sconces" role="menuitem">Wall Sconces</a></li>
+                <li><a href="/shop?category=floor-lamps" role="menuitem">Floor Lamps</a></li>
+                <li><a href="/shop?category=table-lamps" role="menuitem">Table Lamps</a></li>
+                <li><a href="/shop" role="menuitem">All Products</a></li>
+              </ul>
+            </li>
+          </ul>
+        </details>
+      </li>
       <li class="has-dropdown">
         <details>
           <summary>About <span class="caret" aria-hidden="true"></span></summary>
           <ul class="submenu" role="menu">
             <li><a href="/about" role="menuitem">About LUNVYR</a></li>
             <li><a href="/the-studio" role="menuitem">The Studio</a></li>
+            <li><a href="/warranty" role="menuitem">Warranty</a></li>
+            <li><a href="/refund_returns" role="menuitem">Returns</a></li>
+            <li><a href="/privacy-policy" role="menuitem">Privacy</a></li>
+            <li><a href="/terms-and-conditions" role="menuitem">Terms</a></li>
           </ul>
         </details>
       </li>
@@ -172,7 +215,6 @@
             <li><a href="/size-guide" role="menuitem">Size Guide</a></li>
             <li><a href="/care-maintenance" role="menuitem">Care &amp; Maintenance</a></li>
             <li><a href="/installation-guide" role="menuitem">Installation Guide</a></li>
-            <li><a href="/warranty" role="menuitem">Warranty</a></li>
           </ul>
         </details>
       </li>
@@ -258,6 +300,24 @@
       if(e.shiftKey && document.activeElement === first){ last.focus(); e.preventDefault(); }
       else if(!e.shiftKey && document.activeElement === last){ first.focus(); e.preventDefault(); }
     });
+
+    // Close other dropdowns when one opens (desktop and mobile)
+    const closeSiblings = (detailsEl) => {
+      const container = detailsEl.closest('ul');
+      if(!container) return;
+      container.querySelectorAll('details[open]').forEach(d => { if(d !== detailsEl) d.removeAttribute('open'); });
+    };
+    const allDetails = header.querySelectorAll('nav.lunvyr-nav details');
+    allDetails.forEach(d => d.addEventListener('toggle', ()=>{ if(d.open) closeSiblings(d); }));
+    // After cloning, also wire up mobile details
+    const wireMobileDetails = () => {
+      panel.querySelectorAll('details').forEach(d => d.addEventListener('toggle', ()=>{ if(d.open){
+        const list = d.closest('ul'); if(!list) return; list.querySelectorAll('details[open]').forEach(x=>{ if(x!==d) x.removeAttribute('open'); });
+      }}));
+    };
+    wireMobileDetails();
+    // Re-wire after menu open (ensures events if content was re-cloned later)
+    toggle.addEventListener('click', ()=> setTimeout(wireMobileDetails, 0));
 
     // Cart count: oculta si 0 (si tu tema actualiza el número, refleja en data-count)
     const cartCountEl = header.querySelector('.cart-count');
