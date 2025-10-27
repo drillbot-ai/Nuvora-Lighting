@@ -19,16 +19,17 @@
 
   /* Title block (bottom-right) */
   .title-block {
-    position:absolute; right:8mm; bottom:8mm; width: 165mm; height: 42mm; border:1.2px solid #000; display:grid;
-    grid-template-rows: 16mm 10mm 8mm 8mm; grid-template-columns: 1fr; gap:0;
+    position:absolute; right:8mm; bottom:8mm; width: 165mm; height: 38mm; border:1.2px solid #000; display:grid;
+    grid-template-rows: 15mm 9mm 7mm 7mm; grid-template-columns: 1fr; gap:0;
   }
   .tb-row { display:grid; grid-auto-flow:column; grid-auto-columns: 1fr; border-top:1px solid #000; }
   .tb-row:first-child { border-top:0; }
-  .cell { border-left:1px solid #000; padding:2mm 3mm; display:flex; align-items:center; justify-content:space-between; gap:6mm; font-size:3.1mm; }
+  .cell { border-left:1px solid #000; padding:1.6mm 2.5mm; display:flex; align-items:center; justify-content:space-between; gap:6mm; font-size:2.9mm; }
   .cell:first-child { border-left:0; }
-  .label { color:#333; font-size:2.9mm; text-transform:uppercase; letter-spacing:.06em; font-family: Inter, system-ui, sans-serif; }
-  .value { font-weight:600; font-size:3.2mm; font-family: Inter, system-ui, sans-serif; }
-  .title { font-family: 'Cinzel', serif; font-size:5.2mm; font-weight:500; letter-spacing:.02em; }
+  .label { color:#333; font-size:2.7mm; text-transform:uppercase; letter-spacing:.06em; font-family: Inter, system-ui, sans-serif; }
+  .value { font-weight:600; font-size:3mm; font-family: Inter, system-ui, sans-serif; }
+  .title { font-family: 'Cinzel', serif; font-size:4.8mm; font-weight:500; letter-spacing:.02em; }
+  .row-scale .cell:last-child .value{ font-size:2.6mm; line-height:1.2; }
 
   /* Title block column layout per row */
   .row-title { grid-template-columns: 1fr 35mm; }
@@ -38,7 +39,7 @@
 
   /* Revision table above title block */
   .rev-table {
-    position:absolute; right:8mm; bottom: 8mm; transform: translateY(-46mm); width:165mm; height: 20mm;
+    position:absolute; right:8mm; bottom: 8mm; transform: translateY(-42mm); width:165mm; height: 20mm;
     border:1.2px solid #000; display:grid; grid-template-rows: 7mm 1fr;
   }
   .rev-head, .rev-row { display:grid; grid-template-columns: 12mm 1fr 20mm 24mm; }
@@ -55,7 +56,6 @@
 
   /* View placeholders (inside frame) */
   .view { position:absolute; border:1px solid #000; background:#fff; }
-  .view .caption { position:absolute; left:0; right:0; bottom:-6mm; text-align:center; font-size:3mm; font-family:'Cinzel', serif; }
   .main-view { left: 12mm; top: 14mm; width: 130mm; height: 90mm; }
   .right-view{ left: 150mm; top: 34mm; width: 60mm; height: 60mm; }
   .top-view  { left: 12mm; top: 110mm; width: 80mm; height: 55mm; }
@@ -77,11 +77,11 @@
 <div class="sheet" role="document" aria-label="Technical Drawing Sheet (Letter landscape)">
   <div class="frame" aria-hidden="true"></div>
 
-  <!-- View placeholders (replace with your views in Fusion 360) -->
-  <div class="view main-view"><div class="caption">Front / Elevation</div></div>
-  <div class="view right-view"><div class="caption">Right / Section</div></div>
-  <div class="view top-view"><div class="caption">Top / Plan</div></div>
-  <div class="view iso-view"><div class="caption">Isometric</div></div>
+  <!-- View placeholders (replace with your views in Fusion 360) - left intentionally blank -->
+  <div class="view main-view"></div>
+  <div class="view right-view"></div>
+  <div class="view top-view"></div>
+  <div class="view iso-view"></div>
 
   <!-- Company block (optional) -->
   <div class="company">LUNVYR</div>
