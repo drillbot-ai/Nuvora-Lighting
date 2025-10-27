@@ -19,27 +19,28 @@
 
   /* Title block (bottom-right) */
   .title-block {
-    position:absolute; right:8mm; bottom:8mm; width: 165mm; height: 38mm; border:1.2px solid #000; display:grid;
-    grid-template-rows: 15mm 9mm 7mm 7mm; grid-template-columns: 1fr; gap:0;
+    position:absolute; right:8mm; bottom:8mm; width: 165mm; height: 36mm; border:1.2px solid #000; display:grid;
+    grid-template-rows: 14mm 9mm 6.5mm 6.5mm; grid-template-columns: 1fr; gap:0;
   }
+  .title-block, .title-block * { box-sizing:border-box; }
   .tb-row { display:grid; grid-auto-flow:column; grid-auto-columns: 1fr; border-top:1px solid #000; }
   .tb-row:first-child { border-top:0; }
-  .cell { border-left:1px solid #000; padding:1.6mm 2.5mm; display:flex; align-items:center; justify-content:space-between; gap:6mm; font-size:2.9mm; }
+  .cell { border-left:1px solid #000; padding:1.2mm 2mm; display:flex; align-items:center; justify-content:space-between; gap:6mm; font-size:2.8mm; }
   .cell:first-child { border-left:0; }
-  .label { color:#333; font-size:2.7mm; text-transform:uppercase; letter-spacing:.06em; font-family: Inter, system-ui, sans-serif; }
-  .value { font-weight:600; font-size:3mm; font-family: Inter, system-ui, sans-serif; }
-  .title { font-family: 'Cinzel', serif; font-size:4.8mm; font-weight:500; letter-spacing:.02em; }
-  .row-scale .cell:last-child .value{ font-size:2.6mm; line-height:1.2; }
+  .label { color:#333; font-size:2.5mm; text-transform:uppercase; letter-spacing:.06em; font-family: Inter, system-ui, sans-serif; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .value { font-weight:600; font-size:2.8mm; font-family: Inter, system-ui, sans-serif; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .title { font-family: 'Cinzel', serif; font-size:4.4mm; font-weight:500; letter-spacing:.02em; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .row-scale .cell:last-child .value{ font-size:2.4mm; line-height:1.2; }
 
   /* Title block column layout per row */
-  .row-title { grid-template-columns: 1fr 35mm; }
-  .row-specs { grid-template-columns: 40mm 1fr 1fr; }
-  .row-meta  { grid-template-columns: 28mm 28mm 28mm 1fr; }
-  .row-scale { grid-template-columns: 24mm 24mm 28mm 1fr; }
+  .row-title { grid-template-columns: 1fr 33mm; }
+  .row-specs { grid-template-columns: 35mm 1fr 1fr; }
+  .row-meta  { grid-template-columns: 24mm 24mm 24mm 1fr; }
+  .row-scale { grid-template-columns: 22mm 22mm 26mm 1fr; }
 
   /* Revision table above title block */
   .rev-table {
-    position:absolute; right:8mm; bottom: 8mm; transform: translateY(-42mm); width:165mm; height: 20mm;
+    position:absolute; right:8mm; bottom: 8mm; transform: translateY(-40mm); width:165mm; height: 20mm;
     border:1.2px solid #000; display:grid; grid-template-rows: 7mm 1fr;
   }
   .rev-head, .rev-row { display:grid; grid-template-columns: 12mm 1fr 20mm 24mm; }
@@ -54,12 +55,7 @@
   .notes h4 { margin:0 0 2mm; font-size:3.4mm; text-transform:uppercase; letter-spacing:.06em; }
   .notes ol { margin:0; padding-left:5mm; font-size:3.2mm; line-height:1.55; }
 
-  /* View placeholders (inside frame) */
-  .view { position:absolute; border:1px solid #000; background:#fff; }
-  .main-view { left: 12mm; top: 14mm; width: 130mm; height: 90mm; }
-  .right-view{ left: 150mm; top: 34mm; width: 60mm; height: 60mm; }
-  .top-view  { left: 12mm; top: 110mm; width: 80mm; height: 55mm; }
-  .iso-view  { left: 190mm; top: 14mm; width: 70mm; height: 50mm; }
+  /* View area intentionally left blank (no internal boxes) */
 
   /* Company block (optional logo area) */
   .company {
@@ -77,11 +73,7 @@
 <div class="sheet" role="document" aria-label="Technical Drawing Sheet (Letter landscape)">
   <div class="frame" aria-hidden="true"></div>
 
-  <!-- View placeholders (replace with your views in Fusion 360) - left intentionally blank -->
-  <div class="view main-view"></div>
-  <div class="view right-view"></div>
-  <div class="view top-view"></div>
-  <div class="view iso-view"></div>
+  <!-- Drawing area intentionally empty for Fusion 360 placement -->
 
   <!-- Company block (optional) -->
   <div class="company">LUNVYR</div>
