@@ -1,24 +1,26 @@
-<!-- LUNVYR — Contact (CF7 integrated, Editorial Hero, Info Cards, Project Brief, Hours, Map, CTA) -->
+<!-- NUVORA — Contact (Natural Material Specialists, Expert Support, Project Consultation, Hours, Location, CTA) -->
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Inter:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lusitana:wght@400;700&family=Manrope:wght@300;400;500;600&display=swap');
 
-:root{ --ink:#1c222b; --paper:#f2f0eb; --coal:#111; --ash:#666; --brass:#b2956d; --white:#fff;
-  --radius:14px; --shadow:0 12px 32px rgba(0,0,0,.08); --ring: 0 0 0 3px rgba(178,149,109,.25);
+:root{ 
+  --cloud-whisper:#F6F6F6; --moonlit-sand:#EDE7DD; --silver-mist:#DADCE0; 
+  --pale-graphite:#B2B2B2; --noir-veil:#2E2E2E; --ethereal-brass:#C8B898; --white:#fff;
+  --radius:14px; --shadow:0 12px 32px rgba(46,46,46,.08); --ring: 0 0 0 3px rgba(200,184,152,.25);
 }
 
-.contact-page{font-family:Inter,system-ui,sans-serif;color:var(--coal);line-height:1.65}
-.contact-page h1,.contact-page h2,.contact-page h3{font-family:Cinzel,serif;font-weight:400;margin:0}
-.contact-page .eyebrow{letter-spacing:.12em;text-transform:uppercase;font-size:.8rem;color:var(--ash);margin-bottom:.6rem}
+.contact-page{font-family:Manrope,system-ui,sans-serif;color:var(--noir-veil);line-height:1.65}
+.contact-page h1,.contact-page h2,.contact-page h3{font-family:Lusitana,serif;font-weight:400;margin:0}
+.contact-page .eyebrow{letter-spacing:.12em;text-transform:uppercase;font-size:.8rem;color:var(--pale-graphite);margin-bottom:.6rem}
 
 /* HERO mejorado */
 .contact-hero{
-  position:relative; isolation:isolate; color:var(--paper); text-align:center;
-  background:#0e0f12 url('https://lunvyr.com/wp-content/uploads/2025/08/f07dabad-5599-4f19-bb21-0e2537614e98.png') center/cover no-repeat;
+  position:relative; isolation:isolate; color:var(--cloud-whisper); text-align:center;
+  background:#2a2a2a url('https://nuvora.com/wp-content/uploads/2025/08/natural-materials-studio.png') center/cover no-repeat;
   padding:clamp(100px,15vh,160px) 10%; min-height:70vh; display:flex; align-items:center; justify-content:center;
 }
 .contact-hero::before{
   content:""; position:absolute; top:0; left:0; right:0; height:1px;
-  background:linear-gradient(90deg, transparent, var(--brass), transparent);
+  background:linear-gradient(90deg, transparent, var(--ethereal-brass), transparent);
 }
 .contact-hero::after{
   content:""; position:absolute; inset:0; 
@@ -26,56 +28,56 @@
 }
 .contact-hero .inner{position:relative; z-index:2; max-width:900px; margin:0 auto}
 .contact-hero h1{
-  font-size:clamp(2.6rem,5.2vw,3.8rem); color:var(--paper); margin-bottom:16px;
-  font-family:'Cinzel',serif; font-weight:400; line-height:1.15;
-  background:linear-gradient(135deg, #fff 0%, #e9ecef 100%);
+  font-size:clamp(2.6rem,5.2vw,3.8rem); color:var(--cloud-whisper); margin-bottom:16px;
+  font-family:'Lusitana',serif; font-weight:400; line-height:1.15;
+  background:linear-gradient(135deg, #fff 0%, var(--silver-mist) 100%);
   -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
 }
-.contact-hero p{color:#d6d3ce; margin:0 auto; max-width:760px; font-size:1.1rem; line-height:1.6}
+.contact-hero p{color:var(--silver-mist); margin:0 auto; max-width:760px; font-size:1.1rem; line-height:1.6}
 
 /* INFO STRIP mejorado */
 .info-strip{
-  background:linear-gradient(135deg, var(--paper) 0%, #f8f6f0 100%);
+  background:linear-gradient(135deg, var(--cloud-whisper) 0%, var(--moonlit-sand) 100%);
   padding:clamp(64px,10vh,120px) 10%; position:relative;
 }
 .info-strip::before{
   content:""; position:absolute; top:0; left:0; right:0; height:1px;
-  background:linear-gradient(90deg, transparent, var(--brass), transparent);
+  background:linear-gradient(90deg, transparent, var(--ethereal-brass), transparent);
 }
 .info-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:28px; max-width:1000px; margin:0 auto}
 .info-card{
-  background:var(--white); border:1px solid rgba(17,17,17,.06); 
+  background:var(--white); border:1px solid rgba(46,46,46,.06); 
   border-radius:20px; padding:28px 24px; text-align:center; 
-  box-shadow:0 8px 30px rgba(0,0,0,.06); transition:all .4s ease;
+  box-shadow:0 8px 30px rgba(46,46,46,.06); transition:all .4s ease;
   position:relative; overflow:hidden;
 }
 .info-card::before{
   content:""; position:absolute; top:0; left:0; right:0; height:3px;
-  background:linear-gradient(90deg, var(--brass) 0%, #d4af78 100%);
+  background:linear-gradient(90deg, var(--ethereal-brass) 0%, #d4c4a8 100%);
   transform:scaleX(0); transition:transform .4s ease;
 }
 .info-card:hover::before{transform:scaleX(1)}
 .info-card:hover{
   transform:translateY(-6px); 
-  box-shadow:0 16px 45px rgba(0,0,0,.1);
+  box-shadow:0 16px 45px rgba(46,46,46,.1);
 }
 .info-card .icon{
-  width:40px; height:40px; color:var(--brass); margin:0 auto 16px;
-  background:rgba(178,149,109,.1); border-radius:50%;
+  width:40px; height:40px; color:var(--ethereal-brass); margin:0 auto 16px;
+  background:rgba(200,184,152,.1); border-radius:50%;
   display:flex; align-items:center; justify-content:center;
 }
-.info-card h3{font-size:1.3rem; color:var(--ink); margin:0 0 8px; font-weight:600}
+.info-card h3{font-size:1.3rem; color:var(--noir-veil); margin:0 0 8px; font-weight:600}
 .info-card p, .info-card a{
-  color:var(--ash); margin:0; text-decoration:none; 
+  color:var(--pale-graphite); margin:0; text-decoration:none; 
   font-size:.95rem; line-height:1.5;
 }
 .info-card a{transition:color .3s ease}
-.info-card a:hover{color:var(--brass); text-decoration:underline}
+.info-card a:hover{color:var(--ethereal-brass); text-decoration:underline}
 
 /* LAYOUT main: form + sidebar mejorado */
 .contact-main{
   padding:clamp(84px,12vh,140px) 10%; 
-  background:linear-gradient(135deg, #f7f7f7 0%, #f2f0eb 100%);
+  background:linear-gradient(135deg, var(--moonlit-sand) 0%, var(--cloud-whisper) 100%);
   position:relative;
 }
 .contact-main::before{
@@ -236,9 +238,9 @@
   <!-- HERO -->
   <section class="contact-hero">
     <div class="inner reveal">
-      <div class="eyebrow">Get in Touch</div>
-      <h1>Let’s Build Something Beautiful</h1>
-      <p>Questions about our collections, product specifications, or trade inquiries—we're here to help you find the perfect lighting solution.</p>
+      <div class="eyebrow">Natural Material Specialists</div>
+      <h1>Let's Create Ethereal Light Forms</h1>
+      <p>Questions about our natural material collections, organic surface care, or material-specific installations—we're here to guide you through the world of natural lighting.</p>
     </div>
   </section>
 
@@ -247,17 +249,17 @@
     <div class="info-grid">
       <article class="info-card reveal">
         <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 9l9-6 9 6v9a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V9z"/><path d="M9 22V12h6v10"/></svg>
-        <h3>Studio</h3>
+        <h3>Natural Materials Studio</h3>
         <p>Long Island City, NY 11101</p>
       </article>
       <article class="info-card reveal">
         <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 4h16v16H4z"/><path d="M4 9h16"/></svg>
         <h3>Email</h3>
-        <p><a href="mailto:info@lunvyr.com">info@lunvyr.com</a></p>
+        <p><a href="mailto:info@nuvora.com">info@nuvora.com</a></p>
       </article>
       <article class="info-card reveal">
         <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 16.92V21a1 1 0 0 1-1.09 1A19.86 19.86 0 0 1 3 3.09 1 1 0 0 1 4 2h4.09a1 1 0 0 1 1 .75l1 3.5a1 1 0 0 1-.27 1l-2.2 2.2a16 16 0 0 0 6.8 6.8l2.2-2.2a1 1 0 0 1 1-.27l3.5 1a1 1 0 0 1 .75 1z"/></svg>
-        <h3>Phone</h3>
+        <h3>Natural Material Specialists</h3>
         <p><a href="tel:+19297282394">+1 (929) 728-2394</a></p>
       </article>
     </div>
@@ -268,18 +270,18 @@
     <div class="contact-grid">
       <!-- FORM CARD -->
       <div class="card contact-form reveal">
-        <h2>Get in Touch</h2>
-        <p class="help">Questions about our products or need help selecting fixtures? We usually respond within 1–2 business days.</p>
+        <h2>Natural Material Consultation</h2>
+        <p class="help">Questions about our natural materials, care instructions, or selecting the perfect organic fixtures? We usually respond within 1–2 business days.</p>
 
         <!-- Reemplaza el formulario dummy por tu shortcode CF7 -->
-        [contact-form-7 id="16917ea" title="LUNVYR Project Brief"]
+        [contact-form-7 id="16917ea" title="NUVORA Natural Material Consultation"]
       </div>
 
       <!-- SIDEBAR -->
       <aside class="card sidebar reveal">
         <div class="block">
-          <h3>Trade & Wholesale</h3>
-          <p class="help">We work with architects and designers on product selection and specifications. Email <a href="mailto:info@lunvyr.com">info@lunvyr.com</a> for trade pricing and project support.</p>
+          <h3>Natural Material Trade Program</h3>
+          <p class="help">We collaborate with architects and designers on natural material specifications and sustainable lighting solutions. Email <a href="mailto:info@nuvora.com">info@nuvora.com</a> for trade pricing and material consultation.</p>
         </div>
         <div class="block">
           <h3>Hours</h3>
@@ -290,12 +292,12 @@
           </div>
         </div>
         <div class="block">
-          <h3>Shipping & Lead Times</h3>
-          <p class="help">Most pieces ship in 4–6 weeks. Rush options may be available depending on finish and quantity.</p>
+          <h3>Crafting & Lead Times</h3>
+          <p class="help">Natural material pieces are handcrafted in 4–6 weeks. Rush options available for select materials and finishes.</p>
         </div>
         <div class="block">
           <h3>Installation</h3>
-          <p class="help">Wired to UL standards. Installation by a licensed electrician is recommended for safety and warranty compliance.</p>
+          <p class="help">Each fixture is expertly wired and includes detailed care instructions for natural materials. Professional installation recommended.</p>
         </div>
       </aside>
     </div>
@@ -303,7 +305,7 @@
 
   <!-- APPOINTMENT BAND -->
   <div class="appointment">
-    Studio visits by appointment — <a href="/contact">Request a time</a>
+    Natural Materials Studio visits by appointment — <a href="/contact">Request a consultation</a>
   </div>
 
   <!-- MAP -->
@@ -317,11 +319,11 @@
   <!-- CTA FINAL -->
   <section class="cta-final">
     <div class="wrap">
-      <h2>Find Your Perfect Fixture</h2>
-      <p>Browse our complete collections to discover the ideal lighting solution for your space.</p>
+      <h2>Discover Natural Material Lighting</h2>
+      <p>Explore our complete collections of handcrafted fixtures in plaster, alabaster, wood, glass, concrete, and brass.</p>
       <div class="actions">
-        <a class="btn" href="/contact">Ask Questions</a>
-        <a class="btn" href="/shop">Explore the Collection</a>
+        <a class="btn" href="/contact">Natural Material Consultation</a>
+        <a class="btn" href="/shop">Explore Natural Collections</a>
       </div>
     </div>
   </section>

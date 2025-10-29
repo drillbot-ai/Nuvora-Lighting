@@ -2,14 +2,14 @@
 <style>
   /* Fonts to match site style */
   @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap');
-  /* Print setup: Letter (ANSI A) landscape. Change to 'A4 landscape' if needed. */
-  @page { size: Letter landscape; margin: 10mm; }
+  /* Print setup: Tabloid (ANSI B) landscape — about double the area of Letter. */
+  @page { size: Tabloid landscape; margin: 10mm; }
   html, body { height: 100%; }
   body { background:#eceae6; padding:20px; box-sizing:border-box; }
 
-  /* Sheet size (Letter landscape: 279.4mm × 215.9mm) */
+  /* Sheet size (Tabloid landscape: 431.8mm × 279.4mm) */
   .sheet {
-    width: 279.4mm; height: 215.9mm; background:#fff; margin:0 auto; position:relative;
+    width: 431.8mm; height: 279.4mm; background:#fff; margin:0 auto; position:relative;
     box-shadow: 0 10px 30px rgba(0,0,0,.12);
   color:#111; font-family: Inter, system-ui, sans-serif;
   }
@@ -70,7 +70,7 @@
   }
 </style>
 
-<div class="sheet" role="document" aria-label="Technical Drawing Sheet (Letter landscape)">
+<div class="sheet" role="document" aria-label="Technical Drawing Sheet (Tabloid landscape)">
   <div class="frame" aria-hidden="true"></div>
 
   <!-- Drawing area intentionally empty for Fusion 360 placement -->

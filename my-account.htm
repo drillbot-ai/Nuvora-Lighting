@@ -3,147 +3,147 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>LUNVYR — My Account</title>
+  <title>NUVORA — My Account</title>
   <style>
-    :root{ --ink:#1c222b; --paper:#f3f0eb; --brass:#c2a574; --surface:#ffffff; --surface-2:#f7f7f7; --border:#e1e1e1; --radius:12px; --shadow:0 12px 30px rgba(0,0,0,.08) }
-    body{ margin:0; background:linear-gradient(135deg,#f3f0eb,#ffffff); color:#1c222b; font-family:Inter,system-ui,sans-serif }
-    .lv-container{ max-width:1200px; margin:0 auto; padding:0 20px }
-    .lv-hero{ padding:28px 0 8px }
-    .lv-title{ margin:0; font-family:Cinzel,serif; font-size:clamp(28px,3.5vw,40px); letter-spacing:.4px }
-    .lv-sub{ margin:6px 0 0; color:#666a70 }
-    .lv-content{ margin:20px 0 40px }
-    .lv-grid{ display:grid; grid-template-columns:2fr 1fr; gap:24px }
-    @media (max-width:980px){ .lv-grid{ grid-template-columns:1fr } }
-    .lv-card{ background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow); padding:24px }
+    :root{ --cloud-whisper:#F6F6F6; --moonlit-sand:#EDE7DD; --ethereal-brass:#C8B898; --pale-graphite:#B2B2B2; --noir-veil:#2E2E2E; --silver-mist:#DADCE0; --surface:#ffffff; --surface-2:#f7f7f7; --border:#e1e1e1; --radius:12px; --shadow:0 12px 30px rgba(0,0,0,.08) }
+    body{ margin:0; background:linear-gradient(135deg,var(--moonlit-sand),var(--cloud-whisper)); color:var(--noir-veil); font-family:'Manrope',system-ui,sans-serif }
+    .nv-container{ max-width:1200px; margin:0 auto; padding:0 20px }
+    .nv-hero{ padding:28px 0 8px }
+    .nv-title{ margin:0; font-family:'Lusitana',serif; font-size:clamp(28px,3.5vw,40px); letter-spacing:.4px }
+    .nv-sub{ margin:6px 0 0; color:var(--pale-graphite) }
+    .nv-content{ margin:20px 0 40px }
+    .nv-grid{ display:grid; grid-template-columns:2fr 1fr; gap:24px }
+    @media (max-width:980px){ .nv-grid{ grid-template-columns:1fr } }
+    .nv-card{ background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow); padding:24px }
     /* account nav demo */
     .acc-nav{ list-style:none; margin:0 0 16px; padding:0; display:grid; gap:8px }
-    .acc-nav a{ display:block; padding:10px 12px; border:1px solid #e1e1e1; border-radius:8px; color:#1c222b; text-decoration:none; background:#fff }
+    .acc-nav a{ display:block; padding:10px 12px; border:1px solid #e1e1e1; border-radius:8px; color:var(--noir-veil); text-decoration:none; background:#fff }
     .acc-nav a:hover{ background:#f7f7f7 }
   </style>
 </head>
 <body>
   <div id="site-header"></div>
 
-  <main class="lv-shell">
-    <!-- LUNVYR — My Account content-only block to paste into your WordPress My Account page.
+  <main class="nv-shell">
+    <!-- NUVORA — My Account content-only block to paste into your WordPress My Account page.
          Use with a Shortcode block/widget that renders [woocommerce_my_account].
-         No header/footer. Styles are scoped to .lunvyr-woo, force readable colors
+         No header/footer. Styles are scoped to .nuvora-woo, force readable colors
          y extienden un fondo claro bajo el contenido para evitar bandas oscuras.
 
          Elementor tip:
            - Coloca este widget HTML y el widget Shortcode en la MISMA Sección.
-           - Asigna a esa Sección la clase CSS: lunvyr-woo
-           - Si haces eso, puedes quitar el <div class="lunvyr-woo"> de abajo y
+           - Asigna a esa Sección la clase CSS: nuvora-woo
+           - Si haces eso, puedes quitar el <div class="nuvora-woo"> de abajo y
              dejar solo el marcado interno; los estilos se aplicarán igual. -->
 
-    <div class="lunvyr-woo">
+    <div class="nuvora-woo">
       <style>
-        .lunvyr-woo{ --ink:#1c222b; --paper:#f3f0eb; --brass:#c2a574; --surface:#ffffff; --surface-2:#f7f7f7; --border:#e1e1e1; --radius:12px; --shadow:0 12px 30px rgba(0,0,0,.08); color:#1c222b !important; isolation:isolate; position:relative; padding-bottom:120px }
-        .lunvyr-woo::before{ content:""; position:absolute; z-index:-1; top:0; left:50%; transform:translateX(-50%); width:100vw; bottom:-160px; background:linear-gradient(135deg,#f3f0eb,#ffffff) }
-        .lunvyr-woo *{ box-sizing:border-box }
-        .lunvyr-woo, .lunvyr-woo h1, .lunvyr-woo h2, .lunvyr-woo h3, .lunvyr-woo p{ color:#1c222b !important }
+        .nuvora-woo{ --cloud-whisper:#F6F6F6; --moonlit-sand:#EDE7DD; --ethereal-brass:#C8B898; --pale-graphite:#B2B2B2; --noir-veil:#2E2E2E; --silver-mist:#DADCE0; --surface:#ffffff; --surface-2:#f7f7f7; --border:#e1e1e1; --radius:12px; --shadow:0 12px 30px rgba(0,0,0,.08); color:var(--noir-veil) !important; isolation:isolate; position:relative; padding-bottom:120px }
+        .nuvora-woo::before{ content:""; position:absolute; z-index:-1; top:0; left:50%; transform:translateX(-50%); width:100vw; bottom:-160px; background:linear-gradient(135deg,var(--moonlit-sand),var(--cloud-whisper)) }
+        .nuvora-woo *{ box-sizing:border-box }
+        .nuvora-woo, .nuvora-woo h1, .nuvora-woo h2, .nuvora-woo h3, .nuvora-woo p{ color:var(--noir-veil) !important }
 
-        .lunvyr-woo .lv-container{ max-width:1200px; margin:0 auto; padding:0 20px }
-        .lunvyr-woo .lv-hero{ padding:28px 0 8px }
-        .lunvyr-woo .lv-title{ margin:0; font-family:Cinzel,serif; font-size:clamp(28px,3.5vw,40px); letter-spacing:.4px }
-        .lunvyr-woo .lv-sub{ margin:6px 0 0; color:#666a70 !important }
-        .lunvyr-woo .lv-content{ margin:20px 0 40px }
-        .lunvyr-woo .lv-card{ background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow); padding:24px }
+        .nuvora-woo .nv-container{ max-width:1200px; margin:0 auto; padding:0 20px }
+        .nuvora-woo .nv-hero{ padding:28px 0 8px }
+        .nuvora-woo .nv-title{ margin:0; font-family:'Lusitana',serif; font-size:clamp(28px,3.5vw,40px); letter-spacing:.4px }
+        .nuvora-woo .nv-sub{ margin:6px 0 0; color:var(--pale-graphite) !important }
+        .nuvora-woo .nv-content{ margin:20px 0 40px }
+        .nuvora-woo .nv-card{ background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow); padding:24px }
 
         /* My Account specifics */
-        .lunvyr-woo .woocommerce-account .woocommerce-MyAccount-navigation{
+        .nuvora-woo .woocommerce-account .woocommerce-MyAccount-navigation{
           background:#fff; border:1px solid var(--border); border-radius:12px; padding:16px; box-shadow:var(--shadow)
         }
-        .lunvyr-woo .woocommerce-account .woocommerce-MyAccount-navigation ul{ list-style:none; margin:0; padding:0 }
-        .lunvyr-woo .woocommerce-account .woocommerce-MyAccount-navigation a{ display:block; padding:10px 12px; border-radius:8px; color:#1c222b; text-decoration:none }
-        .lunvyr-woo .woocommerce-account .woocommerce-MyAccount-navigation a:hover{ background:var(--surface-2) }
+        .nuvora-woo .woocommerce-account .woocommerce-MyAccount-navigation ul{ list-style:none; margin:0; padding:0 }
+        .nuvora-woo .woocommerce-account .woocommerce-MyAccount-navigation a{ display:block; padding:10px 12px; border-radius:8px; color:var(--noir-veil); text-decoration:none }
+        .nuvora-woo .woocommerce-account .woocommerce-MyAccount-navigation a:hover{ background:var(--surface-2) }
 
-        .lunvyr-woo .woocommerce-account .woocommerce-MyAccount-content{
+        .nuvora-woo .woocommerce-account .woocommerce-MyAccount-content{
           background:#fff; border:1px solid var(--border); border-radius:12px; padding:20px; box-shadow:var(--shadow)
         }
 
         /* Forms inside My Account (addresses, account details) */
-        .lunvyr-woo .woocommerce form .form-row input.input-text,
-        .lunvyr-woo .woocommerce form .form-row textarea,
-        .lunvyr-woo .woocommerce form .form-row select{ border:2px solid var(--border); border-radius:10px; padding:12px; background:#fff; color:#1c222b }
-        .lunvyr-woo .woocommerce form .form-row input.input-text:focus,
-        .lunvyr-woo .woocommerce form .form-row textarea:focus,
-        .lunvyr-woo .woocommerce form .form-row select:focus{ border-color:var(--ink) }
+        .nuvora-woo .woocommerce form .form-row input.input-text,
+        .nuvora-woo .woocommerce form .form-row textarea,
+        .nuvora-woo .woocommerce form .form-row select{ border:2px solid var(--border); border-radius:10px; padding:12px; background:#fff; color:var(--noir-veil) }
+        .nuvora-woo .woocommerce form .form-row input.input-text:focus,
+        .nuvora-woo .woocommerce form .form-row textarea:focus,
+        .nuvora-woo .woocommerce form .form-row select:focus{ border-color:var(--ethereal-brass) }
 
         /* Buttons */
-        .lunvyr-woo .woocommerce .button,
-        .lunvyr-woo .woocommerce a.button,
-        .lunvyr-woo .woocommerce button.button,
-        .lunvyr-woo .woocommerce input.button,
-        .lunvyr-woo .woocommerce .button.wc-forward,
-        .lunvyr-woo .woocommerce .button.wc-backward{
-          background:var(--ink); border:2px solid var(--ink); border-radius:10px; color:#fff !important; padding:.7rem 1.2rem; font-weight:600
+        .nuvora-woo .woocommerce .button,
+        .nuvora-woo .woocommerce a.button,
+        .nuvora-woo .woocommerce button.button,
+        .nuvora-woo .woocommerce input.button,
+        .nuvora-woo .woocommerce .button.wc-forward,
+        .nuvora-woo .woocommerce .button.wc-backward{
+          background:var(--ethereal-brass); border:2px solid var(--ethereal-brass); border-radius:10px; color:#fff !important; padding:.7rem 1.2rem; font-weight:600
         }
-        .lunvyr-woo .woocommerce .button:hover,
-        .lunvyr-woo .woocommerce a.button:hover,
-        .lunvyr-woo .woocommerce button.button:hover,
-        .lunvyr-woo .woocommerce input.button:hover{ background:var(--brass); border-color:var(--brass); color:#1c222b !important }
+        .nuvora-woo .woocommerce .button:hover,
+        .nuvora-woo .woocommerce a.button:hover,
+        .nuvora-woo .woocommerce button.button:hover,
+        .nuvora-woo .woocommerce input.button:hover{ background:var(--noir-veil); border-color:var(--noir-veil); color:#fff !important }
 
         /* Optional: hide breadcrumb if your theme prints it inside content */
-        .lunvyr-woo .woocommerce-breadcrumb{ display:none }
+        .nuvora-woo .woocommerce-breadcrumb{ display:none }
 
         /* Links */
-        .lunvyr-woo a{ color:var(--ink); text-decoration:none }
-        .lunvyr-woo a:hover{ color:var(--brass) }
+        .nuvora-woo a{ color:var(--ethereal-brass); text-decoration:none }
+        .nuvora-woo a:hover{ color:var(--noir-veil) }
 
         /* Active nav item */
-        .lunvyr-woo .woocommerce-account .woocommerce-MyAccount-navigation li.is-active > a{
+        .nuvora-woo .woocommerce-account .woocommerce-MyAccount-navigation li.is-active > a{
           background:var(--surface-2); font-weight:700
         }
 
         /* Orders / tables */
-        .lunvyr-woo .woocommerce table.shop_table{
+        .nuvora-woo .woocommerce table.shop_table{
           border:1px solid var(--border); border-radius:12px; overflow:hidden; background:#fff
         }
-        .lunvyr-woo .woocommerce table.shop_table th{ background:var(--surface-2); font-weight:700 }
-        .lunvyr-woo .woocommerce table.shop_table th,
-        .lunvyr-woo .woocommerce table.shop_table td{ padding:12px 14px }
+        .nuvora-woo .woocommerce table.shop_table th{ background:var(--surface-2); font-weight:700 }
+        .nuvora-woo .woocommerce table.shop_table th,
+        .nuvora-woo .woocommerce table.shop_table td{ padding:12px 14px }
 
         /* Addresses */
-        .lunvyr-woo .woocommerce-Addresses .woocommerce-Address{
+        .nuvora-woo .woocommerce-Addresses .woocommerce-Address{
           border:1px solid var(--border); border-radius:12px; padding:16px; background:#fff; box-shadow:var(--shadow)
         }
-        .lunvyr-woo .woocommerce-Addresses .title h3{ margin:0 0 6px; font-family:Cinzel,serif }
-        .lunvyr-woo .woocommerce-Addresses a.edit{ display:inline-block; margin-top:8px }
+        .nuvora-woo .woocommerce-Addresses .title h3{ margin:0 0 6px; font-family:'Lusitana',serif }
+        .nuvora-woo .woocommerce-Addresses a.edit{ display:inline-block; margin-top:8px }
 
         /* Notices */
-        .lunvyr-woo .woocommerce-message,
-        .lunvyr-woo .woocommerce-info,
-        .lunvyr-woo .woocommerce-error{
+        .nuvora-woo .woocommerce-message,
+        .nuvora-woo .woocommerce-info,
+        .nuvora-woo .woocommerce-error{
           background:#fff; border:2px solid var(--border); border-radius:10px; box-shadow:var(--shadow)
         }
 
         /* Pagination */
-        .lunvyr-woo .woocommerce-pagination ul{ border:none }
-        .lunvyr-woo .woocommerce-pagination li a,
-        .lunvyr-woo .woocommerce-pagination li span{
+        .nuvora-woo .woocommerce-pagination ul{ border:none }
+        .nuvora-woo .woocommerce-pagination li a,
+        .nuvora-woo .woocommerce-pagination li span{
           border:1px solid var(--border); padding:8px 12px; border-radius:8px
         }
-        .lunvyr-woo .woocommerce-pagination li .current{
-          background:var(--ink); color:#fff; border-color:var(--ink)
+        .nuvora-woo .woocommerce-pagination li .current{
+          background:var(--ethereal-brass); color:#fff; border-color:var(--ethereal-brass)
         }
 
         /* Login/Register forms (when not logged in) */
-        .lunvyr-woo .woocommerce form.login,
-        .lunvyr-woo .woocommerce form.register{
+        .nuvora-woo .woocommerce form.login,
+        .nuvora-woo .woocommerce form.register{
           border:1px solid var(--border); border-radius:12px; padding:20px; background:#fff; box-shadow:var(--shadow)
         }
       </style>
 
-      <section class="lv-hero">
-        <div class="lv-container">
-          <h1 class="lv-title">My Account</h1>
-          <p class="lv-sub">Manage your orders, addresses, and account details.</p>
+      <section class="nv-hero">
+        <div class="nv-container">
+          <h1 class="nv-title">Natural Materials Account</h1>
+          <p class="nv-sub">Manage your orders, addresses, and natural material preferences.</p>
         </div>
       </section>
 
-      <section class="lv-container lv-content">
-        <div class="lv-card">
+      <section class="nv-container nv-content">
+        <div class="nv-card">
           <!-- Place a Shortcode block/widget here with: [woocommerce_my_account] -->
         </div>
       </section>

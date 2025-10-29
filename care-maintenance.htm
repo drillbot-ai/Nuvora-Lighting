@@ -1,62 +1,56 @@
-<!-- LUNVYR — Care & Maintenance (Cleaning Guide, Finish Care, Maintenance Schedule, Troubleshooting) -->
+<!-- NUVORA — Care & Maintenance (Natural Materials Care Guide, Maintenance Schedule, Preservation) -->
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Inter:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lusitana:wght@400;700&family=Manrope:wght@300;400;500;600&family=Crimson+Text:wght@400;600&display=swap');
 
 :root{
-  --ink:#1c222b; --paper:#f2f0eb; --coal:#111; --ash:#666; --brass:#b2956d; --white:#fff;
-  --radius:14px; --shadow:0 12px 32px rgba(0,0,0,.08); --ring: 0 0 0 3px rgba(178,149,109,.25);
+  --cloud-whisper:#F6F6F6; --moonlit-sand:#EDE7DD; --silver-mist:#DADCE0; 
+  --pale-graphite:#B2B2B2; --noir-veil:#2E2E2E; --ethereal-brass:#C8B898; --white:#fff;
+  --radius:16px; --shadow:0 12px 32px rgba(0,0,0,.06); --ring: 0 0 0 3px rgba(200,184,152,.25);
 }
 
-.care-guide{font-family:Inter,system-ui,sans-serif;color:var(--coal);line-height:1.65}
-.care-guide h1,.care-guide h2,.care-guide h3{font-family:Cinzel,serif;font-weight:400;margin:0}
-.care-guide .eyebrow{letter-spacing:.12em;text-transform:uppercase;font-size:.8rem;color:var(--ash);margin-bottom:.6rem}
+.care-guide{font-family:Manrope,system-ui,sans-serif;color:var(--noir-veil);line-height:1.6}
+.care-guide h1,.care-guide h2,.care-guide h3{font-family:Lusitana,serif;font-weight:400;margin:0}
+.care-guide .eyebrow{letter-spacing:.12em;text-transform:uppercase;font-size:.8rem;color:var(--pale-graphite);margin-bottom:.6rem}
 
 /* Hero */
 .care-hero{
-  position:relative; color:var(--paper); text-align:center;
-  background:#0e0f12 url('https://lunvyr.com/wp-content/uploads/2025/08/f07dabad-5599-4f19-bb21-0e2537614e98.png') center/cover no-repeat;
+  position:relative; color:var(--cloud-whisper); text-align:center;
+  background:linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%), url('https://lunvyr.com/wp-content/uploads/2025/08/image-65.png') center/cover no-repeat;
+  background-blend-mode:overlay;
   padding:clamp(100px,15vh,160px) 10%; min-height:70vh; display:flex; align-items:center; justify-content:center;
-}
-.care-hero::before{
-  content:""; position:absolute; top:0; left:0; right:0; height:1px;
-  background:linear-gradient(90deg, transparent, var(--brass), transparent);
 }
 .care-hero::after{
   content:""; position:absolute; inset:0; 
-  background:radial-gradient(110% 110% at 70% 30%, rgba(0,0,0,0) 0%, rgba(0,0,0,.7) 70%);
+  background:radial-gradient(110% 110% at 50% 30%, rgba(0,0,0,0) 0%, rgba(46,46,46,.8) 70%);
 }
 .care-hero .inner{position:relative; z-index:2; max-width:900px; margin:0 auto}
 .care-hero h1{
-  font-size:clamp(2.6rem,5.2vw,3.8rem); color:var(--paper); margin-bottom:16px;
-  font-family:'Cinzel',serif; font-weight:400; line-height:1.15;
+  font-size:clamp(2.6rem,5.2vw,3.8rem); color:var(--cloud-whisper); margin-bottom:16px;
+  font-family:'Lusitana',serif; font-weight:400; line-height:1.15;
 }
-.care-hero p{color:#d6d3ce; margin:0 auto; max-width:760px; font-size:1.1rem; line-height:1.6}
+.care-hero p{color:#e6e4e1; margin:0 auto; max-width:760px; font-size:1.1rem; line-height:1.6}
 
 /* Section */
 .section{
   padding:clamp(84px,12vh,140px) 10%; 
-  background:linear-gradient(135deg, var(--paper) 0%, #f8f6f0 100%);
+  background:linear-gradient(135deg, var(--cloud-whisper) 0%, #f8f6f3 100%);
   position:relative;
 }
-.section::before{
-  content:""; position:absolute; top:0; left:0; right:0; height:1px;
-  background:linear-gradient(90deg, transparent, var(--brass), transparent);
-}
 
-/* Finish Types */
-.finish-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr)); gap:28px; max-width:1200px; margin:0 auto 60px}
-/* Desktop layout for 4 finish cards - 2x2 grid */
-@media (min-width:1024px){
-  .finish-grid{grid-template-columns:repeat(2, 1fr); max-width:800px}
+/* Material Types */
+.finish-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr)); gap:32px; max-width:1400px; margin:0 auto 60px}
+/* Desktop layout for 6 material cards - 3x2 grid */
+@media (min-width:1200px){
+  .finish-grid{grid-template-columns:repeat(3, 1fr); max-width:1200px}
 }
 .finish-card{
-  background:var(--white); border:1px solid rgba(17,17,17,.06); 
+  background:var(--white); border:1px solid rgba(46,46,46,.06); 
   border-radius:20px; padding:28px 24px; box-shadow:0 8px 30px rgba(0,0,0,.06);
   transition:all .4s ease; position:relative; overflow:hidden;
 }
 .finish-card::before{
   content:""; position:absolute; top:0; left:0; right:0; height:3px;
-  background:linear-gradient(90deg, var(--brass) 0%, #d4af78 100%);
+  background:linear-gradient(90deg, var(--ethereal-brass) 0%, #d4af78 100%);
   transform:scaleX(0); transition:transform .4s ease;
 }
 .finish-card:hover::before{transform:scaleX(1)}
@@ -68,28 +62,26 @@
   width:60px; height:60px; border-radius:50%; margin:0 auto 16px;
   box-shadow:0 4px 20px rgba(0,0,0,.15); position:relative;
 }
-.finish-card .finish-sample.brass{background:linear-gradient(135deg, #b8860b 0%, #daa520 100%)}
-.finish-card .finish-sample.aged-brass{background:linear-gradient(135deg, #8b6914 0%, #b8860b 100%)}
-.finish-card .finish-sample.blackened{background:linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%)}
-.finish-card .finish-sample.steel{background:linear-gradient(135deg, #a8a8a8 0%, #c0c0c0 100%)}
-.finish-card h3{font-size:1.3rem; color:var(--ink); margin-bottom:12px; text-align:center; font-weight:500}
+.finish-card .finish-sample.plaster{background:linear-gradient(135deg, #f5f1e8 0%, #e8ddd4 100%)}
+.finish-card .finish-sample.alabaster{background:linear-gradient(135deg, #faf9f7 0%, #f0ebe5 100%)}
+.finish-card .finish-sample.wood{background:linear-gradient(135deg, #8b4513 0%, #deb887 100%)}
+.finish-card .finish-sample.glass{background:linear-gradient(135deg, #e6f3ff 0%, #b8e6e6 100%)}
+.finish-card .finish-sample.concrete{background:linear-gradient(135deg, #d3d3d3 0%, #8e8e8e 100%)}
+.finish-card .finish-sample.brass{background:linear-gradient(135deg, #c8b898 0%, #daa520 100%)}
+.finish-card h3{font-size:1.3rem; color:var(--noir-veil); margin-bottom:12px; text-align:center; font-weight:500}
 .finish-card .care-steps{list-style:none; padding:0; margin:16px 0 0}
 .finish-card .care-steps li{
-  color:var(--ash); margin-bottom:8px; padding-left:20px; position:relative;
+  color:var(--pale-graphite); margin-bottom:8px; padding-left:20px; position:relative;
   font-size:.9rem; line-height:1.5;
 }
 .finish-card .care-steps li::before{
-  content:"✓"; color:var(--brass); font-weight:bold; position:absolute; left:0;
+  content:"✓"; color:var(--ethereal-brass); font-weight:bold; position:absolute; left:0;
 }
 
 /* General Care */
 .general-care{
-  background:#f7f7f7; padding:clamp(64px,10vh,100px) 10%;
+  background:var(--silver-mist); padding:clamp(64px,10vh,100px) 10%;
   position:relative;
-}
-.general-care::before{
-  content:""; position:absolute; top:0; left:0; right:0; height:1px;
-  background:linear-gradient(90deg, transparent, var(--brass), transparent);
 }
 .care-tabs{
   max-width:1000px; margin:0 auto;
@@ -99,39 +91,39 @@
   flex-wrap:wrap;
 }
 .tab-btn{
-  padding:12px 24px; background:var(--white); border:2px solid rgba(17,17,17,.12);
-  border-radius:50px; color:var(--coal); cursor:pointer; transition:all .3s ease;
+  padding:12px 24px; background:var(--white); border:2px solid rgba(46,46,46,.12);
+  border-radius:50px; color:var(--noir-veil); cursor:pointer; transition:all .3s ease;
   font-family:inherit; font-size:.9rem; font-weight:500;
 }
 .tab-btn.active{
-  background:var(--brass); color:var(--ink); border-color:var(--brass);
+  background:var(--ethereal-brass); color:var(--white); border-color:var(--ethereal-brass);
 }
 .tab-btn:hover:not(.active){
-  border-color:var(--brass); background:rgba(178,149,109,.1);
+  border-color:var(--ethereal-brass); background:rgba(200,184,152,.1);
 }
 .tab-content{
-  background:var(--white); border:1px solid rgba(17,17,17,.08);
+  background:var(--white); border:1px solid rgba(46,46,46,.08);
   border-radius:16px; padding:32px 28px; box-shadow:var(--shadow);
   display:none;
 }
 .tab-content.active{display:block}
-.tab-content h3{color:var(--ink); margin-bottom:20px; font-size:1.3rem}
+.tab-content h3{color:var(--noir-veil); margin-bottom:20px; font-size:1.3rem}
 .care-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:24px; margin-top:24px}
 /* Desktop layout for 4 care cards - 2x2 grid */
 @media (min-width:1024px){
   .care-grid{grid-template-columns:repeat(2, 1fr); max-width:650px; margin:24px auto 0}
 }
 .care-item{
-  background:rgba(178,149,109,.05); border:1px solid rgba(178,149,109,.2);
+  background:rgba(200,184,152,.05); border:1px solid rgba(200,184,152,.2);
   border-radius:12px; padding:20px 16px; text-align:center;
 }
 .care-item .icon{
-  width:32px; height:32px; color:var(--brass); margin:0 auto 12px;
-  background:rgba(178,149,109,.1); border-radius:50%;
+  width:32px; height:32px; color:var(--ethereal-brass); margin:0 auto 12px;
+  background:rgba(200,184,152,.1); border-radius:50%;
   display:flex; align-items:center; justify-content:center;
 }
-.care-item h4{color:var(--ink); margin-bottom:6px; font-size:1rem}
-.care-item p{color:var(--ash); margin:0; font-size:.85rem; line-height:1.4}
+.care-item h4{color:var(--noir-veil); margin-bottom:6px; font-size:1rem}
+.care-item p{color:var(--pale-graphite); margin:0; font-size:.85rem; line-height:1.4}
 
 /* Do's and Don'ts */
 .dos-donts{
@@ -283,75 +275,105 @@
   <!-- HERO -->
   <section class="care-hero">
     <div class="inner">
-      <div class="eyebrow">Preservation Guide</div>
+      <div class="eyebrow">Natural Material Preservation</div>
       <h1>Care & Maintenance</h1>
-      <p>Proper care ensures your LUNVYR fixtures maintain their beauty and performance for decades. Follow our comprehensive guide for finish-specific maintenance.</p>
+      <p>Proper care ensures your NUVORA fixtures maintain their natural beauty and develop character gracefully over time. Follow our comprehensive guide for material-specific preservation.</p>
     </div>
   </section>
 
-  <!-- FINISH-SPECIFIC CARE -->
+  <!-- MATERIAL-SPECIFIC CARE -->
   <section class="section">
-    <div class="eyebrow">Finish Care</div>
-    <h2 style="text-align:center; margin-bottom:40px; color:var(--ink); font-size:clamp(1.8rem,2.8vw,2.4rem)">Care by Finish Type</h2>
+    <div class="eyebrow">Material Care</div>
+    <h2 style="text-align:center; margin-bottom:48px; color:var(--noir-veil); font-size:clamp(1.8rem,2.8vw,2.4rem)">Care by Material Type</h2>
     
     <div class="finish-grid">
-      <!-- Natural Brass -->
+      <!-- Plaster -->
+      <div class="finish-card">
+        <div class="finish-sample plaster"></div>
+        <h3>Natural Plaster</h3>
+        <p style="color:var(--pale-graphite); margin-bottom:16px; font-size:.9rem; text-align:center">Earthen material requiring gentle care</p>
+        <ul class="care-steps">
+          <li>Dust gently with soft natural bristle brush</li>
+          <li>Avoid water exposure - plaster breathes naturally</li>
+          <li>Use dry microfiber cloth for spot cleaning</li>
+          <li>Allow natural patina development</li>
+          <li>Touch up with matching lime plaster if needed</li>
+          <li>Maintain consistent humidity levels</li>
+        </ul>
+      </div>
+
+      <!-- Alabaster -->
+      <div class="finish-card">
+        <div class="finish-sample alabaster"></div>
+        <h3>Translucent Alabaster</h3>
+        <p style="color:var(--pale-graphite); margin-bottom:16px; font-size:.9rem; text-align:center">Delicate stone requiring mineral-conscious care</p>
+        <ul class="care-steps">
+          <li>Clean with damp microfiber cloth only</li>
+          <li>Use pH-neutral stone cleaner sparingly</li>
+          <li>Rinse thoroughly and dry immediately</li>
+          <li>Polish annually with natural stone wax</li>
+          <li>Avoid acidic cleaners that etch surface</li>
+          <li>Handle with care to prevent chips</li>
+        </ul>
+      </div>
+
+      <!-- Wood -->
+      <div class="finish-card">
+        <div class="finish-sample wood"></div>
+        <h3>Living Wood</h3>
+        <p style="color:var(--pale-graphite); margin-bottom:16px; font-size:.9rem; text-align:center">Natural timber requiring oil nourishment</p>
+        <ul class="care-steps">
+          <li>Oil treatment every 6 months with natural oils</li>
+          <li>Dust with microfiber cloth along grain</li>
+          <li>Maintain 30-50% humidity levels</li>
+          <li>Sand lightly and re-oil if surface dulls</li>
+          <li>Protect from direct sunlight exposure</li>
+          <li>Allow wood to breathe and age naturally</li>
+        </ul>
+      </div>
+
+      <!-- Glass -->
+      <div class="finish-card">
+        <div class="finish-sample glass"></div>
+        <h3>Artisan Glass</h3>
+        <p style="color:var(--pale-graphite); margin-bottom:16px; font-size:.9rem; text-align:center">Optical clarity requiring precise care</p>
+        <ul class="care-steps">
+          <li>Clean weekly with streak-free glass cleaner</li>
+          <li>Use lint-free cloths for polishing</li>
+          <li>Remove fingerprints immediately</li>
+          <li>Check mounting security during cleaning</li>
+          <li>Handle with extreme care during maintenance</li>
+          <li>Inspect for stress fractures regularly</li>
+        </ul>
+      </div>
+
+      <!-- Concrete -->
+      <div class="finish-card">
+        <div class="finish-sample concrete"></div>
+        <h3>Architectural Concrete</h3>
+        <p style="color:var(--pale-graphite); margin-bottom:16px; font-size:.9rem; text-align:center">Structural material with honest aging</p>
+        <ul class="care-steps">
+          <li>Seal annually with penetrating concrete sealer</li>
+          <li>Clean with mild alkaline cleaner only</li>
+          <li>Avoid acidic cleaners that damage surface</li>
+          <li>Allow natural weathering and patina</li>
+          <li>Brush away surface dust regularly</li>
+          <li>Embrace honest material character changes</li>
+        </ul>
+      </div>
+
+      <!-- Brass -->
       <div class="finish-card">
         <div class="finish-sample brass"></div>
-        <h3>Natural Brass</h3>
-        <p style="color:var(--ash); margin-bottom:16px; font-size:.9rem; text-align:center">Living finish that develops patina over time</p>
+        <h3>Living Brass</h3>
+        <p style="color:var(--pale-graphite); margin-bottom:16px; font-size:.9rem; text-align:center">Metal that develops beautiful patina over time</p>
         <ul class="care-steps">
-          <li>Dust weekly with microfiber cloth</li>
-          <li>Clean with warm water and mild soap</li>
-          <li>Dry immediately to prevent water spots</li>
-          <li>Apply brass cleaner monthly for shine</li>
-          <li>Wax quarterly with paste wax</li>
+          <li>Polish monthly with brass cleaner for shine</li>
           <li>Embrace natural patina development</li>
-        </ul>
-      </div>
-
-      <!-- Aged Brass -->
-      <div class="finish-card">
-        <div class="finish-sample aged-brass"></div>
-        <h3>Aged Brass</h3>
-        <p style="color:var(--ash); margin-bottom:16px; font-size:.9rem; text-align:center">Pre-patinated finish with rich depth</p>
-        <ul class="care-steps">
-          <li>Dust regularly with soft brush</li>
-          <li>Clean gently with damp cloth only</li>
-          <li>Avoid brass cleaners and polishes</li>
-          <li>Pat dry, never rub aggressively</li>
-          <li>Protect patina with light wax coat</li>
-          <li>Touch up with patina solution if needed</li>
-        </ul>
-      </div>
-
-      <!-- Blackened Steel -->
-      <div class="finish-card">
-        <div class="finish-sample blackened"></div>
-        <h3>Blackened Steel</h3>
-        <p style="color:var(--ash); margin-bottom:16px; font-size:.9rem; text-align:center">Dark oxide finish requiring gentle care</p>
-        <ul class="care-steps">
-          <li>Dust with soft, dry cloth</li>
-          <li>Use minimal moisture when cleaning</li>
-          <li>Apply light coat of paste wax</li>
-          <li>Avoid abrasive cleaners</li>
-          <li>Check for rust in humid areas</li>
-          <li>Re-blacken if finish wears</li>
-        </ul>
-      </div>
-
-      <!-- Polished Steel -->
-      <div class="finish-card">
-        <div class="finish-sample steel"></div>
-        <h3>Polished Steel</h3>
-        <p style="color:var(--ash); margin-bottom:16px; font-size:.9rem; text-align:center">High-gloss finish requiring regular maintenance</p>
-        <ul class="care-steps">
-          <li>Clean weekly with stainless cleaner</li>
-          <li>Buff with microfiber for shine</li>
-          <li>Remove fingerprints immediately</li>
-          <li>Polish monthly with metal polish</li>
-          <li>Protect with clear coat if desired</li>
-          <li>Address scratches promptly</li>
+          <li>Apply protective wax coating quarterly</li>
+          <li>Buff gently with soft cotton cloth</li>
+          <li>Remove water spots immediately</li>
+          <li>Allow aging process for character development</li>
         </ul>
       </div>
     </div>
@@ -359,45 +381,77 @@
 
   <!-- GENERAL CARE TABS -->
   <section class="general-care">
-    <div class="eyebrow" style="text-align:center">Comprehensive Care</div>
-    <h2 style="text-align:center; margin-bottom:40px; color:var(--ink); font-size:clamp(1.6rem,2.4vw,2rem)">General Maintenance</h2>
+    <div class="eyebrow" style="text-align:center; color:var(--pale-graphite)">Comprehensive Care</div>
+    <h2 style="text-align:center; margin-bottom:40px; color:var(--noir-veil); font-size:clamp(1.6rem,2.4vw,2rem)">General Maintenance</h2>
     
     <div class="care-tabs">
       <div class="tab-nav">
-        <button class="tab-btn active" onclick="showTab('cleaning')">Cleaning</button>
-        <button class="tab-btn" onclick="showTab('electrical')">Electrical</button>
-        <button class="tab-btn" onclick="showTab('hardware')">Hardware</button>
-        <button class="tab-btn" onclick="showTab('glass')">Glass Components</button>
+        <button class="tab-btn active" onclick="showTab('cleaning')">Natural Cleaning</button>
+        <button class="tab-btn" onclick="showTab('preservation')">Material Preservation</button>
+        <button class="tab-btn" onclick="showTab('electrical')">Electrical Safety</button>
+        <button class="tab-btn" onclick="showTab('environment')">Environmental Care</button>
       </div>
 
       <!-- Cleaning Tab -->
       <div class="tab-content active" id="cleaning-tab">
-        <h3>Cleaning Procedures</h3>
-        <p style="color:var(--ash); margin-bottom:24px">Proper cleaning preserves finish integrity and extends fixture life.</p>
+        <h3>Natural Material Cleaning</h3>
+        <p style="color:var(--pale-graphite); margin-bottom:24px">Gentle cleaning preserves natural character and extends material life while honoring organic properties.</p>
         
         <div class="care-grid">
           <div class="care-item">
             <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 3v18m-4-8l4 4 4-4"/></svg>
-            <h4>Weekly Dusting</h4>
-            <p>Use microfiber cloth to remove dust and debris before it accumulates.</p>
+            <h4>Daily Dusting</h4>
+            <p>Use natural bristle brushes and microfiber cloths to remove dust without scratching delicate surfaces.</p>
           </div>
           
           <div class="care-item">
             <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
             <h4>Deep Cleaning</h4>
-            <p>Monthly thorough cleaning with appropriate finish-specific products.</p>
+            <p>Monthly gentle cleaning with material-appropriate, natural cleaning solutions only.</p>
           </div>
           
           <div class="care-item">
             <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 3l9 4.5v9L12 21l-9-4.5v-9L12 3z"/></svg>
             <h4>Spot Treatment</h4>
-            <p>Address stains and marks immediately to prevent permanent damage.</p>
+            <p>Address marks immediately with appropriate natural cleaners to prevent permanent staining.</p>
           </div>
           
           <div class="care-item">
             <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M9 11l3 3 7-7"/></svg>
-            <h4>Protection</h4>
-            <p>Apply protective coatings as recommended for specific finishes.</p>
+            <h4>Protective Care</h4>
+            <p>Apply natural protective treatments as recommended for each specific material type.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Preservation Tab -->
+      <div class="tab-content" id="preservation-tab">
+        <h3>Material Preservation</h3>
+        <p style="color:var(--pale-graphite); margin-bottom:24px">Preserve the natural character and longevity of organic materials through thoughtful maintenance.</p>
+        
+        <div class="care-grid">
+          <div class="care-item">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5z"/></svg>
+            <h4>Natural Aging</h4>
+            <p>Allow materials to develop patina and character naturally over time.</p>
+          </div>
+          
+          <div class="care-item">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2l9 4.5v9L12 21l-9-4.5v-9L12 3z"/></svg>
+            <h4>Breathability</h4>
+            <p>Maintain material breathability for plaster, wood, and other porous materials.</p>
+          </div>
+          
+          <div class="care-item">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 12h18M12 3v18"/></svg>
+            <h4>Natural Oils</h4>
+            <p>Nourish wood and other organic materials with appropriate natural oils.</p>
+          </div>
+          
+          <div class="care-item">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M9 11l3 3 7-7"/></svg>
+            <h4>Character Development</h4>
+            <p>Embrace the beautiful evolution of natural materials over time.</p>
           </div>
         </div>
       </div>
@@ -405,95 +459,66 @@
       <!-- Electrical Tab -->
       <div class="tab-content" id="electrical-tab">
         <h3>Electrical Maintenance</h3>
-        <p style="color:var(--ash); margin-bottom:24px">Regular electrical checks ensure safety and optimal performance.</p>
+        <p style="color:var(--pale-graphite); margin-bottom:24px">Regular electrical checks ensure safety and optimal performance in natural material fixtures.</p>
         
         <div class="care-grid">
           <div class="care-item">
             <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-            <h4>Connection Check</h4>
-            <p>Annual inspection of wire connections by licensed electrician.</p>
+            <h4>Connection Inspection</h4>
+            <p>Annual inspection of wire connections by licensed electrician for safety.</p>
           </div>
           
           <div class="care-item">
             <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2l9 4.5v9L12 21l-9-4.5v-9L12 3z"/></svg>
-            <h4>LED Testing</h4>
+            <h4>LED Performance</h4>
             <p>Test LED functionality and color consistency every 6 months.</p>
           </div>
           
           <div class="care-item">
             <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 12h18M12 3v18"/></svg>
             <h4>Dimmer Compatibility</h4>
-            <p>Verify dimmer settings and compatibility annually.</p>
+            <p>Verify dimmer settings work properly with natural material fixtures.</p>
           </div>
           
           <div class="care-item">
             <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M9 11l3 3 7-7"/></svg>
-            <h4>Safety Inspection</h4>
-            <p>Professional electrical safety check every 2-3 years.</p>
+            <h4>Safety Verification</h4>
+            <p>Professional electrical safety check every 2-3 years minimum.</p>
           </div>
         </div>
       </div>
 
-      <!-- Hardware Tab -->
-      <div class="tab-content" id="hardware-tab">
-        <h3>Hardware Maintenance</h3>
-        <p style="color:var(--ash); margin-bottom:24px">Keep mechanical components secure and functioning properly.</p>
+      <!-- Environment Tab -->
+      <div class="tab-content" id="environment-tab">
+        <h3>Environmental Considerations</h3>
+        <p style="color:var(--pale-graphite); margin-bottom:24px">Natural materials respond to environmental conditions - maintain optimal conditions for longevity.</p>
         
         <div class="care-grid">
           <div class="care-item">
-            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
-            <h4>Screw Tightening</h4>
-            <p>Check and tighten mounting screws every 6 months.</p>
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="5"/><path d="M12 1v6M12 17v6M4.22 4.22l4.24 4.24M15.54 15.54l4.24 4.24M1 12h6M17 12h6M4.22 19.78l4.24-4.24M15.54 8.46l4.24-4.24"/></svg>
+            <h4>Humidity Control</h4>
+            <p>Maintain 30-60% humidity for wood and plaster fixtures to prevent cracking.</p>
           </div>
           
           <div class="care-item">
             <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2l9 4.5v9L12 21l-9-4.5v-9L12 3z"/></svg>
-            <h4>Pivot Points</h4>
-            <p>Lubricate adjustable joints with light machine oil annually.</p>
+            <h4>Temperature Stability</h4>
+            <p>Avoid extreme temperature fluctuations that can stress natural materials.</p>
           </div>
           
           <div class="care-item">
             <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 12h18M12 3v18"/></svg>
-            <h4>Ceiling Attachment</h4>
-            <p>Verify ceiling box security and weight capacity annually.</p>
+            <h4>UV Protection</h4>
+            <p>Protect from direct sunlight to prevent fading and material degradation.</p>
           </div>
           
           <div class="care-item">
             <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M9 11l3 3 7-7"/></svg>
-            <h4>Wear Inspection</h4>
-            <p>Check for metal fatigue or stress points during cleaning.</p>
+            <h4>Air Circulation</h4>
+            <p>Ensure proper ventilation around fixtures for material health.</p>
           </div>
         </div>
       </div>
-
-      <!-- Glass Tab -->
-      <div class="tab-content" id="glass-tab">
-        <h3>Glass Component Care</h3>
-        <p style="color:var(--ash); margin-bottom:24px">Preserve clarity and prevent damage to glass elements.</p>
-        
-        <div class="care-grid">
-          <div class="care-item">
-            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
-            <h4>Regular Cleaning</h4>
-            <p>Clean glass weekly with streak-free glass cleaner.</p>
-          </div>
-          
-          <div class="care-item">
-            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2l9 4.5v9L12 21l-9-4.5v-9L12 3z"/></svg>
-            <h4>Scratch Prevention</h4>
-            <p>Use only soft cloths and avoid abrasive materials.</p>
-          </div>
-          
-          <div class="care-item">
-            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 12h18M12 3v18"/></svg>
-            <h4>Secure Mounting</h4>
-            <p>Check glass mounting clips and seals for security.</p>
-          </div>
-          
-          <div class="care-item">
-            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M9 11l3 3 7-7"/></svg>
-            <h4>Replacement</h4>
-            <p>Replace damaged glass immediately to prevent injury.</p>
           </div>
         </div>
       </div>
@@ -502,8 +527,8 @@
 
   <!-- DO'S AND DON'TS -->
   <section class="dos-donts">
-    <div class="eyebrow" style="text-align:center">Best Practices</div>
-    <h2 style="text-align:center; margin-bottom:40px; color:var(--ink); font-size:clamp(1.6rem,2.4vw,2rem)">Do's and Don'ts</h2>
+    <div class="eyebrow" style="text-align:center; color:var(--pale-graphite)">Best Practices</div>
+    <h2 style="text-align:center; margin-bottom:40px; color:var(--noir-veil); font-size:clamp(1.6rem,2.4vw,2rem)">Do's and Don'ts</h2>
     
     <div class="dos-donts-grid">
       <!-- Do's -->
@@ -514,15 +539,15 @@
         </h3>
         <ul class="dos-list">
           <li>Turn off power before any maintenance</li>
-          <li>Use appropriate cleaning products for each finish</li>
-          <li>Clean glass components regularly for optimal light output</li>
-          <li>Check mounting hardware periodically</li>
-          <li>Store cleaning supplies in original containers</li>
-          <li>Follow manufacturer's care instructions</li>
-          <li>Document maintenance dates and procedures</li>
-          <li>Replace worn or damaged components promptly</li>
-          <li>Use soft brushes for detailed cleaning</li>
-          <li>Apply protective coatings as recommended</li>
+          <li>Use natural, pH-neutral cleaners for organic materials</li>
+          <li>Test cleaning products on hidden areas first</li>
+          <li>Allow natural materials to breathe and age gracefully</li>
+          <li>Clean with gentle, circular motions</li>
+          <li>Follow material-specific care instructions</li>
+          <li>Document maintenance dates and observations</li>
+          <li>Embrace natural character development</li>
+          <li>Use soft natural bristle brushes</li>
+          <li>Apply protective treatments as recommended</li>
         </ul>
       </div>
 
@@ -533,16 +558,16 @@
           Don'ts
         </h3>
         <ul class="donts-list">
-          <li>Never use abrasive cleaners on metal finishes</li>
-          <li>Don't use ammonia-based products on brass</li>
-          <li>Avoid pressure washing or high-pressure water</li>
-          <li>Don't disassemble electrical components</li>
+          <li>Never use harsh chemicals on natural materials</li>
+          <li>Don't use abrasive cleaners on plaster or alabaster</li>
+          <li>Avoid soaking wood or porous materials</li>
+          <li>Don't seal natural materials unnecessarily</li>
           <li>Never use steel wool or scouring pads</li>
-          <li>Don't allow water to pool on metal surfaces</li>
+          <li>Don't expose to extreme temperature changes</li>
           <li>Avoid cleaning when fixture is warm from use</li>
-          <li>Don't use generic metal polishes without testing</li>
+          <li>Don't use generic cleaners without testing first</li>
           <li>Never spray cleaners directly on electrical parts</li>
-          <li>Don't ignore signs of wear or damage</li>
+          <li>Don't resist natural patina development</li>
         </ul>
       </div>
     </div>
@@ -550,51 +575,51 @@
 
   <!-- MAINTENANCE SCHEDULE -->
   <section class="schedule">
-    <div class="eyebrow" style="text-align:center">Schedule</div>
-    <h2 style="text-align:center; margin-bottom:40px; color:var(--paper); font-size:clamp(1.6rem,2.4vw,2rem)">Maintenance Timeline</h2>
+    <div class="eyebrow" style="text-align:center; color:var(--pale-graphite)">Schedule</div>
+    <h2 style="text-align:center; margin-bottom:40px; color:var(--noir-veil); font-size:clamp(1.6rem,2.4vw,2rem)">Maintenance Timeline</h2>
     
     <div class="schedule-grid">
       <div class="schedule-card">
-        <div class="frequency">Weekly</div>
-        <h4>Basic Maintenance</h4>
+        <div class="frequency">Daily</div>
+        <h4>Gentle Care</h4>
         <ul>
-          <li>Dust metal surfaces</li>
-          <li>Clean glass components</li>
+          <li>Light dusting with natural bristle brush</li>
+          <li>Visual inspection for changes</li>
           <li>Check for loose elements</li>
-          <li>Spot clean as needed</li>
+          <li>Gentle spot cleaning if needed</li>
         </ul>
       </div>
       
       <div class="schedule-card">
         <div class="frequency">Monthly</div>
-        <h4>Deep Cleaning</h4>
+        <h4>Deep Maintenance</h4>
         <ul>
-          <li>Thorough finish cleaning</li>
-          <li>Polish metal surfaces</li>
+          <li>Natural material cleaning</li>
+          <li>Moisture level assessment</li>
           <li>Inspect electrical connections</li>
           <li>Test dimmer functionality</li>
         </ul>
       </div>
       
       <div class="schedule-card">
-        <div class="frequency">Quarterly</div>
-        <h4>Protective Care</h4>
+        <div class="frequency">Seasonally</div>
+        <h4>Protective Treatment</h4>
         <ul>
-          <li>Apply protective wax coats</li>
-          <li>Tighten mounting hardware</li>
-          <li>Check ceiling attachment</li>
-          <li>Update maintenance log</li>
+          <li>Apply natural oils to wood</li>
+          <li>Environmental condition check</li>
+          <li>Material preservation assessment</li>
+          <li>Update maintenance journal</li>
         </ul>
       </div>
       
       <div class="schedule-card">
         <div class="frequency">Annually</div>
-        <h4>Professional Service</h4>
+        <h4>Professional Evaluation</h4>
         <ul>
           <li>Electrical safety inspection</li>
-          <li>Hardware security check</li>
+          <li>Material integrity assessment</li>
           <li>LED performance test</li>
-          <li>Finish restoration if needed</li>
+          <li>Natural aging documentation</li>
         </ul>
       </div>
     </div>
@@ -602,29 +627,40 @@
 
   <!-- TROUBLESHOOTING -->
   <section class="troubleshooting">
-    <div class="eyebrow" style="text-align:center">Problem Solving</div>
-    <h2 style="text-align:center; margin-bottom:40px; color:var(--ink); font-size:clamp(1.6rem,2.4vw,2rem)">Troubleshooting Guide</h2>
+    <div class="eyebrow" style="text-align:center; color:var(--pale-graphite)">Problem Solving</div>
+    <h2 style="text-align:center; margin-bottom:40px; color:var(--noir-veil); font-size:clamp(1.6rem,2.4vw,2rem)">Troubleshooting Guide</h2>
     
     <div class="trouble-accordion">
       <div class="trouble-item">
         <div class="trouble-header" onclick="toggleTrouble(this)">
-          <h4 class="trouble-title">Finish appears dull or cloudy</h4>
+          <h4 class="trouble-title">Natural material appears dry or cracked</h4>
           <svg class="trouble-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 9l6 6 6-6"/></svg>
         </div>
         <div class="trouble-content">
-          <p><strong>Cause:</strong> Buildup of oils, dust, or improper cleaning products.</p>
-          <p><strong>Solution:</strong> Clean with appropriate finish-specific cleaner, rinse thoroughly, and dry completely. Apply protective coating if recommended for your finish type.</p>
+          <p><strong>Cause:</strong> Low humidity, excessive heat, or insufficient nourishment for organic materials.</p>
+          <p><strong>Solution:</strong> Increase ambient humidity to 40-60%. For wood, apply appropriate natural oil treatment. Ensure proper ventilation without drafts.</p>
         </div>
       </div>
 
       <div class="trouble-item">
         <div class="trouble-header" onclick="toggleTrouble(this)">
-          <h4 class="trouble-title">Water spots on metal surface</h4>
+          <h4 class="trouble-title">Discoloration on plaster surfaces</h4>
           <svg class="trouble-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 9l6 6 6-6"/></svg>
         </div>
         <div class="trouble-content">
-          <p><strong>Cause:</strong> Mineral deposits from hard water or incomplete drying.</p>
-          <p><strong>Solution:</strong> Use a 50/50 vinegar and water solution to dissolve mineral deposits. Rinse with clean water and dry immediately. Consider using distilled water for cleaning in hard water areas.</p>
+          <p><strong>Cause:</strong> Natural aging, moisture exposure, or improper cleaning products.</p>
+          <p><strong>Solution:</strong> This is often natural patina development. Clean gently with pH-neutral cleaners. If excessive, check moisture levels and ventilation. Embrace natural character changes as part of the material's beauty.</p>
+        </div>
+      </div>
+
+      <div class="trouble-item">
+        <div class="trouble-header" onclick="toggleTrouble(this)">
+          <h4 class="trouble-title">Wood surface feels rough or raised grain</h4>
+          <svg class="trouble-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 9l6 6 6-6"/></svg>
+        </div>
+        <div class="trouble-content">
+          <p><strong>Cause:</strong> Moisture exposure causing wood grain to raise, or excessive dryness.</p>
+          <p><strong>Solution:</strong> Allow to dry completely, then lightly sand with fine grit (220+) if necessary. Apply appropriate wood oil to restore smoothness. Maintain consistent humidity levels.</p>
         </div>
       </div>
 
@@ -641,12 +677,12 @@
 
       <div class="trouble-item">
         <div class="trouble-header" onclick="toggleTrouble(this)">
-          <h4 class="trouble-title">Scratches on polished surfaces</h4>
+          <h4 class="trouble-title">Alabaster surface developing cloudiness</h4>
           <svg class="trouble-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 9l6 6 6-6"/></svg>
         </div>
         <div class="trouble-content">
-          <p><strong>Cause:</strong> Abrasive cleaning materials or accidental contact with sharp objects.</p>
-          <p><strong>Solution:</strong> Minor scratches can be buffed out with appropriate metal polish. Deep scratches may require professional refinishing. Always use soft cloths and non-abrasive cleaners.</p>
+          <p><strong>Cause:</strong> Natural material porosity, improper cleaning, or mineral buildup.</p>
+          <p><strong>Solution:</strong> Clean with specialized stone cleaner. Alabaster naturally develops character over time. Ensure proper sealing if recommended for your specific piece.</p>
         </div>
       </div>
 
@@ -656,19 +692,19 @@
           <svg class="trouble-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 9l6 6 6-6"/></svg>
         </div>
         <div class="trouble-content">
-          <p><strong>Cause:</strong> Loose mounting hardware or insufficient ceiling box support.</p>
-          <p><strong>Solution:</strong> Turn off power and check all mounting screws and connections. If ceiling box appears inadequate, consult an electrician about upgrading to a properly rated mounting system.</p>
+          <p><strong>Cause:</strong> Loose mounting hardware or material expansion/contraction.</p>
+          <p><strong>Solution:</strong> Turn off power and check all mounting screws. Natural materials may expand/contract seasonally. Ensure mounting system accommodates material movement.</p>
         </div>
       </div>
 
       <div class="trouble-item">
         <div class="trouble-header" onclick="toggleTrouble(this)">
-          <h4 class="trouble-title">Glass appears cloudy or etched</h4>
+          <h4 class="trouble-title">Glass components appear cloudy</h4>
           <svg class="trouble-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M6 9l6 6 6-6"/></svg>
         </div>
         <div class="trouble-content">
-          <p><strong>Cause:</strong> Hard water deposits, chemical etching from cleaners, or age-related deterioration.</p>
-          <p><strong>Solution:</strong> Try cleaning with white vinegar solution. If etching has occurred, the glass may need replacement. Use only glass-safe cleaners and ensure complete rinsing.</p>
+          <p><strong>Cause:</strong> Natural mineral buildup, humidity, or cleaning residue.</p>
+          <p><strong>Solution:</strong> Clean with distilled water and natural glass cleaner. For persistent cloudiness, use white vinegar solution. Ensure complete drying to prevent water spots.</p>
         </div>
       </div>
     </div>
@@ -676,10 +712,10 @@
 
   <!-- CTA -->
   <section class="cta">
-    <h2>Need Maintenance Support?</h2>
-    <p>Our support team can help with specific care questions or connect you with authorized service providers.</p>
-    <a href="/warranty" class="btn-secondary btn">View Warranty</a>
-    <a href="/contact" class="btn">Contact Support</a>
+    <h2>Need Natural Material Care Support?</h2>
+    <p>Our specialist team can help with natural material care questions or connect you with authorized preservation experts.</p>
+    <a href="/warranty.htm" class="btn-secondary btn">View Warranty</a>
+    <a href="/contact.htm" class="btn">Contact Support</a>
   </section>
 
 </div>

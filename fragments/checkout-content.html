@@ -1,40 +1,40 @@
-<!-- LUNVYR — Checkout content-only block (no header/footer). Paste into the Checkout page. -->
+<!-- NUVORA — Checkout content-only block (no header/footer). Paste into the Checkout page. -->
 <style>
-  .lunvyr-woo{ --ink:#1c222b; --paper:#f3f0eb; --brass:#c2a574; --surface:#ffffff; --surface-2:#f7f7f7; --border:#e1e1e1; --radius:12px; --shadow:0 12px 30px rgba(0,0,0,.08); color:var(--ink); isolation:isolate }
-  .lunvyr-woo *{ box-sizing:border-box }
-  .lunvyr-woo, .lunvyr-woo p, .lunvyr-woo h1, .lunvyr-woo h2, .lunvyr-woo h3{ color:#1c222b !important }
+  .nuvora-woo{ --cloud-whisper:#F6F6F6; --moonlit-sand:#EDE7DD; --ethereal-brass:#C8B898; --pale-graphite:#B2B2B2; --noir-veil:#2E2E2E; --silver-mist:#DADCE0; --surface:#ffffff; --surface-2:#f7f7f7; --border:#e1e1e1; --radius:12px; --shadow:0 12px 30px rgba(0,0,0,.08); color:var(--noir-veil); isolation:isolate }
+  .nuvora-woo *{ box-sizing:border-box }
+  .nuvora-woo, .nuvora-woo p, .nuvora-woo h1, .nuvora-woo h2, .nuvora-woo h3{ color:var(--noir-veil) !important }
 
-  .lunvyr-woo .lv-container{ max-width:1200px; margin:0 auto; padding:0 20px }
-  .lunvyr-woo .lv-hero{ padding:28px 0 8px; background:linear-gradient(135deg,#f3f0eb,#ffffff) }
-  .lunvyr-woo .lv-title{ margin:0; font-family:Cinzel,serif; font-size:clamp(28px,3.5vw,40px); letter-spacing:.4px }
-  .lunvyr-woo .lv-sub{ margin:6px 0 0; color:#666a70 !important }
-  .lunvyr-woo .lv-content{ margin:20px 0 40px }
-  .lunvyr-woo .lv-grid{ display:grid; grid-template-columns:2fr 1fr; gap:24px }
-  @media (max-width:980px){ .lunvyr-woo .lv-grid{ grid-template-columns:1fr } }
-  .lunvyr-woo .lv-card{ background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow); padding:24px }
+  .nuvora-woo .nv-container{ max-width:1200px; margin:0 auto; padding:0 20px }
+  .nuvora-woo .nv-hero{ padding:28px 0 8px; background:linear-gradient(135deg,var(--moonlit-sand),var(--cloud-whisper)) }
+  .nuvora-woo .nv-title{ margin:0; font-family:'Lusitana',serif; font-size:clamp(28px,3.5vw,40px); letter-spacing:.4px }
+  .nuvora-woo .nv-sub{ margin:6px 0 0; color:var(--pale-graphite) !important }
+  .nuvora-woo .nv-content{ margin:20px 0 40px }
+  .nuvora-woo .nv-grid{ display:grid; grid-template-columns:2fr 1fr; gap:24px }
+  @media (max-width:980px){ .nuvora-woo .nv-grid{ grid-template-columns:1fr } }
+  .nuvora-woo .nv-card{ background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); box-shadow:var(--shadow); padding:24px }
 
-  .lunvyr-woo .woocommerce a.button, .lunvyr-woo .woocommerce button.button, .lunvyr-woo .woocommerce input.button,
-  .lunvyr-woo .btn{ background:var(--ink); border:2px solid var(--ink); border-radius:10px; color:#fff !important; padding:.7rem 1.2rem; font-weight:600; text-decoration:none; display:inline-block }
-  .lunvyr-woo .woocommerce a.button:hover, .lunvyr-woo .woocommerce button.button:hover, .lunvyr-woo .woocommerce input.button:hover,
-  .lunvyr-woo .btn:hover{ background:var(--brass); border-color:var(--brass); color:#1c222b !important }
+  .nuvora-woo .woocommerce a.button, .nuvora-woo .woocommerce button.button, .nuvora-woo .woocommerce input.button,
+  .nuvora-woo .btn{ background:var(--ethereal-brass); border:2px solid var(--ethereal-brass); border-radius:10px; color:#fff !important; padding:.7rem 1.2rem; font-weight:600; text-decoration:none; display:inline-block }
+  .nuvora-woo .woocommerce a.button:hover, .nuvora-woo .woocommerce button.button:hover, .nuvora-woo .woocommerce input.button:hover,
+  .nuvora-woo .btn:hover{ background:var(--noir-veil); border-color:var(--noir-veil); color:#fff !important }
 </style>
 
-<div class="lunvyr-woo">
-  <section class="lv-hero">
-    <div class="lv-container">
-      <h1 class="lv-title">Checkout</h1>
-      <p class="lv-sub">Secure checkout. All transactions are encrypted.</p>
+<div class="nuvora-woo">
+  <section class="nv-hero">
+    <div class="nv-container">
+      <h1 class="nv-title">Natural Materials Checkout</h1>
+      <p class="nv-sub">Secure checkout for natural material lighting. All transactions are encrypted.</p>
     </div>
   </section>
 
-  <section class="lv-container lv-content">
-    <div class="lv-grid">
-      <div class="lv-card">
+  <section class="nv-container nv-content">
+    <div class="nv-grid">
+      <div class="nv-card">
         <!-- Replace with [woocommerce_checkout] in WordPress -->
         <h3 style="margin-top:0">Billing details (preview)</h3>
         <p>This is a static preview. In WordPress, the WooCommerce form will render here.</p>
       </div>
-      <aside class="lv-card">
+      <aside class="nv-card">
         <h3 style="margin-top:0">Order summary (preview)</h3>
         <p>Subtotal $870.00</p>
         <a class="btn" href="#">Place order</a>

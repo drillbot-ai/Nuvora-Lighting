@@ -1,18 +1,19 @@
-<!-- LUNVYR — Single Product Template (Premium Professional) -->
+<!-- NUVORA — Single Product Template (Natural Materials Professional) -->
   
   <!-- Google Model Viewer -->
   <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.3.0/model-viewer.min.js"></script>
   
   <style>
-  @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Lusitana:wght@400;700&family=Manrope:wght@300;400;500;600;700&display=swap');
 
   :root{
-    --primary: #2d3748; --primary-light: #4a5568; --accent: #b794f6;
-    --surface: #ffffff; --surface-elevated: #fafafa; --surface-subtle: #f7fafc;
-    --border-light: #e2e8f0; --border-medium: #cbd5e0; --border-dark: #a0aec0;
-    --text-primary: #1a202c; --text-secondary: #4a5568; --text-muted: #718096;
+    --cloud-whisper: #F6F6F6; --moonlit-sand: #EDE7DD; --ethereal-brass: #C8B898; 
+    --pale-graphite: #B2B2B2; --noir-veil: #2E2E2E; --silver-mist: #DADCE0;
+    --surface: #ffffff; --surface-elevated: #fafafa; --surface-subtle: var(--cloud-whisper);
+    --border-light: var(--silver-mist); --border-medium: var(--pale-graphite); --border-dark: #8a8a8a;
+    --text-primary: var(--noir-veil); --text-secondary: #4a5568; --text-muted: #718096;
     --success: #38a169; --warning: #d69e2e; --danger: #e53e3e;
-    --brass: #b8860b; --brass-light: #daa520; --brass-dark: #9a7209;
+    --accent: var(--ethereal-brass); --accent-light: #dcc5a5; --accent-dark: #b5a584;
     --shadow-sm: 0 1px 3px rgba(0,0,0,0.06); --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
     --shadow-lg: 0 20px 40px rgba(0,0,0,0.1); --shadow-xl: 0 40px 80px rgba(0,0,0,0.12);
     --radius: 6px; --radius-lg: 12px; --radius-xl: 16px;
@@ -22,9 +23,9 @@
 
   * { box-sizing: border-box; }
   .product-page{ 
-    background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+    background: linear-gradient(135deg, var(--cloud-whisper) 0%, var(--moonlit-sand) 100%);
     color: var(--text-primary); min-height: 100vh;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
     line-height: 1.6; font-size: 16px;
   }
   .p-container{ 
@@ -44,14 +45,14 @@
     color: var(--text-muted); font-weight: 500;
   }
   .p-breadcrumb a{ color: var(--text-muted); text-decoration: none; transition: var(--transition); }
-  .p-breadcrumb a:hover{ color: var(--primary); }
+  .p-breadcrumb a:hover{ color: var(--accent); }
   .p-breadcrumb::after{ content: "›"; margin-left: 8px; }
 
   .p-title-section{ display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; }
   .p-title{ 
     font-size: clamp(28px, 4vw, 40px); font-weight: 700; letter-spacing: -0.02em;
     color: var(--text-primary); margin: 0; line-height: 1.2;
-    font-family: 'Cinzel', serif;
+    font-family: 'Lusitana', serif;
   }
   .p-status{ 
     display: flex; align-items: center; gap: 8px; padding: 8px 16px;
@@ -156,18 +157,18 @@
     text-decoration: none; border: 2px solid transparent;
   }
   .btn-primary{ 
-    background: var(--primary); color: white; border-color: var(--primary);
+    background: var(--accent); color: white; border-color: var(--accent);
   }
   .btn-primary:hover{ 
-    background: var(--brass); border-color: var(--brass);
-    box-shadow: 0 8px 25px rgba(184, 134, 11, 0.3);
+    background: var(--accent-dark); border-color: var(--accent-dark);
+    box-shadow: 0 8px 25px rgba(200, 184, 152, 0.3);
   }
   .btn-secondary{ 
     background: var(--surface-elevated); color: var(--text-primary);
     border-color: var(--border-medium);
   }
   .btn-secondary:hover{ 
-    background: var(--primary); color: white; border-color: var(--primary);
+    background: var(--accent); color: white; border-color: var(--accent);
     transform: translateY(-2px); box-shadow: var(--shadow-md);
   }
 
@@ -795,12 +796,12 @@
 
           <div class="p-pricing">
             <div class="p-price">Custom Pricing</div>
-            <div class="p-price-note">Handcrafted to order • Quote required</div>
+            <div class="p-price-note">Handcrafted from natural materials • Quote required</div>
           </div>
 
           <div class="p-actions">
             <button class="btn btn-primary" id="btnQuote">
-              <span>💬</span> Request Quote
+              <span>💬</span> Natural Material Consultation
             </button>
             <button class="btn btn-secondary" id="btnShare">
               <span>📋</span> Share Product
@@ -808,23 +809,23 @@
           </div>
 
           <div class="p-features">
-            <h4>Product Highlights</h4>
+            <h4>Natural Material Excellence</h4>
             <div class="feature-list">
               <div class="feature-item">
                 <div class="feature-icon">✓</div>
-                <span>Handcrafted in New York</span>
+                <span>Handcrafted from Natural Materials</span>
               </div>
               <div class="feature-item">
                 <div class="feature-icon">✓</div>
-                <span>UL Listed & US Wiring</span>
+                <span>UL Listed & Expert Wiring</span>
               </div>
               <div class="feature-item">
                 <div class="feature-icon">✓</div>
-                <span>6-8 Week Lead Time</span>
+                <span>4-6 Week Crafting Time</span>
               </div>
               <div class="feature-item">
                 <div class="feature-icon">✓</div>
-                <span>Lifetime Craftsmanship Warranty</span>
+                <span>Natural Material Care Guide Included</span>
               </div>
             </div>
           </div>
@@ -833,20 +834,20 @@
         <!-- Sidebar -->
         <aside class="p-sidebar">
           <div class="sidebar-section">
-            <h4 class="sidebar-title">Quick Info</h4>
+            <h4 class="sidebar-title">Natural Material Info</h4>
             <div class="sidebar-content">
-              <p><strong>Lead Time:</strong> 6-8 weeks</p>
-              <p><strong>Shipping:</strong> Insured freight shipping</p>
+              <p><strong>Crafting Time:</strong> 4-6 weeks</p>
+              <p><strong>Shipping:</strong> Protected natural material shipping</p>
               <p><strong>Compliance:</strong> UL Listed</p>
-              <p><strong>Warranty:</strong> Lifetime craftsmanship</p>
+              <p><strong>Care:</strong> Natural material guide included</p>
             </div>
           </div>
           <div class="sidebar-section">
-            <h4 class="sidebar-title">Need Help?</h4>
+            <h4 class="sidebar-title">Need Natural Material Guidance?</h4>
             <div class="sidebar-content">
-              <p>Our lighting experts are here to help you choose the perfect piece for your space.</p>
+              <p>Our natural material specialists are here to help you choose the perfect piece for your space.</p>
               <p><strong>Call:</strong> (555) 123-4567</p>
-              <p><strong>Email:</strong> hello@lunvyr.com</p>
+              <p><strong>Email:</strong> info@nuvora.com</p>
             </div>
           </div>
         </aside>
@@ -874,7 +875,7 @@
               <!-- 3D Model and Drawing Action Buttons -->
               <div class="spec-actions">
                 <button class="spec-btn" id="open3DBtn">
-                  <span>🎯</span> View 3D Model
+                  <span>🎯</span> View Natural Material 3D Model
                 </button>
                 <button class="spec-btn" id="openDrawingBtn">
                   <span>📐</span> Technical Drawing
@@ -884,14 +885,14 @@
             
             <div class="tab-panel" id="tab-shipping">
               <div class="description">
-                <h3>Shipping Information</h3>
-                <p>Each piece is carefully packaged and shipped via insured freight carriers. Standard shipping is included for most locations within the continental US, with international shipping available.</p>
+                <h3>Natural Material Shipping</h3>
+                <p>Each natural material piece is carefully packaged with protective materials and shipped via specialized carriers experienced in handling artisanal goods. Standard shipping is included for most locations within the continental US, with international shipping available.</p>
                 
-                <h3>Care Instructions</h3>
-                <p>Clean with a soft, dry cloth. For metal finishes, use appropriate metal cleaner as needed. Avoid harsh chemicals or abrasive materials.</p>
+                <h3>Natural Material Care Instructions</h3>
+                <p>Each material requires specific care. Plaster and concrete pieces should be dusted with a soft, dry cloth. Wood pieces can be treated with appropriate wood care products. Alabaster and glass require gentle cleaning with non-abrasive methods. Detailed care instructions included with each piece.</p>
                 
                 <h3>Installation</h3>
-                <p>All necessary mounting hardware and detailed installation instructions included. Electrical work should be performed by a licensed electrician for safety and warranty compliance.</p>
+                <p>All necessary mounting hardware and detailed installation instructions included. Each fixture includes natural material handling guidelines. Electrical work should be performed by a licensed electrician for safety and warranty compliance.</p>
               </div>
             </div>
           </div>
@@ -2255,4 +2256,161 @@
     }
 
   })();
+  </script>
+
+  <!-- FOOTER — NUVORA (ajustado al ancho del sitio) -->
+  <style>
+    :root{
+      --cloud-whisper:#F6F6F6; --moonlit-sand:#EDE7DD; --ethereal-brass:#C8B898; --pale-graphite:#B2B2B2; --noir-veil:#2E2E2E; --silver-mist:#DADCE0;
+      /* toma el ancho del contenedor de Elementor si existe; si no, 1200px */
+      --site-max: var(--container-max-width, var(--content-width, 1200px));
+      --site-pad: clamp(16px, 4vw, 40px);
+    }
+    footer.nuvora-footer{ background:var(--noir-veil); color:var(--cloud-whisper); font-family:'Manrope',system-ui,sans-serif }
+    .f-wrap{
+      /* ancho alineado al de la página */
+      box-sizing:border-box;
+      max-width:var(--site-max);
+      margin:0 auto;
+      padding:48px var(--site-pad) 20px;
+    }
+
+    /* Grid columns (3 columnas según tu contenido actual) */
+    .f-grid{
+      display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:34px; margin-bottom:26px;
+    }
+    .f-col h4{ font-family:'Lusitana',serif; font-size:1.05rem; letter-spacing:.4px; margin:0 0 10px; font-weight:400 }
+    .f-brand h2{ font-family:'Lusitana',serif; letter-spacing:.8px; margin:0 0 8px; font-weight:600 }
+    .f-brand p{ color:var(--silver-mist); margin:.3rem 0 0; max-width:32ch }
+
+    .f-links{ list-style:none; padding:0; margin:0 }
+    .f-links li{ margin:6px 0 }
+    .f-links a{ color:var(--cloud-whisper); text-decoration:none; font-size:.95rem; opacity:.9; transition:color .2s, opacity .2s }
+    .f-links a:hover{ color:var(--ethereal-brass); opacity:1 }
+
+    /* Social */
+    .f-social{ display:flex; gap:12px; margin-top:6px }
+    .f-social a{
+      display:inline-flex; width:36px; height:36px; align-items:center; justify-content:center;
+      border:1px solid rgba(255,255,255,.18); border-radius:999px; color:var(--cloud-whisper); text-decoration:none;
+      transition:background .2s, border-color .2s, transform .1s
+    }
+    .f-social a:hover{ background:rgba(255,255,255,.08); border-color:#fff }
+    .f-social a:active{ transform:scale(.96) }
+    .f-social svg{ width:18px; height:18px; fill:currentColor }
+
+    /* Bottom */
+    .f-bottom{
+      border-top:1px solid rgba(255,255,255,.14); padding-top:12px; display:flex; gap:12px;
+      justify-content:space-between; align-items:center; color:var(--silver-mist); font-size:.9rem; flex-wrap:wrap
+    }
+    .f-legal{ display:flex; gap:14px; flex-wrap:wrap }
+    .f-legal a{ color:var(--silver-mist); text-decoration:none; opacity:.85 }
+    .f-legal a:hover{ color:var(--ethereal-brass); opacity:1 }
+
+    /* Mobile accordions (no JS) */
+    .f-acc{ display:none }
+    @media (max-width: 900px){
+      .f-grid{ grid-template-columns:1fr 1fr }
+    }
+    @media (max-width: 640px){
+      .f-grid{ display:block }
+      .f-col{ margin-bottom:14px; border-top:1px solid rgba(255,255,255,.12) }
+      .f-col > div{ padding:10px 0 6px }
+      .f-acc{ display:block }
+      .f-col details{ border-top:1px solid rgba(255,255,255,.12) }
+      .f-col summary{
+        list-style:none; cursor:pointer; padding:14px 0; position:relative;
+        font-family:'Lusitana',serif; font-size:1.05rem;
+      }
+      .f-col summary::-webkit-details-marker{ display:none }
+      .f-col summary::after{
+        content:"+"; position:absolute; right:0; top:14px; color:#fff; transition:transform .2s
+      }
+      .f-col details[open] summary::after{ transform:rotate(45deg) }
+      .f-col .panel{ padding:0 0 12px }
+      .f-col h4{ display:none }
+    }
+  </style>
+
+  <footer class="nuvora-footer">
+    <div class="f-wrap">
+      <div class="f-grid">
+        <!-- Brand -->
+        <div class="f-col f-brand">
+          <h2>NUVORA</h2>
+          <p>Ethereal light forms crafted from natural materials. Handcrafted with artistry in New York.</p>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="f-col">
+          <h4>Quick Links</h4>
+          <details class="f-acc"><summary>Quick Links</summary><div class="panel">
+            <ul class="f-links">
+              <li><a href="/">Home</a></li>
+              <li><a href="/shop">Shop</a></li>
+              <li><a href="/about">About</a></li>
+              <li><a href="/contact">Contact</a></li>
+              <li><a href="/my-account">My Account</a></li>
+            </ul>
+          </div></details>
+          <div><ul class="f-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/shop">Shop</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/my-account">My Account</a></li>
+          </ul></div>
+        </div>
+
+        <!-- Studio -->
+        <div class="f-col">
+          <h4>Natural Materials Studio</h4>
+          <details class="f-acc"><summary>Natural Materials Studio</summary><div class="panel">
+            <ul class="f-links">
+              <li>Long Island City, NY</li>
+              <li><a href="mailto:info@nuvora.com">info@nuvora.com</a></li>
+              <li><a href="tel:+19297282394">+1 (929) 728-2394</a></li>
+              <li>Consultations by appointment</li>
+            </ul>
+            <div class="f-social" aria-label="Social">
+              <a href="https://instagram.com/nuvora" target="_blank" rel="noopener" aria-label="Instagram">
+                <svg viewBox="0 0 24 24"><path d="M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4zm5 4a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm6.5-.75a1.25 1.25 0 1 0 0 2.5 1.25 1.25 0 0 0 0-2.5z"/></svg>
+              </a>
+              <a href="https://www.pinterest.com/" target="_blank" rel="noopener" aria-label="Pinterest">
+                <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-3.6 19.3c-.05-.82-.1-2.08.02-2.98l1.05-4.48s-.27-.54-.27-1.34c0-1.26.73-2.2 1.64-2.2.77 0 1.15.58 1.15 1.28 0 .78-.5 1.94-.76 3.02-.22.93.47 1.68 1.39 1.68 1.67 0 2.96-1.76 2.96-4.3 0-2.25-1.62-3.83-3.94-3.83-2.68 0-4.25 2.01-4.25 4.09 0 .81.31 1.68.7 2.15.08.1.09.19.07.29l-.29 1.13c-.04.14-.15.19-.28.12-1.06-.5-1.73-2.08-1.73-3.35 0-2.72 1.98-5.22 5.72-5.22 3 0 5.33 2.14 5.33 5 0 2.98-1.88 5.39-4.49 5.39-0.88 0-1.72-.46-2.01-1 0 0-.48 1.82-.6 2.26-.18.69-.53 1.39-.84 2.01A10 10 0 1 0 12 2z"/></svg>
+              </a>
+            </div>
+          </div></details>
+          <div>
+            <ul class="f-links">
+              <li>Long Island City, NY</li>
+              <li><a href="mailto:info@nuvora.com">info@nuvora.com</a></li>
+              <li><a href="tel:+19297282394">+1 (929) 728-2394</a></li>
+            </ul>
+            <div class="f-social" aria-label="Social">
+              <a href="https://instagram.com/nuvora" target="_blank" rel="noopener" aria-label="Instagram">
+                <svg viewBox="0 0 24 24"><path d="M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4zm5 4a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm6.5-.75a1.25 1.25 0 1 0 0 2.5 1.25 1.25 0 0 0 0-2.5z"/></svg>
+              </a>
+              <a href="https://www.pinterest.com/" target="_blank" rel="noopener" aria-label="Pinterest">
+                <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-3.6 19.3c-.05-.82-.1-2.08.02-2.98l1.05-4.48s-.27-.54-.27-1.34c0-1.26.73-2.2 1.64-2.2.77 0 1.15.58 1.15 1.28 0 .78-.5 1.94-.76 3.02-.22.93.47 1.68 1.39 1.68 1.67 0 2.96-1.76 2.96-4.3 0-2.25-1.62-3.83-3.94-3.83-2.68 0-4.25 2.01-4.25 4.09 0 .81.31 1.68.7 2.15.08.1.09.19.07.29l-.29 1.13c-.04.14-.15.19-.28.12-1.06-.5-1.73-2.08-1.73-3.35 0-2.72 1.98-5.22 5.72-5.22 3 0 5.33 2.14 5.33 5 0 2.98-1.88 5.39-4.49 5.39-0.88 0-1.72-.46-2.01-1 0 0-.48 1.82-.6 2.26-.18.69-.53 1.39-.84 2.01A10 10 0 1 0 12 2z"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="f-bottom">
+        <div>© <span id="f-year"></span> NUVORA. All rights reserved.</div>
+        <div class="f-legal">
+          <a href="/privacy-policy">Privacy</a>
+          <a href="/terms-and-conditions">Terms</a>
+          <a href="/refund_returns">Returns</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('f-year').textContent = new Date().getFullYear();
   </script>

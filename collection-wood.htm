@@ -1,0 +1,260 @@
+<!-- NUVORA — Wood Collection (Material-focused design showcase) -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lusitana:wght@400;700&family=Manrope:wght@300;400;500;600&family=Crimson+Text:wght@400;600&display=swap');
+
+:root { 
+  --cloud-whisper:#F6F6F6; --moonlit-sand:#EDE7DD; --silver-mist:#DADCE0; 
+  --pale-graphite:#B2B2B2; --noir-veil:#2E2E2E; --ethereal-brass:#C8B898; --white:#fff;
+  --wood-warm:#8B4513; --wood-light:#DEB887;
+  --radius:16px; --shadow:0 12px 32px rgba(0,0,0,.06);
+}
+
+.wood-collection{font-family:Manrope,system-ui,sans-serif;color:var(--noir-veil);line-height:1.6}
+.wood-collection h1,.wood-collection h2,.wood-collection h3{font-family:Lusitana,serif;font-weight:400;margin:0}
+.wood-collection .eyebrow{letter-spacing:.12em;text-transform:uppercase;font-size:.8rem;color:var(--pale-graphite);margin-bottom:.6rem}
+
+/* Hero específico para wood */
+.material-hero{
+  position:relative; min-height:85vh; display:flex; align-items:center; justify-content:center;
+  padding:clamp(100px,12vh,160px) 10%; color:var(--cloud-whisper);
+  background:linear-gradient(135deg, #3d2914 0%, #2a1810 100%), url('https://lunvyr.com/wp-content/uploads/2025/08/image-65.png') center/cover no-repeat;
+  background-blend-mode:overlay;
+  text-align:center; isolation:isolate;
+}
+.material-hero::after{content:"";position:absolute;inset:0;background:radial-gradient(100% 100% at 60% 30%, rgba(0,0,0,0) 0%, rgba(45,24,16,.7) 80%);z-index:0}
+.material-hero .hero-inner{position:relative;z-index:1;max-width:800px}
+.material-hero h1{font-size:clamp(3rem,6vw,4.5rem);line-height:1.1;margin-bottom:24px;font-family:'Lusitana',serif;font-weight:400}
+.material-hero p{color:#e8ddd6;margin:0 auto 36px;max-width:600px;font-size:1.2rem;line-height:1.7}
+.material-hero .material-tag{
+  display:inline-block;background:rgba(222,184,135,.2);color:var(--cloud-whisper);
+  padding:.7rem 1.5rem;border-radius:50px;font-size:.9rem;letter-spacing:.05em;
+  border:1px solid rgba(222,184,135,.4);backdrop-filter:blur(10px);margin-bottom:20px;
+}
+
+/* Material story section */
+.material-story{
+  padding:clamp(100px,14vh,160px) 10%;background:linear-gradient(135deg, #f7f5f2 0%, var(--moonlit-sand) 100%);
+  display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;
+}
+.material-story .content h2{
+  font-size:clamp(2.2rem,4vw,3rem);color:var(--noir-veil);margin-bottom:24px;line-height:1.2;
+}
+.material-story .content p{
+  color:var(--pale-graphite);font-size:1.1rem;line-height:1.8;margin:0 0 24px;
+}
+.material-story .content .highlight{
+  background:linear-gradient(120deg, rgba(222,184,135,.12) 0%, transparent 100%);
+  padding:28px;border-radius:16px;border-left:4px solid var(--wood-warm);
+  margin:32px 0;font-style:italic;font-family:'Crimson Text',serif;font-size:1.05rem;
+}
+.material-story .visual{
+  position:relative;border-radius:24px;overflow:hidden;
+  box-shadow:0 24px 80px rgba(139,69,19,.15);transform:rotate(-2deg);transition:transform .4s ease;
+}
+.material-story .visual:hover{transform:rotate(0deg) scale(1.02)}
+.material-story .visual img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* Products grid específico */
+.material-products{padding:clamp(80px,12vh,140px) 10%;background:#f8f6f3}
+.material-products h2{
+  text-align:center;font-size:clamp(2rem,3.5vw,2.8rem);color:var(--noir-veil);
+  margin-bottom:48px;position:relative;
+}
+.material-products h2::after{
+  content:"";position:absolute;bottom:-12px;left:50%;transform:translateX(-50%);
+  width:80px;height:3px;background:var(--wood-warm);border-radius:2px;
+}
+.products-grid{
+  display:grid;grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));gap:32px;max-width:1200px;margin:0 auto;
+}
+.product-card{
+  background:var(--white);border-radius:20px;overflow:hidden;
+  box-shadow:0 12px 40px rgba(139,69,19,.08);transition:all .4s ease;border:1px solid rgba(139,69,19,.06);
+}
+.product-card:hover{transform:translateY(-8px);box-shadow:0 20px 60px rgba(139,69,19,.15)}
+.product-card .image{
+  position:relative;aspect-ratio:4/5;overflow:hidden;
+}
+.product-card .image img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.product-card:hover .image img{transform:scale(1.05)}
+.product-card .info{padding:24px}
+.product-card .info h3{color:var(--noir-veil);font-size:1.2rem;margin-bottom:8px;font-weight:500}
+.product-card .info p{color:var(--pale-graphite);font-size:.95rem;line-height:1.5;margin:0 0 16px}
+.product-card .info .price{color:var(--noir-veil);font-weight:600;font-size:1.1rem}
+
+/* Material properties */
+.material-properties{
+  padding:clamp(80px,12vh,140px) 10%;background:var(--cloud-whisper);
+}
+.material-properties h2{
+  text-align:center;color:var(--noir-veil);font-size:clamp(2rem,3.5vw,2.8rem);margin-bottom:56px;
+}
+.properties-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:32px;max-width:1000px;margin:0 auto;
+}
+.property-card{
+  background:var(--white);padding:32px;border-radius:20px;text-align:center;
+  box-shadow:0 8px 30px rgba(139,69,19,.06);transition:all .3s ease;border:1px solid rgba(139,69,19,.06);
+}
+.property-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(139,69,19,.1)}
+.property-card .icon{
+  width:48px;height:48px;background:rgba(222,184,135,.1);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;margin:0 auto 20px;color:var(--wood-warm);
+}
+.property-card h3{color:var(--noir-veil);margin-bottom:12px;font-size:1.2rem}
+.property-card p{color:var(--pale-graphite);line-height:1.6;margin:0}
+
+/* CTA section */
+.material-cta{
+  padding:clamp(100px,15vh,160px) 10%;
+  background:linear-gradient(135deg, #3d2914 0%, #2a1810 100%);color:var(--cloud-whisper);text-align:center;
+}
+.material-cta h2{color:var(--cloud-whisper);font-size:clamp(2.2rem,4vw,3.2rem);margin-bottom:20px;line-height:1.2}
+.material-cta p{color:#e8ddd6;margin:0 0 32px;font-size:1.1rem;max-width:600px;margin-left:auto;margin-right:auto}
+.material-cta .actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.material-cta .btn{
+  font-family:Lusitana,serif;padding:1rem 2rem;border-radius:50px;
+  border:2px solid rgba(222,184,135,.6);color:var(--cloud-whisper);text-decoration:none;
+  display:inline-flex;align-items:center;gap:.7rem;transition:all .4s ease;font-weight:500;
+  background:rgba(222,184,135,.1);backdrop-filter:blur(10px);
+}
+.material-cta .btn:hover{
+  background:rgba(222,184,135,.2);border-color:var(--wood-light);
+  transform:translateY(-2px);box-shadow:0 8px 25px rgba(222,184,135,.2);
+}
+
+/* Responsive */
+@media (max-width:1199px){
+  .material-story{grid-template-columns:1fr;gap:48px;text-align:center}
+  .properties-grid{grid-template-columns:1fr 1fr;gap:24px}
+}
+@media (max-width:767px){
+  .material-hero{min-height:75vh;padding:clamp(80px,12vh,120px) 7%}
+  .material-story{padding:clamp(70px,10vh,100px) 7%;gap:32px}
+  .material-story .visual{transform:rotate(0deg);margin:0 auto;max-width:400px}
+  .properties-grid{grid-template-columns:1fr;gap:20px;max-width:400px}
+  .material-products{padding:clamp(60px,9vh,100px) 7%}
+  .products-grid{grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));gap:24px}
+}
+@media (max-width:479px){
+  .material-cta .actions{flex-direction:column;align-items:center}
+  .material-cta .btn{min-width:200px;justify-content:center}
+}
+</style>
+
+<div class="wood-collection">
+
+  <!-- MATERIAL HERO -->
+  <section class="material-hero">
+    <div class="hero-inner">
+      <div class="material-tag">Living Material</div>
+      <h1>Wood</h1>
+      <p>Natural walnut and oak grains—each piece celebrates the inherent beauty of living timber, carrying the memory of forest and the warmth of organic growth.</p>
+    </div>
+  </section>
+
+  <!-- MATERIAL STORY -->
+  <section class="material-story">
+    <div class="content">
+      <div class="eyebrow">Material Story</div>
+      <h2>The Memory of the Forest</h2>
+      <p>Wood is the only material that was once truly alive, and that vitality remains in every grain and knot. Our artisans work with sustainably sourced walnut and oak, honoring each tree's unique growth story while transforming it into lighting that brings warmth and organic beauty to contemporary spaces.</p>
+      
+      <div class="highlight">
+        "Every wood fixture carries the memory of seasons—the rush of spring growth, the steady patience of summer, the wisdom of countless winters. Light through wood feels like sunlight through forest canopy."
+      </div>
+      
+      <p>We allow the natural grain to guide our design, working with rather than against the wood's inherent character. Each piece reveals different patterns as light passes through varying wood density, creating fixtures that change throughout the day as illumination shifts and natural oils develop deeper richness over time.</p>
+    </div>
+    <div class="visual">
+      <img src="https://lunvyr.com/wp-content/uploads/2025/08/image-65.png" alt="Artisan hands working with natural wood grain">
+    </div>
+  </section>
+
+  <!-- MATERIAL PROPERTIES -->
+  <section class="material-properties">
+    <h2>Natural Properties</h2>
+    <div class="properties-grid">
+      <div class="property-card">
+        <div class="icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+            <path d="M2 17l10 5 10-5"/>
+            <path d="M2 12l10 5 10-5"/>
+          </svg>
+        </div>
+        <h3>Living Grain Patterns</h3>
+        <p>Each piece displays unique growth rings and grain that create distinctive light filtering and natural character.</p>
+      </div>
+      <div class="property-card">
+        <div class="icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"/>
+            <path d="M12 1v6M12 17v6M4.22 4.22l4.24 4.24M15.54 15.54l4.24 4.24M1 12h6M17 12h6M4.22 19.78l4.24-4.24M15.54 8.46l4.24-4.24"/>
+          </svg>
+        </div>
+        <h3>Warm Light Diffusion</h3>
+        <p>Natural wood fibers create soft, warm illumination that feels organic and inviting, like filtered sunlight.</p>
+      </div>
+      <div class="property-card">
+        <div class="icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+            <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+            <line x1="12" y1="22.08" x2="12" y2="12"/>
+          </svg>
+        </div>
+        <h3>Sustainable Beauty</h3>
+        <p>Ethically sourced timber that becomes more beautiful with age, developing rich patina and deeper character over time.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTS GRID -->
+  <section class="material-products">
+    <h2>Wood Collection</h2>
+    <div class="products-grid">
+      <div class="product-card">
+        <div class="image">
+          <img src="https://lunvyr.com/wp-content/uploads/2025/08/image-65.png" alt="Forest Memory Pendant">
+        </div>
+        <div class="info">
+          <h3>Forest Memory Pendant</h3>
+          <p>Hand-turned walnut with natural grain patterns and warm light filtration.</p>
+          <div class="price">From $380</div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="image">
+          <img src="https://lunvyr.com/wp-content/uploads/2025/08/IMG-5-2-scaled.jpg" alt="Organic Wall Light">
+        </div>
+        <div class="info">
+          <h3>Organic Wall Light</h3>
+          <p>Sculptural oak sconce with natural edge and integrated LED diffusion.</p>
+          <div class="price">From $290</div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="image">
+          <img src="https://lunvyr.com/wp-content/uploads/2025/08/image-67.png" alt="Living Table Lamp">
+        </div>
+        <div class="info">
+          <h3>Living Table Lamp</h3>
+          <p>Turned walnut base with brass accents and natural fiber shade.</p>
+          <div class="price">From $340</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="material-cta">
+    <h2>Experience Living Wood</h2>
+    <p>Discover how our sustainably crafted wood fixtures can bring the warmth and memory of the forest into your space through organic beauty and natural illumination.</p>
+    <div class="actions">
+      <a class="btn" href="/contact">Custom Consultation</a>
+      <a class="btn" href="/shop">Shop Wood Collection</a>
+    </div>
+  </section>
+
+</div>

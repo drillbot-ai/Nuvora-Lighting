@@ -1,0 +1,277 @@
+<!-- NUVORA — Brass Collection (Material-focused design showcase) -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lusitana:wght@400;700&family=Manrope:wght@300;400;500;600&family=Crimson+Text:wght@400;600&display=swap');
+
+:root { 
+  --cloud-whisper:#F6F6F6; --moonlit-sand:#EDE7DD; --silver-mist:#DADCE0; 
+  --pale-graphite:#B2B2B2; --noir-veil:#2E2E2E; --ethereal-brass:#C8B898; --white:#fff;
+  --brass-warm:#B8860B; --brass-light:#DAA520; --brass-patina:#8B7355;
+  --radius:16px; --shadow:0 12px 32px rgba(0,0,0,.06);
+}
+
+.brass-collection{font-family:Manrope,system-ui,sans-serif;color:var(--noir-veil);line-height:1.6}
+.brass-collection h1,.brass-collection h2,.brass-collection h3{font-family:Lusitana,serif;font-weight:400;margin:0}
+.brass-collection .eyebrow{letter-spacing:.12em;text-transform:uppercase;font-size:.8rem;color:var(--pale-graphite);margin-bottom:.6rem}
+
+/* Hero específico para brass */
+.material-hero{
+  position:relative; min-height:85vh; display:flex; align-items:center; justify-content:center;
+  padding:clamp(100px,12vh,160px) 10%; color:var(--cloud-whisper);
+  background:linear-gradient(135deg, #3d2f1a 0%, #2a1f11 100%), url('https://lunvyr.com/wp-content/uploads/2025/08/IMG-5-2-scaled.jpg') center/cover no-repeat;
+  background-blend-mode:overlay;
+  text-align:center; isolation:isolate;
+}
+.material-hero::after{content:"";position:absolute;inset:0;background:radial-gradient(100% 100% at 70% 30%, rgba(0,0,0,0) 0%, rgba(184,134,11,.3) 80%);z-index:0}
+.material-hero .hero-inner{position:relative;z-index:1;max-width:800px}
+.material-hero h1{font-size:clamp(3rem,6vw,4.5rem);line-height:1.1;margin-bottom:24px;font-family:'Lusitana',serif;font-weight:400}
+.material-hero p{color:#f7e6c8;margin:0 auto 36px;max-width:600px;font-size:1.2rem;line-height:1.7}
+.material-hero .material-tag{
+  display:inline-block;background:rgba(200,184,152,.2);color:var(--cloud-whisper);
+  padding:.7rem 1.5rem;border-radius:50px;font-size:.9rem;letter-spacing:.05em;
+  border:1px solid rgba(200,184,152,.5);backdrop-filter:blur(10px);margin-bottom:20px;
+}
+
+/* Brass shimmer effect */
+.brass-shimmer{
+  position:relative;overflow:hidden;
+}
+.brass-shimmer::after{
+  content:"";position:absolute;top:-50%;left:-50%;width:200%;height:200%;
+  background:linear-gradient(45deg, transparent 30%, rgba(218,165,32,.2) 50%, transparent 70%);
+  animation:brassShimmer 4s infinite;opacity:.6;
+}
+@keyframes brassShimmer{
+  0%{transform:translateX(-100%) translateY(-100%) rotate(45deg)}
+  100%{transform:translateX(100%) translateY(100%) rotate(45deg)}
+}
+
+/* Material story section */
+.material-story{
+  padding:clamp(100px,14vh,160px) 10%;background:linear-gradient(135deg, #faf8f3 0%, var(--moonlit-sand) 100%);
+  display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;
+}
+.material-story .content h2{
+  font-size:clamp(2.2rem,4vw,3rem);color:var(--noir-veil);margin-bottom:24px;line-height:1.2;
+}
+.material-story .content p{
+  color:var(--pale-graphite);font-size:1.1rem;line-height:1.8;margin:0 0 24px;
+}
+.material-story .content .highlight{
+  background:linear-gradient(120deg, rgba(200,184,152,.12) 0%, transparent 100%);
+  padding:28px;border-radius:16px;border-left:4px solid var(--brass-warm);
+  margin:32px 0;font-style:italic;font-family:'Crimson Text',serif;font-size:1.05rem;
+}
+.material-story .visual{
+  position:relative;border-radius:24px;overflow:hidden;
+  box-shadow:0 24px 80px rgba(184,134,11,.2);transform:rotate(-1deg);transition:transform .4s ease;
+}
+.material-story .visual:hover{transform:rotate(0deg) scale(1.02)}
+.material-story .visual img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* Products grid específico */
+.material-products{padding:clamp(80px,12vh,140px) 10%;background:#f9f7f3}
+.material-products h2{
+  text-align:center;font-size:clamp(2rem,3.5vw,2.8rem);color:var(--noir-veil);
+  margin-bottom:48px;position:relative;
+}
+.material-products h2::after{
+  content:"";position:absolute;bottom:-12px;left:50%;transform:translateX(-50%);
+  width:80px;height:3px;background:linear-gradient(90deg, var(--brass-warm), var(--brass-light));border-radius:2px;
+}
+.products-grid{
+  display:grid;grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));gap:32px;max-width:1200px;margin:0 auto;
+}
+.product-card{
+  background:var(--white);border-radius:20px;overflow:hidden;
+  box-shadow:0 12px 40px rgba(184,134,11,.1);transition:all .4s ease;border:1px solid rgba(200,184,152,.15);
+  position:relative;
+}
+.product-card:hover{
+  transform:translateY(-8px);box-shadow:0 20px 60px rgba(184,134,11,.18);
+}
+.product-card .image{
+  position:relative;aspect-ratio:4/5;overflow:hidden;
+}
+.product-card .image img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.product-card:hover .image img{transform:scale(1.05)}
+.product-card .info{padding:24px}
+.product-card .info h3{color:var(--noir-veil);font-size:1.2rem;margin-bottom:8px;font-weight:500}
+.product-card .info p{color:var(--pale-graphite);font-size:.95rem;line-height:1.5;margin:0 0 16px}
+.product-card .info .price{color:var(--noir-veil);font-weight:600;font-size:1.1rem}
+
+/* Material properties */
+.material-properties{
+  padding:clamp(80px,12vh,140px) 10%;background:var(--cloud-whisper);
+}
+.material-properties h2{
+  text-align:center;color:var(--noir-veil);font-size:clamp(2rem,3.5vw,2.8rem);margin-bottom:56px;
+}
+.properties-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:32px;max-width:1000px;margin:0 auto;
+}
+.property-card{
+  background:var(--white);padding:32px;border-radius:20px;text-align:center;
+  box-shadow:0 8px 30px rgba(184,134,11,.08);transition:all .3s ease;border:1px solid rgba(200,184,152,.1);
+}
+.property-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(184,134,11,.15)}
+.property-card .icon{
+  width:48px;height:48px;background:rgba(200,184,152,.15);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;margin:0 auto 20px;color:var(--brass-warm);
+}
+.property-card h3{color:var(--noir-veil);margin-bottom:12px;font-size:1.2rem}
+.property-card p{color:var(--pale-graphite);line-height:1.6;margin:0}
+
+/* CTA section */
+.material-cta{
+  padding:clamp(100px,15vh,160px) 10%;
+  background:linear-gradient(135deg, #3d2f1a 0%, #2a1f11 100%);color:var(--cloud-whisper);text-align:center;
+}
+.material-cta h2{color:var(--cloud-whisper);font-size:clamp(2.2rem,4vw,3.2rem);margin-bottom:20px;line-height:1.2}
+.material-cta p{color:#f7e6c8;margin:0 0 32px;font-size:1.1rem;max-width:600px;margin-left:auto;margin-right:auto}
+.material-cta .actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.material-cta .btn{
+  font-family:Lusitana,serif;padding:1rem 2rem;border-radius:50px;
+  border:2px solid rgba(200,184,152,.6);color:var(--cloud-whisper);text-decoration:none;
+  display:inline-flex;align-items:center;gap:.7rem;transition:all .4s ease;font-weight:500;
+  background:rgba(200,184,152,.1);backdrop-filter:blur(10px);
+}
+.material-cta .btn:hover{
+  background:rgba(200,184,152,.2);border-color:var(--brass-light);
+  transform:translateY(-2px);box-shadow:0 8px 25px rgba(200,184,152,.2);
+}
+
+/* Responsive */
+@media (max-width:1199px){
+  .material-story{grid-template-columns:1fr;gap:48px;text-align:center}
+  .properties-grid{grid-template-columns:1fr 1fr;gap:24px}
+}
+@media (max-width:767px){
+  .material-hero{min-height:75vh;padding:clamp(80px,12vh,120px) 7%}
+  .material-story{padding:clamp(70px,10vh,100px) 7%;gap:32px}
+  .material-story .visual{transform:rotate(0deg);margin:0 auto;max-width:400px}
+  .properties-grid{grid-template-columns:1fr;gap:20px;max-width:400px}
+  .material-products{padding:clamp(60px,9vh,100px) 7%}
+  .products-grid{grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));gap:24px}
+}
+@media (max-width:479px){
+  .material-cta .actions{flex-direction:column;align-items:center}
+  .material-cta .btn{min-width:200px;justify-content:center}
+}
+</style>
+
+<div class="brass-collection">
+
+  <!-- MATERIAL HERO -->
+  <section class="material-hero brass-shimmer">
+    <div class="hero-inner">
+      <div class="material-tag">Timeless Warmth</div>
+      <h1>Brass</h1>
+      <p>Living metal that ages with grace—our brass fixtures celebrate the warmth and character that develops through time, creating lighting that becomes more beautiful with every passing year.</p>
+    </div>
+  </section>
+
+  <!-- MATERIAL STORY -->
+  <section class="material-story">
+    <div class="content">
+      <div class="eyebrow">Material Story</div>
+      <h2>The Alchemy of Time & Metal</h2>
+      <p>Brass is the only metal that improves with age, developing a living patina that tells the story of its environment and use. Our artisans work with high-quality brass alloys, creating fixtures that begin with bright golden warmth and evolve into rich, complex surfaces that reflect years of gentle oxidation and handling.</p>
+      
+      <div class="highlight">
+        "Brass teaches patience—its true beauty emerges not in perfection, but in the graceful acceptance of change. Each fixture becomes a timepiece, marking moments through the slow alchemy of oxidation and touch."
+      </div>
+      
+      <p>We celebrate both the initial brilliance of polished brass and the anticipated patina that will develop. Each piece is designed to age beautifully, with forms that enhance rather than hide the natural aging process, creating lighting that becomes more personal and characterful over time.</p>
+    </div>
+    <div class="visual brass-shimmer">
+      <img src="https://lunvyr.com/wp-content/uploads/2025/08/IMG-5-2-scaled.jpg" alt="Aged brass with rich patina and warm reflections">
+    </div>
+  </section>
+
+  <!-- MATERIAL PROPERTIES -->
+  <section class="material-properties">
+    <h2>Living Metal Properties</h2>
+    <div class="properties-grid">
+      <div class="property-card">
+        <div class="icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M12 6l4 6-4 6"/>
+            <path d="M8 12h8"/>
+          </svg>
+        </div>
+        <h3>Evolving Patina</h3>
+        <p>Natural oxidation creates unique surface character that deepens and enriches over years of gentle aging.</p>
+      </div>
+      <div class="property-card">
+        <div class="icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"/>
+            <path d="M12 1v6M12 17v6M4.22 4.22l4.24 4.24M15.54 15.54l4.24 4.24M1 12h6M17 12h6M4.22 19.78l4.24-4.24M15.54 8.46l4.24-4.24"/>
+          </svg>
+        </div>
+        <h3>Warm Light Reflection</h3>
+        <p>Brass surfaces create golden, honey-toned reflections that add warmth and richness to any illuminated space.</p>
+      </div>
+      <div class="property-card">
+        <div class="icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+            <path d="M2 17l10 5 10-5"/>
+            <path d="M2 12l10 5 10-5"/>
+          </svg>
+        </div>
+        <h3>Artisan Craftsmanship</h3>
+        <p>Hand-forged and spun brass allows for complex forms while maintaining the material's inherent workability and strength.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTS GRID -->
+  <section class="material-products">
+    <h2>Brass Collection</h2>
+    <div class="products-grid">
+      <div class="product-card">
+        <div class="image">
+          <img src="https://lunvyr.com/wp-content/uploads/2025/08/IMG-5-2-scaled.jpg" alt="Heritage Brass Chandelier">
+        </div>
+        <div class="info">
+          <h3>Heritage Brass Chandelier</h3>
+          <p>Hand-forged brass with natural aging and warm golden light diffusion.</p>
+          <div class="price">From $580</div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="image">
+          <img src="https://lunvyr.com/wp-content/uploads/2025/08/image-66.png" alt="Spun Brass Pendant">
+        </div>
+        <div class="info">
+          <h3>Spun Brass Pendant</h3>
+          <p>Traditional spinning techniques create seamless forms with developing patina character.</p>
+          <div class="price">From $380</div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="image">
+          <img src="https://lunvyr.com/wp-content/uploads/2025/08/image-67.png" alt="Patina Table Light">
+        </div>
+        <div class="info">
+          <h3>Patina Table Light</h3>
+          <p>Brushed brass base with accelerated patina finish and warm ambient glow.</p>
+          <div class="price">From $420</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="material-cta">
+    <h2>Embrace Living Metal</h2>
+    <p>Experience how our handcrafted brass fixtures bring timeless warmth and evolving character to your space, creating lighting that becomes more beautiful and personal with every passing year.</p>
+    <div class="actions">
+      <a class="btn" href="/contact">Custom Consultation</a>
+      <a class="btn" href="/shop">Shop Brass Collection</a>
+    </div>
+  </section>
+
+</div>

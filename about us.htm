@@ -1,60 +1,60 @@
-<!-- LUNVYR — About (Editorial layout, Parallax Hero, Story, Ethos, Process Timeline, Gallery, FAQ, Map, CTA) -->
+<!-- NUVORA — About (Editorial layout, Parallax Hero, Story, Ethos, Process Timeline, Gallery, FAQ, Map, CTA) -->
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Inter:wght@300;400;500&family=Playfair+Display:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lusitana:wght@400;700&family=Manrope:wght@300;400;500;600&family=Crimson+Text:wght@400;600&display=swap');
 
-:root { --ink:#1c222b; --paper:#f2f0eb; --coal:#111; --ash:#666; --brass:#b2956d; --white:#fff;
-  --radius:14px; --shadow:0 12px 32px rgba(0,0,0,.08);
+:root { --cloud-whisper:#F6F6F6; --moonlit-sand:#EDE7DD; --silver-mist:#DADCE0; --pale-graphite:#B2B2B2; --noir-veil:#2E2E2E; --ethereal-brass:#C8B898; --white:#fff;
+  --radius:16px; --shadow:0 12px 32px rgba(0,0,0,.06);
 }
 
-.about-page{font-family:Inter,system-ui,sans-serif;color:var(--coal);line-height:1.65}
-.about-page h1,.about-page h2,.about-page h3,.about-page h4{font-family:Cinzel,serif;font-weight:400;margin:0}
-.about-page .eyebrow{letter-spacing:.12em;text-transform:uppercase;font-size:.8rem;color:var(--ash);margin-bottom:.7rem}
+.about-page{font-family:Manrope,system-ui,sans-serif;color:var(--noir-veil);line-height:1.65}
+.about-page h1,.about-page h2,.about-page h3,.about-page h4{font-family:Lusitana,serif;font-weight:400;margin:0}
+.about-page .eyebrow{letter-spacing:.12em;text-transform:uppercase;font-size:.8rem;color:var(--pale-graphite);margin-bottom:.7rem}
 
 /* HERO con imagen y parallax sutil */
 .about-hero{
   position:relative; min-height:80vh; display:flex; align-items:center; justify-content:center;
-  padding:clamp(84px,10vh,140px) 10%; color:var(--paper);
+  padding:clamp(84px,10vh,140px) 10%; color:var(--cloud-whisper);
   background:#0e0f12 url('https://lunvyr.com/wp-content/uploads/2025/08/f07dabad-5599-4f19-bb21-0e2537614e98.png') center/cover no-repeat;
   text-align:center; isolation:isolate;
 }
 .about-hero::after{content:"";position:absolute;inset:0;background:radial-gradient(100% 100% at 70% 25%, rgba(0,0,0,0) 0%, rgba(0,0,0,.55) 70%);z-index:0}
 .about-hero .hero-inner{position:relative;z-index:1;max-width:900px}
-.about-hero h1{font-size:clamp(2.4rem,5vw,3.6rem);line-height:1.15;margin-bottom:.6rem;color:var(--paper)}
+.about-hero h1{font-size:clamp(2.4rem,5vw,3.6rem);line-height:1.15;margin-bottom:.6rem;color:var(--cloud-whisper)}
 .about-hero p{color:#efece7;margin:0 auto;max-width:740px}
 
 /* Split: Story + Portrait mejorado */
 .about-split{
   padding:clamp(84px,12vh,140px) 10%; display:grid; grid-template-columns:1.3fr .7fr; 
-  gap:64px; align-items:center; background:var(--paper); position:relative;
+  gap:64px; align-items:center; background:var(--cloud-whisper); position:relative;
 }
 .about-split::before{
   content:""; position:absolute; right:0; top:20%; width:200px; height:200px;
-  background:radial-gradient(circle, rgba(178,149,109,.08) 0%, transparent 70%);
+  background:radial-gradient(circle, rgba(200,184,152,.08) 0%, transparent 70%);
   border-radius:50%; z-index:0;
 }
 .about-split .copy{position:relative; z-index:1}
 .about-split .copy h2{
-  font-family:'Cinzel',serif; font-size:clamp(2rem,3.5vw,2.6rem); 
-  color:var(--ink); margin-bottom:20px; line-height:1.2;
+  font-family:'Lusitana',serif; font-size:clamp(2rem,3.5vw,2.6rem); 
+  color:var(--noir-veil); margin-bottom:20px; line-height:1.2;
 }
 .about-split .copy p{
-  color:var(--ash); margin:0 0 20px; font-size:1.05rem; line-height:1.7;
+  color:var(--pale-graphite); margin:0 0 20px; font-size:1.05rem; line-height:1.7;
 }
 .about-split .copy .highlight{
-  background:linear-gradient(120deg, rgba(178,149,109,.15) 0%, transparent 100%);
-  padding:24px; border-radius:12px; border-left:4px solid var(--brass);
-  margin:24px 0; font-style:italic;
+  background:linear-gradient(120deg, rgba(200,184,152,.15) 0%, transparent 100%);
+  padding:24px; border-radius:12px; border-left:4px solid var(--ethereal-brass);
+  margin:24px 0; font-style:italic; font-family:'Crimson Text',serif;
 }
 .about-split .media{
   position:relative; border-radius:20px; overflow:hidden; 
-  box-shadow:0 20px 60px rgba(0,0,0,.12); border:1px solid rgba(17,17,17,.06);
+  box-shadow:0 20px 60px rgba(0,0,0,.12); border:1px solid rgba(46,46,46,.06);
   transform:rotate(2deg); transition:transform .4s ease;
 }
 .about-split .media:hover{transform:rotate(0deg) scale(1.02)}
 .about-split .media img{width:100%;height:100%;object-fit:cover; display:block}
 
 /* Studio stats - diseño horizontal elegante */
-.stats{padding:clamp(64px,10vh,120px) 10%; background:linear-gradient(135deg, #f7f7f7 0%, #f2f0eb 100%)}
+.stats{padding:clamp(64px,10vh,120px) 10%; background:linear-gradient(135deg, #f7f7f7 0%, var(--cloud-whisper) 100%)}
 .stats .grid{
   display:grid; grid-template-columns:repeat(4,1fr); 
   gap:2px; max-width:1100px; margin:0 auto;
@@ -62,23 +62,23 @@
 }
 .stats .card{
   background:var(--white); padding:32px 24px; text-align:center; 
-  transition:all .4s ease; position:relative; border-right:1px solid rgba(17,17,17,.06);
+  transition:all .4s ease; position:relative; border-right:1px solid rgba(46,46,46,.06);
 }
 .stats .card:last-child{border-right:none}
-.stats .card:hover{background:rgba(178,149,109,.02)}
+.stats .card:hover{background:rgba(200,184,152,.02)}
 .stats .card::before{
   content:""; position:absolute; top:0; left:0; right:0; height:3px;
-  background:linear-gradient(90deg, var(--brass) 0%, #d4af76 100%);
+  background:linear-gradient(90deg, var(--ethereal-brass) 0%, #d4c4a8 100%);
   transform:scaleX(0); transition:transform .4s ease;
 }
 .stats .card:hover::before{transform:scaleX(1)}
 .stats .num{
-  font-family:Cinzel,serif; font-size:clamp(1.4rem,2vw,1.8rem); color:var(--ink); 
+  font-family:Lusitana,serif; font-size:clamp(1.4rem,2vw,1.8rem); color:var(--noir-veil); 
   margin:0 0 8px; font-weight:600; line-height:1.1;
   white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
 }
 .stats .label{
-  color:var(--ash); font-size:0.8rem; font-weight:500; 
+  color:var(--pale-graphite); font-size:0.8rem; font-weight:500; 
   letter-spacing:.02em; text-transform:uppercase; line-height:1.3;
   white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
 }
@@ -347,9 +347,9 @@
   <!-- HERO -->
   <section class="about-hero" data-parallax>
     <div class="hero-inner reveal">
-      <div class="eyebrow">Luxury Lighting Atelier</div>
-      <h1>Handcrafted Architectural Lighting</h1>
-      <p>From our New York atelier, we create bespoke lighting fixtures that transform spaces into experiences. Each piece combines artisanal craftsmanship with architectural precision, bringing warmth and sophistication to the world's finest interiors.</p>
+      <div class="eyebrow">Ethereal Light Forms</div>
+      <h1>Sculptural Illumination Through Natural Materials</h1>
+      <p>From our New York atelier, we craft lighting fixtures that transcend the boundary between object and atmosphere. Each piece emerges from nature's finest materials—plaster, alabaster, wood, and glass—transformed into ethereal forms that appear suspended in air, neither light nor object, but presence.</p>
     </div>
   </section>
 
@@ -357,29 +357,29 @@
   <section class="about-split">
     <div class="copy reveal">
       <div class="eyebrow">Our Story</div>
-      <h2>Where Light Meets Art</h2>
-      <p>LUNVYR was born from a passion for transforming spaces through exceptional lighting. Founded in New York, our atelier combines traditional metalworking techniques with contemporary design sensibilities to create fixtures that are both functional art and architectural elements.</p>
+      <h2>Where Serenity Meets Light</h2>
+      <p>NUVORA was born from a vision of creating lighting that embodies weightless elegance and celestial minimalism. Founded on the principles of ethereal serenity, our atelier transforms natural materials into timeless forms that invite silence, light, and grace into every space.</p>
       
       <div class="highlight">
-        "Every piece tells a story of meticulous craftsmanship, where each curve, finish, and light distribution is carefully considered to create an experience, not just illumination."
+        "We don't simply create lighting—we sculpt atmosphere. Each fixture is a meditation on the poetry of materials, where plaster breathes, alabaster glows, and wood remembers its origins."
       </div>
       
-      <p>Our collections—from the geometric elegance of AUREA to the industrial strength of BLACK LABEL—reflect our commitment to diverse aesthetic languages while maintaining our signature attention to detail and quality.</p>
+      <p>Our collections celebrate the inherent beauty of natural elements: the soft tactility of hand-shaped plaster, the translucent mystery of alabaster, the living warmth of walnut and oak. Each material speaks its own language of light and shadow.</p>
       
-      <p>Working closely with architects, interior designers, and discerning homeowners, we create lighting solutions that enhance rather than compete with their environments, becoming integral parts of the architectural narrative.</p>
+      <p>Working with architects, designers, and those who understand the transformative power of thoughtful illumination, we create fixtures that enhance rather than dominate—becoming integral elements in the architectural narrative of calm elevation and spatial poetry.</p>
     </div>
     <figure class="media reveal">
-      <img src="https://lunvyr.com/wp-content/uploads/2025/10/005.png" alt="LUNVYR studio—workbench with metal forms">
+      <img src="https://lunvyr.com/wp-content/uploads/2025/10/005.png" alt="NUVORA studio—artisan shaping natural plaster">
     </figure>
   </section>
 
   <!-- STATS -->
   <section class="stats">
     <div class="grid">
-      <div class="card reveal"><div class="num">6<br>Collections</div><div class="label">Curated Design Lines</div></div>
-      <div class="card reveal"><div class="num">500+<br>Projects</div><div class="label">Worldwide Installations</div></div>
-      <div class="card reveal"><div class="num">15+<br>Finishes</div><div class="label">Premium Material Options</div></div>
-      <div class="card reveal"><div class="num">2-Year<br>Warranty</div><div class="label">Quality Guarantee</div></div>
+      <div class="card reveal"><div class="num">6<br>Materials</div><div class="label">Natural Element Collections</div></div>
+      <div class="card reveal"><div class="num">300+<br>Installations</div><div class="label">Ethereal Forms Created</div></div>
+      <div class="card reveal"><div class="num">Timeless<br>Design</div><div class="label">Beyond Trends</div></div>
+      <div class="card reveal"><div class="num">Artisan<br>Crafted</div><div class="label">Hand-Shaped in NYC</div></div>
     </div>
   </section>
 
@@ -387,32 +387,32 @@
   <section class="ethos">
     <header class="reveal">
       <h2>Our Philosophy</h2>
-      <p class="sub">The principles that guide every design decision and craftsmanship detail.</p>
+      <p class="sub">The principles that guide every ethereal form and natural material choice.</p>
     </header>
     <div class="grid">
       <article class="card reveal">
-        <h3>Timeless Design</h3>
-        <p>We create fixtures that transcend trends, focusing on proportions and forms that will remain elegant for decades. Each design is refined until it achieves that rare quality of feeling both contemporary and eternal.</p>
+        <h3>Ethereal Minimalism</h3>
+        <p>We create fixtures that appear weightless, suspended between presence and absence. Each form emerges from the principle that true beauty lies in restraint, where every element serves both function and poetry.</p>
       </article>
       <article class="card reveal">
-        <h3>Artisanal Excellence</h3>
-        <p>Every piece is handcrafted in our New York atelier using traditional metalworking techniques combined with modern precision. Our artisans bring decades of experience to each fixture, ensuring uncompromising quality.</p>
+        <h3>Natural Material Honesty</h3>
+        <p>Plaster breathes with organic texture, alabaster glows with inner light, wood carries the memory of forest. We honor each material's inherent qualities, allowing natural beauty to guide our sculptural vision.</p>
       </article>
       <article class="card reveal">
-        <h3>Architectural Integration</h3>
-        <p>Lighting should enhance, not dominate. Our fixtures are designed to complement architectural spaces, creating atmosphere and highlighting the beauty of the environments they illuminate.</p>
+        <h3>Atmospheric Presence</h3>
+        <p>Lighting should create atmosphere, not dominate space. Our fixtures establish a dialogue between illumination and architecture, generating calm elevation and spatial poetry through careful placement of light and shadow.</p>
       </article>
       <article class="card reveal">
-        <h3>Sustainable Craft</h3>
-        <p>We believe in creating pieces built to last generations. Using premium materials, repairable construction, and timeless design, our fixtures represent an investment in sustainable luxury.</p>
+        <h3>Timeless Serenity</h3>
+        <p>Fashion fades, but serenity endures. We design for the long view, creating forms that will remain relevant decades from now because they speak to something deeper than trend—the human need for beauty and calm.</p>
       </article>
       <article class="card reveal">
-        <h3>Custom Solutions</h3>
-        <p>No two spaces are identical. We work closely with clients to adapt our designs or create entirely bespoke pieces that perfectly complement their architectural vision and functional requirements.</p>
+        <h3>Artisanal Craftsmanship</h3>
+        <p>Every piece is shaped by human hands in our New York atelier. Traditional techniques merge with contemporary vision, ensuring each fixture carries the subtle irregularities that mark authentic craftsmanship.</p>
       </article>
       <article class="card reveal">
-        <h3>Material Honesty</h3>
-        <p>We celebrate the inherent beauty of our materials—brass develops its natural patina, metals age gracefully, and finishes are applied to enhance rather than disguise the underlying material qualities.</p>
+        <h3>Sustainable Beauty</h3>
+        <p>True luxury is responsibility. We source materials ethically, design for longevity, and create pieces meant to last generations. Our fixtures age gracefully, developing patina and character through time.</p>
       </article>
     </div>
   </section>
@@ -420,33 +420,33 @@
   <!-- PROCESS TIMELINE -->
   <section class="timeline">
     <header class="reveal">
-      <h2>Process</h2>
+      <h2>Artisan Process</h2>
     </header>
     <div class="steps">
       <div class="step reveal">
         <span class="dot" aria-hidden="true"></span>
-        <h3>01 — Concept & Design</h3>
-        <p>Every piece begins with extensive research into architectural trends, material properties, and lighting physics. Our designers create detailed sketches and digital models to perfect proportions and form.</p>
+        <h3>01 — Material Communion & Form Meditation</h3>
+        <p>Every piece begins with deep study of natural materials—understanding how plaster holds light, how alabaster breathes, how wood remembers its living form. We meditate on the inherent poetry within each element.</p>
       </div>
       <div class="step reveal">
         <span class="dot" aria-hidden="true"></span>
-        <h3>02 — Prototyping & Testing</h3>
-        <p>We create physical prototypes to test light distribution, material behavior, and structural integrity. Each prototype undergoes rigorous testing to ensure it meets our exacting standards.</p>
+        <h3>02 — Ethereal Prototyping & Light Studies</h3>
+        <p>We create atmospheric prototypes to explore the dialogue between material and illumination. Each form is tested for its ability to capture, diffuse, and release light in ways that create presence rather than mere brightness.</p>
       </div>
       <div class="step reveal">
         <span class="dot" aria-hidden="true"></span>
-        <h3>03 — Artisanal Crafting</h3>
-        <p>Master craftsmen shape, weld, and finish each component by hand in our New York atelier. Traditional metalworking techniques are combined with modern precision tools for exceptional quality.</p>
+        <h3>03 — Hand-Shaping & Surface Poetry</h3>
+        <p>Master artisans shape each piece by hand, allowing the material to guide the process. Plaster surfaces develop organic textures, wood reveals its grain story, glass captures the breath of its making.</p>
       </div>
       <div class="step reveal">
         <span class="dot" aria-hidden="true"></span>
-        <h3>04 — Finishing & Assembly</h3>
-        <p>Surfaces are meticulously prepared and finished with our signature patinas and protective coatings. Electrical components are installed and tested to UL standards before final quality inspection.</p>
+        <h3>04 — Natural Finishing & Patina Development</h3>
+        <p>Surfaces receive minimal intervention—gentle sanding to reveal texture, natural oils to honor wood grain, careful polishing to awaken alabaster's inner glow. Each finish enhances rather than conceals material truth.</p>
       </div>
       <div class="step reveal">
         <span class="dot" aria-hidden="true"></span>
-        <h3>05 — Quality Assurance</h3>
-        <p>Each finished piece undergoes comprehensive testing including electrical safety, structural integrity, and finish quality. Only fixtures that meet our exacting standards bear the LUNVYR name.</p>
+        <h3>05 — Atmospheric Integration & Final Blessing</h3>
+        <p>Lighting components are seamlessly integrated, tested for both technical performance and atmospheric effect. Each completed piece undergoes final inspection to ensure it achieves the weightless presence that defines NUVORA.</p>
       </div>
     </div>
   </section>
@@ -465,50 +465,50 @@
   <section class="faq">
     <header class="reveal">
       <h2>Frequently Asked Questions</h2>
-      <p class="subtitle">Everything you need to know about our lighting fixtures and process.</p>
+      <p class="subtitle">Understanding our ethereal approach to natural material lighting.</p>
     </header>
     <div class="items">
       <div class="item reveal" data-open="false">
         <button class="q" aria-expanded="false">
-          <h3>What makes LUNVYR lighting fixtures unique?</h3>
+          <h3>What makes NUVORA lighting fixtures unique?</h3>
           <span class="icon">+</span>
         </button>
-        <div class="a"><div class="a-inner">Each LUNVYR fixture is handcrafted in our New York atelier using traditional metalworking techniques combined with contemporary design sensibilities. We focus on timeless elegance, premium materials, and architectural integration that sets our pieces apart from mass-produced lighting.</div></div>
+        <div class="a"><div class="a-inner">Each NUVORA fixture is hand-crafted from natural materials in our New York atelier, creating ethereal forms that appear suspended between presence and absence. We transform plaster, alabaster, wood, and glass into atmospheric sculptures that invite serenity and elevate space through weightless elegance.</div></div>
       </div>
       <div class="item reveal" data-open="false">
         <button class="q" aria-expanded="false">
-          <h3>What are your typical lead times and delivery options?</h3>
+          <h3>What natural materials do you work with?</h3>
           <span class="icon">+</span>
         </button>
-        <div class="a"><div class="a-inner">Standard collection pieces typically require 6-8 weeks for production and shipping. Custom pieces may take 8-12 weeks depending on complexity. We ship via insured freight carriers to most locations worldwide. All fixtures include mounting hardware and detailed installation instructions.</div></div>
+        <div class="a"><div class="a-inner">Our primary materials include hand-shaped plaster with organic textures, translucent alabaster that glows from within, sustainably sourced walnut and oak, blown and molded glass, polished concrete, and brushed brass. Each material is chosen for its ability to create atmospheric presence and age gracefully over time.</div></div>
       </div>
       <div class="item reveal" data-open="false">
         <button class="q" aria-expanded="false">
-          <h3>Do you offer custom lighting solutions?</h3>
+          <h3>Do you create bespoke pieces for specific spaces?</h3>
           <span class="icon">+</span>
         </button>
-        <div class="a"><div class="a-inner">Absolutely. We work closely with architects, interior designers, and homeowners to create bespoke lighting solutions. Our team can modify existing designs or create entirely new pieces to meet specific dimensional, aesthetic, or functional requirements.</div></div>
+        <div class="a"><div class="a-inner">Absolutely. We believe every space has its own poetry, and we work closely with architects, designers, and discerning clients to create fixtures that enhance the architectural narrative. Our artisans can adapt existing forms or create entirely new ethereal sculptures to match your vision.</div></div>
       </div>
       <div class="item reveal" data-open="false">
         <button class="q" aria-expanded="false">
-          <h3>Are your fixtures compatible with smart home systems?</h3>
+          <h3>How do your fixtures integrate with modern lighting systems?</h3>
           <span class="icon">+</span>
         </button>
-        <div class="a"><div class="a-inner">Yes, our fixtures can be equipped with dimmable LED systems and are compatible with most smart home automation systems. All fixtures come with detailed installation instructions and mounting hardware. We recommend hiring a qualified electrician for safe installation.</div></div>
+        <div class="a"><div class="a-inner">Our fixtures seamlessly integrate dimmable LED systems and are compatible with smart home automation. The lighting is designed to enhance the natural material qualities—soft diffusion through alabaster, warm glow against wood grain, atmospheric play of light and shadow on textured plaster surfaces.</div></div>
       </div>
       <div class="item reveal" data-open="false">
         <button class="q" aria-expanded="false">
-          <h3>What warranty and support do you provide?</h3>
+          <h3>What is your approach to sustainability?</h3>
           <span class="icon">+</span>
         </button>
-        <div class="a"><div class="a-inner">We offer a comprehensive 2-year warranty covering materials and workmanship. Our fixtures are built for longevity with replaceable components and repairable construction. Our customer service team provides ongoing support for installation, maintenance, and any questions you may have.</div></div>
+        <div class="a"><div class="a-inner">True luxury embraces responsibility. We source materials ethically, design for generational longevity, and create pieces that age gracefully. Our fixtures develop natural patina and character over time, becoming more beautiful with age rather than requiring replacement.</div></div>
       </div>
       <div class="item reveal" data-open="false">
         <button class="q" aria-expanded="false">
-          <h3>Do you work with trade professionals?</h3>
+          <h3>Do you work with trade professionals and large projects?</h3>
           <span class="icon">+</span>
         </button>
-        <div class="a"><div class="a-inner">Yes, we have extensive experience working with architects, interior designers, and contractors. We offer trade pricing, project support, specification assistance, and dedicated account management for professional projects. Contact us at info@lunvyr.com for trade program details.</div></div>
+        <div class="a"><div class="a-inner">Yes, we collaborate extensively with architects, interior designers, and contractors who appreciate the transformative power of atmospheric lighting. We offer trade support, project consultation, specification assistance, and dedicated account management for professional installations. Contact us at info@nuvora.com for trade program details.</div></div>
       </div>
     </div>
   </section>
@@ -524,11 +524,11 @@
   <!-- CTA FINAL -->
   <section class="cta-final">
     <div class="wrap">
-      <h2>Ready to Transform Your Space?</h2>
-      <p>Discover how LUNVYR's handcrafted lighting can elevate your next project. From intimate residential spaces to grand commercial installations, we create lighting that makes every environment extraordinary.</p>
+      <h2>Create Atmospheric Presence</h2>
+      <p>Discover how NUVORA's natural material lighting can transform your space into a realm of ethereal serenity. From intimate residential sanctuaries to grand architectural statements, we craft atmospheric forms that elevate every environment.</p>
       <div class="actions">
-        <a class="btn" href="/contact.htm" aria-label="Start your project">Start Your Project</a>
-        <a class="btn" href="/shop.htm" aria-label="Browse collections">Browse Collections</a>
+        <a class="btn" href="/contact.htm" aria-label="Begin your vision">Begin Your Vision</a>
+        <a class="btn" href="/shop.htm" aria-label="Explore materials">Explore Materials</a>
       </div>
     </div>
   </section>

@@ -1,17 +1,19 @@
-<!-- LUNVYR — SHOP (Zorien Style) -->
+<!-- NUVORA — SHOP (Natural Materials Collection) -->
 <style>
 :root{
-  --primary: #3b82f6; --primary-dark: #2563eb; --primary-light: #dbeafe;
-  --surface: #ffffff; --surface-dim: #f8fafc; --surface-border: #e2e8f0;
-  --text: #1e293b; --text-muted: #64748b; --text-light: #94a3b8;
+  --cloud-whisper:#F6F6F6; --moonlit-sand:#EDE7DD; --silver-mist:#DADCE0; 
+  --pale-graphite:#B2B2B2; --noir-veil:#2E2E2E; --ethereal-brass:#C8B898; --white:#fff;
+  --surface: var(--white); --surface-dim: var(--cloud-whisper); --surface-border: var(--silver-mist);
+  --text: var(--noir-veil); --text-muted: var(--pale-graphite); --text-light: var(--silver-mist);
+  --primary: var(--ethereal-brass); --primary-dark: #b8a382; --primary-light: rgba(200,184,152,.15);
   --success: #10b981; --danger: #ef4444; --warning: #f59e0b;
-  --radius: 8px; --radius-lg: 12px; --shadow: 0 1px 3px rgba(0,0,0,.1);
-  --shadow-lg: 0 10px 25px rgba(0,0,0,.1); --transition: all 0.2s ease;
+  --radius: 8px; --radius-lg: 12px; --shadow: 0 1px 3px rgba(46,46,46,.08);
+  --shadow-lg: 0 10px 25px rgba(46,46,46,.1); --transition: all 0.2s ease;
   --site-max: 1280px; --site-pad: clamp(16px,4vw,32px);
 }
-.shop-lunvyr{ 
+.shop-nuvora{ 
   background: var(--surface-dim); color: var(--text); 
-  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; 
+  font-family: 'Manrope',system-ui,sans-serif; 
   min-height: 100vh; line-height: 1.5;
 }
 .shop-wrap{ 
@@ -455,12 +457,12 @@
 .card .thumb:has(img[src]:not([src=""])) ::before{ opacity: 0; }
 </style>
 
-<section class="shop-lunvyr" id="shopApp">
+<section class="shop-nuvora" id="shopApp">
   <div class="shop-wrap">
     <div class="shop-head">
       <div>
-        <div class="shop-breadcrumb">Home / Shop</div>
-        <h1>Shop</h1>
+        <div class="shop-breadcrumb">Home / Natural Materials Collection</div>
+        <h1>NUVORA Collection</h1>
       </div>
       <button class="btn-filters" type="button" aria-expanded="false" id="btnFilters">Filters</button>
     </div>
@@ -510,16 +512,29 @@
 
         <div class="filter-acc">
           <details open>
-            <summary>Categories</summary>
+            <summary>Material Collections</summary>
             <div class="filter-panel">
-              <div class="filter-list" id="catList"><div class="note">Loading…</div></div>
+              <div class="filter-list" id="materialList">
+                <label><input type="checkbox" value="plaster"> Plaster Collection</label>
+                <label><input type="checkbox" value="alabaster"> Alabaster Collection</label>
+                <label><input type="checkbox" value="wood"> Wood Collection</label>
+                <label><input type="checkbox" value="glass"> Glass Collection</label>
+                <label><input type="checkbox" value="concrete"> Concrete Collection</label>
+                <label><input type="checkbox" value="brass"> Brass Collection</label>
+              </div>
             </div>
           </details>
 
           <details>
-            <summary>Tags</summary>
+            <summary>Natural Properties</summary>
             <div class="filter-panel">
-              <div class="filter-list" id="tagList"><div class="note">Loading…</div></div>
+              <div class="filter-list" id="propertyList">
+                <label><input type="checkbox" value="organic"> Organic Materials</label>
+                <label><input type="checkbox" value="mineral"> Mineral Based</label>
+                <label><input type="checkbox" value="textured"> Natural Texture</label>
+                <label><input type="checkbox" value="smooth"> Smooth Finish</label>
+                <label><input type="checkbox" value="porous"> Breathable Surface</label>
+              </div>
             </div>
           </details>
 
@@ -598,14 +613,14 @@
   const API = `${location.origin}/wp-json/wc/store/v1`;
   const state = {
     page: +(new URL(location.href).searchParams.get('page')||1),
-    perPage: +(new URL(location.href).searchParams.get('per_page')||localStorage.getItem('lunvyr_shop_pp')||12),
+    perPage: +(new URL(location.href).searchParams.get('per_page')||localStorage.getItem('nuvora_shop_pp')||12),
     orderby: new URL(location.href).searchParams.get('orderby')||'',
     search: new URL(location.href).searchParams.get('s')||'',
     categories: new Set(), tags: new Set(),
     min_price: new URL(location.href).searchParams.get('min_price')||'',
     max_price: new URL(location.href).searchParams.get('max_price')||'',
-    view: localStorage.getItem('lunvyr_shop_view') || 'grid',
-    gridDensity: localStorage.getItem('lunvyr_grid_density') || '4',
+    view: localStorage.getItem('nuvora_shop_view') || 'grid',
+    gridDensity: localStorage.getItem('nuvora_grid_density') || '4',
     attrs: {},          // slug -> Set()
     attrIds: {},        // slug -> attribute id
     taxIndex: { cat:{}, tag:{} },
@@ -1070,7 +1085,7 @@
   function setGridDensity(density) {
     state.gridDensity = density;
     grid.className = `products-grid cols-${density}`;
-    localStorage.setItem('lunvyr_grid_density', density);
+    localStorage.setItem('nuvora_grid_density', density);
   }
   $('#gridDensity').addEventListener('change', e => {
     if (state.view === 'grid') {

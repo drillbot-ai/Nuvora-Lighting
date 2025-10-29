@@ -1,182 +1,166 @@
-<!-- LUNVYR — Material Guide (Brass Types, Finishes, Properties, Care) -->
+<!-- NUVORA — Natural Materials Guide (Complete material properties, care, and applications) -->
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Inter:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lusitana:wght@400;700&family=Manrope:wght@300;400;500;600&family=Crimson+Text:wght@400;600&display=swap');
 
 :root{
-  --ink:#1c222b; --paper:#f2f0eb; --coal:#111; --ash:#666; --brass:#b2956d; --white:#fff;
-  --radius:14px; --shadow:0 12px 32px rgba(0,0,0,.08);
+  --cloud-whisper:#F6F6F6; --moonlit-sand:#EDE7DD; --silver-mist:#DADCE0; 
+  --pale-graphite:#B2B2B2; --noir-veil:#2E2E2E; --ethereal-brass:#C8B898; --white:#fff;
+  --radius:16px; --shadow:0 12px 32px rgba(0,0,0,.06);
 }
 
-.materials{font-family:Inter,system-ui,sans-serif;color:var(--coal);line-height:1.65}
-.materials h1,.materials h2,.materials h3{font-family:Cinzel,serif;font-weight:400;margin:0}
-.materials .eyebrow{letter-spacing:.12em;text-transform:uppercase;font-size:.8rem;color:var(--paper);margin-bottom:.6rem}
+.materials{font-family:Manrope,system-ui,sans-serif;color:var(--noir-veil);line-height:1.6}
+.materials h1,.materials h2,.materials h3{font-family:Lusitana,serif;font-weight:400;margin:0}
+.materials .eyebrow{letter-spacing:.12em;text-transform:uppercase;font-size:.8rem;color:var(--pale-graphite);margin-bottom:.6rem}
 
 /* Hero */
 .materials-hero{
-  position:relative; color:var(--paper); text-align:center;
-  background:#0e0f12 url('https://lunvyr.com/wp-content/uploads/2025/10/006.png') center/cover no-repeat;
+  position:relative; color:var(--cloud-whisper); text-align:center;
+  background:linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%), url('https://lunvyr.com/wp-content/uploads/2025/08/image-65.png') center/cover no-repeat;
+  background-blend-mode:overlay;
   padding:clamp(100px,15vh,160px) 10%; min-height:70vh; display:flex; align-items:center; justify-content:center;
-}
-.materials-hero::before{
-  content:""; position:absolute; top:0; left:0; right:0; height:1px;
-  background:linear-gradient(90deg, transparent, var(--brass), transparent);
 }
 .materials-hero::after{
   content:""; position:absolute; inset:0; 
-  background:radial-gradient(110% 110% at 70% 30%, rgba(0,0,0,0) 0%, rgba(0,0,0,.7) 70%);
+  background:radial-gradient(110% 110% at 50% 30%, rgba(0,0,0,0) 0%, rgba(46,46,46,.8) 70%);
 }
 .materials-hero .inner{position:relative; z-index:2; max-width:900px; margin:0 auto}
 .materials-hero h1{
-  font-size:clamp(2.6rem,5.2vw,3.8rem); color:var(--paper); margin-bottom:16px;
-  font-family:'Cinzel',serif; font-weight:400; line-height:1.15;
+  font-size:clamp(2.6rem,5.2vw,3.8rem); color:var(--cloud-whisper); margin-bottom:16px;
+  font-family:'Lusitana',serif; font-weight:400; line-height:1.15;
 }
-.materials-hero p{color:#d6d3ce; margin:0 auto; max-width:760px; font-size:1.1rem; line-height:1.6}
+.materials-hero p{color:#e6e4e1; margin:0 auto; max-width:760px; font-size:1.1rem; line-height:1.6}
 
 /* Material Types */
 .material-types{
   padding:clamp(84px,12vh,140px) 10%; 
-  background:linear-gradient(135deg, var(--paper) 0%, #f8f6f0 100%);
+  background:linear-gradient(135deg, var(--cloud-whisper) 0%, #f8f6f3 100%);
   position:relative;
 }
-.material-types::before{
-  content:""; position:absolute; top:0; left:0; right:0; height:1px;
-  background:linear-gradient(90deg, transparent, var(--brass), transparent);
-}
-.types-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:28px; max-width:1200px; margin:0 auto}
-/* Desktop layout for 4 type cards - single row */
-@media (min-width:1024px){
-  .types-grid{grid-template-columns:repeat(4, 1fr); max-width:1400px}
+.types-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr)); gap:32px; max-width:1400px; margin:0 auto}
+/* Desktop layout for 6 material cards - 3x2 grid */
+@media (min-width:1200px){
+  .types-grid{grid-template-columns:repeat(3, 1fr); max-width:1200px}
 }
 .type-card{
-  background:var(--white); border:1px solid rgba(17,17,17,.06); 
+  background:var(--white); border:1px solid rgba(46,46,46,.06); 
   border-radius:20px; overflow:hidden; box-shadow:var(--shadow);
   transition:all .4s ease; position:relative;
 }
-.type-card:hover{transform:translateY(-8px); box-shadow:0 20px 50px rgba(0,0,0,.15)}
+.type-card:hover{transform:translateY(-8px); box-shadow:0 20px 50px rgba(0,0,0,.12)}
 .type-sample{
-  height:120px; position:relative; background-size:cover; background-position:center;
+  height:140px; position:relative; background-size:cover; background-position:center;
   display:flex; align-items:center; justify-content:center;
 }
-.type-sample.brass{background:linear-gradient(135deg, #b8860b 0%, #daa520 100%)}
-.type-sample.aged{background:linear-gradient(135deg, #8b6914 0%, #b8860b 100%)}
-.type-sample.blackened{background:linear-gradient(135deg, #2d2d2d 0%, #1a1a1a 100%)}
-.type-sample.steel{background:linear-gradient(135deg, #a8a8a8 0%, #c0c0c0 100%)}
+.type-sample.plaster{background:linear-gradient(135deg, #f5f1e8 0%, #e8ddd4 100%)}
+.type-sample.alabaster{background:linear-gradient(135deg, #faf9f7 0%, #f0ebe5 100%)}
+.type-sample.wood{background:linear-gradient(135deg, #8b4513 0%, #deb887 100%)}
+.type-sample.glass{background:linear-gradient(135deg, #e6f3ff 0%, #b8e6e6 100%)}
+.type-sample.concrete{background:linear-gradient(135deg, #d3d3d3 0%, #8e8e8e 100%)}
+.type-sample.brass{background:linear-gradient(135deg, #c8b898 0%, #daa520 100%)}
 .type-label{
-  color:var(--white); font-family:Cinzel,serif; font-size:1.2rem; font-weight:500;
-  text-shadow:0 2px 10px rgba(0,0,0,.5);
+  color:var(--noir-veil); font-family:Lusitana,serif; font-size:1.3rem; font-weight:400;
+  text-shadow:0 2px 10px rgba(255,255,255,.8);
 }
 .type-content{padding:28px 24px}
-.type-card h3{color:var(--ink); margin-bottom:12px; font-size:1.3rem}
-.type-card p{color:var(--ash); margin:0 0 16px; line-height:1.6}
+.type-card h3{color:var(--noir-veil); margin-bottom:12px; font-size:1.3rem}
+.type-card p{color:var(--pale-graphite); margin:0 0 16px; line-height:1.6}
 .type-properties{list-style:none; padding:0; margin:0}
 .type-properties li{
-  color:var(--ash); margin-bottom:6px; padding-left:16px; position:relative;
+  color:var(--pale-graphite); margin-bottom:6px; padding-left:16px; position:relative;
   font-size:.9rem;
 }
 .type-properties li::before{
-  content:"•"; color:var(--brass); position:absolute; left:0; font-weight:bold;
+  content:"•"; color:var(--ethereal-brass); position:absolute; left:0; font-weight:bold;
 }
 
 /* Comparison Table */
 .comparison{
-  background:#f7f7f7; padding:clamp(64px,10vh,100px) 10%;
+  background:var(--silver-mist); padding:clamp(64px,10vh,100px) 10%;
   position:relative;
 }
-.comparison::before{
-  content:""; position:absolute; top:0; left:0; right:0; height:1px;
-  background:linear-gradient(90deg, transparent, var(--brass), transparent);
-}
 .comparison-table{
-  max-width:1000px; margin:0 auto; background:var(--white);
-  border:1px solid rgba(17,17,17,.08); border-radius:16px; overflow:hidden;
+  max-width:1200px; margin:0 auto; background:var(--white);
+  border:1px solid rgba(46,46,46,.08); border-radius:16px; overflow:hidden;
   box-shadow:var(--shadow);
 }
 .table-header{
-  background:var(--ink); color:var(--paper); padding:20px 24px;
+  background:var(--noir-veil); color:var(--cloud-whisper); padding:20px 24px;
   display:grid; grid-template-columns:2fr 1fr 1fr 1fr 1fr; gap:16px;
   font-weight:600;
 }
 .table-row{
   padding:16px 24px; display:grid; grid-template-columns:2fr 1fr 1fr 1fr 1fr; gap:16px;
-  border-bottom:1px solid rgba(17,17,17,.08); align-items:center;
+  border-bottom:1px solid rgba(46,46,46,.08); align-items:center;
 }
 .table-row:last-child{border-bottom:none}
-.table-row:hover{background:rgba(178,149,109,.05)}
-.material-name{font-weight:500; color:var(--ink)}
+.table-row:hover{background:rgba(200,184,152,.05)}
+.material-name{font-weight:500; color:var(--noir-veil)}
 .rating{display:flex; gap:2px}
-.star{width:12px; height:12px; background:var(--brass); border-radius:2px}
-.star.empty{background:rgba(178,149,109,.2)}
+.star{width:12px; height:12px; background:var(--ethereal-brass); border-radius:2px}
+.star.empty{background:rgba(200,184,152,.2)}
 
 /* Finish Processes */
 .processes{
   padding:clamp(64px,10vh,100px) 10%; 
-  background:linear-gradient(135deg, var(--paper) 0%, #f8f6f0 100%);
+  background:linear-gradient(135deg, var(--cloud-whisper) 0%, #f8f6f3 100%);
   position:relative;
-}
-.processes::before{
-  content:""; position:absolute; top:0; left:0; right:0; height:1px;
-  background:linear-gradient(90deg, transparent, var(--brass), transparent);
 }
 .process-tabs{
   display:flex; justify-content:center; gap:12px; margin-bottom:40px;
-  flex-wrap:wrap; max-width:600px; margin-left:auto; margin-right:auto;
+  flex-wrap:wrap; max-width:800px; margin-left:auto; margin-right:auto;
 }
 .process-btn{
-  padding:12px 24px; background:var(--white); border:2px solid rgba(17,17,17,.12);
-  border-radius:50px; color:var(--coal); cursor:pointer; transition:all .3s ease;
+  padding:12px 24px; background:var(--white); border:2px solid rgba(46,46,46,.12);
+  border-radius:50px; color:var(--noir-veil); cursor:pointer; transition:all .3s ease;
   font-family:inherit; font-size:.9rem; font-weight:500;
 }
 .process-btn.active{
-  background:var(--brass); color:var(--ink); border-color:var(--brass);
+  background:var(--ethereal-brass); color:var(--white); border-color:var(--ethereal-brass);
 }
 .process-btn:hover:not(.active){
-  border-color:var(--brass); background:rgba(178,149,109,.1);
+  border-color:var(--ethereal-brass); background:rgba(200,184,152,.1);
 }
 .process-content{
-  background:var(--white); border:1px solid rgba(17,17,17,.08);
+  background:var(--white); border:1px solid rgba(46,46,46,.08);
   border-radius:16px; padding:32px 28px; box-shadow:var(--shadow);
-  max-width:800px; margin:0 auto; display:none;
+  max-width:900px; margin:0 auto; display:none;
 }
 .process-content.active{display:block}
 .process-content h3{
-  color:var(--ink); margin-bottom:16px; font-size:1.4rem;
+  color:var(--noir-veil); margin-bottom:16px; font-size:1.4rem;
 }
 .process-steps{display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:24px; margin-top:24px}
 /* Desktop layout for 4 process steps - 2x2 grid */
 @media (min-width:1024px){
-  .process-steps{grid-template-columns:repeat(2, 1fr); max-width:500px; margin:24px auto 0}
+  .process-steps{grid-template-columns:repeat(2, 1fr); max-width:600px; margin:24px auto 0}
 }
 .process-step{
-  background:rgba(178,149,109,.05); border:1px solid rgba(178,149,109,.2);
+  background:rgba(200,184,152,.05); border:1px solid rgba(200,184,152,.2);
   border-radius:12px; padding:20px 16px; text-align:center;
 }
 .step-number{
-  width:32px; height:32px; background:var(--brass); color:var(--ink);
+  width:32px; height:32px; background:var(--ethereal-brass); color:var(--white);
   border-radius:50%; display:flex; align-items:center; justify-content:center;
   font-weight:600; margin:0 auto 12px; font-size:.9rem;
 }
-.process-step h4{color:var(--ink); margin-bottom:6px; font-size:1rem}
-.process-step p{color:var(--ash); margin:0; font-size:.85rem; line-height:1.4}
+.process-step h4{color:var(--noir-veil); margin-bottom:6px; font-size:1rem}
+.process-step p{color:var(--pale-graphite); margin:0; font-size:.85rem; line-height:1.4}
 
 /* Applications */
 .applications{
-  background:var(--ink); color:var(--paper); padding:clamp(64px,10vh,100px) 10%;
+  background:var(--noir-veil); color:var(--cloud-whisper); padding:clamp(64px,10vh,100px) 10%;
   position:relative;
 }
-.applications::before{
-  content:""; position:absolute; top:0; left:0; right:0; height:1px;
-  background:linear-gradient(90deg, transparent, var(--brass), transparent);
-}
 .app-grid{
-  max-width:1000px; margin:0 auto; display:grid; 
-  grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); gap:24px;
+  max-width:1200px; margin:0 auto; display:grid; 
+  grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:24px;
 }
-/* Desktop layout for 4 application cards - 2x2 grid */
-@media (min-width:1024px){
-  .app-grid{grid-template-columns:repeat(2, 1fr); max-width:600px}
+/* Desktop layout for 6 application cards - 3x2 grid */
+@media (min-width:1200px){
+  .app-grid{grid-template-columns:repeat(3, 1fr); max-width:1000px}
 }
 .app-card{
-  background:rgba(255,255,255,.05); border:1px solid rgba(242,240,235,.2);
+  background:rgba(255,255,255,.05); border:1px solid rgba(246,246,246,.2);
   border-radius:16px; padding:24px 20px; backdrop-filter:blur(10px);
   text-align:center; transition:all .4s ease;
 }
@@ -184,62 +168,64 @@
   background:rgba(255,255,255,.1); transform:translateY(-4px);
 }
 .app-icon{
-  width:48px; height:48px; color:var(--brass); margin:0 auto 16px;
+  width:48px; height:48px; color:var(--ethereal-brass); margin:0 auto 16px;
 }
-.app-card h4{color:var(--paper); margin-bottom:8px; font-size:1.1rem}
-.app-card p{color:#d6d3ce; margin:0 0 12px; font-size:.9rem; line-height:1.5}
-.app-materials{font-size:.8rem; color:var(--brass); font-weight:500}
+.app-card h4{color:var(--cloud-whisper); margin-bottom:8px; font-size:1.1rem}
+.app-card p{color:#e6e4e1; margin:0 0 12px; font-size:.9rem; line-height:1.5}
+.app-materials{font-size:.8rem; color:var(--ethereal-brass); font-weight:500}
 
 /* Care Guide */
 .care-guide{
-  padding:clamp(64px,10vh,100px) 10%; background:#f7f7f7;
+  padding:clamp(64px,10vh,100px) 10%; background:var(--silver-mist);
   position:relative;
-}
-.care-guide::before{
-  content:""; position:absolute; top:0; left:0; right:0; height:1px;
-  background:linear-gradient(90deg, transparent, var(--brass), transparent);
 }
 .care-grid{
   display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); 
-  gap:24px; max-width:1000px; margin:0 auto;
+  gap:24px; max-width:1200px; margin:0 auto;
 }
-/* Desktop layout for 2 care guideline cards - single row */
-@media (min-width:1024px){
-  .care-grid{grid-template-columns:repeat(2, 1fr); max-width:650px}
+/* Desktop layout for 6 care guideline cards - 3x2 grid */
+@media (min-width:1200px){
+  .care-grid{grid-template-columns:repeat(3, 1fr); max-width:1000px}
 }
 .care-card{
-  background:var(--white); border:1px solid rgba(17,17,17,.08);
+  background:var(--white); border:1px solid rgba(46,46,46,.08);
   border-radius:16px; padding:24px 20px; box-shadow:var(--shadow);
   transition:all .3s ease;
 }
 .care-card:hover{transform:translateY(-4px); box-shadow:0 12px 35px rgba(0,0,0,.12)}
-.care-card h4{color:var(--ink); margin-bottom:12px; font-size:1.1rem; display:flex; align-items:center; gap:8px}
-.care-card .icon{width:20px; height:20px; color:var(--brass)}
+.care-card h4{color:var(--noir-veil); margin-bottom:12px; font-size:1.1rem; display:flex; align-items:center; gap:8px}
+.care-card .icon{width:20px; height:20px; color:var(--ethereal-brass)}
 .care-list{list-style:none; padding:0; margin:0}
 .care-list li{
-  color:var(--ash); margin-bottom:8px; font-size:.9rem; line-height:1.5;
+  color:var(--pale-graphite); margin-bottom:8px; font-size:.9rem; line-height:1.5;
   padding-left:16px; position:relative;
 }
 .care-list li::before{
-  content:"✓"; color:var(--brass); position:absolute; left:0; font-weight:bold;
+  content:"✓"; color:var(--ethereal-brass); position:absolute; left:0; font-weight:bold;
 }
 
 /* CTA */
 .cta{
-  background:linear-gradient(135deg, var(--paper) 0%, #f8f6f0 100%);
+  background:linear-gradient(135deg, var(--cloud-whisper) 0%, #f8f6f3 100%);
   text-align:center; padding:clamp(64px,10vh,100px) 10%;
 }
-.cta h2{margin-bottom:16px; color:var(--ink)}
-.cta p{color:var(--ash); margin:0 0 24px; max-width:600px; margin-left:auto; margin-right:auto}
+.cta h2{margin-bottom:16px; color:var(--noir-veil)}
+.cta p{color:var(--pale-graphite); margin:0 0 24px; max-width:600px; margin-left:auto; margin-right:auto}
 .cta .btn{
-  font-family:Cinzel,serif; padding:1rem 2rem; border-radius:50px;
-  border:2px solid var(--ink); background:var(--ink); color:var(--paper);
+  font-family:Lusitana,serif; padding:1rem 2rem; border-radius:50px;
+  border:2px solid var(--noir-veil); background:var(--noir-veil); color:var(--cloud-whisper);
   text-decoration:none; display:inline-flex; align-items:center; gap:.7rem;
   transition:all .4s ease; font-weight:500; margin:0 8px;
 }
 .cta .btn:hover{
-  background:transparent; color:var(--ink); transform:translateY(-2px);
-  box-shadow:0 8px 25px rgba(28,34,43,.2);
+  background:transparent; color:var(--noir-veil); transform:translateY(-2px);
+  box-shadow:0 8px 25px rgba(46,46,46,.2);
+}
+.cta .btn.secondary{
+  background:transparent; color:var(--noir-veil); border-color:var(--ethereal-brass);
+}
+.cta .btn.secondary:hover{
+  background:var(--ethereal-brass); color:var(--white); border-color:var(--ethereal-brass);
 }
 
 /* Responsive */
@@ -258,82 +244,116 @@
   <!-- HERO -->
   <section class="materials-hero">
     <div class="inner">
-      <div class="eyebrow">Material Mastery</div>
-      <h1>Material Guide</h1>
-      <p>Understanding materials is essential to selecting the perfect LUNVYR fixture. Explore our comprehensive guide to brass types, finishes, and properties.</p>
+      <div class="eyebrow">Natural Material Mastery</div>
+      <h1>Natural Materials Guide</h1>
+      <p>Understanding natural materials is essential to creating ethereal light forms. Explore our comprehensive guide to plaster, alabaster, wood, glass, concrete, and brass—each chosen for their unique properties and timeless beauty.</p>
     </div>
   </section>
 
   <!-- MATERIAL TYPES -->
   <section class="material-types">
-    <div style="text-align:left; text-transform:uppercase; margin-bottom:.6px; color:var(--ink); font-size:.8rem;">Core Materials</div>
-    <h2 style="text-align:center; margin-bottom:40px; color:var(--ink); font-size:clamp(1.8rem,2.8vw,2.4rem)">Material Portfolio</h2>
+    <div style="text-align:center; text-transform:uppercase; margin-bottom:.6rem; color:var(--pale-graphite); font-size:.8rem;">Natural Elements</div>
+    <h2 style="text-align:center; margin-bottom:48px; color:var(--noir-veil); font-size:clamp(1.8rem,2.8vw,2.4rem)">Our Material Palette</h2>
     
     <div class="types-grid">
       <div class="type-card">
+        <div class="type-sample plaster">
+          <div class="type-label">Plaster</div>
+        </div>
+        <div class="type-content">
+          <h3>Natural Plaster</h3>
+          <p>Earth-born material that celebrates the ancient craft of lime and gypsum plaster, offering organic texture and warm, diffused illumination.</p>
+          <ul class="type-properties">
+            <li>Lime-based traditional composition</li>
+            <li>Natural texture variations</li>
+            <li>Breathable material properties</li>
+            <li>Warm, soft light diffusion</li>
+            <li>Artisan hand-applied finish</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="type-card">
+        <div class="type-sample alabaster">
+          <div class="type-label">Alabaster</div>
+        </div>
+        <div class="type-content">
+          <h3>Translucent Alabaster</h3>
+          <p>Crystalline gypsum stone with natural translucency, creating luminous effects that seem to glow from within with ethereal beauty.</p>
+          <ul class="type-properties">
+            <li>Natural gypsum crystal formation</li>
+            <li>Inherent light translucency</li>
+            <li>Unique veining patterns</li>
+            <li>Cool, ethereal light quality</li>
+            <li>Hand-carved artisan shaping</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="type-card">
+        <div class="type-sample wood">
+          <div class="type-label">Wood</div>
+        </div>
+        <div class="type-content">
+          <h3>Living Wood</h3>
+          <p>Sustainably sourced walnut and oak that carries the memory of forests, offering organic warmth and natural grain character.</p>
+          <ul class="type-properties">
+            <li>Sustainably harvested timber</li>
+            <li>Natural grain variations</li>
+            <li>Living material character</li>
+            <li>Warm light filtering</li>
+            <li>Develops patina over time</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="type-card">
+        <div class="type-sample glass">
+          <div class="type-label">Glass</div>
+        </div>
+        <div class="type-content">
+          <h3>Artisan Glass</h3>
+          <p>Hand-blown borosilicate glass offering crystal clarity and optical precision for prismatic light effects and ethereal transparency.</p>
+          <ul class="type-properties">
+            <li>Mouth-blown artisan techniques</li>
+            <li>Optical grade clarity</li>
+            <li>Prismatic light refraction</li>
+            <li>Custom surface treatments</li>
+            <li>Heat-resistant properties</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="type-card">
+        <div class="type-sample concrete">
+          <div class="type-label">Concrete</div>
+        </div>
+        <div class="type-content">
+          <h3>Architectural Concrete</h3>
+          <p>High-performance cast concrete celebrating honest material beauty with precise geometric forms and subtle textural richness.</p>
+          <ul class="type-properties">
+            <li>High-performance concrete mix</li>
+            <li>Precision cast formwork</li>
+            <li>Natural surface texture</li>
+            <li>Thermal mass properties</li>
+            <li>Architectural durability</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="type-card">
         <div class="type-sample brass">
-          <div class="type-label">Natural Brass</div>
+          <div class="type-label">Brass</div>
         </div>
         <div class="type-content">
-          <h3>Natural Brass</h3>
-          <p>Premium brass alloy that develops rich patina over time, creating a living finish that evolves with your space.</p>
+          <h3>Living Brass</h3>
+          <p>Traditional brass alloy that develops beautiful patina over time, creating fixtures that become more characterful with age.</p>
           <ul class="type-properties">
-            <li>60% copper, 40% zinc composition</li>
-            <li>Develops natural patina over time</li>
-            <li>Excellent corrosion resistance</li>
-            <li>Warm golden undertones</li>
-            <li>Hand-polishable to high shine</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="type-card">
-        <div class="type-sample aged">
-          <div class="type-label">Aged Brass</div>
-        </div>
-        <div class="type-content">
-          <h3>Aged Brass</h3>
-          <p>Pre-patinated brass with accelerated aging process, providing instant vintage character and depth.</p>
-          <ul class="type-properties">
-            <li>Chemical patina application</li>
-            <li>Rich brown and green tones</li>
-            <li>Sealed protective coating</li>
-            <li>Consistent aged appearance</li>
-            <li>Low maintenance finish</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="type-card">
-        <div class="type-sample blackened">
-          <div class="type-label">Blackened Steel</div>
-        </div>
-        <div class="type-content">
-          <h3>Blackened Steel</h3>
-          <p>Heat-treated steel with dark oxide finish, offering industrial aesthetic with superior durability.</p>
-          <ul class="type-properties">
-            <li>High-carbon steel base</li>
-            <li>Heat-oxidized surface treatment</li>
-            <li>Matte black appearance</li>
-            <li>Enhanced corrosion protection</li>
-            <li>Industrial aesthetic appeal</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="type-card">
-        <div class="type-sample steel">
-          <div class="type-label">Polished Steel</div>
-        </div>
-        <div class="type-content">
-          <h3>Polished Steel</h3>
-          <p>Mirror-finished stainless steel providing contemporary elegance with superior corrosion resistance.</p>
-          <ul class="type-properties">
-            <li>316L marine-grade stainless</li>
-            <li>Mirror polish finish</li>
-            <li>Excellent corrosion resistance</li>
-            <li>Modern aesthetic appeal</li>
-            <li>Easy maintenance and cleaning</li>
+            <li>Premium brass alloy composition</li>
+            <li>Natural patina development</li>
+            <li>Hand-forged techniques</li>
+            <li>Warm light reflection</li>
+            <li>Timeless aging character</li>
           </ul>
         </div>
       </div>
@@ -342,27 +362,20 @@
 
   <!-- COMPARISON -->
   <section class="comparison">
-    <div class="eyebrow" style="text-align:center">Material Comparison</div>
-    <h2 style="text-align:center; margin-bottom:40px; color:var(--ink); font-size:clamp(1.6rem,2.4vw,2rem)">Performance Comparison</h2>
+    <div class="eyebrow" style="text-align:center; color:var(--pale-graphite)">Material Comparison</div>
+    <h2 style="text-align:center; margin-bottom:40px; color:var(--noir-veil); font-size:clamp(1.6rem,2.4vw,2rem)">Properties Comparison</h2>
     
     <div class="comparison-table">
       <div class="table-header">
         <div>Material</div>
         <div>Durability</div>
+        <div>Light Quality</div>
+        <div>Character</div>
         <div>Maintenance</div>
-        <div>Patina</div>
-        <div>Cost</div>
       </div>
       
       <div class="table-row">
-        <div class="material-name">Natural Brass</div>
-        <div class="rating">
-          <div class="star"></div>
-          <div class="star"></div>
-          <div class="star"></div>
-          <div class="star"></div>
-          <div class="star empty"></div>
-        </div>
+        <div class="material-name">Natural Plaster</div>
         <div class="rating">
           <div class="star"></div>
           <div class="star"></div>
@@ -381,65 +394,8 @@
           <div class="star"></div>
           <div class="star"></div>
           <div class="star"></div>
-          <div class="star empty"></div>
-          <div class="star empty"></div>
-        </div>
-      </div>
-      
-      <div class="table-row">
-        <div class="material-name">Aged Brass</div>
-        <div class="rating">
           <div class="star"></div>
           <div class="star"></div>
-          <div class="star"></div>
-          <div class="star"></div>
-          <div class="star empty"></div>
-        </div>
-        <div class="rating">
-          <div class="star"></div>
-          <div class="star"></div>
-          <div class="star"></div>
-          <div class="star"></div>
-          <div class="star"></div>
-        </div>
-        <div class="rating">
-          <div class="star"></div>
-          <div class="star"></div>
-          <div class="star empty"></div>
-          <div class="star empty"></div>
-          <div class="star empty"></div>
-        </div>
-        <div class="rating">
-          <div class="star"></div>
-          <div class="star"></div>
-          <div class="star"></div>
-          <div class="star"></div>
-          <div class="star empty"></div>
-        </div>
-      </div>
-      
-      <div class="table-row">
-        <div class="material-name">Blackened Steel</div>
-        <div class="rating">
-          <div class="star"></div>
-          <div class="star"></div>
-          <div class="star"></div>
-          <div class="star"></div>
-          <div class="star"></div>
-        </div>
-        <div class="rating">
-          <div class="star"></div>
-          <div class="star"></div>
-          <div class="star"></div>
-          <div class="star"></div>
-          <div class="star empty"></div>
-        </div>
-        <div class="rating">
-          <div class="star"></div>
-          <div class="star empty"></div>
-          <div class="star empty"></div>
-          <div class="star empty"></div>
-          <div class="star empty"></div>
         </div>
         <div class="rating">
           <div class="star"></div>
@@ -451,7 +407,71 @@
       </div>
       
       <div class="table-row">
-        <div class="material-name">Polished Steel</div>
+        <div class="material-name">Translucent Alabaster</div>
+        <div class="rating">
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star empty"></div>
+        </div>
+        <div class="rating">
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+        </div>
+        <div class="rating">
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+        </div>
+        <div class="rating">
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star empty"></div>
+          <div class="star empty"></div>
+        </div>
+      </div>
+      
+      <div class="table-row">
+        <div class="material-name">Living Wood</div>
+        <div class="rating">
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star empty"></div>
+        </div>
+        <div class="rating">
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star empty"></div>
+        </div>
+        <div class="rating">
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+        </div>
+        <div class="rating">
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star empty"></div>
+          <div class="star empty"></div>
+        </div>
+      </div>
+
+      <div class="table-row">
+        <div class="material-name">Artisan Glass</div>
         <div class="rating">
           <div class="star"></div>
           <div class="star"></div>
@@ -467,10 +487,10 @@
           <div class="star"></div>
         </div>
         <div class="rating">
-          <div class="star empty"></div>
-          <div class="star empty"></div>
-          <div class="star empty"></div>
-          <div class="star empty"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
           <div class="star empty"></div>
         </div>
         <div class="rating">
@@ -479,6 +499,70 @@
           <div class="star"></div>
           <div class="star"></div>
           <div class="star"></div>
+        </div>
+      </div>
+
+      <div class="table-row">
+        <div class="material-name">Architectural Concrete</div>
+        <div class="rating">
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+        </div>
+        <div class="rating">
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star empty"></div>
+          <div class="star empty"></div>
+        </div>
+        <div class="rating">
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star empty"></div>
+        </div>
+        <div class="rating">
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+        </div>
+      </div>
+      
+      <div class="table-row">
+        <div class="material-name">Living Brass</div>
+        <div class="rating">
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star empty"></div>
+        </div>
+        <div class="rating">
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star empty"></div>
+        </div>
+        <div class="rating">
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+        </div>
+        <div class="rating">
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star"></div>
+          <div class="star empty"></div>
+          <div class="star empty"></div>
         </div>
       </div>
     </div>
@@ -486,104 +570,136 @@
 
   <!-- FINISH PROCESSES -->
   <section class="processes">
-    <div class="eyebrow" style="text-align:center">Finish Techniques</div>
-    <h2 style="text-align:center; margin-bottom:40px; color:var(--ink); font-size:clamp(1.6rem,2.4vw,2rem)">Finish Processes</h2>
+    <div class="eyebrow" style="text-align:center; color:var(--pale-graphite)">Artisan Techniques</div>
+    <h2 style="text-align:center; margin-bottom:40px; color:var(--noir-veil); font-size:clamp(1.6rem,2.4vw,2rem)">Crafting Processes</h2>
     
     <div class="process-tabs">
-      <button class="process-btn active" onclick="showProcess('polishing')">Polishing</button>
-      <button class="process-btn" onclick="showProcess('patina')">Patina</button>
-      <button class="process-btn" onclick="showProcess('blackening')">Blackening</button>
+      <button class="process-btn active" onclick="showProcess('plaster')">Plaster Working</button>
+      <button class="process-btn" onclick="showProcess('glass')">Glass Blowing</button>
+      <button class="process-btn" onclick="showProcess('wood')">Wood Shaping</button>
+      <button class="process-btn" onclick="showProcess('concrete')">Concrete Casting</button>
     </div>
 
-    <div class="process-content active" id="polishing-content">
-      <h3>Hand Polishing Process</h3>
-      <p style="color:var(--ash); margin-bottom:24px">Our master craftsmen use traditional hand-polishing techniques to achieve mirror-like finishes on brass and steel surfaces.</p>
+    <div class="process-content active" id="plaster-content">
+      <h3>Traditional Plaster Application</h3>
+      <p style="color:var(--pale-graphite); margin-bottom:24px">Our master plasterers use centuries-old lime plaster techniques to create organic, textured surfaces that breathe and age beautifully.</p>
       
       <div class="process-steps">
         <div class="process-step">
           <div class="step-number">1</div>
-          <h4>Surface Preparation</h4>
-          <p>Remove oxidation and surface imperfections with progressively finer abrasives.</p>
+          <h4>Material Preparation</h4>
+          <p>Mix natural lime, sand, and fiber to create traditional plaster with proper consistency.</p>
         </div>
         
         <div class="process-step">
           <div class="step-number">2</div>
-          <h4>Compound Application</h4>
-          <p>Apply specialized polishing compounds using buffing wheels and hand techniques.</p>
+          <h4>Hand Application</h4>
+          <p>Apply multiple coats by hand, building texture and ensuring even thickness throughout.</p>
         </div>
         
         <div class="process-step">
           <div class="step-number">3</div>
-          <h4>Final Buffing</h4>
-          <p>Achieve mirror finish through progressive buffing with soft cotton wheels.</p>
+          <h4>Surface Texturing</h4>
+          <p>Create organic texture patterns using traditional tools and hand techniques.</p>
         </div>
         
         <div class="process-step">
           <div class="step-number">4</div>
-          <h4>Protection</h4>
-          <p>Apply clear protective coating to preserve shine and slow natural patina development.</p>
+          <h4>Natural Curing</h4>
+          <p>Allow slow carbonation curing process to develop strength and natural patina.</p>
         </div>
       </div>
     </div>
 
-    <div class="process-content" id="patina-content">
-      <h3>Chemical Patina Development</h3>
-      <p style="color:var(--ash); margin-bottom:24px">Accelerated aging using chemical solutions creates rich, complex patina finishes with consistent coloration.</p>
+    <div class="process-content" id="glass-content">
+      <h3>Artisan Glass Blowing</h3>
+      <p style="color:var(--pale-graphite); margin-bottom:24px">Master glassblowers shape molten glass using breath and gravity, creating unique forms with optical precision and organic beauty.</p>
       
       <div class="process-steps">
         <div class="process-step">
           <div class="step-number">1</div>
-          <h4>Surface Cleaning</h4>
-          <p>Thorough degreasing and cleaning to ensure uniform patina adhesion.</p>
+          <h4>Furnace Gathering</h4>
+          <p>Gather molten glass at 2000°F onto blowing iron with precise temperature control.</p>
         </div>
         
         <div class="process-step">
           <div class="step-number">2</div>
-          <h4>Chemical Application</h4>
-          <p>Apply patina solutions in controlled conditions for even color development.</p>
+          <h4>Form Shaping</h4>
+          <p>Shape glass through breath inflation and traditional hand tools with expert timing.</p>
         </div>
         
         <div class="process-step">
           <div class="step-number">3</div>
-          <h4>Color Development</h4>
-          <p>Monitor patina progression and build layers for desired depth and hue.</p>
+          <h4>Optical Refinement</h4>
+          <p>Polish and refine surfaces for optimal light transmission and clarity.</p>
         </div>
         
         <div class="process-step">
           <div class="step-number">4</div>
-          <h4>Sealing</h4>
-          <p>Apply protective wax or lacquer to stabilize the patina and prevent further aging.</p>
+          <h4>Annealing</h4>
+          <p>Controlled cooling process relieves stress and ensures long-term stability.</p>
         </div>
       </div>
     </div>
 
-    <div class="process-content" id="blackening-content">
-      <h3>Heat Blackening Treatment</h3>
-      <p style="color:var(--ash); margin-bottom:24px">High-temperature oxidation creates durable black finishes on steel with enhanced corrosion resistance.</p>
+    <div class="process-content" id="wood-content">
+      <h3>Sustainable Wood Shaping</h3>
+      <p style="color:var(--pale-graphite); margin-bottom:24px">Traditional woodworking techniques honor the natural grain while creating precise forms that celebrate the living character of timber.</p>
       
       <div class="process-steps">
         <div class="process-step">
           <div class="step-number">1</div>
-          <h4>Heat Treatment</h4>
-          <p>Controlled heating in oxidizing atmosphere forms iron oxide layer.</p>
+          <h4>Material Selection</h4>
+          <p>Choose sustainably harvested timber with optimal grain patterns and character.</p>
         </div>
         
         <div class="process-step">
           <div class="step-number">2</div>
-          <h4>Oxide Formation</h4>
-          <p>Monitor temperature and timing for optimal oxide thickness and adhesion.</p>
+          <h4>Hand Shaping</h4>
+          <p>Shape wood using traditional hand tools that follow natural grain direction.</p>
         </div>
         
         <div class="process-step">
           <div class="step-number">3</div>
-          <h4>Cooling</h4>
-          <p>Controlled cooling process stabilizes the oxide layer and color.</p>
+          <h4>Surface Finishing</h4>
+          <p>Sand and finish surfaces to enhance natural grain while preserving character.</p>
         </div>
         
         <div class="process-step">
           <div class="step-number">4</div>
-          <h4>Final Treatment</h4>
-          <p>Apply penetrating oil or wax for additional protection and depth.</p>
+          <h4>Natural Protection</h4>
+          <p>Apply natural oils and waxes that protect while allowing wood to breathe.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="process-content" id="concrete-content">
+      <h3>Precision Concrete Casting</h3>
+      <p style="color:var(--pale-graphite); margin-bottom:24px">High-performance concrete casting techniques achieve architectural precision while celebrating the material's honest, structural character.</p>
+      
+      <div class="process-steps">
+        <div class="process-step">
+          <div class="step-number">1</div>
+          <h4>Formwork Creation</h4>
+          <p>Build precise formwork using sustainable materials for exact geometric control.</p>
+        </div>
+        
+        <div class="process-step">
+          <div class="step-number">2</div>
+          <h4>Mix Preparation</h4>
+          <p>Blend high-performance concrete with optimal aggregate ratios and additives.</p>
+        </div>
+        
+        <div class="process-step">
+          <div class="step-number">3</div>
+          <h4>Controlled Casting</h4>
+          <p>Pour and vibrate concrete to eliminate voids while maintaining surface quality.</p>
+        </div>
+        
+        <div class="process-step">
+          <div class="step-number">4</div>
+          <h4>Curing & Finishing</h4>
+          <p>Control moisture and temperature during curing for optimal strength development.</p>
         </div>
       </div>
     </div>
@@ -591,95 +707,135 @@
 
   <!-- APPLICATIONS -->
   <section class="applications">
-    <div class="eyebrow" style="text-align:center">Best Applications</div>
-    <h2 style="text-align:center; margin-bottom:40px; color:var(--paper); font-size:clamp(1.6rem,2.4vw,2rem)">Material Applications</h2>
+    <div class="eyebrow" style="text-align:center; color:var(--ethereal-brass)">Best Applications</div>
+    <h2 style="text-align:center; margin-bottom:40px; color:var(--cloud-whisper); font-size:clamp(1.6rem,2.4vw,2rem)">Material Applications</h2>
     
     <div class="app-grid">
       <div class="app-card">
         <svg class="app-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 9l9-7 9 7v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9z"/></svg>
-        <h4>Residential Interiors</h4>
-        <p>Warm, inviting spaces benefit from natural brass that develops character over time.</p>
-        <div class="app-materials">Natural Brass • Aged Brass</div>
+        <h4>Residential Serenity</h4>
+        <p>Natural materials create warm, living spaces that evolve and develop character over time.</p>
+        <div class="app-materials">Plaster • Wood • Alabaster</div>
       </div>
 
       <div class="app-card">
         <svg class="app-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10z"/></svg>
-        <h4>Commercial Spaces</h4>
-        <p>High-traffic areas require durable finishes that maintain appearance with minimal maintenance.</p>
-        <div class="app-materials">Polished Steel • Blackened Steel</div>
+        <h4>Hospitality Design</h4>
+        <p>Premium materials create memorable experiences through tactile beauty and atmospheric lighting.</p>
+        <div class="app-materials">Glass • Brass • Concrete</div>
       </div>
 
       <div class="app-card">
         <svg class="app-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-        <h4>Outdoor Installations</h4>
-        <p>Weather-resistant materials withstand environmental exposure while maintaining beauty.</p>
-        <div class="app-materials">Marine Grade Steel • Bronze</div>
+        <h4>Wellness Spaces</h4>
+        <p>Natural materials support biophilic design and create calming, restorative environments.</p>
+        <div class="app-materials">Alabaster • Wood • Plaster</div>
       </div>
 
       <div class="app-card">
         <svg class="app-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-        <h4>Historic Restoration</h4>
-        <p>Period-appropriate materials and finishes respect architectural heritage.</p>
-        <div class="app-materials">Natural Brass • Aged Brass • Wrought Iron</div>
+        <h4>Cultural Institutions</h4>
+        <p>Timeless materials respect architectural heritage while providing contemporary functionality.</p>
+        <div class="app-materials">Concrete • Brass • Glass</div>
+      </div>
+
+      <div class="app-card">
+        <svg class="app-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="3"/><path d="M12 1v6M12 17v6M4.22 4.22l4.24 4.24M15.54 15.54l4.24 4.24M1 12h6M17 12h6M4.22 19.78l4.24-4.24M15.54 8.46l4.24-4.24"/></svg>
+        <h4>Retail Environments</h4>
+        <p>Distinctive materials create brand identity and enhance product presentation through thoughtful illumination.</p>
+        <div class="app-materials">Glass • Concrete • Brass</div>
+      </div>
+
+      <div class="app-card">
+        <svg class="app-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10,9 9,9 8,9"/></svg>
+        <h4>Office Environments</h4>
+        <p>Natural materials bring warmth and humanity to workplace settings while maintaining professional aesthetics.</p>
+        <div class="app-materials">Wood • Concrete • Plaster</div>
       </div>
     </div>
   </section>
 
   <!-- CARE GUIDE -->
   <section class="care-guide">
-    <div class="eyebrow" style="text-align:center">Maintenance</div>
-    <h2 style="text-align:center; margin-bottom:40px; color:var(--ink); font-size:clamp(1.6rem,2.4vw,2rem)">Care Guidelines</h2>
+    <div class="eyebrow" style="text-align:center; color:var(--pale-graphite)">Material Care</div>
+    <h2 style="text-align:center; margin-bottom:40px; color:var(--noir-veil); font-size:clamp(1.6rem,2.4vw,2rem)">Care Guidelines</h2>
     
     <div class="care-grid">
       <div class="care-card">
         <h4>
-          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
-          Daily Cleaning
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2v6M12 16v6M4.22 4.22l4.24 4.24M15.54 15.54l4.24 4.24M1 12h6M17 12h6M4.22 19.78l4.24-4.24M15.54 8.46l4.24-4.24"/></svg>
+          Plaster Care
         </h4>
         <ul class="care-list">
+          <li>Dust gently with soft brush</li>
+          <li>Avoid water exposure</li>
+          <li>Allow natural breathing</li>
+          <li>Touch up with matching plaster</li>
+        </ul>
+      </div>
+
+      <div class="care-card">
+        <h4>
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="5"/><path d="M12 1v6M12 17v6M4.22 4.22l4.24 4.24M15.54 15.54l4.24 4.24M1 12h6M17 12h6M4.22 19.78l4.24-4.24M15.54 8.46l4.24-4.24"/></svg>
+          Alabaster Care
+        </h4>
+        <ul class="care-list">
+          <li>Clean with damp microfiber cloth</li>
+          <li>Use pH-neutral stone cleaner</li>
+          <li>Avoid abrasive cleaners</li>
+          <li>Polish annually with stone wax</li>
+        </ul>
+      </div>
+
+      <div class="care-card">
+        <h4>
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          Wood Care
+        </h4>
+        <ul class="care-list">
+          <li>Oil treatment every 6 months</li>
           <li>Dust with microfiber cloth</li>
-          <li>Use warm water for light cleaning</li>
-          <li>Dry immediately after cleaning</li>
-          <li>Avoid harsh chemicals</li>
+          <li>Maintain consistent humidity</li>
+          <li>Sand and re-oil if needed</li>
         </ul>
       </div>
 
       <div class="care-card">
         <h4>
-          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2l9 4.5v9L12 21l-9-4.5v-9L12 3z"/></svg>
-          Periodic Maintenance
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+          Glass Care
         </h4>
         <ul class="care-list">
-          <li>Polish brass monthly</li>
-          <li>Apply protective wax</li>
-          <li>Check for wear spots</li>
-          <li>Touch up finishes as needed</li>
+          <li>Clean with glass cleaner</li>
+          <li>Use lint-free cloths</li>
+          <li>Check mounting security</li>
+          <li>Handle with care during cleaning</li>
         </ul>
       </div>
 
       <div class="care-card">
         <h4>
-          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-          Problem Solving
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+          Concrete Care
         </h4>
         <ul class="care-list">
-          <li>Remove water spots with vinegar</li>
-          <li>Buff out minor scratches</li>
-          <li>Restore tarnished areas</li>
-          <li>Professional refinishing available</li>
+          <li>Seal annually with penetrating sealer</li>
+          <li>Clean with mild alkaline cleaner</li>
+          <li>Avoid acidic cleaners</li>
+          <li>Allow natural weathering patina</li>
         </ul>
       </div>
 
       <div class="care-card">
         <h4>
-          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M9 11l3 3 7-7"/></svg>
-          Best Practices
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><path d="M12 6l4 6-4 6"/><path d="M8 12h8"/></svg>
+          Brass Care
         </h4>
         <ul class="care-list">
-          <li>Use appropriate cleaning products</li>
-          <li>Follow manufacturer guidelines</li>
-          <li>Document maintenance schedule</li>
-          <li>Store care products safely</li>
+          <li>Polish monthly with brass cleaner</li>
+          <li>Embrace natural patina development</li>
+          <li>Apply protective wax coating</li>
+          <li>Buff gently with soft cloth</li>
         </ul>
       </div>
     </div>
@@ -687,10 +843,10 @@
 
   <!-- CTA -->
   <section class="cta">
-    <h2>Choose Your Perfect Material</h2>
-    <p>Explore our collections to see how different materials and finishes can transform your space.</p>
+    <h2>Discover Your Perfect Material</h2>
+    <p>Explore our natural material collections to find the perfect match for your space and design vision.</p>
     <a href="/shop" class="btn">Browse Collections</a>
-    <a href="/care-maintenance" class="btn" style="background:transparent; color:var(--ink); border-color:var(--brass)">Care Guide</a>
+    <a href="/care-maintenance" class="btn secondary">Care Guide</a>
   </section>
 </div>
 

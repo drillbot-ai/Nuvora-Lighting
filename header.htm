@@ -1,16 +1,16 @@
-<!-- LUNVYR — Header con menú hamburguesa accesible -->
+<!-- NUVORA — Header con menú hamburguesa accesible -->
 <style>
   :root{
-    --ink:#1c222b; --paper:#f3f0eb; --brass:#c2a574; --hdr-h:64px;
+    --cloud-whisper:#F6F6F6; --moonlit-sand:#EDE7DD; --silver-mist:#DADCE0; --pale-graphite:#B2B2B2; --noir-veil:#2E2E2E; --ethereal-brass:#C8B898; --hdr-h:64px;
   }
 
   /* Wrapper */
-  header.lunvyr-header{
+  header.nuvora-header{
     position:sticky; top:0; z-index:999;
-    background:#1c222b; color:var(--paper);
+    background:var(--noir-veil); color:var(--cloud-whisper);
     padding:12px 5%;
     display:grid; grid-template-columns: auto 1fr auto; align-items:center;
-    font-family:'Cinzel', serif;
+    font-family:'Lusitana', serif;
   }
 
   /* Toggle (hamburger) */
@@ -20,7 +20,7 @@
     width:34px; height:28px; position:relative;
   }
   .menu-toggle .bar{
-    position:absolute; left:0; right:0; height:2px; background:var(--paper); border-radius:2px;
+    position:absolute; left:0; right:0; height:2px; background:var(--cloud-whisper); border-radius:2px;
     transition:transform .25s ease, opacity .2s ease, top .25s ease, bottom .25s ease;
   }
   .menu-toggle .bar:nth-child(1){ top:4px }
@@ -31,58 +31,58 @@
   .menu-toggle[aria-expanded="true"] .bar:nth-child(3){ bottom:auto; top:13px; transform:rotate(-45deg) }
 
   /* Logo */
-  .lunvyr-logo{ display:flex; justify-content:center }
-  .lunvyr-logo img{ max-height:50px; width:auto; display:block }
+  .nuvora-logo{ display:flex; justify-content:center }
+  .nuvora-logo img{ max-height:50px; width:auto; display:block }
 
   /* Iconos derecha */
-  .lunvyr-icons{ display:flex; gap:20px; justify-content:flex-end; align-items:center }
-  .lunvyr-icons a{ color:var(--paper); text-decoration:none; display:inline-flex; align-items:center; position:relative }
-  .lunvyr-icons a:hover{ color:var(--brass) }
-  .lunvyr-icons svg{ width:22px; height:22px; fill:currentColor; transition:transform .15s }
-  .lunvyr-icons a:active svg{ transform:scale(.96) }
+  .nuvora-icons{ display:flex; gap:20px; justify-content:flex-end; align-items:center }
+  .nuvora-icons a{ color:var(--cloud-whisper); text-decoration:none; display:inline-flex; align-items:center; position:relative }
+  .nuvora-icons a:hover{ color:var(--ethereal-brass) }
+  .nuvora-icons svg{ width:22px; height:22px; fill:currentColor; transition:transform .15s }
+  .nuvora-icons a:active svg{ transform:scale(.96) }
   .cart-count{
-    position:absolute; top:-8px; right:-10px; background:var(--brass); color:#1c222b;
+    position:absolute; top:-8px; right:-10px; background:var(--ethereal-brass); color:var(--noir-veil);
     font-size:.7rem; font-weight:700; border-radius:999px; padding:2px 6px; line-height:1;
   }
   .cart-count[data-count="0"]{ display:none; } /* oculta si es 0 */
 
   /* Navegación (desktop) */
-  nav.lunvyr-nav{ justify-self:start }
-  nav.lunvyr-nav ul{ display:flex; gap:24px; list-style:none; margin:0; padding:0 }
-  nav.lunvyr-nav a{
-    color:var(--paper); text-decoration:none; font-size:.95rem; letter-spacing:.6px; transition:color .2s
+  nav.nuvora-nav{ justify-self:start }
+  nav.nuvora-nav ul{ display:flex; gap:24px; list-style:none; margin:0; padding:0 }
+  nav.nuvora-nav a{
+    color:var(--cloud-whisper); text-decoration:none; font-size:.95rem; letter-spacing:.6px; transition:color .2s
   }
-  nav.lunvyr-nav a:hover{ color:var(--brass) }
+  nav.nuvora-nav a:hover{ color:var(--ethereal-brass) }
 
   /* Dropdowns (desktop) */
-  nav.lunvyr-nav li.has-dropdown{ position:relative }
-  nav.lunvyr-nav details{ position:relative }
-  nav.lunvyr-nav summary{
-    list-style:none; cursor:pointer; color:var(--paper); font-size:.95rem; letter-spacing:.6px;
+  nav.nuvora-nav li.has-dropdown{ position:relative }
+  nav.nuvora-nav details{ position:relative }
+  nav.nuvora-nav summary{
+    list-style:none; cursor:pointer; color:var(--cloud-whisper); font-size:.95rem; letter-spacing:.6px;
     display:inline-flex; align-items:center; gap:6px
   }
-  nav.lunvyr-nav summary::-webkit-details-marker{ display:none }
-  nav.lunvyr-nav .caret{ width:10px; height:10px; display:inline-block; border:solid var(--paper); border-width:0 1px 1px 0; transform:rotate(45deg); transition:transform .15s }
-  nav.lunvyr-nav details[open] .caret{ transform:rotate(-135deg) }
-  nav.lunvyr-nav ul.submenu{
+  nav.nuvora-nav summary::-webkit-details-marker{ display:none }
+  nav.nuvora-nav .caret{ width:10px; height:10px; display:inline-block; border:solid var(--cloud-whisper); border-width:0 1px 1px 0; transform:rotate(45deg); transition:transform .15s }
+  nav.nuvora-nav details[open] .caret{ transform:rotate(-135deg) }
+  nav.nuvora-nav ul.submenu{
     position:absolute; left:0; top:calc(100% + 12px);
-    background:#1c222b; border:1px solid rgba(255,255,255,.12); border-radius:10px;
+    background:var(--noir-veil); border:1px solid rgba(246,246,246,.12); border-radius:10px;
     padding:10px; min-width:220px; display:none; box-shadow:0 10px 24px rgba(0,0,0,.25)
   }
-  nav.lunvyr-nav details[open] > ul.submenu{ display:block }
-  nav.lunvyr-nav ul.submenu li{ margin:0 }
-  nav.lunvyr-nav ul.submenu a{ display:block; padding:8px 10px; font-size:.95rem }
+  nav.nuvora-nav details[open] > ul.submenu{ display:block }
+  nav.nuvora-nav ul.submenu li{ margin:0 }
+  nav.nuvora-nav ul.submenu a{ display:block; padding:8px 10px; font-size:.95rem }
 
   /* Mega menu for Shop */
-  nav.lunvyr-nav li.mega{ position:relative }
-  nav.lunvyr-nav .mega-grid{
+  nav.nuvora-nav li.mega{ position:relative }
+  nav.nuvora-nav .mega-grid{
     display:grid; grid-template-columns:repeat(2, minmax(220px,1fr)); gap:16px; padding:16px;
     min-width:520px; max-width:720px;
   }
-  nav.lunvyr-nav .mega-col h5{ margin:0 0 8px; font-weight:600; font-family:Cinzel,serif; font-size:1rem; color:#fff }
-  nav.lunvyr-nav .mega-col ul{ display:block; gap:0 }
-  nav.lunvyr-nav .mega-col ul li{ margin:0 }
-  nav.lunvyr-nav .mega-col ul a{ padding:8px 6px; opacity:.95 }
+  nav.nuvora-nav .mega-col h5{ margin:0 0 8px; font-weight:600; font-family:Lusitana,serif; font-size:1rem; color:#fff }
+  nav.nuvora-nav .mega-col ul{ display:block; gap:0 }
+  nav.nuvora-nav .mega-col ul li{ margin:0 }
+  nav.nuvora-nav .mega-col ul a{ padding:8px 6px; opacity:.95 }
 
   /* Overlay + panel móvil */
   .nav-overlay{
@@ -90,7 +90,7 @@
     opacity:0; pointer-events:none; transition:opacity .25s ease; z-index:998;
   }
   .nav-panel{
-    position:fixed; inset:0 0 0 0; top:0; background:#1c222b;
+    position:fixed; inset:0 0 0 0; top:0; background:var(--noir-veil);
     transform:translateX(-100%); transition:transform .25s ease;
     padding:calc(var(--hdr-h) + 12px) 8% 24px; z-index:999;
     display:flex; flex-direction:column; gap:14px;
@@ -99,13 +99,13 @@
     list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:8px;
   }
   .nav-panel a{
-    color:var(--paper); text-decoration:none; font-size:1.1rem; padding:14px 0; display:block;
-    border-bottom:1px solid rgba(255,255,255,.08);
+    color:var(--cloud-whisper); text-decoration:none; font-size:1.1rem; padding:14px 0; display:block;
+    border-bottom:1px solid rgba(246,246,246,.08);
   }
   /* Mobile dropdowns as accordions */
-  .nav-panel details{ border-bottom:1px solid rgba(255,255,255,.08) }
+  .nav-panel details{ border-bottom:1px solid rgba(246,246,246,.08) }
   .nav-panel summary{
-    list-style:none; cursor:pointer; padding:14px 0; display:flex; align-items:center; justify-content:space-between; color:var(--paper);
+    list-style:none; cursor:pointer; padding:14px 0; display:flex; align-items:center; justify-content:space-between; color:var(--cloud-whisper);
     font-size:1.1rem
   }
   .nav-panel summary::-webkit-details-marker{ display:none }
@@ -115,10 +115,10 @@
     margin-top:12px; display:flex; gap:10px; flex-wrap:wrap;
   }
   .nav-panel .btn{
-    font-family:'Cinzel', serif; font-size:.95rem; border-radius:40px; padding:.7rem 1.2rem;
-    border:1px solid var(--paper); color:var(--paper); text-decoration:none; display:inline-block;
+    font-family:'Lusitana', serif; font-size:.95rem; border-radius:40px; padding:.7rem 1.2rem;
+    border:1px solid var(--cloud-whisper); color:var(--cloud-whisper); text-decoration:none; display:inline-block;
   }
-  .nav-panel .btn:hover{ background:rgba(255,255,255,.08) }
+  .nav-panel .btn:hover{ background:rgba(246,246,246,.08) }
 
   /* Estado abierto */
   .menu-open .nav-overlay{ opacity:1; pointer-events:auto }
@@ -129,48 +129,61 @@
   @media (max-width: 900px){
     /* muestra toggle, oculta menú inline */
     .menu-toggle{ display:inline-flex; grid-column:1 / 2 }
-    nav.lunvyr-nav{ display:none } /* el nav inline se reemplaza por panel móvil */
+    nav.nuvora-nav{ display:none } /* el nav inline se reemplaza por panel móvil */
   }
   @media (max-width: 480px){
-    .lunvyr-logo img{ max-height:44px }
+    .nuvora-logo img{ max-height:44px }
   }
 
   /* Accesibilidad: foco visible */
-  a:focus-visible, button:focus-visible{ outline:2px solid var(--brass); outline-offset:3px }
+  a:focus-visible, button:focus-visible{ outline:2px solid var(--ethereal-brass); outline-offset:3px }
   @media (prefers-reduced-motion: reduce){
     .nav-overlay, .nav-panel, .menu-toggle .bar{ transition:none }
   }
   /* — Fix: logo realmente centrado en desktop con Grid — */
 @media (min-width: 901px){
-  header.lunvyr-header{
+  header.nuvora-header{
     display: grid !important;
     grid-template-columns: 1fr auto 1fr !important;
     align-items: center;
   }
   /* Asegura la columna de cada bloque */
-  header.lunvyr-header nav.lunvyr-nav{ grid-column: 1; justify-self: start; }
-  header.lunvyr-header .lunvyr-logo{ grid-column: 2; justify-self: center; }
-  header.lunvyr-header .lunvyr-icons{ grid-column: 3; justify-self: end; }
+  header.nuvora-header nav.nuvora-nav{ grid-column: 1; justify-self: start; }
+  header.nuvora-header .nuvora-logo{ grid-column: 2; justify-self: center; }
+  header.nuvora-header .nuvora-icons{ grid-column: 3; justify-self: end; }
 }
 
 </style>
 
-<header class="lunvyr-header" data-header>
+<header class="nuvora-header" data-header>
   <!-- Botón hamburguesa -->
   <button class="menu-toggle" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
     <span class="bar"></span><span class="bar"></span><span class="bar"></span>
   </button>
 
   <!-- Menú desktop (inline) -->
-  <nav class="lunvyr-nav" aria-label="Primary">
+  <nav class="nuvora-nav" aria-label="Primary">
     <ul>
       <li><a href="/">Home</a></li>
       <li><a href="/shop">Shop</a></li>
       <li class="has-dropdown">
         <details>
+          <summary>Materials <span class="caret" aria-hidden="true"></span></summary>
+          <ul class="submenu" role="menu">
+            <li><a href="/collection-plaster" role="menuitem">Plaster</a></li>
+            <li><a href="/collection-alabaster" role="menuitem">Alabaster</a></li>
+            <li><a href="/collection-wood" role="menuitem">Wood</a></li>
+            <li><a href="/collection-glass" role="menuitem">Glass</a></li>
+            <li><a href="/collection-concrete" role="menuitem">Concrete</a></li>
+            <li><a href="/collection-brass" role="menuitem">Brass</a></li>
+          </ul>
+        </details>
+      </li>
+      <li class="has-dropdown">
+        <details>
           <summary>About <span class="caret" aria-hidden="true"></span></summary>
           <ul class="submenu" role="menu">
-            <li><a href="/about" role="menuitem">About LUNVYR</a></li>
+            <li><a href="/about" role="menuitem">About NUVORA</a></li>
             <li><a href="/the-studio" role="menuitem">The Studio</a></li>
             <li><a href="/warranty" role="menuitem">Warranty</a></li>
             <li><a href="/refund_returns" role="menuitem">Returns</a></li>
@@ -196,14 +209,14 @@
   </nav>
 
   <!-- Logo centro -->
-  <div class="lunvyr-logo">
-    <a href="/" aria-label="LUNVYR Home">
-      <img src="https://lunvyr.com/wp-content/uploads/2025/08/cropped-LOGO-1-4.png" alt="LUNVYR Logo">
+  <div class="nuvora-logo">
+    <a href="/" aria-label="NUVORA Home">
+      <img src="https://lunvyr.com/wp-content/uploads/2025/08/cropped-LOGO-1-4.png" alt="NUVORA Logo">
     </a>
   </div>
 
   <!-- Iconos derecha -->
-  <div class="lunvyr-icons">
+  <div class="nuvora-icons">
     <a href="/my-account" title="My Account" aria-label="My Account">
       <svg viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M12 12a5 5 0 1 0-5-5 5 5 0 0 0 5 5zm0 2c-4.418 0-8 2.239-8 5v1h16v-1c0-2.761-3.582-5-8-5z"/></svg>
     </a>
@@ -218,8 +231,8 @@
   <nav id="mobile-menu" class="nav-panel" aria-label="Mobile menu" aria-hidden="true">
     <ul data-mobile-list><!-- se rellena por JS --></ul>
     <div class="cta">
-      <a class="btn" href="/shop">Shop the Collection</a>
-      <a class="btn" href="/contact">Start a Custom Project</a>
+      <a class="btn" href="/shop">Explore Materials</a>
+      <a class="btn" href="/contact">Begin Your Vision</a>
     </div>
   </nav>
 </header>
@@ -231,7 +244,7 @@
     const overlay  = header.querySelector('[data-overlay]');
     const panel    = header.querySelector('#mobile-menu');
     const mobileUl = panel.querySelector('[data-mobile-list]');
-    const desktopUl= header.querySelector('.lunvyr-nav ul');
+    const desktopUl= header.querySelector('.nuvora-nav ul');
 
     // Clona items del menú desktop -> móvil (evita mantener dos listas)
     if (desktopUl && mobileUl && !mobileUl.childElementCount){
@@ -280,7 +293,7 @@
       if(!container) return;
       container.querySelectorAll('details[open]').forEach(d => { if(d !== detailsEl) d.removeAttribute('open'); });
     };
-    const allDetails = header.querySelectorAll('nav.lunvyr-nav details');
+    const allDetails = header.querySelectorAll('nav.nuvora-nav details');
     allDetails.forEach(d => d.addEventListener('toggle', ()=>{ if(d.open) closeSiblings(d); }));
     // After cloning, also wire up mobile details
     const wireMobileDetails = () => {

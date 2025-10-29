@@ -1,0 +1,258 @@
+<!-- NUVORA — Plaster Collection (Material-focused design showcase) -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lusitana:wght@400;700&family=Manrope:wght@300;400;500;600&family=Crimson+Text:wght@400;600&display=swap');
+
+:root { 
+  --cloud-whisper:#F6F6F6; --moonlit-sand:#EDE7DD; --silver-mist:#DADCE0; 
+  --pale-graphite:#B2B2B2; --noir-veil:#2E2E2E; --ethereal-brass:#C8B898; --white:#fff;
+  --radius:16px; --shadow:0 12px 32px rgba(0,0,0,.06);
+}
+
+.plaster-collection{font-family:Manrope,system-ui,sans-serif;color:var(--noir-veil);line-height:1.6}
+.plaster-collection h1,.plaster-collection h2,.plaster-collection h3{font-family:Lusitana,serif;font-weight:400;margin:0}
+.plaster-collection .eyebrow{letter-spacing:.12em;text-transform:uppercase;font-size:.8rem;color:var(--pale-graphite);margin-bottom:.6rem}
+
+/* Hero específico para material */
+.material-hero{
+  position:relative; min-height:85vh; display:flex; align-items:center; justify-content:center;
+  padding:clamp(100px,12vh,160px) 10%; color:var(--cloud-whisper);
+  background:#2a2a2a url('https://lunvyr.com/wp-content/uploads/2025/08/c9ea6458-53bb-4486-a4b5-04f51cf932f3.png') center/cover no-repeat;
+  text-align:center; isolation:isolate;
+}
+.material-hero::after{content:"";position:absolute;inset:0;background:radial-gradient(100% 100% at 60% 30%, rgba(0,0,0,0) 0%, rgba(46,46,46,.7) 80%);z-index:0}
+.material-hero .hero-inner{position:relative;z-index:1;max-width:800px}
+.material-hero h1{font-size:clamp(3rem,6vw,4.5rem);line-height:1.1;margin-bottom:24px;font-family:'Lusitana',serif;font-weight:400}
+.material-hero p{color:#efece7;margin:0 auto 36px;max-width:600px;font-size:1.2rem;line-height:1.7}
+.material-hero .material-tag{
+  display:inline-block;background:rgba(200,184,152,.2);color:var(--cloud-whisper);
+  padding:.7rem 1.5rem;border-radius:50px;font-size:.9rem;letter-spacing:.05em;
+  border:1px solid rgba(200,184,152,.4);backdrop-filter:blur(10px);margin-bottom:20px;
+}
+
+/* Material story section */
+.material-story{
+  padding:clamp(100px,14vh,160px) 10%;background:linear-gradient(135deg, var(--cloud-whisper) 0%, #f2f2f2 100%);
+  display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;
+}
+.material-story .content h2{
+  font-size:clamp(2.2rem,4vw,3rem);color:var(--noir-veil);margin-bottom:24px;line-height:1.2;
+}
+.material-story .content p{
+  color:var(--pale-graphite);font-size:1.1rem;line-height:1.8;margin:0 0 24px;
+}
+.material-story .content .highlight{
+  background:linear-gradient(120deg, rgba(200,184,152,.12) 0%, transparent 100%);
+  padding:28px;border-radius:16px;border-left:4px solid var(--ethereal-brass);
+  margin:32px 0;font-style:italic;font-family:'Crimson Text',serif;font-size:1.05rem;
+}
+.material-story .visual{
+  position:relative;border-radius:24px;overflow:hidden;
+  box-shadow:0 24px 80px rgba(0,0,0,.15);transform:rotate(-2deg);transition:transform .4s ease;
+}
+.material-story .visual:hover{transform:rotate(0deg) scale(1.02)}
+.material-story .visual img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* Products grid específico */
+.material-products{padding:clamp(80px,12vh,140px) 10%;background:var(--moonlit-sand)}
+.material-products h2{
+  text-align:center;font-size:clamp(2rem,3.5vw,2.8rem);color:var(--noir-veil);
+  margin-bottom:48px;position:relative;
+}
+.material-products h2::after{
+  content:"";position:absolute;bottom:-12px;left:50%;transform:translateX(-50%);
+  width:80px;height:3px;background:var(--ethereal-brass);border-radius:2px;
+}
+.products-grid{
+  display:grid;grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));gap:32px;max-width:1200px;margin:0 auto;
+}
+.product-card{
+  background:var(--white);border-radius:20px;overflow:hidden;
+  box-shadow:0 12px 40px rgba(0,0,0,.08);transition:all .4s ease;border:1px solid rgba(46,46,46,.06);
+}
+.product-card:hover{transform:translateY(-8px);box-shadow:0 20px 60px rgba(0,0,0,.15)}
+.product-card .image{
+  position:relative;aspect-ratio:4/5;overflow:hidden;
+}
+.product-card .image img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.product-card:hover .image img{transform:scale(1.05)}
+.product-card .info{padding:24px}
+.product-card .info h3{color:var(--noir-veil);font-size:1.2rem;margin-bottom:8px;font-weight:500}
+.product-card .info p{color:var(--pale-graphite);font-size:.95rem;line-height:1.5;margin:0 0 16px}
+.product-card .info .price{color:var(--noir-veil);font-weight:600;font-size:1.1rem}
+
+/* Material properties */
+.material-properties{
+  padding:clamp(80px,12vh,140px) 10%;background:#f8f8f8;
+}
+.material-properties h2{
+  text-align:center;color:var(--noir-veil);font-size:clamp(2rem,3.5vw,2.8rem);margin-bottom:56px;
+}
+.properties-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:32px;max-width:1000px;margin:0 auto;
+}
+.property-card{
+  background:var(--white);padding:32px;border-radius:20px;text-align:center;
+  box-shadow:0 8px 30px rgba(0,0,0,.06);transition:all .3s ease;border:1px solid rgba(46,46,46,.06);
+}
+.property-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,.1)}
+.property-card .icon{
+  width:48px;height:48px;background:rgba(200,184,152,.1);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;margin:0 auto 20px;color:var(--ethereal-brass);
+}
+.property-card h3{color:var(--noir-veil);margin-bottom:12px;font-size:1.2rem}
+.property-card p{color:var(--pale-graphite);line-height:1.6;margin:0}
+
+/* CTA section */
+.material-cta{
+  padding:clamp(100px,15vh,160px) 10%;
+  background:linear-gradient(135deg, var(--noir-veil) 0%, #1a1a1a 100%);color:var(--cloud-whisper);text-align:center;
+}
+.material-cta h2{color:var(--cloud-whisper);font-size:clamp(2.2rem,4vw,3.2rem);margin-bottom:20px;line-height:1.2}
+.material-cta p{color:#d6d3ce;margin:0 0 32px;font-size:1.1rem;max-width:600px;margin-left:auto;margin-right:auto}
+.material-cta .actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.material-cta .btn{
+  font-family:Lusitana,serif;padding:1rem 2rem;border-radius:50px;
+  border:2px solid rgba(246,246,246,.4);color:var(--cloud-whisper);text-decoration:none;
+  display:inline-flex;align-items:center;gap:.7rem;transition:all .4s ease;font-weight:500;
+  background:rgba(246,246,246,.05);backdrop-filter:blur(10px);
+}
+.material-cta .btn:hover{
+  background:rgba(246,246,246,.12);border-color:var(--ethereal-brass);
+  transform:translateY(-2px);box-shadow:0 8px 25px rgba(200,184,152,.2);
+}
+
+/* Responsive */
+@media (max-width:1199px){
+  .material-story{grid-template-columns:1fr;gap:48px;text-align:center}
+  .properties-grid{grid-template-columns:1fr 1fr;gap:24px}
+}
+@media (max-width:767px){
+  .material-hero{min-height:75vh;padding:clamp(80px,12vh,120px) 7%}
+  .material-story{padding:clamp(70px,10vh,100px) 7%;gap:32px}
+  .material-story .visual{transform:rotate(0deg);margin:0 auto;max-width:400px}
+  .properties-grid{grid-template-columns:1fr;gap:20px;max-width:400px}
+  .material-products{padding:clamp(60px,9vh,100px) 7%}
+  .products-grid{grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));gap:24px}
+}
+@media (max-width:479px){
+  .material-cta .actions{flex-direction:column;align-items:center}
+  .material-cta .btn{min-width:200px;justify-content:center}
+}
+</style>
+
+<div class="plaster-collection">
+
+  <!-- MATERIAL HERO -->
+  <section class="material-hero">
+    <div class="hero-inner">
+      <div class="material-tag">Natural Material</div>
+      <h1>Plaster</h1>
+      <p>Organic textures and soft curves in natural plaster—warm, tactile surfaces that breathe with light and invite touch through their inherent earthiness.</p>
+    </div>
+  </section>
+
+  <!-- MATERIAL STORY -->
+  <section class="material-story">
+    <div class="content">
+      <div class="eyebrow">Material Story</div>
+      <h2>The Poetry of Earth & Water</h2>
+      <p>Plaster speaks the oldest language of architecture—earth and water united by human hands. Our artisans work with natural lime plaster, shaping each fixture by hand to create organic textures that capture and release light in soft, atmospheric waves.</p>
+      
+      <div class="highlight">
+        "Plaster remembers the touch of its making. Each surface carries the subtle impressions of the artisan's hands, creating fixtures that feel alive, breathing with the light they hold."
+      </div>
+      
+      <p>The inherent warmth of plaster creates intimate lighting experiences. Unlike cold metals or perfect glass, plaster fixtures invite interaction—their matte surfaces absorb harsh light and return it as gentle illumination that changes throughout the day, revealing different textures as shadows shift and settle.</p>
+    </div>
+    <div class="visual">
+      <img src="https://lunvyr.com/wp-content/uploads/2025/08/c9ea6458-53bb-4486-a4b5-04f51cf932f3.png" alt="Artisan hands shaping natural plaster">
+    </div>
+  </section>
+
+  <!-- MATERIAL PROPERTIES -->
+  <section class="material-properties">
+    <h2>Natural Properties</h2>
+    <div class="properties-grid">
+      <div class="property-card">
+        <div class="icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+            <path d="M2 17l10 5 10-5"/>
+            <path d="M2 12l10 5 10-5"/>
+          </svg>
+        </div>
+        <h3>Organic Texture</h3>
+        <p>Hand-shaped surfaces create unique tactile qualities, with subtle variations that catch light in atmospheric ways.</p>
+      </div>
+      <div class="property-card">
+        <div class="icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"/>
+            <path d="M12 1v6M12 17v6M4.22 4.22l4.24 4.24M15.54 15.54l4.24 4.24M1 12h6M17 12h6M4.22 19.78l4.24-4.24M15.54 8.46l4.24-4.24"/>
+          </svg>
+        </div>
+        <h3>Soft Diffusion</h3>
+        <p>Natural porosity creates gentle light distribution, eliminating harsh shadows and creating serene ambience.</p>
+      </div>
+      <div class="property-card">
+        <div class="icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+            <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+            <line x1="12" y1="22.08" x2="12" y2="12"/>
+          </svg>
+        </div>
+        <h3>Natural Aging</h3>
+        <p>Develops beautiful patina over time, becoming more characterful and beautiful with age and exposure.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTS GRID -->
+  <section class="material-products">
+    <h2>Plaster Collection</h2>
+    <div class="products-grid">
+      <div class="product-card">
+        <div class="image">
+          <img src="https://lunvyr.com/wp-content/uploads/2025/08/c9ea6458-53bb-4486-a4b5-04f51cf932f3.png" alt="Ethereal Plaster Pendant">
+        </div>
+        <div class="info">
+          <h3>Ethereal Pendant</h3>
+          <p>Hand-shaped natural plaster with organic curves and soft texture.</p>
+          <div class="price">From $480</div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="image">
+          <img src="https://lunvyr.com/wp-content/uploads/2025/08/image2.png" alt="Serene Wall Sconce">
+        </div>
+        <div class="info">
+          <h3>Serene Wall Sconce</h3>
+          <p>Atmospheric wall lighting with gentle upward light diffusion.</p>
+          <div class="price">From $320</div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="image">
+          <img src="https://lunvyr.com/wp-content/uploads/2025/10/image-4.png" alt="Organic Table Light">
+        </div>
+        <div class="info">
+          <h3>Organic Table Light</h3>
+          <p>Sculptural desk lighting with natural plaster base and warm glow.</p>
+          <div class="price">From $240</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="material-cta">
+    <h2>Experience Natural Plaster</h2>
+    <p>Discover how our hand-shaped plaster fixtures can transform your space into a realm of tactile warmth and atmospheric serenity.</p>
+    <div class="actions">
+      <a class="btn" href="/contact">Custom Consultation</a>
+      <a class="btn" href="/shop">Shop Plaster Collection</a>
+    </div>
+  </section>
+
+</div>

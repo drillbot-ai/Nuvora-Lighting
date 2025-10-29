@@ -1,0 +1,264 @@
+<!-- NUVORA — Alabaster Collection (Material-focused design showcase) -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lusitana:wght@400;700&family=Manrope:wght@300;400;500;600&family=Crimson+Text:wght@400;600&display=swap');
+
+:root { 
+  --cloud-whisper:#F6F6F6; --moonlit-sand:#EDE7DD; --silver-mist:#DADCE0; 
+  --pale-graphite:#B2B2B2; --noir-veil:#2E2E2E; --ethereal-brass:#C8B898; --white:#fff;
+  --radius:16px; --shadow:0 12px 32px rgba(0,0,0,.06);
+}
+
+.alabaster-collection{font-family:Manrope,system-ui,sans-serif;color:var(--noir-veil);line-height:1.6}
+.alabaster-collection h1,.alabaster-collection h2,.alabaster-collection h3{font-family:Lusitana,serif;font-weight:400;margin:0}
+.alabaster-collection .eyebrow{letter-spacing:.12em;text-transform:uppercase;font-size:.8rem;color:var(--pale-graphite);margin-bottom:.6rem}
+
+/* Hero específico para alabaster */
+.material-hero{
+  position:relative; min-height:85vh; display:flex; align-items:center; justify-content:center;
+  padding:clamp(100px,12vh,160px) 10%; color:var(--noir-veil);
+  background:linear-gradient(135deg, #f8f8f8 0%, var(--cloud-whisper) 100%);
+  text-align:center; isolation:isolate;
+}
+.material-hero .hero-inner{position:relative;z-index:1;max-width:800px}
+.material-hero h1{font-size:clamp(3rem,6vw,4.5rem);line-height:1.1;margin-bottom:24px;font-family:'Lusitana',serif;font-weight:400}
+.material-hero p{color:var(--pale-graphite);margin:0 auto 36px;max-width:600px;font-size:1.2rem;line-height:1.7}
+.material-hero .material-tag{
+  display:inline-block;background:rgba(200,184,152,.15);color:var(--noir-veil);
+  padding:.7rem 1.5rem;border-radius:50px;font-size:.9rem;letter-spacing:.05em;
+  border:1px solid rgba(200,184,152,.3);margin-bottom:20px;
+}
+
+/* Alabaster-specific styling */
+.alabaster-glow{
+  background:radial-gradient(circle at center, rgba(255,255,255,.8) 0%, transparent 70%);
+  position:absolute;width:300px;height:300px;top:20%;right:10%;border-radius:50%;opacity:.6;
+}
+
+/* Material story section */
+.material-story{
+  padding:clamp(100px,14vh,160px) 10%;background:linear-gradient(135deg, var(--moonlit-sand) 0%, #f5f3f0 100%);
+  display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;
+}
+.material-story .content h2{
+  font-size:clamp(2.2rem,4vw,3rem);color:var(--noir-veil);margin-bottom:24px;line-height:1.2;
+}
+.material-story .content p{
+  color:var(--pale-graphite);font-size:1.1rem;line-height:1.8;margin:0 0 24px;
+}
+.material-story .content .highlight{
+  background:linear-gradient(120deg, rgba(200,184,152,.1) 0%, transparent 100%);
+  padding:28px;border-radius:16px;border-left:4px solid var(--ethereal-brass);
+  margin:32px 0;font-style:italic;font-family:'Crimson Text',serif;font-size:1.05rem;
+}
+.material-story .visual{
+  position:relative;border-radius:24px;overflow:hidden;
+  box-shadow:0 24px 80px rgba(0,0,0,.1);transform:rotate(2deg);transition:transform .4s ease;
+}
+.material-story .visual:hover{transform:rotate(0deg) scale(1.02)}
+.material-story .visual img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* Products grid específico */
+.material-products{padding:clamp(80px,12vh,140px) 10%;background:var(--cloud-whisper)}
+.material-products h2{
+  text-align:center;font-size:clamp(2rem,3.5vw,2.8rem);color:var(--noir-veil);
+  margin-bottom:48px;position:relative;
+}
+.material-products h2::after{
+  content:"";position:absolute;bottom:-12px;left:50%;transform:translateX(-50%);
+  width:80px;height:3px;background:var(--ethereal-brass);border-radius:2px;
+}
+.products-grid{
+  display:grid;grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));gap:32px;max-width:1200px;margin:0 auto;
+}
+.product-card{
+  background:var(--white);border-radius:20px;overflow:hidden;
+  box-shadow:0 12px 40px rgba(0,0,0,.06);transition:all .4s ease;border:1px solid rgba(46,46,46,.04);
+}
+.product-card:hover{transform:translateY(-8px);box-shadow:0 20px 60px rgba(0,0,0,.12)}
+.product-card .image{
+  position:relative;aspect-ratio:4/5;overflow:hidden;
+}
+.product-card .image img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.product-card:hover .image img{transform:scale(1.05)}
+.product-card .info{padding:24px}
+.product-card .info h3{color:var(--noir-veil);font-size:1.2rem;margin-bottom:8px;font-weight:500}
+.product-card .info p{color:var(--pale-graphite);font-size:.95rem;line-height:1.5;margin:0 0 16px}
+.product-card .info .price{color:var(--noir-veil);font-weight:600;font-size:1.1rem}
+
+/* Material properties */
+.material-properties{
+  padding:clamp(80px,12vh,140px) 10%;background:#fafafa;
+}
+.material-properties h2{
+  text-align:center;color:var(--noir-veil);font-size:clamp(2rem,3.5vw,2.8rem);margin-bottom:56px;
+}
+.properties-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:32px;max-width:1000px;margin:0 auto;
+}
+.property-card{
+  background:var(--white);padding:32px;border-radius:20px;text-align:center;
+  box-shadow:0 8px 30px rgba(0,0,0,.04);transition:all .3s ease;border:1px solid rgba(46,46,46,.04);
+}
+.property-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,.08)}
+.property-card .icon{
+  width:48px;height:48px;background:rgba(200,184,152,.08);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;margin:0 auto 20px;color:var(--ethereal-brass);
+}
+.property-card h3{color:var(--noir-veil);margin-bottom:12px;font-size:1.2rem}
+.property-card p{color:var(--pale-graphite);line-height:1.6;margin:0}
+
+/* CTA section */
+.material-cta{
+  padding:clamp(100px,15vh,160px) 10%;
+  background:linear-gradient(135deg, var(--silver-mist) 0%, #bbb 100%);color:var(--noir-veil);text-align:center;
+}
+.material-cta h2{color:var(--noir-veil);font-size:clamp(2.2rem,4vw,3.2rem);margin-bottom:20px;line-height:1.2}
+.material-cta p{color:var(--pale-graphite);margin:0 0 32px;font-size:1.1rem;max-width:600px;margin-left:auto;margin-right:auto}
+.material-cta .actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.material-cta .btn{
+  font-family:Lusitana,serif;padding:1rem 2rem;border-radius:50px;
+  border:2px solid var(--noir-veil);color:var(--noir-veil);text-decoration:none;
+  display:inline-flex;align-items:center;gap:.7rem;transition:all .4s ease;font-weight:500;
+  background:var(--white);
+}
+.material-cta .btn:hover{
+  background:var(--noir-veil);color:var(--white);
+  transform:translateY(-2px);box-shadow:0 8px 25px rgba(46,46,46,.2);
+}
+
+/* Responsive */
+@media (max-width:1199px){
+  .material-story{grid-template-columns:1fr;gap:48px;text-align:center}
+  .properties-grid{grid-template-columns:1fr 1fr;gap:24px}
+}
+@media (max-width:767px){
+  .material-hero{min-height:75vh;padding:clamp(80px,12vh,120px) 7%}
+  .material-story{padding:clamp(70px,10vh,100px) 7%;gap:32px}
+  .material-story .visual{transform:rotate(0deg);margin:0 auto;max-width:400px}
+  .properties-grid{grid-template-columns:1fr;gap:20px;max-width:400px}
+  .material-products{padding:clamp(60px,9vh,100px) 7%}
+  .products-grid{grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));gap:24px}
+}
+@media (max-width:479px){
+  .material-cta .actions{flex-direction:column;align-items:center}
+  .material-cta .btn{min-width:200px;justify-content:center}
+}
+</style>
+
+<div class="alabaster-collection">
+
+  <!-- MATERIAL HERO -->
+  <section class="material-hero">
+    <div class="alabaster-glow"></div>
+    <div class="hero-inner">
+      <div class="material-tag">Translucent Stone</div>
+      <h1>Alabaster</h1>
+      <p>Translucent stone that glows from within—creating ethereal luminosity and timeless elegance through nature's own capacity for inner illumination.</p>
+    </div>
+  </section>
+
+  <!-- MATERIAL STORY -->
+  <section class="material-story">
+    <div class="content">
+      <div class="eyebrow">Material Story</div>
+      <h2>The Stone That Breathes Light</h2>
+      <p>Alabaster possesses a unique gift—the ability to capture light and release it as a gentle, otherworldly glow. Our artisans work with carefully selected alabaster stones, each piece chosen for its translucency and inherent capacity to transform harsh illumination into ethereal presence.</p>
+      
+      <div class="highlight">
+        "Alabaster doesn't simply hold light—it transforms it. Each fixture becomes a luminous sculpture, glowing from within like captured moonlight, creating atmosphere that feels both ancient and eternal."
+      </div>
+      
+      <p>The natural veining and subtle variations in alabaster create fixtures that are never quite the same. Light travels differently through each stone, creating unique patterns and intensities that shift throughout the day, making every alabaster piece a living element that responds to changing illumination.</p>
+    </div>
+    <div class="visual">
+      <img src="https://lunvyr.com/wp-content/uploads/2025/08/image-60.png" alt="Translucent alabaster glowing with inner light">
+    </div>
+  </section>
+
+  <!-- MATERIAL PROPERTIES -->
+  <section class="material-properties">
+    <h2>Natural Properties</h2>
+    <div class="properties-grid">
+      <div class="property-card">
+        <div class="icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"/>
+            <path d="M12 1v6M12 17v6M4.22 4.22l4.24 4.24M15.54 15.54l4.24 4.24M1 12h6M17 12h6M4.22 19.78l4.24-4.24M15.54 8.46l4.24-4.24"/>
+          </svg>
+        </div>
+        <h3>Inner Luminosity</h3>
+        <p>Natural translucency allows light to glow from within, creating an ethereal presence that appears almost supernatural.</p>
+      </div>
+      <div class="property-card">
+        <div class="icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+            <path d="M2 17l10 5 10-5"/>
+            <path d="M2 12l10 5 10-5"/>
+          </svg>
+        </div>
+        <h3>Natural Veining</h3>
+        <p>Each piece displays unique mineral patterns that create distinctive light diffusion and visual character.</p>
+      </div>
+      <div class="property-card">
+        <div class="icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+            <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+            <line x1="12" y1="22.08" x2="12" y2="12"/>
+          </svg>
+        </div>
+        <h3>Timeless Durability</h3>
+        <p>Ancient stone that has endured millennia, becoming more beautiful and characterful with age and use.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTS GRID -->
+  <section class="material-products">
+    <h2>Alabaster Collection</h2>
+    <div class="products-grid">
+      <div class="product-card">
+        <div class="image">
+          <img src="https://lunvyr.com/wp-content/uploads/2025/08/image-60.png" alt="Luminous Alabaster Pendant">
+        </div>
+        <div class="info">
+          <h3>Luminous Pendant</h3>
+          <p>Carved alabaster pendant with natural translucency and inner glow.</p>
+          <div class="price">From $680</div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="image">
+          <img src="https://lunvyr.com/wp-content/uploads/2025/08/image-57.png" alt="Ethereal Wall Light">
+        </div>
+        <div class="info">
+          <h3>Ethereal Wall Light</h3>
+          <p>Translucent alabaster wall sconce creating atmospheric ambience.</p>
+          <div class="price">From $520</div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="image">
+          <img src="https://lunvyr.com/wp-content/uploads/2025/08/image-66.png" alt="Celestial Table Lamp">
+        </div>
+        <div class="info">
+          <h3>Celestial Table Lamp</h3>
+          <p>Hand-carved alabaster base with natural veining and soft illumination.</p>
+          <div class="price">From $420</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="material-cta">
+    <h2>Experience Translucent Beauty</h2>
+    <p>Discover how our hand-selected alabaster fixtures can transform your space with ethereal inner light and timeless mineral elegance.</p>
+    <div class="actions">
+      <a class="btn" href="/contact">Custom Consultation</a>
+      <a class="btn" href="/shop">Shop Alabaster Collection</a>
+    </div>
+  </section>
+
+</div>

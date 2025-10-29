@@ -1,0 +1,268 @@
+<!-- NUVORA — Concrete Collection (Material-focused design showcase) -->
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lusitana:wght@400;700&family=Manrope:wght@300;400;500;600&family=Crimson+Text:wght@400;600&display=swap');
+
+:root { 
+  --cloud-whisper:#F6F6F6; --moonlit-sand:#EDE7DD; --silver-mist:#DADCE0; 
+  --pale-graphite:#B2B2B2; --noir-veil:#2E2E2E; --ethereal-brass:#C8B898; --white:#fff;
+  --concrete-warm:#5A5A5A; --concrete-light:#8E8E8E; --concrete-ash:#D3D3D3;
+  --radius:16px; --shadow:0 12px 32px rgba(0,0,0,.06);
+}
+
+.concrete-collection{font-family:Manrope,system-ui,sans-serif;color:var(--noir-veil);line-height:1.6}
+.concrete-collection h1,.concrete-collection h2,.concrete-collection h3{font-family:Lusitana,serif;font-weight:400;margin:0}
+.concrete-collection .eyebrow{letter-spacing:.12em;text-transform:uppercase;font-size:.8rem;color:var(--pale-graphite);margin-bottom:.6rem}
+
+/* Hero específico para concrete */
+.material-hero{
+  position:relative; min-height:85vh; display:flex; align-items:center; justify-content:center;
+  padding:clamp(100px,12vh,160px) 10%; color:var(--cloud-whisper);
+  background:linear-gradient(135deg, #3a3a3a 0%, #2a2a2a 100%), url('https://lunvyr.com/wp-content/uploads/2025/08/image-67.png') center/cover no-repeat;
+  background-blend-mode:overlay;
+  text-align:center; isolation:isolate;
+}
+.material-hero::after{content:"";position:absolute;inset:0;background:radial-gradient(100% 100% at 40% 40%, rgba(0,0,0,0) 0%, rgba(58,58,58,.8) 80%);z-index:0}
+.material-hero .hero-inner{position:relative;z-index:1;max-width:800px}
+.material-hero h1{font-size:clamp(3rem,6vw,4.5rem);line-height:1.1;margin-bottom:24px;font-family:'Lusitana',serif;font-weight:400}
+.material-hero p{color:#d1d5db;margin:0 auto 36px;max-width:600px;font-size:1.2rem;line-height:1.7}
+.material-hero .material-tag{
+  display:inline-block;background:rgba(211,211,211,.2);color:var(--cloud-whisper);
+  padding:.7rem 1.5rem;border-radius:50px;font-size:.9rem;letter-spacing:.05em;
+  border:1px solid rgba(211,211,211,.4);backdrop-filter:blur(10px);margin-bottom:20px;
+}
+
+/* Material story section */
+.material-story{
+  padding:clamp(100px,14vh,160px) 10%;background:linear-gradient(135deg, #f5f5f5 0%, var(--silver-mist) 100%);
+  display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;
+}
+.material-story .content h2{
+  font-size:clamp(2.2rem,4vw,3rem);color:var(--noir-veil);margin-bottom:24px;line-height:1.2;
+}
+.material-story .content p{
+  color:var(--pale-graphite);font-size:1.1rem;line-height:1.8;margin:0 0 24px;
+}
+.material-story .content .highlight{
+  background:linear-gradient(120deg, rgba(211,211,211,.12) 0%, transparent 100%);
+  padding:28px;border-radius:16px;border-left:4px solid var(--concrete-warm);
+  margin:32px 0;font-style:italic;font-family:'Crimson Text',serif;font-size:1.05rem;
+}
+.material-story .visual{
+  position:relative;border-radius:24px;overflow:hidden;
+  box-shadow:0 24px 80px rgba(90,90,90,.2);transform:rotate(1deg);transition:transform .4s ease;
+}
+.material-story .visual:hover{transform:rotate(0deg) scale(1.02)}
+.material-story .visual img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* Concrete texture effect */
+.concrete-texture{
+  position:relative;
+}
+.concrete-texture::before{
+  content:"";position:absolute;inset:0;
+  background:repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(90,90,90,.03) 2px, rgba(90,90,90,.03) 4px);
+  border-radius:inherit;pointer-events:none;
+}
+
+/* Products grid específico */
+.material-products{padding:clamp(80px,12vh,140px) 10%;background:var(--concrete-ash)}
+.material-products h2{
+  text-align:center;font-size:clamp(2rem,3.5vw,2.8rem);color:var(--noir-veil);
+  margin-bottom:48px;position:relative;
+}
+.material-products h2::after{
+  content:"";position:absolute;bottom:-12px;left:50%;transform:translateX(-50%);
+  width:80px;height:3px;background:var(--concrete-warm);border-radius:2px;
+}
+.products-grid{
+  display:grid;grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));gap:32px;max-width:1200px;margin:0 auto;
+}
+.product-card{
+  background:var(--white);border-radius:20px;overflow:hidden;
+  box-shadow:0 12px 40px rgba(90,90,90,.12);transition:all .4s ease;border:1px solid rgba(90,90,90,.08);
+}
+.product-card:hover{transform:translateY(-8px);box-shadow:0 20px 60px rgba(90,90,90,.18)}
+.product-card .image{
+  position:relative;aspect-ratio:4/5;overflow:hidden;
+}
+.product-card .image img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.product-card:hover .image img{transform:scale(1.05)}
+.product-card .info{padding:24px}
+.product-card .info h3{color:var(--noir-veil);font-size:1.2rem;margin-bottom:8px;font-weight:500}
+.product-card .info p{color:var(--pale-graphite);font-size:.95rem;line-height:1.5;margin:0 0 16px}
+.product-card .info .price{color:var(--noir-veil);font-weight:600;font-size:1.1rem}
+
+/* Material properties */
+.material-properties{
+  padding:clamp(80px,12vh,140px) 10%;background:var(--cloud-whisper);
+}
+.material-properties h2{
+  text-align:center;color:var(--noir-veil);font-size:clamp(2rem,3.5vw,2.8rem);margin-bottom:56px;
+}
+.properties-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:32px;max-width:1000px;margin:0 auto;
+}
+.property-card{
+  background:var(--white);padding:32px;border-radius:20px;text-align:center;
+  box-shadow:0 8px 30px rgba(90,90,90,.08);transition:all .3s ease;border:1px solid rgba(90,90,90,.06);
+}
+.property-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(90,90,90,.12)}
+.property-card .icon{
+  width:48px;height:48px;background:rgba(211,211,211,.15);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;margin:0 auto 20px;color:var(--concrete-warm);
+}
+.property-card h3{color:var(--noir-veil);margin-bottom:12px;font-size:1.2rem}
+.property-card p{color:var(--pale-graphite);line-height:1.6;margin:0}
+
+/* CTA section */
+.material-cta{
+  padding:clamp(100px,15vh,160px) 10%;
+  background:linear-gradient(135deg, #3a3a3a 0%, #2a2a2a 100%);color:var(--cloud-whisper);text-align:center;
+}
+.material-cta h2{color:var(--cloud-whisper);font-size:clamp(2.2rem,4vw,3.2rem);margin-bottom:20px;line-height:1.2}
+.material-cta p{color:#d1d5db;margin:0 0 32px;font-size:1.1rem;max-width:600px;margin-left:auto;margin-right:auto}
+.material-cta .actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.material-cta .btn{
+  font-family:Lusitana,serif;padding:1rem 2rem;border-radius:50px;
+  border:2px solid rgba(211,211,211,.6);color:var(--cloud-whisper);text-decoration:none;
+  display:inline-flex;align-items:center;gap:.7rem;transition:all .4s ease;font-weight:500;
+  background:rgba(211,211,211,.1);backdrop-filter:blur(10px);
+}
+.material-cta .btn:hover{
+  background:rgba(211,211,211,.2);border-color:var(--concrete-light);
+  transform:translateY(-2px);box-shadow:0 8px 25px rgba(211,211,211,.2);
+}
+
+/* Responsive */
+@media (max-width:1199px){
+  .material-story{grid-template-columns:1fr;gap:48px;text-align:center}
+  .properties-grid{grid-template-columns:1fr 1fr;gap:24px}
+}
+@media (max-width:767px){
+  .material-hero{min-height:75vh;padding:clamp(80px,12vh,120px) 7%}
+  .material-story{padding:clamp(70px,10vh,100px) 7%;gap:32px}
+  .material-story .visual{transform:rotate(0deg);margin:0 auto;max-width:400px}
+  .properties-grid{grid-template-columns:1fr;gap:20px;max-width:400px}
+  .material-products{padding:clamp(60px,9vh,100px) 7%}
+  .products-grid{grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));gap:24px}
+}
+@media (max-width:479px){
+  .material-cta .actions{flex-direction:column;align-items:center}
+  .material-cta .btn{min-width:200px;justify-content:center}
+}
+</style>
+
+<div class="concrete-collection">
+
+  <!-- MATERIAL HERO -->
+  <section class="material-hero">
+    <div class="hero-inner">
+      <div class="material-tag">Architectural Foundation</div>
+      <h1>Concrete</h1>
+      <p>Raw architectural beauty and industrial poetry—our cast concrete fixtures celebrate the honest strength and textural richness of this foundational building material.</p>
+    </div>
+  </section>
+
+  <!-- MATERIAL STORY -->
+  <section class="material-story">
+    <div class="content">
+      <div class="eyebrow">Material Story</div>
+      <h2>The Poetry of Honest Materials</h2>
+      <p>Concrete represents the intersection of engineering and artistry—a material that shaped the modern world through its strength and versatility. Our artisans work with high-performance architectural concrete, creating fixtures that celebrate both its industrial heritage and surprising delicacy when illuminated.</p>
+      
+      <div class="highlight">
+        "Concrete teaches us that beauty emerges from function, that strength and grace can coexist. When light passes through our cast fixtures, it reveals the material's hidden softness—the gentle curves possible within seeming rigidity."
+      </div>
+      
+      <p>Each concrete fixture is hand-cast using custom formwork, allowing us to achieve precise geometric forms while embracing the subtle variations that make each piece unique. The material's thermal mass creates gentle, even light distribution, while its honest surface texture adds tactile richness to contemporary spaces.</p>
+    </div>
+    <div class="visual concrete-texture">
+      <img src="https://lunvyr.com/wp-content/uploads/2025/08/image-67.png" alt="Hand-cast concrete fixture with architectural precision">
+    </div>
+  </section>
+
+  <!-- MATERIAL PROPERTIES -->
+  <section class="material-properties">
+    <h2>Structural Properties</h2>
+    <div class="properties-grid">
+      <div class="property-card">
+        <div class="icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+            <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+            <line x1="12" y1="22.08" x2="12" y2="12"/>
+          </svg>
+        </div>
+        <h3>Architectural Precision</h3>
+        <p>Cast-in-place accuracy allows for complex geometric forms while maintaining structural integrity and design intent.</p>
+      </div>
+      <div class="property-card">
+        <div class="icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+          </svg>
+        </div>
+        <h3>Honest Surface Texture</h3>
+        <p>Natural concrete patina and texture create visual interest while providing authentic material character and depth.</p>
+      </div>
+      <div class="property-card">
+        <div class="icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"/>
+            <path d="M12 1v6M12 17v6M4.22 4.22l4.24 4.24M15.54 15.54l4.24 4.24M1 12h6M17 12h6M4.22 19.78l4.24-4.24M15.54 8.46l4.24-4.24"/>
+          </svg>
+        </div>
+        <h3>Thermal Mass Lighting</h3>
+        <p>High thermal mass creates stable, even light distribution with minimal heat fluctuation and gentle diffusion qualities.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTS GRID -->
+  <section class="material-products">
+    <h2>Concrete Collection</h2>
+    <div class="products-grid">
+      <div class="product-card">
+        <div class="image">
+          <img src="https://lunvyr.com/wp-content/uploads/2025/08/image-67.png" alt="Architectural Form Pendant">
+        </div>
+        <div class="info">
+          <h3>Architectural Form Pendant</h3>
+          <p>Cast concrete geometric pendant with precise edges and raw material honesty.</p>
+          <div class="price">From $320</div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="image">
+          <img src="https://lunvyr.com/wp-content/uploads/2025/08/IMG-5-2-scaled.jpg" alt="Industrial Wall Sconce">
+        </div>
+        <div class="info">
+          <h3>Industrial Wall Sconce</h3>
+          <p>Brutalist-inspired concrete sconce with integrated LED and textural surfaces.</p>
+          <div class="price">From $280</div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="image">
+          <img src="https://lunvyr.com/wp-content/uploads/2025/08/image-65.png" alt="Monolithic Table Lamp">
+        </div>
+        <div class="info">
+          <h3>Monolithic Table Lamp</h3>
+          <p>Solid concrete base with integrated dimming and minimalist proportions.</p>
+          <div class="price">From $360</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="material-cta">
+    <h2>Experience Raw Beauty</h2>
+    <p>Discover how our architectural concrete fixtures bring honest material character and structural elegance to contemporary spaces through thoughtful casting and precise illumination.</p>
+    <div class="actions">
+      <a class="btn" href="/contact">Custom Consultation</a>
+      <a class="btn" href="/shop">Shop Concrete Collection</a>
+    </div>
+  </section>
+
+</div>

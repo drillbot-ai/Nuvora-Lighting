@@ -1,78 +1,78 @@
-<!-- LUNVYR — Home (Fade Hero, Feature Bar, Collections, Products, Process, Testimonials, IG, Newsletter, CTA) -->
+<!-- NUVORA — Ethereal Light Forms (Fade Hero, Feature Bar, Collections, Products, Process, Testimonials, IG, Newsletter, CTA) -->
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Inter:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lusitana:wght@400;700&family=Manrope:wght@300;400;500;600&display=swap');
 
 :root{
-  --ink:#1c222b; --paper:#f2f0eb; --coal:#111; --ash:#666; --brass:#b2956d; --white:#fff;
-  --radius:14px; --soft-shadow:0 12px 32px rgba(0,0,0,.08);
+  --cloud-whisper:#F6F6F6; --moonlit-sand:#EDE7DD; --silver-mist:#DADCE0; --pale-graphite:#B2B2B2; --noir-veil:#2E2E2E; --ethereal-brass:#C8B898; --white:#fff;
+  --radius:16px; --soft-shadow:0 12px 32px rgba(0,0,0,.06);
 }
 
 /* Base */
-.lunvyr-home{font-family:Inter,system-ui,sans-serif;color:var(--coal);line-height:1.6}
-.lunvyr-home h1,.lunvyr-home h2,.lunvyr-home h3,.lunvyr-home h4{font-family:Cinzel,serif;font-weight:400;margin:0}
-.lunvyr-home a{text-decoration:none;color:inherit}
-.lunvyr-home .section{padding:clamp(72px,10vh,120px) 10%}
-.lunvyr-home .section-narrow{padding:clamp(56px,8vh,96px) 10%}
-.lunvyr-home .eyebrow{letter-spacing:.12em;text-transform:uppercase;font-size:.8rem;color:var(--ash);margin-bottom:.6rem}
+.nuvora-home{font-family:Manrope,system-ui,sans-serif;color:var(--noir-veil);line-height:1.6}
+.nuvora-home h1,.nuvora-home h2,.nuvora-home h3,.nuvora-home h4{font-family:Lusitana,serif;font-weight:400;margin:0}
+.nuvora-home a{text-decoration:none;color:inherit}
+.nuvora-home .section{padding:clamp(72px,10vh,120px) 10%}
+.nuvora-home .section-narrow{padding:clamp(56px,8vh,96px) 10%}
+.nuvora-home .eyebrow{letter-spacing:.12em;text-transform:uppercase;font-size:.8rem;color:var(--pale-graphite);margin-bottom:.6rem}
 
 /* Buttons mejorados */
-.lunvyr-home .btn{
-  font-family:Cinzel,serif; padding:1rem 2rem; border-radius:50px; 
-  border:2px solid rgba(0,0,0,.14); display:inline-flex; gap:.7rem; 
+.nuvora-home .btn{
+  font-family:Lusitana,serif; padding:1rem 2rem; border-radius:50px; 
+  border:2px solid rgba(46,46,46,.14); display:inline-flex; gap:.7rem; 
   align-items:center; transition:all .4s ease; font-weight:500;
   position:relative; overflow:hidden;
 }
-.lunvyr-home .btn::before{
+.nuvora-home .btn::before{
   content:""; position:absolute; top:0; left:-100%; width:100%; height:100%;
   background:linear-gradient(90deg, transparent, rgba(255,255,255,.1), transparent);
   transition:left .6s ease;
 }
-.lunvyr-home .btn:hover::before{left:100%}
-.lunvyr-home .btn-dark{
-  background:var(--ink); color:var(--paper); border-color:var(--ink);
+.nuvora-home .btn:hover::before{left:100%}
+.nuvora-home .btn-dark{
+  background:var(--noir-veil); color:var(--cloud-whisper); border-color:var(--noir-veil);
 }
-.lunvyr-home .btn-dark:hover{
-  background:#0a0b0e; transform:translateY(-2px); 
-  box-shadow:0 8px 25px rgba(0,0,0,.2);
+.nuvora-home .btn-dark:hover{
+  background:#1a1a1a; transform:translateY(-2px); 
+  box-shadow:0 8px 25px rgba(46,46,46,.2);
 }
-.lunvyr-home .btn-light{
-  background:var(--paper); color:var(--ink); border-color:var(--brass);
+.nuvora-home .btn-light{
+  background:var(--cloud-whisper); color:var(--noir-veil); border-color:var(--ethereal-brass);
 }
-.lunvyr-home .btn-light:hover{
-  background:#f8f6f0; transform:translateY(-2px);
-  box-shadow:0 8px 25px rgba(178,149,109,.2);
+.nuvora-home .btn-light:hover{
+  background:#f8f8f8; transform:translateY(-2px);
+  box-shadow:0 8px 25px rgba(200,184,152,.2);
 }
-.lunvyr-home .btn-ghost{
-  background:rgba(255,255,255,.05); color:var(--paper); 
-  border-color:rgba(242,240,235,.4); backdrop-filter:blur(10px);
+.nuvora-home .btn-ghost{
+  background:rgba(246,246,246,.05); color:var(--cloud-whisper); 
+  border-color:rgba(246,246,246,.4); backdrop-filter:blur(10px);
 }
-.lunvyr-home .btn-ghost:hover{
-  background:rgba(242,240,235,.12); border-color:var(--brass);
-  transform:translateY(-2px); box-shadow:0 8px 25px rgba(178,149,109,.2);
+.nuvora-home .btn-ghost:hover{
+  background:rgba(246,246,246,.12); border-color:var(--ethereal-brass);
+  transform:translateY(-2px); box-shadow:0 8px 25px rgba(200,184,152,.2);
 }
 
 /* ===== HERO FADE SLIDER MEJORADO ===== */
 .hero-slider{position:relative;isolation:isolate}
 .hero-stage{
   position:relative; height:100vh; min-height:580px; overflow:hidden; 
-  background:linear-gradient(135deg, var(--ink) 0%, #0a0b0e 100%);
+  background:linear-gradient(135deg, var(--silver-mist) 0%, #c8c8c8 100%);
 }
 .hero-slide{
   position:absolute; inset:0; display:flex; align-items:center; justify-content:flex-start;
   padding:clamp(100px,12vh,140px) 10%;
-  background:no-repeat center right/cover; color:var(--paper);
+  background:no-repeat center right/cover; color:var(--noir-veil);
   opacity:0; visibility:hidden; 
   transition:opacity 1.2s cubic-bezier(0.4, 0.0, 0.2, 1), visibility 0s linear 1.2s;
 }
 .hero-slide.active{opacity:1; visibility:visible; transition:opacity 1.2s cubic-bezier(0.4, 0.0, 0.2, 1)}
 .hero-slide::before{
   content:""; position:absolute; top:0; left:0; right:0; height:1px;
-  background:linear-gradient(90deg, transparent, var(--brass), transparent);
+  background:linear-gradient(90deg, transparent, var(--ethereal-brass), transparent);
   z-index:1;
 }
 .hero-slide::after{
   content:""; position:absolute; inset:0;
-  background:radial-gradient(100% 100% at 75% 25%, rgba(0,0,0,0) 0%, rgba(0,0,0,.65) 70%);
+  background:radial-gradient(100% 100% at 75% 25%, rgba(246,246,246,0) 0%, rgba(46,46,46,.45) 70%);
 }
 .hero-slide .content{
   max-width:720px; position:relative; z-index:3;
@@ -82,23 +82,23 @@
 .hero-slide.active .content{animation-delay:.3s}
 .hero-slide h1{
   font-size:clamp(2.8rem,5.5vw,4.4rem); line-height:1.1; margin-bottom:20px;
-  font-family:'Cinzel',serif; font-weight:400;
-  background:linear-gradient(135deg, #fff 0%, #e9ecef 100%);
+  font-family:'Lusitana',serif; font-weight:400;
+  background:linear-gradient(135deg, var(--noir-veil) 0%, var(--pale-graphite) 100%);
   -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
 }
-.hero-slide p{color:#d6d3ce; margin:0 0 36px; font-size:1.1rem; line-height:1.7}
+.hero-slide p{color:var(--pale-graphite); margin:0 0 36px; font-size:1.1rem; line-height:1.7}
 .hero-slide .actions{display:flex; gap:16px; flex-wrap:wrap}
 .hero-slide .meta-strip{
-  display:flex; gap:16px; flex-wrap:wrap; color:#c1beb8; opacity:.85; 
+  display:flex; gap:16px; flex-wrap:wrap; color:var(--pale-graphite); opacity:.85; 
   font-size:.9rem; margin-top:16px; font-weight:500;
 }
 .hero-slide .meta-pill{
-  border:1px solid rgba(242,240,235,.3); border-radius:50px; 
-  padding:.5rem 1rem; background:rgba(255,255,255,.05); 
+  border:1px solid rgba(178,178,178,.3); border-radius:50px; 
+  padding:.5rem 1rem; background:rgba(246,246,246,.05); 
   backdrop-filter:blur(10px); transition:all .3s ease;
 }
 .hero-slide .meta-pill:hover{
-  border-color:var(--brass); background:rgba(255,255,255,.08);
+  border-color:var(--ethereal-brass); background:rgba(246,246,246,.08);
 }
 
 @keyframes heroContentIn{
@@ -134,41 +134,41 @@
   cursor:pointer;
 }
 
-.hero-dots button.active{ background:var(--paper); }
-.hero-dots button:hover{ background:rgba(242,240,235,.35); }
+.hero-dots button.active{ background:var(--cloud-whisper); }
+.hero-dots button:hover{ background:rgba(246,246,246,.35); }
 
 .hero-dots button:focus-visible{
-  outline:2px solid var(--brass);
+  outline:2px solid var(--ethereal-brass);
   outline-offset:2px;
 }
 
 .hero-dots{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);display:flex;gap:8px;z-index:3}
-.hero-dots button{width:10px;height:10px;border-radius:50%;border:1px solid rgba(242,240,235,.6);background:transparent;cursor:pointer}
-.hero-dots button.active{background:var(--paper)}
-.hero-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:3;border:1px solid rgba(242,240,235,.6);
-  width:40px;height:40px;border-radius:50%;background:rgba(0,0,0,.15);backdrop-filter:saturate(1.05);cursor:pointer}
-.hero-arrow:hover{background:rgba(0,0,0,.25)}
+.hero-dots button{width:10px;height:10px;border-radius:50%;border:1px solid rgba(246,246,246,.6);background:transparent;cursor:pointer}
+.hero-dots button.active{background:var(--cloud-whisper)}
+.hero-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:3;border:1px solid rgba(246,246,246,.6);
+  width:40px;height:40px;border-radius:50%;background:rgba(46,46,46,.15);backdrop-filter:saturate(1.05);cursor:pointer}
+.hero-arrow:hover{background:rgba(46,46,46,.25)}
 .hero-arrow--prev{left:14px}.hero-arrow--next{right:14px}
 
 /* Feature Bar mejorada */
 .feature-bar{
-  background:linear-gradient(135deg, var(--paper) 0%, #f8f6f0 100%);
+  background:linear-gradient(135deg, var(--cloud-whisper) 0%, #f2f2f2 100%);
   position:relative;
 }
 .feature-bar::before{
   content:""; position:absolute; top:0; left:0; right:0; height:1px;
-  background:linear-gradient(90deg, transparent, var(--brass), transparent);
+  background:linear-gradient(90deg, transparent, var(--ethereal-brass), transparent);
 }
 .feature-bar .wrap{display:grid; grid-template-columns:repeat(3,1fr); gap:28px; max-width:1000px; margin:0 auto}
 .feature-bar .card{
-  background:var(--white); border:1px solid rgba(17,17,17,.06); 
+  background:var(--white); border:1px solid rgba(46,46,46,.06); 
   border-radius:20px; padding:24px 22px; display:flex; gap:18px; 
   align-items:flex-start; box-shadow:0 8px 30px rgba(0,0,0,.06);
   transition:all .4s ease; position:relative; overflow:hidden;
 }
 .feature-bar .card::before{
   content:""; position:absolute; top:0; left:0; right:0; height:3px;
-  background:linear-gradient(90deg, var(--brass) 0%, #d4af78 100%);
+  background:linear-gradient(90deg, var(--ethereal-brass) 0%, #d4c4a8 100%);
   transform:scaleX(0); transition:transform .4s ease;
 }
 .feature-bar .card:hover::before{transform:scaleX(1)}
@@ -177,48 +177,48 @@
   box-shadow:0 16px 45px rgba(0,0,0,.1);
 }
 .feature-bar .icon{
-  width:36px; height:36px; min-width:36px; color:var(--brass);
-  background:rgba(178,149,109,.1); border-radius:50%;
+  width:36px; height:36px; min-width:36px; color:var(--ethereal-brass);
+  background:rgba(200,184,152,.1); border-radius:50%;
   display:flex; align-items:center; justify-content:center;
 }
-.feature-bar .card h4{color:var(--ink); margin-bottom:6px; font-weight:600}
-.feature-bar .card p{color:var(--ash); margin:0; font-size:.9rem; line-height:1.5}
+.feature-bar .card h4{color:var(--noir-veil); margin-bottom:6px; font-weight:600}
+.feature-bar .card p{color:var(--pale-graphite); margin:0; font-size:.9rem; line-height:1.5}
 
 /* Explore by Collection mejorado */
 .collections{
-  background:linear-gradient(135deg, var(--paper) 0%, #f8f6f0 100%);
+  background:linear-gradient(135deg, var(--cloud-whisper) 0%, #f2f2f2 100%);
   position:relative;
 }
 .collections::before{
   content:""; position:absolute; top:0; left:0; right:0; height:1px;
-  background:linear-gradient(90deg, transparent, var(--brass), transparent);
+  background:linear-gradient(90deg, transparent, var(--ethereal-brass), transparent);
 }
 .collections header{margin-bottom:clamp(24px,2.5vw,40px); text-align:center}
 .collections h2{
-  font-size:clamp(2rem,3.5vw,2.8rem); color:var(--ink); 
-  font-family:'Cinzel',serif; position:relative;
+  font-size:clamp(2rem,3.5vw,2.8rem); color:var(--noir-veil); 
+  font-family:'Lusitana',serif; position:relative;
 }
 .collections h2::after{
   content:""; position:absolute; bottom:-8px; left:50%; transform:translateX(-50%);
-  width:60px; height:3px; background:var(--brass); border-radius:2px;
+  width:60px; height:3px; background:var(--ethereal-brass); border-radius:2px;
 }
-.collections p.sub{color:var(--ash); margin:.8rem 0 0; font-size:1.1rem}
+.collections p.sub{color:var(--pale-graphite); margin:.8rem 0 0; font-size:1.1rem}
 .collections .grid{
   display:grid; gap:28px; grid-template-columns:repeat(3,1fr); 
   min-height:clamp(540px,65vh,750px); max-width:1200px; margin:0 auto;
 }
 .collections .card{
-  position:relative; overflow:hidden; border:1px solid rgba(17,17,17,.08); 
+  position:relative; overflow:hidden; border:1px solid rgba(46,46,46,.08); 
   background:var(--white); transform:translateZ(0); border-radius:20px;
   box-shadow:0 8px 30px rgba(0,0,0,.08); transition:all .4s ease;
 }
 .collections .card::before{
-  content:""; position:absolute; inset:16px; border:2px solid rgba(178,149,109,.4); 
+  content:""; position:absolute; inset:16px; border:2px solid rgba(200,184,152,.4); 
   border-radius:12px; transform:translate(8px,8px); 
   transition:all .4s cubic-bezier(0.4, 0.0, 0.2, 1); z-index:3; pointer-events:none;
 }
 .collections .card:hover{transform:translateY(-8px); box-shadow:0 20px 50px rgba(0,0,0,.15)}
-.collections .card:hover::before{transform:translate(12px,12px); border-color:var(--brass)}
+.collections .card:hover::before{transform:translate(12px,12px); border-color:var(--ethereal-brass)}
 .collections .media{position:absolute; inset:0; border-radius:20px; overflow:hidden}
 .collections .media img{
   width:100%; height:100%; object-fit:cover; 
@@ -228,58 +228,58 @@
 .collections .card:hover .media img{transform:scale(1.05)}
 .collections .shade{
   position:absolute; inset:0; 
-  background:linear-gradient(180deg,rgba(0,0,0,0) 35%,rgba(0,0,0,.6) 100%);
+  background:linear-gradient(180deg,rgba(246,246,246,0) 35%,rgba(46,46,46,.6) 100%);
   opacity:.4; transition:opacity .4s ease; z-index:1;
 }
 .collections .card:hover .shade{opacity:.85}
 .collections .meta{
   position:absolute; left:0; right:0; bottom:0; padding:32px 28px; 
-  color:var(--paper); z-index:2; text-shadow:0 2px 8px rgba(0,0,0,.4);
+  color:var(--cloud-whisper); z-index:2; text-shadow:0 2px 8px rgba(46,46,46,.4);
 }
 .collections .meta h3{
   font-size:clamp(1.3rem,2.2vw,1.8rem); margin:0 0 8px; 
-  font-weight:500; font-family:'Cinzel',serif;
+  font-weight:500; font-family:'Lusitana',serif;
 }
 .collections .meta p{margin:0 0 12px; opacity:.9; font-size:.9rem}
 .collections .btn{
-  border:2px solid rgba(242,240,235,.5); color:var(--paper); 
+  border:2px solid rgba(246,246,246,.5); color:var(--cloud-whisper); 
   border-radius:50px; padding:.7rem 1.4rem; font-weight:500;
   transition:all .3s ease; backdrop-filter:blur(10px);
   background:rgba(255,255,255,.1);
 }
 .collections .btn:hover{
-  border-color:var(--brass); background:rgba(178,149,109,.2);
+  border-color:var(--ethereal-brass); background:rgba(200,184,152,.2);
   transform:translateY(-2px);
 }
 
 /* WooCommerce grids */
 .wc-section header{margin-bottom:18px}
-.wc-section h2{font-size:clamp(24px,2.8vw,34px);color:var(--ink)}
+.wc-section h2{font-size:clamp(24px,2.8vw,34px);color:var(--noir-veil)}
 .wc-section ul.products{--gap:18px;display:grid;grid-template-columns:repeat(4,1fr);gap:var(--gap)!important}
-.wc-section ul.products li.product{background:var(--white);border:1px solid rgba(17,17,17,.08);border-radius:var(--radius);overflow:hidden;box-shadow:var(--soft-shadow)}
+.wc-section ul.products li.product{background:var(--white);border:1px solid rgba(46,46,46,.08);border-radius:var(--radius);overflow:hidden;box-shadow:var(--soft-shadow)}
 .wc-section ul.products li.product a img{transition:transform .3s}
 .wc-section ul.products li.product a:hover img{transform:scale(1.03)}
-.wc-section .woocommerce-loop-product__title{font-family:Inter,system-ui,sans-serif;font-weight:600;font-size:1rem;color:var(--ink)}
-.wc-section .price{color:var(--ink);font-weight:600}
-.wc-section .button{font-family:Cinzel,serif;border-radius:40px}
+.wc-section .woocommerce-loop-product__title{font-family:Manrope,system-ui,sans-serif;font-weight:600;font-size:1rem;color:var(--noir-veil)}
+.wc-section .price{color:var(--noir-veil);font-weight:600}
+.wc-section .button{font-family:Lusitana,serif;border-radius:40px}
 
 /* NEW IN — fila única carrusel */
 .newin .products{display:flex !important;gap:16px;overflow:auto;scroll-snap-type:x mandatory;padding-bottom:6px}
 .newin .products li.product{flex:0 0 clamp(220px,25vw,260px);scroll-snap-align:start}
 .newin .carousel-controls{display:flex;justify-content:flex-end;gap:8px;margin:-8px 0 12px}
-.newin .ctrl{border:1px solid rgba(17,17,17,.2);background:var(--white);border-radius:50%;width:38px;height:38px;cursor:pointer}
+.newin .ctrl{border:1px solid rgba(46,46,46,.2);background:var(--white);border-radius:50%;width:38px;height:38px;cursor:pointer}
 .newin .ctrl:disabled{opacity:.5;cursor:default}
 
 /* Process + Testimonials + IG */
-.process h2{color:var(--ink)}
+.process h2{color:var(--noir-veil)}
 .process .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.process .step{background:var(--white);border:1px solid rgba(17,17,17,.08);border-radius:var(--radius);padding:22px;box-shadow:var(--soft-shadow)}
-.process .step .num{font-family:Cinzel,serif;color:var(--brass);font-size:1.4rem;margin-bottom:.5rem}
-.process .step h3{color:var(--ink)}
+.process .step{background:var(--white);border:1px solid rgba(46,46,46,.08);border-radius:var(--radius);padding:22px;box-shadow:var(--soft-shadow)}
+.process .step .num{font-family:Lusitana,serif;color:var(--ethereal-brass);font-size:1.4rem;margin-bottom:.5rem}
+.process .step h3{color:var(--noir-veil)}
 .testimonials{background:#f7f7f7}
-.testimonials h2{color:var(--ink)}
+.testimonials h2{color:var(--noir-veil)}
 .testimonials .track{display:flex;gap:18px;justify-content:center;overflow:auto;scroll-snap-type:x mandatory;padding-bottom:4px}
-.testimonials .card{scroll-snap-align:center;flex:0 0 360px;background:var(--white);border:1px solid rgba(17,17,17,.08);border-radius:var(--radius);padding:20px;box-shadow:var(--soft-shadow)}
+.testimonials .card{scroll-snap-align:center;flex:0 0 360px;background:var(--white);border:1px solid rgba(46,46,46,.08);border-radius:var(--radius);padding:20px;box-shadow:var(--soft-shadow)}
 .testimonials .quote{font-style:italic;color:#333}
 .testimonials .author{margin-top:10px;color:#777}
 .ig .grid{display:grid;grid-template-columns:repeat(6,1fr);gap:8px}
@@ -287,28 +287,28 @@
 .ig .grid img{width:100%;aspect-ratio:1/1;object-fit:cover;transition:transform .35s}
 .ig .grid a:hover img{transform:scale(1.05)}
 /* IG – color del título */
-.ig header h2 { color: var(--brass); }   /* o usa #1c222b, #000, etc. */
+.ig header h2 { color: var(--ethereal-brass); }   
 
 /* (opcional) cambia el color del "FOLLOW" */
-.ig header .eyebrow { color: var(--ash); }  /* o el color que prefieras */
+.ig header .eyebrow { color: var(--pale-graphite); }
 
 
 /* Newsletter */
 .newsletter{background:#f5f5f5;text-align:center}
 .newsletter form{max-width:540px;margin:12px auto 0;display:flex;gap:10px}
-.newsletter input[type="email"]{flex:1;padding:14px;border:1px solid var(--ash);border-radius:30px;font-size:1rem;background:var(--white)}
-.newsletter .message{margin-top:10px;color:var(--brass)}
+.newsletter input[type="email"]{flex:1;padding:14px;border:1px solid var(--pale-graphite);border-radius:30px;font-size:1rem;background:var(--white)}
+.newsletter .message{margin-top:10px;color:var(--ethereal-brass)}
 
 /* CTA final */
-.cta-final{ position:relative; color:var(--paper);
+.cta-final{ position:relative; color:var(--cloud-whisper);
   background:#0e0f12 url('https://lunvyr.com/wp-content/uploads/2025/08/f07dabad-5599-4f19-bb21-0e2537614e98.png') center/cover no-repeat;}
 .cta-final::before{content:""; position:absolute; inset:0; background:radial-gradient(120% 120% at 70% 20%, rgba(0,0,0,.0) 0%, rgba(0,0,0,.65) 70%);}
 .cta-final .wrap{ position:relative; z-index:1; max-width:960px; margin:0 auto; padding:clamp(84px,12vh,140px) 10%; text-align:center; }
 .cta-final h2{ font-size:clamp(28px,3.2vw,42px); margin:0 0 12px; }
 .cta-final p{ color:#efece7; margin:0 0 22px; }
 .cta-final .actions{ display:flex; gap:12px; justify-content:center; flex-wrap:wrap; }
-.cta-final .btn-ghost{ background:transparent; color:var(--paper); border-color:rgba(242,240,235,.6) }
-.cta-final .btn-ghost:hover{ background:rgba(242,240,235,.1); border-color:var(--paper) }
+.cta-final .btn-ghost{ background:transparent; color:var(--cloud-whisper); border-color:rgba(246,246,246,.6) }
+.cta-final .btn-ghost:hover{ background:rgba(246,246,246,.1); border-color:var(--cloud-whisper) }
 
 /* Responsive mejorado */
 @media (max-width:1199px){
@@ -356,7 +356,7 @@
 
 /* Reduced motion + failsafe */
 @media (prefers-reduced-motion: reduce){ .hero-slide{transition:none} }
-.lunvyr-home .reveal{opacity:1!important;transform:none!important}
+.nuvora-home .reveal{opacity:1!important;transform:none!important}
 
 /* --- FIX: Explore by Collection en móvil (altura intrínseca) --- */
 .collections .card{
@@ -388,7 +388,7 @@
 
 </style>
 
-<div class="lunvyr-home">
+<div class="nuvora-home">
 
   <!-- ===== HERO FADE (2 slides) ===== -->
   <section class="hero-slider" aria-roledescription="carousel">
@@ -399,8 +399,8 @@
       <div class="hero-slide hero--shop active" role="group" aria-label="1 of 2">
         <div class="content">
           <div class="eyebrow">Handcrafted in New York</div>
-          <h1>Sculptural Lighting.<br>Timeless Design.</h1>
-          <p>Handcrafted lighting—wall, ceiling, and table fixtures—blending artisanal craft with architectural elegance.</p>
+          <h1>Ethereal Light Forms.<br>Timeless Serenity.</h1>
+          <p>Sculptural illumination crafted from nature's finest materials—plaster, alabaster, wood, and glass—creating atmospheric forms that appear suspended in air.</p>
           <div class="actions">
             <a class="btn btn-ghost" href="/shop">Explore the Collection</a>
           </div>
@@ -410,11 +410,11 @@
 
       <div class="hero-slide hero--custom" role="group" aria-label="2 of 2">
         <div class="content">
-          <div class="eyebrow">Premium Quality</div>
-          <h1>Precision Lighting.<br>Ready to Ship.</h1>
-          <p>Complete collections available in our signature finishes—each piece crafted to exacting standards.</p>
+          <div class="eyebrow">Natural Materials</div>
+          <h1>Poetic Dialogue.<br>Light & Architecture.</h1>
+          <p>Each fixture embodies weightless elegance and celestial minimalism, creating presence through the poetry of natural materials and ethereal light.</p>
           <div class="actions">
-            <a class="btn btn-ghost" href="/shop">Browse Collections</a>
+            <a class="btn btn-ghost" href="/shop">Discover Materials</a>
           </div>
         </div>
       </div>
@@ -429,102 +429,102 @@
   <!-- FEATURE BAR -->
   <section class="feature-bar section-narrow">
     <div class="wrap">
-      <article class="card"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 3l7 4v7c0 4-7 7-7 7s-7-3-7-7V7l7-4z"/></svg><div><h4 style="margin:0 0 4px">Premium Craft</h4><p style="margin:0;color:var(--ash)">Handcrafted metal fixtures with brass and fine finishes—built to last.</p></div></article>
-      <article class="card"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 12h18M12 3v18"/></svg><div><h4 style="margin:0 0 4px">Multiple Sizes</h4><p style="margin:0;color:var(--ash)">Available in various standard proportions and finishes.</p></div></article>
-      <article class="card"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20 12a8 8 0 1 1-16 0"/></svg><div><h4 style="margin:0 0 4px">UL & Compliance</h4><p style="margin:0;color:var(--ash)">Built to US electrical standards and safety codes.</p></div></article>
+      <article class="card"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 3l7 4v7c0 4-7 7-7 7s-7-3-7-7V7l7-4z"/></svg><div><h4 style="margin:0 0 4px">Natural Materials</h4><p style="margin:0;color:var(--pale-graphite)">Crafted from plaster, alabaster, wood, glass, and concrete—nature's finest elements.</p></div></article>
+      <article class="card"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 12h18M12 3v18"/></svg><div><h4 style="margin:0 0 4px">Ethereal Forms</h4><p style="margin:0;color:var(--pale-graphite)">Weightless designs that appear suspended—neither light nor object, but presence.</p></div></article>
+      <article class="card"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20 12a8 8 0 1 1-16 0"/></svg><div><h4 style="margin:0 0 4px">Architectural Poetry</h4><p style="margin:0;color:var(--pale-graphite)">Sculptural illumination that creates dialogue between light and space.</p></div></article>
     </div>
   </section>
 
   <!-- EXPLORE BY COLLECTION (updated) -->
 <section class="collections section" aria-labelledby="collections-title">
   <header>
-    <h2 id="collections-title">Explore by Collection</h2>
-    <p class="sub">Architectural design meets precision metalwork.</p>
+    <h2 id="collections-title">Explore by Material</h2>
+    <p class="sub">Natural elements sculpted into ethereal light forms.</p>
   </header>
 
   <div class="grid">
-    <!-- AUREA -->
+    <!-- PLASTER -->
     <article class="card">
       <div class="media">
-        <img src="https://lunvyr.com/wp-content/uploads/2025/08/c9ea6458-53bb-4486-a4b5-04f51cf932f3.png" alt="AUREA collection" loading="lazy">
+        <img src="https://lunvyr.com/wp-content/uploads/2025/08/c9ea6458-53bb-4486-a4b5-04f51cf932f3.png" alt="PLASTER collection" loading="lazy">
         <span class="shade" aria-hidden="true"></span>
       </div>
       <div class="meta">
-        <h3>AUREA</h3>
-        <p>Mid-century curves in satin brass and opaline glass; warm, golden harmony.</p>
-        <a class="btn" href="/collection-aurea.htm">View Collection</a>
+        <h3>PLASTER</h3>
+        <p>Organic textures and soft curves in natural plaster—warm, tactile surfaces that breathe with light.</p>
+        <a class="btn" href="/collection-plaster.htm">View Collection</a>
       </div>
-      <a class="card-link" href="/collection-aurea.htm" aria-hidden="true" tabindex="-1"></a>
+      <a class="card-link" href="/collection-plaster.htm" aria-hidden="true" tabindex="-1"></a>
     </article>
 
-    <!-- BLACK LABEL -->
+    <!-- ALABASTER -->
     <article class="card">
       <div class="media">
-        <img src="https://lunvyr.com/wp-content/uploads/2025/08/image-60.png" alt="BLACK LABEL collection" loading="lazy">
+        <img src="https://lunvyr.com/wp-content/uploads/2025/08/image-60.png" alt="ALABASTER collection" loading="lazy">
         <span class="shade" aria-hidden="true"></span>
       </div>
       <div class="meta">
-        <h3>BLACK LABEL</h3>
-        <p>Dramatic blackened brass with satin contrasts; a nocturnal, ultra-premium mood.</p>
-        <a class="btn" href="/collection-black-label.htm">View Collection</a>
+        <h3>ALABASTER</h3>
+        <p>Translucent stone that glows from within—creating ethereal luminosity and timeless elegance.</p>
+        <a class="btn" href="/collection-alabaster.htm">View Collection</a>
       </div>
-      <a class="card-link" href="/collection-black-label.htm" aria-hidden="true" tabindex="-1"></a>
+      <a class="card-link" href="/collection-alabaster.htm" aria-hidden="true" tabindex="-1"></a>
     </article>
 
-    <!-- DECO STRATA -->
+    <!-- WOOD -->
     <article class="card">
       <div class="media">
-        <img src="https://lunvyr.com/wp-content/uploads/2025/08/image-65.png" alt="DECO STRATA collection" loading="lazy">
+        <img src="https://lunvyr.com/wp-content/uploads/2025/08/image-65.png" alt="WOOD collection" loading="lazy">
         <span class="shade" aria-hidden="true"></span>
       </div>
       <div class="meta">
-        <h3>DECO STRATA</h3>
-        <p>Art Deco layering—polished cones, tiered forms, brass and nickel gleam.</p>
-        <a class="btn" href="/collection-deco-strata.htm">View Collection</a>
+        <h3>WOOD</h3>
+        <p>Natural walnut and oak grains—each piece celebrates the inherent beauty of living timber.</p>
+        <a class="btn" href="/collection-wood.htm">View Collection</a>
       </div>
-      <a class="card-link" href="/collection-deco-strata.htm" aria-hidden="true" tabindex="-1"></a>
+      <a class="card-link" href="/collection-wood.htm" aria-hidden="true" tabindex="-1"></a>
     </article>
 
-    <!-- ORBIT -->
+    <!-- GLASS -->
     <article class="card">
       <div class="media">
-        <img src="https://lunvyr.com/wp-content/uploads/2025/08/451aa3d9-d27b-419d-901c-ab1b2e01fcc8.png" alt="ORBIT collection" loading="lazy">
+        <img src="https://lunvyr.com/wp-content/uploads/2025/08/451aa3d9-d27b-419d-901c-ab1b2e01fcc8.png" alt="GLASS collection" loading="lazy">
         <span class="shade" aria-hidden="true"></span>
       </div>
       <div class="meta">
-        <h3>ORBIT</h3>
-        <p>Sculptural and playful—spun spheres and balanced motion in contemporary brass.</p>
-        <a class="btn" href="/collection-orbit.htm">View Collection</a>
+        <h3>GLASS</h3>
+        <p>Blown and molded glass forms—capturing light in crystalline clarity and frosted diffusion.</p>
+        <a class="btn" href="/collection-glass.htm">View Collection</a>
       </div>
-      <a class="card-link" href="/collection-orbit.htm" aria-hidden="true" tabindex="-1"></a>
+      <a class="card-link" href="/collection-glass.htm" aria-hidden="true" tabindex="-1"></a>
     </article>
 
-    <!-- INDUSTRIAL -->
+    <!-- CONCRETE -->
     <article class="card">
       <div class="media">
-        <img src="https://lunvyr.com/wp-content/uploads/2025/10/image.png" alt="INDUSTRIAL collection" loading="lazy">
+        <img src="https://lunvyr.com/wp-content/uploads/2025/10/image.png" alt="CONCRETE collection" loading="lazy">
         <span class="shade" aria-hidden="true"></span>
       </div>
       <div class="meta">
-        <h3>Industrial</h3>
-        <p>Raw geometric forms in blackened steel and brass—bold, architectural and uncompromising.</p>
-        <a class="btn" href="/collection-industrial.htm">View Collection</a>
+        <h3>CONCRETE</h3>
+        <p>Polished and raw concrete forms—industrial poetry meets minimalist sophistication.</p>
+        <a class="btn" href="/collection-concrete.htm">View Collection</a>
       </div>
-      <a class="card-link" href="/collection-industrial.htm" aria-hidden="true" tabindex="-1"></a>
+      <a class="card-link" href="/collection-concrete.htm" aria-hidden="true" tabindex="-1"></a>
     </article>
 
-    <!-- METALLIC FUSION -->
+    <!-- BRASS -->
     <article class="card">
       <div class="media">
-        <img src="https://lunvyr.com/wp-content/uploads/2025/08/Untitled-1.png" alt="METALLIC FUSION collection" loading="lazy">
+        <img src="https://lunvyr.com/wp-content/uploads/2025/08/Untitled-1.png" alt="BRASS collection" loading="lazy">
         <span class="shade" aria-hidden="true"></span>
       </div>
       <div class="meta">
-        <h3>Metallic Fusion</h3>
-        <p>Multi-metal compositions—copper, brass, and steel harmoniously layered for rich textural depth.</p>
-        <a class="btn" href="/collection-metallic-fusion.htm">View Collection</a>
+        <h3>BRASS</h3>
+        <p>Brushed and patinated brass—warm metallic surfaces that age gracefully with time and light.</p>
+        <a class="btn" href="/collection-brass.htm">View Collection</a>
       </div>
-      <a class="card-link" href="/collection-metallic-fusion.htm" aria-hidden="true" tabindex="-1"></a>
+      <a class="card-link" href="/collection-brass.htm" aria-hidden="true" tabindex="-1"></a>
     </article>
 
   </div>
@@ -551,11 +551,11 @@
 
   <!-- PROCESS -->
   <section class="process section" aria-labelledby="process-title">
-    <header><div class="eyebrow">Our Approach</div><h2 id="process-title">The LUNVYR Studio Process</h2></header>
+    <header><div class="eyebrow">Our Approach</div><h2 id="process-title">The NUVORA Artisan Process</h2></header>
     <div class="grid">
-      <article class="step"><div class="num">01</div><h3 style="margin:0 0 6px">Design & Material Study</h3><p style="margin:0;color:var(--ash)">From architectural concepts to precision sketches and scale models.</p></article>
-      <article class="step"><div class="num">02</div><h3 style="margin:0 0 6px">Handcraft & Finishing</h3><p style="margin:0;color:var(--ash)">Precision metalwork, sanding, sealing and patina development.</p></article>
-      <article class="step"><div class="num">03</div><h3 style="margin:0 0 6px">Assembly & Shipping</h3><p style="margin:0;color:var(--ash)">Wiring to UL code, quality testing and secure packaging for safe shipping.</p></article>
+      <article class="step"><div class="num">01</div><h3 style="margin:0 0 6px">Material Selection & Form Study</h3><p style="margin:0;color:var(--pale-graphite)">From natural material exploration to ethereal form concepts and sculptural prototypes.</p></article>
+      <article class="step"><div class="num">02</div><h3 style="margin:0 0 6px">Handcraft & Texture Development</h3><p style="margin:0;color:var(--pale-graphite)">Artisanal shaping, surface texturing, and natural patina development through traditional techniques.</p></article>
+      <article class="step"><div class="num">03</div><h3 style="margin:0 0 6px">Integration & Illumination</h3><p style="margin:0;color:var(--pale-graphite)">Seamless lighting integration, quality testing and ethereal finishing for atmospheric presence.</p></article>
     </div>
   </section>
 
@@ -563,33 +563,33 @@
   <section class="testimonials section-narrow" aria-labelledby="testimonials-title">
     <header><div class="eyebrow">Testimonials</div><h2 id="testimonials-title">What Clients Say</h2></header>
     <div class="track">
-      <article class="card"><p class="quote">"Impeccable craftsmanship and elegant proportions. The sconces transformed our foyer."</p><div class="author">— Interior Designer, Manhattan</div></article>
-      <article class="card"><p class="quote">"Perfect quality and finish. Exactly what we needed for our project specifications."</p><div class="author">— Architect, Brooklyn</div></article>
-      <article class="card"><p class="quote">"The metal fixtures are stunning—sculptural, sophisticated and premium quality."</p><div class="author">— Residential Client, Tribeca</div></article>
+      <article class="card"><p class="quote">"NUVORA's plaster fixtures transformed our space into something ethereal. The natural textures are breathtaking."</p><div class="author">— Interior Designer, Tribeca</div></article>
+      <article class="card"><p class="quote">"The alabaster pieces have this incredible glow—like captured moonlight. Absolutely timeless craftsmanship."</p><div class="author">— Architect, SoHo</div></article>
+      <article class="card"><p class="quote">"Each fixture feels like sculptural art. The way they interact with natural light is pure poetry."</p><div class="author">— Residential Client, Upper West Side</div></article>
     </div>
   </section>
 
   <!-- INSTAGRAM -->
   <section class="ig section-narrow" aria-labelledby="ig-title">
-    <header><div class="eyebrow">Follow</div><h2 id="ig-title">@lunvyr_</h2></header>
+    <header><div class="eyebrow">Follow</div><h2 id="ig-title">@nuvora.lighting</h2></header>
     <div class="grid">
-      <a href="https://www.instagram.com/p/DNg81W5hgJ1/" target="_blank" rel="noopener"><img loading="lazy" src="https://lunvyr.com/wp-content/uploads/2025/08/lunvyr.png" alt="Instagram 1"></a>
-      <a href="https://instagram.com/lunvyr_" target="_blank" rel="noopener"><img loading="lazy" src="https://lunvyr.com/wp-content/uploads/2025/08/image2.png"></a>
-      <a href="https://instagram.com/lunvyr_" target="_blank" rel="noopener"><img loading="lazy" src="https://lunvyr.com/wp-content/uploads/2025/08/451aa3d9-d27b-419d-901c-ab1b2e01fcc8.png"></a>
-      <a href="https://instagram.com/lunvyr_" target="_blank" rel="noopener"><img loading="lazy" src="https://lunvyr.com/wp-content/uploads/2025/08/image-65.png"></a>
-      <a href="https://instagram.com/lunvyr_" target="_blank" rel="noopener"><img loading="lazy" src="https://lunvyr.com/wp-content/uploads/2025/10/image-4.png"></a>
-      <a href="https://instagram.com/lunvyr_" target="_blank" rel="noopener"><img loading="lazy" src="https://lunvyr.com/wp-content/uploads/2025/08/Untitled-1.png"></a>
+      <a href="https://www.instagram.com/nuvora.lighting" target="_blank" rel="noopener"><img loading="lazy" src="https://lunvyr.com/wp-content/uploads/2025/08/lunvyr.png" alt="Instagram 1"></a>
+      <a href="https://instagram.com/nuvora.lighting" target="_blank" rel="noopener"><img loading="lazy" src="https://lunvyr.com/wp-content/uploads/2025/08/image2.png"></a>
+      <a href="https://instagram.com/nuvora.lighting" target="_blank" rel="noopener"><img loading="lazy" src="https://lunvyr.com/wp-content/uploads/2025/08/451aa3d9-d27b-419d-901c-ab1b2e01fcc8.png"></a>
+      <a href="https://instagram.com/nuvora.lighting" target="_blank" rel="noopener"><img loading="lazy" src="https://lunvyr.com/wp-content/uploads/2025/08/image-65.png"></a>
+      <a href="https://instagram.com/nuvora.lighting" target="_blank" rel="noopener"><img loading="lazy" src="https://lunvyr.com/wp-content/uploads/2025/10/image-4.png"></a>
+      <a href="https://instagram.com/nuvora.lighting" target="_blank" rel="noopener"><img loading="lazy" src="https://lunvyr.com/wp-content/uploads/2025/08/Untitled-1.png"></a>
     </div>
   </section>
 
   <!-- CTA FINAL -->
   <section class="cta-final">
     <div class="wrap">
-      <h2>Illuminate Your Space</h2>
-      <p>Precision-crafted fixtures in premium finishes, ready to transform your environment.</p>
+      <h2>Illuminate Through Serenity</h2>
+      <p>Ethereal light forms crafted from nature's finest materials, creating atmospheric presence that transcends ordinary illumination.</p>
       <div class="actions">
-        <a class="btn btn-ghost" href="/shop">Shop the Collection</a>
-        <a class="btn btn-dark" href="/contact">Get in Touch</a>
+        <a class="btn btn-ghost" href="/shop">Explore Materials</a>
+        <a class="btn btn-dark" href="/contact">Begin Your Vision</a>
       </div>
     </div>
   </section>

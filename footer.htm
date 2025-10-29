@@ -1,12 +1,12 @@
-<!-- FOOTER — LUNVYR (ajustado al ancho del sitio) -->
+<!-- FOOTER — NUVORA (ajustado al ancho del sitio) -->
 <style>
   :root{
-    --ink:#1c222b; --paper:#f3f0eb; --ash:#a7a7a7; --brass:#c2a574;
+    --cloud-whisper:#F6F6F6; --moonlit-sand:#EDE7DD; --ethereal-brass:#C8B898; --pale-graphite:#B2B2B2; --noir-veil:#2E2E2E; --silver-mist:#DADCE0;
     /* toma el ancho del contenedor de Elementor si existe; si no, 1200px */
     --site-max: var(--container-max-width, var(--content-width, 1200px));
     --site-pad: clamp(16px, 4vw, 40px);
   }
-  footer.lunvyr-footer{ background:var(--ink); color:var(--paper); font-family:Inter,system-ui,sans-serif }
+  footer.nuvora-footer{ background:var(--noir-veil); color:var(--cloud-whisper); font-family:'Manrope',system-ui,sans-serif }
   .f-wrap{
     /* ancho alineado al de la página */
     box-sizing:border-box;
@@ -19,20 +19,20 @@
   .f-grid{
     display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:34px; margin-bottom:26px;
   }
-  .f-col h4{ font-family:Cinzel,serif; font-size:1.05rem; letter-spacing:.4px; margin:0 0 10px; font-weight:400 }
-  .f-brand h2{ font-family:Cinzel,serif; letter-spacing:.8px; margin:0 0 8px; font-weight:600 }
-  .f-brand p{ color:#d9d6d2; margin:.3rem 0 0; max-width:32ch }
+  .f-col h4{ font-family:'Lusitana',serif; font-size:1.05rem; letter-spacing:.4px; margin:0 0 10px; font-weight:400 }
+  .f-brand h2{ font-family:'Lusitana',serif; letter-spacing:.8px; margin:0 0 8px; font-weight:600 }
+  .f-brand p{ color:var(--silver-mist); margin:.3rem 0 0; max-width:32ch }
 
   .f-links{ list-style:none; padding:0; margin:0 }
   .f-links li{ margin:6px 0 }
-  .f-links a{ color:var(--paper); text-decoration:none; font-size:.95rem; opacity:.9; transition:color .2s, opacity .2s }
-  .f-links a:hover{ color:var(--brass); opacity:1 }
+  .f-links a{ color:var(--cloud-whisper); text-decoration:none; font-size:.95rem; opacity:.9; transition:color .2s, opacity .2s }
+  .f-links a:hover{ color:var(--ethereal-brass); opacity:1 }
 
   /* Social */
   .f-social{ display:flex; gap:12px; margin-top:6px }
   .f-social a{
     display:inline-flex; width:36px; height:36px; align-items:center; justify-content:center;
-    border:1px solid rgba(255,255,255,.18); border-radius:999px; color:var(--paper); text-decoration:none;
+    border:1px solid rgba(255,255,255,.18); border-radius:999px; color:var(--cloud-whisper); text-decoration:none;
     transition:background .2s, border-color .2s, transform .1s
   }
   .f-social a:hover{ background:rgba(255,255,255,.08); border-color:#fff }
@@ -42,11 +42,11 @@
   /* Bottom */
   .f-bottom{
     border-top:1px solid rgba(255,255,255,.14); padding-top:12px; display:flex; gap:12px;
-    justify-content:space-between; align-items:center; color:#cfcfcc; font-size:.9rem; flex-wrap:wrap
+    justify-content:space-between; align-items:center; color:var(--silver-mist); font-size:.9rem; flex-wrap:wrap
   }
   .f-legal{ display:flex; gap:14px; flex-wrap:wrap }
-  .f-legal a{ color:#cfcfcc; text-decoration:none; opacity:.85 }
-  .f-legal a:hover{ color:var(--brass); opacity:1 }
+  .f-legal a{ color:var(--silver-mist); text-decoration:none; opacity:.85 }
+  .f-legal a:hover{ color:var(--ethereal-brass); opacity:1 }
 
   /* Mobile accordions (no JS) */
   .f-acc{ display:none }
@@ -61,7 +61,7 @@
     .f-col details{ border-top:1px solid rgba(255,255,255,.12) }
     .f-col summary{
       list-style:none; cursor:pointer; padding:14px 0; position:relative;
-      font-family:Cinzel,serif; font-size:1.05rem;
+      font-family:'Lusitana',serif; font-size:1.05rem;
     }
     .f-col summary::-webkit-details-marker{ display:none }
     .f-col summary::after{
@@ -73,13 +73,13 @@
   }
 </style>
 
-<footer class="lunvyr-footer">
+<footer class="nuvora-footer">
   <div class="f-wrap">
     <div class="f-grid">
       <!-- Brand -->
       <div class="f-col f-brand">
-        <h2>LUNVYR</h2>
-        <p>Timeless sculptural lighting, handcrafted in New York with precision and artistry.</p>
+        <h2>NUVORA</h2>
+        <p>Ethereal light forms crafted from natural materials. Handcrafted with artistry in New York.</p>
       </div>
 
       <!-- Quick Links -->
@@ -105,16 +105,16 @@
 
       <!-- Studio -->
       <div class="f-col">
-        <h4>Studio</h4>
-        <details class="f-acc"><summary>Studio</summary><div class="panel">
+        <h4>Natural Materials Studio</h4>
+        <details class="f-acc"><summary>Natural Materials Studio</summary><div class="panel">
           <ul class="f-links">
             <li>Long Island City, NY</li>
-            <li><a href="mailto:info@lunvyr.com">info@lunvyr.com</a></li>
+            <li><a href="mailto:info@nuvora.com">info@nuvora.com</a></li>
             <li><a href="tel:+19297282394">+1 (929) 728-2394</a></li>
-            <li>Visits by appointment</li>
+            <li>Consultations by appointment</li>
           </ul>
           <div class="f-social" aria-label="Social">
-            <a href="https://instagram.com/lunvyr" target="_blank" rel="noopener" aria-label="Instagram">
+            <a href="https://instagram.com/nuvora" target="_blank" rel="noopener" aria-label="Instagram">
               <svg viewBox="0 0 24 24"><path d="M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4zm5 4a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm6.5-.75a1.25 1.25 0 1 0 0 2.5 1.25 1.25 0 0 0 0-2.5z"/></svg>
             </a>
             <a href="https://www.pinterest.com/" target="_blank" rel="noopener" aria-label="Pinterest">
@@ -125,11 +125,11 @@
         <div>
           <ul class="f-links">
             <li>Long Island City, NY</li>
-            <li><a href="mailto:info@lunvyr.com">info@lunvyr.com</a></li>
+            <li><a href="mailto:info@nuvora.com">info@nuvora.com</a></li>
             <li><a href="tel:+19297282394">+1 (929) 728-2394</a></li>
           </ul>
           <div class="f-social" aria-label="Social">
-            <a href="https://instagram.com/lunvyr_" target="_blank" rel="noopener" aria-label="Instagram">
+            <a href="https://instagram.com/nuvora" target="_blank" rel="noopener" aria-label="Instagram">
               <svg viewBox="0 0 24 24"><path d="M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4zm5 4a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm6.5-.75a1.25 1.25 0 1 0 0 2.5 1.25 1.25 0 0 0 0-2.5z"/></svg>
             </a>
             <a href="https://www.pinterest.com/" target="_blank" rel="noopener" aria-label="Pinterest">
@@ -141,7 +141,7 @@
     </div>
 
     <div class="f-bottom">
-      <div>© <span id="f-year"></span> LUNVYR. All rights reserved.</div>
+      <div>© <span id="f-year"></span> NUVORA. All rights reserved.</div>
       <div class="f-legal">
         <a href="/privacy-policy">Privacy</a>
         <a href="/terms-and-conditions">Terms</a>
