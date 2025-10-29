@@ -1,6 +1,6 @@
-<!-- LUNVYR — Wishlist -->
+<!-- LUNVYR � Wishlist -->
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Inter:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tenor+Sans:wght@400&family=Manrope:wght@300;400;500;600&display=swap');
 
 :root{
   --ink: #1c222b; --paper: #f2f0eb; --coal: #111; --ash: #666; 
@@ -20,7 +20,7 @@
   color: var(--paper); padding: 80px 10% 60px; text-align: center;
 }
 .wishlist-header h1{
-  font-family: 'Cinzel', serif; font-size: clamp(2.5rem, 4vw, 3.5rem);
+  font-family:'Tenor Sans',serif; font-size: clamp(2.5rem, 4vw, 3.5rem);
   margin: 0 0 16px; font-weight: 500;
 }
 .wishlist-header .subtitle{
@@ -43,7 +43,7 @@
   text-align: center;
 }
 .stat-number{
-  font-family: 'Cinzel', serif; font-size: 1.5rem; color: var(--brass);
+  font-family:'Tenor Sans',serif; font-size: 1.5rem; color: var(--brass);
   font-weight: 600; display: block;
 }
 .stat-label{
@@ -85,7 +85,7 @@
   font-size: 4rem; margin-bottom: 24px; opacity: 0.3;
 }
 .empty-wishlist h2{
-  font-family: 'Cinzel', serif; color: var(--coal); margin: 0 0 16px;
+  font-family:'Tenor Sans',serif; color: var(--coal); margin: 0 0 16px;
   font-size: 1.8rem;
 }
 .empty-wishlist p{
@@ -158,7 +158,7 @@
   padding: 20px;
 }
 .item-title{
-  font-family: 'Cinzel', serif; font-size: 1.1rem; color: var(--coal);
+  font-family:'Tenor Sans',serif; font-size: 1.1rem; color: var(--coal);
   margin: 0 0 8px; line-height: 1.3;
 }
 .item-collection{
@@ -218,7 +218,7 @@
   display: flex; justify-content: between; align-items: center; margin-bottom: 16px;
 }
 .filter-header h3{
-  font-family: 'Cinzel', serif; margin: 0; color: var(--coal);
+  font-family:'Tenor Sans',serif; margin: 0; color: var(--coal);
 }
 .filter-tags{
   display: flex; gap: 8px; flex-wrap: wrap;
@@ -245,7 +245,7 @@
   max-width: 400px; width: 90%; margin: 20px;
 }
 .share-content h3{
-  font-family: 'Cinzel', serif; margin: 0 0 16px; color: var(--coal);
+  font-family:'Tenor Sans',serif; margin: 0 0 16px; color: var(--coal);
 }
 .share-options{
   display: grid; gap: 12px;
@@ -300,10 +300,10 @@
       </div>
       <div class="wishlist-actions">
         <button class="action-btn btn-share" onclick="shareWishlist()">
-          <span>📤</span> Share Wishlist
+          <span>??</span> Share Wishlist
         </button>
         <button class="action-btn btn-clear" onclick="clearWishlist()">
-          <span>🗑️</span> Clear All
+          <span>???</span> Clear All
         </button>
       </div>
     </div>
@@ -324,12 +324,12 @@
 
     <!-- Empty State -->
     <section class="empty-wishlist" id="emptyState">
-      <div class="empty-icon">💡</div>
+      <div class="empty-icon">??</div>
       <h2>Your Wishlist is Empty</h2>
       <p>Start building your dream lighting collection by adding pieces that inspire you.</p>
       <a href="/shop.htm" class="start-shopping">
         <span>Explore Collection</span>
-        <span>→</span>
+        <span>?</span>
       </a>
     </section>
 
@@ -344,19 +344,19 @@
       <h3>Share Your Wishlist</h3>
       <div class="share-options">
         <div class="share-option" onclick="shareVia('email')">
-          <span class="share-icon">📧</span>
+          <span class="share-icon">??</span>
           <span>Share via Email</span>
         </div>
         <div class="share-option" onclick="shareVia('copy')">
-          <span class="share-icon">🔗</span>
+          <span class="share-icon">??</span>
           <span>Copy Link</span>
         </div>
         <div class="share-option" onclick="shareVia('whatsapp')">
-          <span class="share-icon">💬</span>
+          <span class="share-icon">??</span>
           <span>Share on WhatsApp</span>
         </div>
         <div class="share-option" onclick="closeShareModal()">
-          <span class="share-icon">❌</span>
+          <span class="share-icon">?</span>
           <span>Cancel</span>
         </div>
       </div>
@@ -474,10 +474,10 @@ class WishlistManager {
                alt="${item.name}" loading="lazy">
           <div class="item-actions">
             <button class="action-icon share-btn" onclick="shareItem('${item.id}')" title="Share item">
-              📤
+              ??
             </button>
             <button class="action-icon remove-btn" onclick="wishlistManager.removeItem('${item.id}')" title="Remove from wishlist">
-              ❌
+              ?
             </button>
           </div>
         </div>
@@ -488,7 +488,7 @@ class WishlistManager {
           <div class="item-meta">
             <span class="date-added">Added ${dateAdded}</span>
             <span class="stock-status ${isInStock ? 'in-stock' : 'out-of-stock'}">
-              ${isInStock ? '✓ In Stock' : '⚠ Out of Stock'}
+              ${isInStock ? '? In Stock' : '? Out of Stock'}
             </span>
           </div>
           <div class="item-actions-bottom">
@@ -646,3 +646,4 @@ document.getElementById('shareModal').addEventListener('click', (e) => {
   }
 });
 </script>
+

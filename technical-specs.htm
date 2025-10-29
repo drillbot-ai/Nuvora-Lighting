@@ -1,6 +1,6 @@
-<!-- LUNVYR â€” Technical Specifications (Detailed Specs, Dimensions, Electrical Requirements) -->
+<!-- LUNVYR — Technical Specifications (Detailed Specs, Dimensions, Electrical Requirements) -->
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Inter:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tenor+Sans:wght@400&family=Manrope:wght@300;400;500;600&display=swap');
 
 :root{
   --ink:#1c222b; --paper:#f2f0eb; --coal:#111; --ash:#666; --brass:#b2956d; --white:#fff;
@@ -9,7 +9,7 @@
 }
 
 .tech-specs{font-family:Inter,system-ui,sans-serif;color:var(--coal);line-height:1.65}
-.tech-specs h1,.tech-specs h2,.tech-specs h3{font-family:Cinzel,serif;font-weight:400;margin:0}
+.tech-specs h1,.tech-specs h2,.tech-specs h3{font-family:'Tenor Sans',serif;font-weight:400;margin:0}
 .tech-specs .eyebrow{letter-spacing:.12em;text-transform:uppercase;font-size:.8rem;color:var(--ash);margin-bottom:.6rem}
 
 /* Hero */
@@ -29,7 +29,7 @@
 .specs-hero .inner{position:relative; z-index:2; max-width:900px; margin:0 auto}
 .specs-hero h1{
   font-size:clamp(2.6rem,5.2vw,3.8rem); color:var(--paper); margin-bottom:16px;
-  font-family:'Cinzel',serif; font-weight:400; line-height:1.15;
+  font-family:'Tenor Sans',serif; font-weight:400; line-height:1.15;
 }
 .specs-hero p{color:#dbeafe; margin:0 auto; max-width:760px; font-size:1.1rem; line-height:1.6}
 
@@ -179,7 +179,7 @@
   position:relative; font-size:.9rem; line-height:1.4;
 }
 .installation-notes li::before{
-  content:"âš "; color:var(--orange); position:absolute; left:0;
+  content:"?"; color:var(--orange); position:absolute; left:0;
 }
 
 /* Downloads */
@@ -269,7 +269,7 @@
 .cta h2{margin-bottom:16px; color:var(--white)}
 .cta p{color:#dbeafe; margin:0 0 24px; max-width:600px; margin-left:auto; margin-right:auto}
 .cta .btn{
-  font-family:Cinzel,serif; padding:1rem 2rem; border-radius:50px;
+  font-family:'Tenor Sans',serif; padding:1rem 2rem; border-radius:50px;
   border:2px solid var(--white); background:var(--white); color:var(--blue);
   text-decoration:none; display:inline-flex; align-items:center; gap:.7rem;
   transition:all .4s ease; font-weight:500; margin:0 8px;
@@ -341,7 +341,7 @@
       <div class="product-card active" id="pendant-specs">
         <div class="product-header">
           <div class="product-image">
-            <div style="color:var(--blue); font-size:3rem;">ðŸ’¡</div>
+            <div style="color:var(--blue); font-size:3rem;">??</div>
           </div>
           <div class="product-info">
             <h3>Meridian Pendant Series</h3>
@@ -515,7 +515,7 @@
       <div class="product-card" id="chandelier-specs">
         <div class="product-header">
           <div class="product-image">
-            <div style="color:var(--blue); font-size:3rem;">âœ¨</div>
+            <div style="color:var(--blue); font-size:3rem;">?</div>
           </div>
           <div class="product-info">
             <h3>Apex Chandelier Collection</h3>
@@ -674,7 +674,7 @@
         </div>
         <h4>Specification Sheets</h4>
         <p>Complete technical specifications for all fixture types</p>
-        <div class="file-size">PDF â€¢ 2.4 MB</div>
+        <div class="file-size">PDF • 2.4 MB</div>
       </div>
       
       <div class="download-card" onclick="downloadFile('cad-files')">
@@ -685,7 +685,7 @@
         </div>
         <h4>CAD Files</h4>
         <p>3D models and technical drawings in multiple formats</p>
-        <div class="file-size">ZIP â€¢ 15.7 MB</div>
+        <div class="file-size">ZIP • 15.7 MB</div>
       </div>
       
       <div class="download-card" onclick="downloadFile('electrical')">
@@ -696,7 +696,7 @@
         </div>
         <h4>Electrical Diagrams</h4>
         <p>Wiring diagrams and electrical requirements</p>
-        <div class="file-size">PDF â€¢ 1.8 MB</div>
+        <div class="file-size">PDF • 1.8 MB</div>
       </div>
       
       <div class="download-card" onclick="downloadFile('installation')">
@@ -707,7 +707,7 @@
         </div>
         <h4>Installation Guides</h4>
         <p>Step-by-step installation instructions and safety notes</p>
-        <div class="file-size">PDF â€¢ 3.1 MB</div>
+        <div class="file-size">PDF • 3.1 MB</div>
       </div>
     </div>
   </section>
@@ -826,7 +826,7 @@ function downloadFile(fileType) {
     card.querySelector('h4').textContent = 'Downloading...';
     
     setTimeout(() => {
-      card.querySelector('h4').textContent = 'Downloaded âœ“';
+      card.querySelector('h4').textContent = 'Downloaded ?';
       setTimeout(() => {
         card.querySelector('h4').textContent = originalText;
       }, 2000);
@@ -856,3 +856,4 @@ document.addEventListener('DOMContentLoaded', function(){
   }
 });
 </script>
+

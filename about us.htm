@@ -1,13 +1,13 @@
-<!-- NUVORA — About (Editorial layout, Parallax Hero, Story, Ethos, Process Timeline, Gallery, FAQ, Map, CTA) -->
+﻿<!-- NUVORA — About (Editorial layout, Parallax Hero, Story, Ethos, Process Timeline, Gallery, FAQ, Map, CTA) -->
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Lusitana:wght@400;700&family=Manrope:wght@300;400;500;600&family=Crimson+Text:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tenor+Sans:wght@400&family=Manrope:wght@300;400;500;600&display=swap');
 
 :root { --cloud-whisper:#F6F6F6; --moonlit-sand:#EDE7DD; --silver-mist:#DADCE0; --pale-graphite:#B2B2B2; --noir-veil:#2E2E2E; --ethereal-brass:#C8B898; --white:#fff;
   --radius:16px; --shadow:0 12px 32px rgba(0,0,0,.06);
 }
 
 .about-page{font-family:Manrope,system-ui,sans-serif;color:var(--noir-veil);line-height:1.65}
-.about-page h1,.about-page h2,.about-page h3,.about-page h4{font-family:Lusitana,serif;font-weight:400;margin:0}
+.about-page h1,.about-page h2,.about-page h3,.about-page h4{font-family:'Tenor Sans',serif;font-weight:400;margin:0}
 .about-page .eyebrow{letter-spacing:.12em;text-transform:uppercase;font-size:.8rem;color:var(--pale-graphite);margin-bottom:.7rem}
 
 /* HERO con imagen y parallax sutil */
@@ -34,7 +34,7 @@
 }
 .about-split .copy{position:relative; z-index:1}
 .about-split .copy h2{
-  font-family:'Lusitana',serif; font-size:clamp(2rem,3.5vw,2.6rem); 
+  font-family:'Tenor Sans',serif; font-size:clamp(2rem,3.5vw,2.6rem); 
   color:var(--noir-veil); margin-bottom:20px; line-height:1.2;
 }
 .about-split .copy p{
@@ -43,7 +43,7 @@
 .about-split .copy .highlight{
   background:linear-gradient(120deg, rgba(200,184,152,.15) 0%, transparent 100%);
   padding:24px; border-radius:12px; border-left:4px solid var(--ethereal-brass);
-  margin:24px 0; font-style:italic; font-family:'Crimson Text',serif;
+  margin:24px 0; font-style:italic; font-family:Manrope,sans-serif;
 }
 .about-split .media{
   position:relative; border-radius:20px; overflow:hidden; 
@@ -73,7 +73,7 @@
 }
 .stats .card:hover::before{transform:scaleX(1)}
 .stats .num{
-  font-family:Lusitana,serif; font-size:clamp(1.4rem,2vw,1.8rem); color:var(--noir-veil); 
+  font-family:'Tenor Sans',serif; font-size:clamp(1.4rem,2vw,1.8rem); color:var(--noir-veil); 
   margin:0 0 8px; font-weight:600; line-height:1.1;
   white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
 }
@@ -107,7 +107,7 @@
 .timeline header{margin-bottom:48px; text-align:center}
 .timeline h2{
   font-size:clamp(2rem,3.5vw,2.6rem); color:var(--ink); 
-  font-family:'Cinzel',serif; position:relative;
+  font-family:'Tenor Sans',serif; position:relative;
 }
 .timeline h2::after{
   content:""; position:absolute; bottom:-12px; left:50%; transform:translateX(-50%);
@@ -156,7 +156,7 @@
   position:relative;
 }
 .gallery h2{
-  text-align:center; font-family:'Cinzel',serif; 
+  text-align:center; font-family:'Tenor Sans',serif; 
   font-size:clamp(2rem,3.5vw,2.6rem); color:var(--ink); 
   margin-bottom:56px; position:relative;
 }
@@ -239,7 +239,7 @@
 
 /* Map (styled container) */
 .about-map{padding:clamp(56px,8vh,96px) 10%; background:#fafafa}
-.about-map h3{font-family:'Cinzel',serif; font-size:clamp(1.4rem,2.4vw,1.8rem); color:var(--ink); text-align:center; margin-bottom:16px}
+.about-map h3{font-family:'Tenor Sans',serif; font-size:clamp(1.4rem,2.4vw,1.8rem); color:var(--ink); text-align:center; margin-bottom:16px}
 .about-map .map-wrap{border-radius:16px; overflow:hidden; border:1px solid rgba(17,17,17,.1); box-shadow:var(--shadow)}
 
 /* CTA final mejorado */
@@ -262,7 +262,7 @@
 }
 .cta-final h2{ 
   font-size:clamp(2.2rem,4vw,3.2rem); margin:0 0 20px; 
-  font-family:'Cinzel',serif; font-weight:400; line-height:1.2;
+  font-family:'Tenor Sans',serif; font-weight:400; line-height:1.2;
   background:linear-gradient(135deg, #fff 0%, #e9ecef 100%);
   -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
 }
@@ -272,7 +272,7 @@
 }
 .cta-final .actions{ display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
 .cta-final .btn{
-  font-family:Cinzel,serif; padding:1rem 2rem; border-radius:50px; 
+  font-family:'Tenor Sans',serif; padding:1rem 2rem; border-radius:50px; 
   border:2px solid rgba(242,240,235,.4); display:inline-flex; 
   align-items:center; gap:.7rem; transition:all .4s ease;
   background:rgba(255,255,255,.05); backdrop-filter:blur(10px);
@@ -626,3 +626,4 @@ document.addEventListener('DOMContentLoaded', function(){
 
 });
 </script>
+
